@@ -16,9 +16,16 @@ function ContainerPostCard() {
         dispatch(getAllPosts())
     }, [dispatch])
     return (
-        <div className="container px-5 py-24 mx-auto">
-            <CardPost />
-            <CardPost />
+        <div className="container px-5 py-24 mx-auto ">
+            {posts.map(post => {
+                return <CardPost
+                    title={post.title}
+                    img={post.image}
+                    category={post.category}
+                    description={post.description} />
+            })}
+
+
         </div>
     )
 }
