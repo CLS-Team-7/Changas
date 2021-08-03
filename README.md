@@ -1,12 +1,10 @@
-# Changas
+# Changas 🦺👷🏻‍♀️👷🏻‍♂️
 
+## Tecnologias que utilizamos
 
-## Made with
-
-  - React 
-  - Redux 
-  - Node
-  - Express
-  - PostgreSQL 
-  - Sequelize
-
+- React
+- Redux
+- Node
+- Express
+- PostgreSQL
+- Sequelize
