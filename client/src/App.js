@@ -4,6 +4,7 @@ import Home from './views/Home'
 import './App.css';
 import NotFound from './views/NotFound/NotFound';
 import LandingPage from './views/LandingPage/LandingPage';
+import LoginPage from './views/LoginPage/LoginPage';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route exact path='/'>
           <LandingPage />
+        </Route>
+        <Route exact path='/login'>
+          <LoginPage />
         </Route>
         <Route path='*'>
           <NotFound />
