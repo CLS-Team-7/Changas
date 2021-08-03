@@ -15,7 +15,7 @@ function Header() {
                     <Link to="/Home" className="mr-5 hover:text-gray-900">Inicio</Link>
                     <Link to="/posts/1" className="mr-5 hover:text-gray-900">Detail Beta</Link>
                     <Link to="/Home" className="mr-5 hover:text-gray-900">Third Link</Link>
-                    <Link to="/Home" className="mr-5 hover:text-gray-900">About</Link>
+                    <Link to="/about" className="mr-5 hover:text-gray-900">About</Link>
                 </nav>
                 <Link to="/Login"><button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login / SignUp
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
