@@ -1,13 +1,13 @@
-import { TEST_CONSTANT } from '../constants';
+import { GET_ALL_POSTS } from '../constants';
 import axios from 'axios';
 
 
-export const getAll = () => {
+export const getAllPosts = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/test`)
+        axios.get(`https://6100000bbca46600171cf681.mockapi.io/Posts`)
             .then(r => r.data)
             .then(data => {
-                dispatch({ type: TEST_CONSTANT, payload: data })
+                dispatch({ type: GET_ALL_POSTS, payload: data })
             })
     }
 }

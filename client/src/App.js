@@ -7,6 +7,7 @@ import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import PostDetail from './views/PostDetail/PostDetail';
 import About from './views/About/About';
+import TestPosts from './Components/TestPosts/TestPosts';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
+        </Route>
+        <Route exact path='/testposts'>
+          <TestPosts />
         </Route>
         <Route path='*'>
           <NotFound />

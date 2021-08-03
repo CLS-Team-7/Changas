@@ -1,8 +1,8 @@
-import { TEST_CONSTANT } from '../constants';
+import { GET_ALL_POSTS } from '../constants';
 
 
 const initialState = {
-    changeThis : [],
+    postList : [],
 }
 
 
@@ -10,10 +10,10 @@ function rootReducer(state = initialState, action) {
     const { payload, type } = action;
 
     switch (type) {
-        case TEST_CONSTANT:
+        case GET_ALL_POSTS:
             return {
                 ...state,
-                changeThis: payload
+                postList: payload
             };
         default:
             return state;
