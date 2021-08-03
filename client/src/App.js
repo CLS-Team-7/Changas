@@ -1,6 +1,7 @@
 
 import { Route, Switch } from 'react-router-dom';
 import Home from './views/Home'
+import Header from './Components/Header/Header'
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path='/home'>
+          <Header />
           <Home />
         </Route>
       </Switch>
