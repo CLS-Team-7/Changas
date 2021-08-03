@@ -5,7 +5,6 @@ import './App.css';
 import NotFound from './views/NotFound/NotFound';
 import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
-import TestCard from './Components/TestCard/TestCard';
 import PostDetail from './views/PostDetail/PostDetail';
 
 function App() {
