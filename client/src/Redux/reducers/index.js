@@ -2,7 +2,7 @@ import { TEST_CONSTANT } from '../constants';
 
 
 const initialState = {
-    changeThis = [],
+    changeThis : [],
 }
 
 
