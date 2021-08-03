@@ -7,10 +7,13 @@ const router = Router();
 
 
 
-router.get('/signin', async (req, res, next) => {
+router.get('/register', async (req, res, next) => {
 
 });
 
+router.get('/login', async (req, res, next) => {
+
+});
 
 
 module.exports = router;
