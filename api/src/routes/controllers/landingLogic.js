@@ -7,13 +7,10 @@ const router = Router();
 
 
 
-router.get('/:idUser', async (req, res, next) => {
+router.get('/signin', async (req, res, next) => {
 
 });
 
-router.get('/favs', async (req, res, next) => {
-
-});
 
 
 module.exports = router;
