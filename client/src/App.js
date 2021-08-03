@@ -1,11 +1,16 @@
 
 import { Route, Switch } from 'react-router-dom';
+import Home from './views/Home'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Changas</h1>
+      <Switch>
+        <Route path='/home'>
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
