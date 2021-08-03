@@ -6,8 +6,9 @@ const { v4: uuidv4 } = require('uuid');
 const router = Router();
 
 
+// solo los usuarios registrados pueden crear posts
 
-router.get('/', async (req, res, next) => {
+router.get('/:idPost', async (req, res, next) => {
 
 });
 
