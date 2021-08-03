@@ -12,10 +12,10 @@ function Header() {
                     <span className="ml-3 text-xl">Changas</span>
                 </Link>
                 <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-                    <Link to="/home" className="mr-5 hover:text-gray-900">Inicio</Link>
-                    <Link to="/home" className="mr-5 hover:text-gray-900">Second Link</Link>
-                    <Link to="/home" className="mr-5 hover:text-gray-900">Third Link</Link>
-                    <Link to="/home" className="mr-5 hover:text-gray-900">About</Link>
+                    <Link to="/Home" className="mr-5 hover:text-gray-900">Inicio</Link>
+                    <Link to="/Home" className="mr-5 hover:text-gray-900">Second Link</Link>
+                    <Link to="/Home" className="mr-5 hover:text-gray-900">Third Link</Link>
+                    <Link to="/Home" className="mr-5 hover:text-gray-900">About</Link>
                 </nav>
                 <Link to="/Login"><button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login / SignUp
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
