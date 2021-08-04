@@ -1,5 +1,6 @@
 import React from 'react'
 import CardPost from '../CardPost/CardPost'
+import { Link } from 'react-router-dom'
 
 function PostComp({ posts }) {
     return (
@@ -11,7 +12,6 @@ function PostComp({ posts }) {
                     category={post.category}
                     description={post.description}
                     key={post.id} />
-
             })}
         </div>
     )

@@ -1,8 +1,9 @@
-import { GET_ALL_POSTS } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST } from '../constants';
 
 
 const initialState = {
     postList : [],
+    singlePost : {},
 }
 
 
@@ -15,6 +16,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 postList: payload
             };
+        case GET_SINGLE_POST:
+            return {
+                ...state,
+                singlePost: payload
+            }
         default:
             return state;
     }
