@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CardPost(title, img, category, description) {
+function CardPost({title, img, category, description}) {
     return (
         <div class="p-4 md:w-1/3">
             <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
