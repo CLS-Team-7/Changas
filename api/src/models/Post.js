@@ -1,51 +1,51 @@
-const { DataTypes, BOOLEAN } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define('post', {
-    id:{
+    id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       //allowNull: false,
-      primaryKey: true, 
+      primaryKey: true,
     },
     typePost: {
       type: DataTypes.ENUM('Offer', 'Petition'),
       allowNull: false,
-  },
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description:{
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    image:{
+    image: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    priceRange:{
+    priceRange: {
       type: DataTypes.RANGE,
       allowNull: false,
     },
     timeRange: {
-      type: DataTypes.RANGE,
+      type: DataTypes.RANGE(DataTypes.INTEGER),
       allowNull: false,
     },
     category: {
-      type: DataTypes.ENUM,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     specialty: {
-      type: DataTypes.ENUM,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     paymentMethods: {
-      type: DataTypes.ARRAY,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
     workingArea: {
-      type: DataTypes.ARRAY,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
     isActive: {

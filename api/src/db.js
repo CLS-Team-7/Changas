@@ -28,10 +28,17 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Activity, Country } = sequelize.models;
+const { User, Post, Order } = sequelize.models;
 
-Activity.belongsToMany(Country, { through: 'Country_Activity' });
-Country.belongsToMany(Activity, { through: 'Country_Activity' });
+User.hasMany(Post, {foreignKey: 'idUser'});
+Post.belongsTo(User);
+
+User.hasMany(Order, {foreignKey: 'idUser'});
+Order.belongsTo(User);
+
+Post.hasMany(Order, {foreignKey: 'idPost'});
+Order.belongsTo(Post);
+
 
 module.exports = {
   ...sequelize.models,
