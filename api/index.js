@@ -28,8 +28,8 @@ conn.sync({ force: true }).then(() => {
 
     usersDB.map(user => {
       User.create({
-        firstname: user.firstname,
-        lastname: user.lastname,
+        firstName: user.firstName,
+        lastName: user.lastName,
         age: user.age,
         ID_Passport: user.ID_Passport,
         address: user.address,
