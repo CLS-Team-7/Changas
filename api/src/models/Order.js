@@ -16,8 +16,12 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         allowNull: true,
     },
-    payment: {
-        type: DataTypes.ENUM,
+    paymentMethod: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    paymentState: {
+        type: DataTypes.ENUM("Done", "Pending"),
         allowNull: false,
     },
     isComplete: {
