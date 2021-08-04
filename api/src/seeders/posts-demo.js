@@ -1,4 +1,4 @@
-const postDB = [
+const postsDB = [
   {
     typePost: "Offer",
     title: "Plomeria",
@@ -136,3 +136,5 @@ const postDB = [
     isActive: false,
   },
 ];
+
+module.exports = postsDB;

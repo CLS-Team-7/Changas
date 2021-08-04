@@ -36,6 +36,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        summary:{
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
         photo: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -55,8 +59,7 @@ module.exports = (sequelize) => {
         isNew: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
-        },
-        
+        },        
         isAdmin: {
             type: DataTypes.BOOLEAN,
             allowNull: true
