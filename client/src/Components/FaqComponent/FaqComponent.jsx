@@ -17,7 +17,7 @@ function FaqComponen() {
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How Long is this site live?
+                  ¿Qué es Changas / Quienes somos?
                 </summary>
 
                 <span>
@@ -28,7 +28,7 @@ function FaqComponen() {
               </details>
               <details class="mb-4">
                 <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4">
-                  Can I install/upload anything I want on there?
+                  ¿Cuál es nuestro objetivo / nuestros sueños son?
                 </summary>
 
                 <span>
@@ -39,7 +39,7 @@ function FaqComponen() {
               </details>
               <details class="mb-4">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How can I migrate to another site?
+                  ¿Dónde me registro?
                 </summary>
 
                 <span>
@@ -52,7 +52,7 @@ function FaqComponen() {
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  Can I change the domain you give me?
+                  ¿De donde sale la idea del servicio?
                 </summary>
 
                 <span class="px-4 py-2">
@@ -63,7 +63,7 @@ function FaqComponen() {
               </details>
               <details class="mb-4">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How many sites I can create at once?
+                  ¿Por que utilizar nuestra plataforma de servicios?
                 </summary>
 
                 <span class="px-4 py-2">
@@ -74,7 +74,7 @@ function FaqComponen() {
               </details>
               <details class="mb-4">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  How can I communicate with you?
+                  ¿Cómo contrato un servicio?
                 </summary>
 
                 <span class="px-4 py-2">
