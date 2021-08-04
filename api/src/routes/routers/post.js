@@ -23,19 +23,19 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/post -->
 
 router.post('/', async (req, res, next) => {
 	try {
-		let { typePost } = req.body;
+		let { typePost, title, description, image, priceRange, timeRange, category, specialty, paymentMethods, workingArea, isActive } = req.body;
 		let newPost = await Post.create({
 			typePost,
-			// title,
-			// description,
-			// image,
-			// princeRange: 'dale anda no seas ortiva',
-			// timeRange: 'vos tambien',
-			// category,
-			// specialty,
-			// paymentMethods,
-			// workingArea,
-			// isActive
+			title,
+			description,
+			image,
+			priceRange,
+			timeRange,
+			category,
+			specialty,
+			paymentMethods,
+			workingArea,
+			isActive
 		});
 		res.json(newPost)
 	} catch (err) {
