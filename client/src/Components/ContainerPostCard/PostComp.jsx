@@ -11,6 +11,7 @@ function PostComp({ posts }) {
                     img={post.image}
                     category={post.category}
                     description={post.description}
+                    id={post.id}
                     key={post.id} />
             })}
         </div>
