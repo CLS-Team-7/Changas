@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserAdmin } from '../../Redux/actions';
+import { clearSingleUser, getUserAdmin } from '../../Redux/actions';
 import Pagination from '../Pagination/Pagination';
 import AdminPanelComp from './AdminPanelComp';
 
@@ -57,6 +57,7 @@ function AdminPanel() {
 
     useEffect(() => {
         dispatch(getUserAdmin())
+        dispatch(clearSingleUser())
     }, [dispatch])
 
     const paginate = (pageNumber, e) => {

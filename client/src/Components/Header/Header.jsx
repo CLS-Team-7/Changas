@@ -20,7 +20,7 @@ function Header() {
             Inicio
           </Link>
           <Link to="/posts/1" className="mr-5 hover:text-gray-900 font-bold">
-            Detail Beta
+            Detalle
           </Link>
           <Link to="/admin" className="mr-5 hover:text-gray-900 font-bold">
             Panel Admin
@@ -29,12 +29,12 @@ function Header() {
             FAQ
           </Link>
           <Link to="/about" className="mr-5 hover:text-gray-900 font-bold">
-            About
+            Sobre Nosotros
           </Link>
         </nav>
         <Link to="/login">
           <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border hover:border-Mahogany  hover:text-white ">
-            Login/Register
+            Entrar/Register
           </span>
         </Link>
       </div>
