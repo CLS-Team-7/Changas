@@ -10,33 +10,28 @@ function Header() {
           className="flex title-font font-medium items-center  mb-4 md:mb-0"
         >
           <img
-            src="https://cdn.discordapp.com/attachments/868286118540484649/872192894629466202/g569.png"
+            src="https://media.discordapp.net/attachments/868284643886120985/872487883771092992/2.png?width=797&height=171"
             alt="Logo"
-            width="25"
+            width="120"
           />
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-Rich__Black justify-center">
-          <Link to="/home" className="mr-5 hover:text-gray-900">
+          <Link to="/home" className="mr-5 hover:text-gray-900 font-bold">
             Inicio
           </Link>
-          <Link to="/posts/1" className="mr-5 hover:text-gray-900">
+          <Link to="/posts/1" className="mr-5 hover:text-gray-900 font-bold">
             Detail Beta
           </Link>
-          <Link to="/" className="mr-5 hover:text-gray-900">
+          <Link to="/" className="mr-5 hover:text-gray-900 font-bold">
             Third Link
           </Link>
-          <Link to="/about" className="mr-5 hover:text-gray-900">
+          <Link to="/about" className="mr-5 hover:text-gray-900 font-bold">
             About
           </Link>
         </nav>
         <Link to="/login">
-          <span class="px-4 py-2 m-4 text-sm rounded-full text-Mahogany border border-Mahogany hover:bg-Gamboge hover:border-Gamboge hover:text-white ">
-            Login
-          </span>
-        </Link>
-        <Link to="/register">
-          <span class="px-4 py-2 text-sm rounded-full text-white  bg-Mahogany hover:bg-Ruby__Red">
-            Register
+          <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border border-Mahogany hover:bg-Gamboge hover:border-Gamboge hover:text-white ">
+            Login/Register
           </span>
         </Link>
       </div>
