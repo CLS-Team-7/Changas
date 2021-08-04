@@ -17,9 +17,25 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/post -->
 	};
 });
 
-// router.get('/:idPost', async (req, res, next) => {
-
-// });
+router.get('/:idPost', async (req, res, next) => {
+	let { idPost } = req.params;
+	if (idPost && idPost.length === 36) { // 36 es la length del UUID
+		try {
+			let result = await Post.findByPk(idPost);
+			if (result) res.json(result);
+			else throw new Error('ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe).');
+		} catch (err) {
+			next(err);
+		};
+	};
+	if (idPost && idPost.length !== 36) {
+		try {
+			throw new TypeError('ERROR 404: ID inválido (ID no es un tipo UUID válido).')
+		} catch (err) {
+			next(err);
+		}
+	};
+});
 
 router.post('/', async (req, res, next) => {
 	try {
