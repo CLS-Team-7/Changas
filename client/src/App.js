@@ -33,6 +33,9 @@ function App() {
         <Route exact path='/testposts'>
           <TestPosts />
         </Route>
+        <Route path='/profile/:id'>
+          <Profile />
+        </Route>
         <Route path='/admin'>
           <Admin/>
         </Route>
