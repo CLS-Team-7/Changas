@@ -18,8 +18,8 @@ function LandingPage() {
             Generando Oportunidades{" "}
           </span>
           <Link to="/home" className="m-5 ">
-            <button class="transition duration-500 ease-in-out px-4 py-2 transform hover:-translate-y-1 hover:scale-110 rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
-              Entrar
+            <button class="transition duration-500 ease-in-out px-10 py-2 transform hover:-translate-y-1 hover:scale-110 rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
+              Home
             </button>
           </Link>
         </div>
