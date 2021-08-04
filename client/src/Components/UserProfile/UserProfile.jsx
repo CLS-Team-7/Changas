@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { getSingleUser } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 function UserProfile() {
@@ -9,7 +9,7 @@ function UserProfile() {
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
 
-
+    console.log(user.posts)
 
     useEffect(() => {
         dispatch(getSingleUser(id))
@@ -58,28 +58,21 @@ function UserProfile() {
                         <dt className="text-sm font-medium text-gray-500">Attachments</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                    <div className="w-0 flex-1 flex items-center">
-
-                                        <span className="ml-2 flex-1 w-0 truncate">resume_back_end_developer.pdf</span>
-                                    </div>
-                                    <div className="ml-4 flex-shrink-0">
-                                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                            Download
-                                        </a>
-                                    </div>
-                                </li>
-                                <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                    <div className="w-0 flex-1 flex items-center">
-
-                                        <span className="ml-2 flex-1 w-0 truncate">coverletter_back_end_developer.pdf</span>
-                                    </div>
-                                    <div className="ml-4 flex-shrink-0">
-                                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                            Download
-                                        </a>
-                                    </div>
-                                </li>
+                                {
+                                    user.posts?.map(e => {
+                                        return <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                            <div className="w-0 flex-1 flex items-center">
+                                                <h2 className="text-sm font-medium text-gray-500">POST</h2>
+                                                <h2 className="ml-2 flex-1 w-0 truncate bold font-medium">{e.title}</h2>
+                                            </div>
+                                            <div className="ml-4 flex-shrink-0">
+                                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                                    Ir al Post
+                                                </a>
+                                            </div>
+                                        </li>
+                                    })
+                                }
                             </ul>
                         </dd>
                     </div>
