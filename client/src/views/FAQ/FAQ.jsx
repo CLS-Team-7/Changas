@@ -1,5 +1,5 @@
 import React from 'react'
-import FaqComponen from '../../Components/FaqComponent/FaqComponen'
+import FaqComponen from '../../Components/FaqComponent/FaqComponent'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
