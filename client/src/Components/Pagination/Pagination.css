@@ -1,4 +1,4 @@
-#paginationDiv {
+/* #paginationDiv {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -21,4 +21,4 @@
 
 #paginationDiv h5:hover {
   border: rgb(0, 112, 187) 3px solid;
-}
+} */

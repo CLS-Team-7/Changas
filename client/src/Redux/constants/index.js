@@ -1,7 +1,8 @@
-const TEST_CONSTANT = 'TEST_CONSTANT';
-
+const GET_ALL_POSTS = 'GET_ALL_POSTS';
+const GET_SINGLE_POST = 'GET_SINGLE_POST';
 
 
 module.exports = {
-    TEST_CONSTANT,
+    GET_ALL_POSTS,
+    GET_SINGLE_POST,
 }

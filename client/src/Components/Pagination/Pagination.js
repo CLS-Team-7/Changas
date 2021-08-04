@@ -9,12 +9,14 @@ function Pagination({ ctsPerPage, totalCts, paginate }) {
 
     }
     return (
-        <div id='paginationDiv'>
+        <div id='paginationDiv' className="py-2">
+            <ul className="flex pl-0 rounded list-none flex-wrap">
                 {pageNumbers.map(num => (
                         <a href="/home" key={num} className = 'PaginationLinkButton' onClick={(e) => paginate(num, e)}>
-                            <h5 >{num}</h5>
+                            <h5 className="first:ml-0 text-xs font-semibold flex w-10 h-10 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-lightBlue-500 bg-white text-lightBlue-500">{num}</h5>
                         </a>
                 ))}
+                </ul>
         </div>
     )
 }
