@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {getSinglePost} from '../../Redux/actions'
+import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 
 
 function DetailComponent() {
@@ -11,10 +11,11 @@ function DetailComponent() {
 
     useEffect(() => {
         dispatch(getSinglePost(id));
+        return dispatch(clearSinglePost())
     }, [dispatch])
 
     useEffect(() => {
-        
+
     }, [dispatch])
 
 
