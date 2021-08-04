@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import CardPost from '../CardPost/CardPost'
+import React, { useState, useEffect } from 'react';
 import { getAllPosts } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
+import Pagination from '../Pagination/Pagination'
+import PostComp from './PostComp';
 
 function ContainerPostCard() {
     const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
+    const [currentPost, setCurrentPost] = useState(1);
+    const postsPerPage = 12;
+
+
     const postList = useSelector(state => state.postList)
 
     useEffect(() => {
@@ -15,17 +20,27 @@ function ContainerPostCard() {
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
+
+
+    //Pagination
+    const paginate = (pageNumber, e) => {
+        e.preventDefault();
+        setCurrentPost(pageNumber);
+    }
+
+    const indexOfLastPost = currentPost * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+
+
+
     return (
         <div className="container px-5 py-24 mx-auto ">
-            {posts.map(post => {
-                return <CardPost
-                    title={post.title}
-                    img={post.image}
-                    category={post.category}
-                    description={post.description} />
-            })}
-
-
+            <PostComp posts={currentPosts} />
+            <div className="flex justify-center m-2">
+                <Pagination ctsPerPage={postsPerPage} totalCts={posts.length} paginate={paginate} />
+            </div>
         </div>
     )
 }
