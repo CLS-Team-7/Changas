@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER } from '../constants';
 import axios from 'axios';
 
 
@@ -34,6 +34,16 @@ export const getUserAdmin = () => {
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_USER_ADMIN, payload: data })
+            })
+    }
+}
+
+export const getSingleUser = (id) => {
+    return (dispatch) => {
+        axios.get(`https://6100000bbca46600171cf681.mockapi.io/User/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_SINGLE_USER, payload: data })
             })
     }
 }

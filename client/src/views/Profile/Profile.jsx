@@ -1,14 +1,16 @@
 import React from 'react'
-import FaqComponen from '../../Components/FaqComponent/FaqComponent'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
+import UserProfile from '../../Components/UserProfile/UserProfile'
 
-export const FAQ = () => {
+function Profile() {
     return (
-        <div className=" min-h-screen flex flex-col justify-between">
+        <div className="Profile">
             <Header />
-            <FaqComponen />
+            <UserProfile />
             <Footer />
         </div>
     )
 }
+
+export default Profile
