@@ -21,3 +21,8 @@ export const getSinglePost = (id) => {
             })
     }
 }
+export const clearSinglePost = () => {
+    return (dispatch) => {
+                dispatch({ type: GET_SINGLE_POST, payload: [] })
+            }
+    }
