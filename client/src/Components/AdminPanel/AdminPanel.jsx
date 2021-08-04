@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAdmin } from '../../Redux/actions';
 import Pagination from '../Pagination/Pagination';
+import AdminPanelComp from './AdminPanelComp';
 
 const people = [
     {
