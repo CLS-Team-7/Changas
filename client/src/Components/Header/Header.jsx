@@ -22,8 +22,8 @@ function Header() {
           <Link to="/posts/1" className="mr-5 hover:text-gray-900 font-bold">
             Detail Beta
           </Link>
-          <Link to="/" className="mr-5 hover:text-gray-900 font-bold">
-            Third Link
+          <Link to="/admin" className="mr-5 hover:text-gray-900 font-bold">
+            Panel Admin
           </Link>
           <Link to="/about" className="mr-5 hover:text-gray-900 font-bold">
             About
