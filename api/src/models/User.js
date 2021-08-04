@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         phoneNumber: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.BIGINT, // desde el json no puede empezar por 0. Chequear si no conviene datatype string
             allowNull: false,
         },
         email: {
@@ -49,7 +49,7 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         jobDone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER, // arrancaria siempre en cero 
             allowNull: true,
         },
         isVaccinated: {
