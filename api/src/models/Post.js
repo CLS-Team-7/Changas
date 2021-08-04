@@ -25,12 +25,12 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     priceRange: {
-      type: DataTypes.RANGE,
-      allowNull: false,
+      type: DataTypes.ARRAY(DataTypes.STRING), // DataTypes.RANGE(DataTypes.INTEGER),
+      allowNull: true,
     },
     timeRange: {
-      type: DataTypes.RANGE(DataTypes.INTEGER),
-      allowNull: false,
+      type: DataTypes.ARRAY(DataTypes.STRING), // DataTypes.RANGE(DataTypes.INTEGER),
+      allowNull: true,
     },
     category: {
       type: DataTypes.STRING,

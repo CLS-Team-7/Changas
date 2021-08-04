@@ -30,17 +30,17 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { User, Post, Order } = sequelize.models;
 
-User.hasMany(Post, {foreignKey: 'idUser'});
+User.hasMany(Post);
 Post.belongsTo(User);
 
-User.hasMany(Order, {foreignKey: 'idUser'});
+User.hasMany(Order);
 Order.belongsTo(User);
 
-Post.hasMany(Order, {foreignKey: 'idPost'});
+Post.hasMany(Order);
 Order.belongsTo(Post);
 
 
 module.exports = {
   ...sequelize.models,
-  conn: sequelize,     
+  conn: sequelize,
 };
