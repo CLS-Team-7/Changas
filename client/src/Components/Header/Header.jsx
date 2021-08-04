@@ -10,7 +10,7 @@ function Header() {
           className="flex title-font font-medium items-center  mb-4 md:mb-0"
         >
           <img
-            src="https://media.discordapp.net/attachments/868284643886120985/872487883771092992/2.png?width=797&height=171"
+            src="https://media.discordapp.net/attachments/868284643886120985/872487887319474236/1.png?width=797&height=171"
             alt="Logo"
             width="120"
           />
