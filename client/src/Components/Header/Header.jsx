@@ -6,7 +6,7 @@ function Header() {
     <header className="text-gray-600 bg-Medium__Champagne body-font ">
       <div className="container text-sm mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
         <Link
-          to="/"
+          to="/home"
           className="flex title-font font-medium items-center  mb-4 md:mb-0"
         >
           <img
@@ -16,9 +16,6 @@ function Header() {
           />
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-Rich__Black justify-center">
-          <Link to="/home" className="mr-5 hover:text-gray-900 font-bold">
-            Inicio
-          </Link>
           <Link to="/posts/1" className="mr-5 hover:text-gray-900 font-bold">
             Detalle
           </Link>
@@ -34,7 +31,7 @@ function Header() {
         </nav>
         <Link to="/login">
           <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border hover:border-Mahogany  hover:text-white ">
-            Entrar/Register
+            Entrar / Registrar
           </span>
         </Link>
       </div>
