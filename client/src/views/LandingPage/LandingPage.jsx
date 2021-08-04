@@ -24,7 +24,7 @@ function LandingPage() {
           alt="Imagen"
         />
       </div>
-
+      <Footer />
     </div>
   );
 }
