@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function AdminPanelComp({ Users }) {
     return (
@@ -12,7 +13,7 @@ function AdminPanelComp({ Users }) {
                                 <img className="h-10 w-10 rounded-full" src={person.photo} alt="" />
                             </div>
                             <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">{`${person.firstName} ${person.lastName}`}</div>
+                                <Link to={`/profile/${person.id}`}><div className="text-sm font-medium text-gray-900">{`${person.firstName} ${person.lastName}`}</div></Link>
                                 <div className="text-sm text-gray-500">{person.email}</div>
                             </div>
                         </div>
