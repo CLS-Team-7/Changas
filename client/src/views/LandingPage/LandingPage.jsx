@@ -5,14 +5,14 @@ import Header from "../../Components/Header/Header";
 
 function LandingPage() {
   return (
-    <div className=" min-h-screen flex flex-col justify-between">
+    <div className="flex flex-col">
       <Header />
-      <div className="flex justify-around items-center">
+      <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen ">
         <div className="flex flex-col items-center">
           <h1 className="text-8xl font-bold">CHANGAS</h1>
           <span className="text-2xl  "> "Generando Oportunidades" </span>
           <Link to='/home' className='m-3'>
-            <span class=" px-4 py-2 w-45   rounded-full text-white  bg-Viridian__Green font-bold ">
+            <span class=" px-4 py-2 w-45   rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
               Ir a la Home
             </span>
           </Link>

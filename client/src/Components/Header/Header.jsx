@@ -33,7 +33,7 @@ function Header() {
           </Link>
         </nav>
         <Link to="/login">
-          <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border border-Mahogany hover:bg-Gamboge hover:border-Gamboge hover:text-white ">
+          <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border hover:border-Mahogany hover:bg-Gamboge hover:border-Gamboge hover:text-white ">
             Login/Register
           </span>
         </Link>
