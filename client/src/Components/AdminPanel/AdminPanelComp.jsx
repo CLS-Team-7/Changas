@@ -3,10 +3,10 @@ import React from 'react'
 
 function AdminPanelComp({ Users }) {
     return (
-        <div>
+        < tbody className="bg-white divide-y divide-gray-200 ">
             {Users.map(person => {
                 return <tr key={person.id}>
-                    <td className="px-6 py-4 whitespace-nowrap " >
+                    <td className="px-6 py-4 whitespace-nowrap py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 " >
                         <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
                                 <img className="h-10 w-10 rounded-full" src={person.photo} alt="" />
@@ -36,7 +36,7 @@ function AdminPanelComp({ Users }) {
                     </td>
                 </tr>
             })}
-        </div>
+        </tbody>
     )
 }
 
