@@ -13,8 +13,11 @@ function LandingPage() {
             src="https://media.discordapp.net/attachments/868284643886120985/872487295930998855/2.png?width=1025&height=210"
             width="500"
           />
-          <span className="text-2xl  "> "Generando Oportunidades" </span>
-          <Link to="/home" className="m-3">
+          <span className="text-2xl font-medium">
+            {" "}
+            Generando Oportunidades{" "}
+          </span>
+          <Link to="/home" className="m-5">
             <span class=" px-4 py-2  rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
               Entrar
             </span>
