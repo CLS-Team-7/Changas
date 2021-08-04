@@ -16,9 +16,6 @@ function Header() {
           />
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-Rich__Black justify-center">
-          <Link to="/posts/1" className="mr-5 hover:text-gray-900 font-bold">
-            Detalle
-          </Link>
           <Link to="/admin" className="mr-5 hover:text-gray-900 font-bold">
             Panel Admin
           </Link>
