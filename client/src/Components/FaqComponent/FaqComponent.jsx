@@ -2,195 +2,54 @@ import React from 'react'
 
 function FaqComponen() {
   return (
-    <div>
-      <section class="text-gray-700">
-        <div class="container px-5 py-5 mx-auto">
-          <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
-              Preguntas frecuentes de Changas
-            </h1>
-          </div>
-          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Qué es Changas / Quienes somos?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Cuál es nuestro objetivo / nuestros sueños son?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Dónde me registro?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-            </div>
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿De donde sale la idea del servicio?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Por que utilizar nuestra plataforma de servicios?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Cómo contrato un servicio?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="text-gray-700">
-        <div class="container px-5 py-5 mx-auto">
-          <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
-              Preguntas frecuentes para ofrecer servicios
-            </h1>
-          </div>
-          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Qué necesito para registrarme y como lo hago?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="text-gray-700">
-        <div class="container px-5 py-5 mx-auto">
-          <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
-              Preguntas frecuentes para contratar servicios
-            </h1>
-          </div>
-          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Qué beneficios tiene adquirir este servicio?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Cómo contrato un servicio?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Realmente necesito este servicio?
-                </summary>
-
-                <span>
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-            </div>
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Cómo funciona?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Tiene garantía?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-semibold  bg-Medium__Champagne rounded-md py-2 px-4">
-                  ¿Qué metodos de pago aceptan?
-                </summary>
-
-                <span class="px-4 py-2">
-                  Laboris qui labore cillum culpa in sunt quis sint veniam.
-                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                  minim velit nostrud pariatur culpa magna in aute.
-                </span>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="bg-lightblue py-20 px-4">
+      <div class="mx-auto max-w-6xl flex flex-col md:flex-row">
+        <h2 class="mr-8 mb-10 w-full md:w-1/3 text-3xl font-extrabold leading-9">
+          Frequently-asked questions
+        </h2>
+        <dl class="w-full md:w-2/3">
+          <dt class="mb-4">
+            <h3 class="text-xl font-semibold">
+              ¿Que es changas / Quienes somos?
+            </h3>
+          </dt>
+          <dd class="mb-16">
+            <p>
+              Somos una empresa tecnologica que se encarga de conectar personas
+              con diferentes rubros dividiendo en dos secciones principales,
+              tanto para quien quiera ofrecer servicios de plomeria, gasista,
+              etc, como tambien personas que requieran contratar dichos
+              servicios.
+            </p>
+          </dd>
+          <dt class="mb-4">
+            <h3 class="text-xl font-semibold">
+              ¿Cual es nuestro objetivo / Nuestros sueños son?
+            </h3>
+          </dt>
+          <dd class="mb-16">
+            <p>
+              Como empresa, ofrecemos un servicio web para que cada persona
+              pueda: publicar o requerir trabajo, segun su necesidad. Nuestro
+              objetivo es satisfascer rapidamente la demanda de cada persona
+              poniendo en contacto ambas partes, fomentando asi, tanto el
+              trabajo como solucciones.
+            </p>
+          </dd>
+          <dt class="mb-4">
+            <h3 class="text-xl font-semibold">
+              ¿Donde me registro/ Donde descargo?
+            </h3>
+          </dt>
+          <dd class="mb-16">
+            <p>
+              Dirigete a nuestra barra inicial en el botton que dice
+              *REGISTRAME*; ahi llenaras un formulario con los datos requeridos
+              segun tu tipo de perfil.
+            </p>
+          </dd>
+        </dl>
+      </div>
     </div>
   )
 }
