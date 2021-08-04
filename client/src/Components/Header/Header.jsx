@@ -25,6 +25,9 @@ function Header() {
           <Link to="/admin" className="mr-5 hover:text-gray-900 font-bold">
             Panel Admin
           </Link>
+          <Link to="/faq" className="mr-5 hover:text-gray-900 font-bold">
+            FAQ
+          </Link>
           <Link to="/about" className="mr-5 hover:text-gray-900 font-bold">
             About
           </Link>
