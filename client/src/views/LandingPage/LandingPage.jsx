@@ -8,7 +8,7 @@ function LandingPage() {
     <div className="flex flex-col">
       <Header />
       <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen ">
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col items-center">
           <h1 className="text-8xl font-bold">CHANGAS</h1>
           <span className="text-2xl  "> "Generando Oportunidades" </span>
           <Link to='/home' className='m-3'>
@@ -24,7 +24,7 @@ function LandingPage() {
           alt="Imagen"
         />
       </div>
-      <Footer />
+
     </div>
   );
 }
