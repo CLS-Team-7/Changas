@@ -2,17 +2,17 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('user', {
-        id:{
+        id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
-            primaryKey: true, 
+            primaryKey: true,
         },
         firstName: {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
-        lastName:{
+        lastName: {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
@@ -20,21 +20,25 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        ID_Passport:{
+        ID_Passport: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         address: {
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         phoneNumber: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        summary: {
+            type: DataTypes.TEXT,
+            allowNull: true,
         },
         photo: {
             type: DataTypes.STRING,
@@ -48,7 +52,7 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        isVaccinated:{
+        isVaccinated: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
         },
@@ -56,7 +60,6 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: true,
         },
-        
         isAdmin: {
             type: DataTypes.BOOLEAN,
             allowNull: true
