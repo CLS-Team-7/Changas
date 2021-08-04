@@ -9,11 +9,14 @@ function LandingPage() {
       <Header />
       <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen ">
         <div className="flex flex-col items-center">
-          <h1 className="text-8xl font-bold">CHANGAS</h1>
+          <img
+            src="https://media.discordapp.net/attachments/868284643886120985/872487295930998855/2.png?width=1025&height=210"
+            width="500"
+          />
           <span className="text-2xl  "> "Generando Oportunidades" </span>
-          <Link to='/home' className='m-3'>
-            <span class=" px-4 py-2 w-45   rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
-              Ir a la Home
+          <Link to="/home" className="m-3">
+            <span class=" px-4 py-2  rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
+              Entrar
             </span>
           </Link>
         </div>
