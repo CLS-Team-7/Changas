@@ -1,8 +1,10 @@
 const GET_ALL_POSTS = 'GET_ALL_POSTS';
 const GET_SINGLE_POST = 'GET_SINGLE_POST';
+const GET_USER_ADMIN = "GET_USER_ADMIN"
 
 
 module.exports = {
     GET_ALL_POSTS,
     GET_SINGLE_POST,
+    GET_USER_ADMIN,
 }
