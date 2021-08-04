@@ -1,13 +1,16 @@
 import React from "react";
+import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 
 
 function LandingPage() {
   return (
-    <div>
+    <div className=" min-h-screen">
+      <Header />
       <div>
-        <Header />
+        <h1>1</h1>
       </div>
+      <Footer />
     </div>
   );
 }
