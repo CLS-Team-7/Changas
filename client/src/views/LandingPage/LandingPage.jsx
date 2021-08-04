@@ -5,10 +5,10 @@ import Header from "../../Components/Header/Header";
 
 function LandingPage() {
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen flex flex-col justify-between">
       <Header />
       <div>
-        <h1>1</h1>
+        
       </div>
       <Footer />
     </div>
