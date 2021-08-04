@@ -36,9 +36,11 @@ function ContainerPostCard() {
 
 
     return (
-        <div className="container px-5 py-24 mx-auto ">
-            <PostComp posts={currentPosts} />
-            <div className="flex justify-center m-2">
+        <div className="container px-5 py-24 m-auto ">
+            <div>
+                <PostComp posts={currentPosts} />
+            </div>
+            <div className="flex justify-center my-14">
                 <Pagination ctsPerPage={postsPerPage} totalCts={posts.length} paginate={paginate} />
             </div>
         </div>
