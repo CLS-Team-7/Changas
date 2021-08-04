@@ -47,3 +47,8 @@ export const getSingleUser = (id) => {
             })
     }
 }
+export const clearSingleUser = () => {
+    return (dispatch) => {
+                dispatch({ type: GET_SINGLE_USER, payload: [] })
+            }
+    }
