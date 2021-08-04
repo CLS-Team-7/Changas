@@ -10,6 +10,7 @@ import About from './views/About/About';
 import TestPosts from './Components/TestPosts/TestPosts';
 import Admin from './views/Admin/Admin';
 import { FAQ } from './views/FAQ/FAQ';
+import  Profile from './views/Profile/Profile';
 
 function App() {
   return (
