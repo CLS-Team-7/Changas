@@ -72,5 +72,40 @@ router.get('/myposts', async (req, res, next) => {
 
 });
 
+router.put('/:idUser', async (req, res, next) => {
+	let { idUser } = req.params;
+	let changes = req.body;
+	try {
+		await User.update(changes, {
+			where: {
+				id: idUser
+			}
+		});
+		let updatedUser = await User.findByPk(idUser);
+		res.json(updatedUser); // se envia el user modificado al front
+	} catch (err) {
+		next(err);
+	};
+});
+
+router.delete('/:idUser', async (req, res, next) => {
+	let { idUser } = req.params;
+	try {
+		let existsInDB = await User.findByPk(idUser); // primero busca si existe el user en la DB. Si existe lo guarda en esta variable 
+		if (existsInDB) {
+			await User.destroy({ // de existir, lo destruye
+				where: {
+					id: idUser
+				}
+			});
+			return res.json(existsInDB); // devuelve el post eliminado como el metodo pop()
+		} else {
+			throw new Error('ERROR 500: El usuario no fue encontrado en la base de datos (UUID no existe).');
+		}
+	} catch (err) {
+		next(err);
+	};
+});
+
 
 module.exports = router;
