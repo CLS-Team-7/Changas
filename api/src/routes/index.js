@@ -8,7 +8,7 @@ const router = Router();
 
 // const landingLogic = require('../controllers/landingLogic');
 // const homeLogic = require('../controllers/homeLogic');
-// const userLogic = require('../controllers/postLogic');
+const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
 // const checkoutLogic = require('../controllers/checkoutLogic');
 // const adminLogic = require('../controllers/adminLogic');
@@ -16,7 +16,7 @@ const routerPost = require('./routers/post');
 
 // router.use('/', landingLogic);
 // router.use('/home', homeLogic);
-// router.use('/user', userLogic);
+router.use('/user', routerUser);
 router.use('/post', routerPost);
 // router.use('/checkout', checkoutLogic);
 // router.use('/admin', adminLogic);
