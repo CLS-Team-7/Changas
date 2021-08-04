@@ -66,9 +66,9 @@ function UserProfile() {
                                                 <h2 className="ml-2 flex-1 w-0 truncate bold font-medium">{e.title}</h2>
                                             </div>
                                             <div className="ml-4 flex-shrink-0">
-                                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                                <Link to={`/posts/${e.id}`} className="font-medium text-indigo-600 hover:text-indigo-500">
                                                     Ir al Post
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                     })
