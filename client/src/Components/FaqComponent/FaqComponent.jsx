@@ -4,7 +4,7 @@ function FaqComponen() {
   return (
     <div>
       <section class="text-gray-700">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-5 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
               Preguntas frecuentes de Changas
@@ -86,7 +86,7 @@ function FaqComponen() {
       </section>
 
       <section class="text-gray-700">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-5 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
               Preguntas frecuentes para ofrecer servicios
@@ -111,7 +111,7 @@ function FaqComponen() {
       </section>
 
       <section class="text-gray-700">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-5 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
               Preguntas frecuentes para contratar servicios
