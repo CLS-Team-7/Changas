@@ -1,9 +1,13 @@
 import React from "react";
+import Header from "../../Components/Header/Header";
+
 
 function LandingPage() {
   return (
     <div>
-      <nav ClassName="flex items-center">Soy el nuevo navbar X2</nav>
+      <div>
+        <Header />
+      </div>
     </div>
   );
 }
