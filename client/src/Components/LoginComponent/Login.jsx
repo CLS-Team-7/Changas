@@ -3,7 +3,7 @@ import React from 'react'
 function Login() {
     return (
         <div class="container px-5 py-24 mx-auto flex justify-center min-h-screen">
-            <div class="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+            <div class="flex flex-col  px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
                 <div class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
                     Login To Your Account
                 </div>
