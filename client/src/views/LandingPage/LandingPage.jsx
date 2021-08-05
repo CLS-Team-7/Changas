@@ -11,7 +11,6 @@ function LandingPage() {
         <div className="flex flex-col items-center">
           <img
             src="https://cdn.discordapp.com/attachments/868284643886120985/872487887319474236/1.png?width=1025&height=210"
-
             width="500"
             alt='Imagen'
           />
