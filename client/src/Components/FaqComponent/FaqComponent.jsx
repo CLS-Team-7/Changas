@@ -5,7 +5,7 @@ function FaqComponen() {
     <div class="bg-lightblue py-20 px-4">
       <div class="mx-auto max-w-6xl flex flex-col md:flex-row">
         <h2 class="mr-8 mb-10 w-full md:w-1/3 text-3xl font-extrabold leading-9">
-          Sección FAQ
+          FAQ
         </h2>
         <dl class="w-full md:w-2/3">
           <dt class="mb-4">
@@ -88,7 +88,7 @@ function FaqComponen() {
       </div>
       <div class="mx-auto max-w-6xl flex flex-col md:flex-row">
         <h2 class="mr-8 mb-10 w-full md:w-1/3 text-3xl font-extrabold leading-9">
-          Sección FAQ para quienes ofrecen servicios
+          FAQ para quienes ofrecen servicios
         </h2>
         <dl class="w-full md:w-2/3">
           <dt class="mb-4">
