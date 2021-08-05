@@ -10,7 +10,8 @@ function LandingPage() {
       <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen ">
         <div className="flex flex-col items-center">
           <img
-            src="https://media.discordapp.net/attachments/868284643886120985/872487295930998855/2.png?width=1025&height=210"
+            src="https://cdn.discordapp.com/attachments/868284643886120985/872487887319474236/1.png?width=1025&height=210"
+
             width="500"
             alt='Imagen'
           />
