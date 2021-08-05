@@ -5,7 +5,7 @@ function FaqComponen() {
     <div className="bg-gradient-to-b from-Medium__Champagne h-screen">
       <div class="p-10">
         <div class="p-2">
-          <h3 class=" mb-8 text-xl font-bold">FAQ</h3>
+          <h3 class=" mb-5 text-5xl font-bold">FAQ</h3>
           <div class="bg-white p-4 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold mb-2 text-gray-800">
               ¿Qué es changas / Quienes somos?
@@ -82,6 +82,37 @@ function FaqComponen() {
             </h2>
           </div>
         </div>
+        <h3 class=" mt-10 mb-5 text-5xl font-bold">
+          FAQ para quienes ofrecen servicios
+        </h3>
+        <div class="p-2">
+          <div class="bg-white p-4 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-2 text-gray-800">
+              ¿Qué necesito para registrarme?
+            </h2>
+            <p class="text-gray-700">
+              Para ingresar deberás registrarte con tu correo electrónico y
+              llenar el formulario correspondiente a tu tipo de cuenta en las
+              diferentes secciones. Debes ser mayor de 18 años y mantener los
+              protocolos de higiene pactados en el formulario.
+            </p>
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="bg-white p-4 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-2 text-gray-800">
+              ¿Cómo publico mi servicio?
+            </h2>
+            <p class="text-gray-700">
+              Dirígete a la sección de post, ahora ve al botón crear post,
+              perfecto, ahora necesitas llenar todos los campos para tener un
+              posteo exitoso!!
+            </p>
+          </div>
+        </div>
+        <h3 class=" mt-10 mb-5 text-2xl font-bold">
+        Así de simple, bienvenido a CHANGAS ya estás listo para comenzar!! Ahora a esperar que te contacten..!!
+        </h3>
       </div>
     </div>
   )
