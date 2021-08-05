@@ -9,7 +9,6 @@ function Home() {
     return (
         <div className="Home">
             <Header />
-            <TestPosts />
             <ContainerPostCard />
             <Footer />
         </div>
