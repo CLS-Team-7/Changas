@@ -24,7 +24,7 @@ function TestPosts() {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <img
-                                            className="flex title-font font-medium items-center  mb-4 md:mb-0"
+                                            className="flex title-font font-medium items-center   sm:justify-items-center "
                                             width="120"
                                             src="https://media.discordapp.net/attachments/868284643886120985/872487883771092992/2.png?width=1019&height=219"
                                             alt="Workflow"
