@@ -12,6 +12,7 @@ function LandingPage() {
           <img
             src="https://media.discordapp.net/attachments/868284643886120985/872487295930998855/2.png?width=1025&height=210"
             width="500"
+            alt='Imagen'
           />
           <span className="text-2xl font-medium">
             {" "}
