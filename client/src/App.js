@@ -11,6 +11,7 @@ import TestPosts from './Components/TestPosts/TestPosts';
 import Admin from './views/Admin/Admin';
 import { FAQ } from './views/FAQ/FAQ';
 import  Profile from './views/Profile/Profile';
+import CreatePost from './views/CreatePost/CreatePost';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/admin'>
           <Admin/>
+        </Route>
+        <Route path='/createpost'>
+          <CreatePost/>
         </Route>
         <Route path='/faq'>
           <FAQ/>
