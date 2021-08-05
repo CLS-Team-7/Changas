@@ -36,8 +36,8 @@ function PostCreate() {
     return (
 
         <form onSubmit={handleSubmit}>
-            <div class="flex h-screen bg-white items-center justify-center md:mt-36 md:mb-36 sm:mt-72 sm:mb-96">
-                <div class="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2">
+            <div class="flex bg-white items-center justify-center md:mt-36 md:mb-36 sm:mt-72 sm:mb-96">
+                <div class="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 sm:mb-16">
                     <div class="flex justify-center py-4">
                     </div>
 
