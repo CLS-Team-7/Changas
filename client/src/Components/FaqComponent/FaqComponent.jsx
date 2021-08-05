@@ -2,7 +2,7 @@ import React from 'react'
 
 function FaqComponen() {
   return (
-    <div className="bg-gradient-to-b from-Medium__Champagne h-screen">
+    <div className="bg-gradient-to-b from-Medium__Champagne  ">
       <div class="p-10">
         <div class="p-2">
           <h3 class=" mb-5 text-5xl font-bold">FAQ</h3>
