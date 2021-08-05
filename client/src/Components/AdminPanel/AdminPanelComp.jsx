@@ -19,7 +19,6 @@ function AdminPanelComp({ Users }) {
                                     scope="col"
                                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                    Name
                                 </th>
                                 <Link to={`/profile/${person.id}`}><div className="text-sm font-medium text-gray-900">{`${person.firstName} ${person.lastName}`}</div></Link>
                                 <div className="text-sm text-gray-500">{person.email}</div>

@@ -88,7 +88,7 @@ function Header() {
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                       </div>
-                                      <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Mi Perfil</Link>
+                                      <Link to="/myproftest" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Mi Perfil</Link>
                                     </div>
                                     <div className="flex flex-row justify-start items-center place-content-center">
                                       <div class="text-black">
@@ -168,7 +168,7 @@ function Header() {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
-                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Mi Perfil</Link>
+                        <Link to="/myproftest" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Mi Perfil</Link>
                       </div>
                       <div className="flex flex-row items-center place-content-center">
                         <div class="text-white">
