@@ -35,7 +35,7 @@ function PostCreate() {
 
     return (
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <div class="flex h-screen bg-white items-center justify-center  mt-32 mb-32">
                 <div class="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2">
                     <div class="flex justify-center py-4">
@@ -51,6 +51,7 @@ function PostCreate() {
                         <div class="grid grid-cols-1 mt-5 mx-7">
                             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de posteo</label>
                             <select onChange={handleChange} name="typePost" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Elegir</option>
                                 <option value="Petition" >Solicitar Servicio</option>
                                 <option value="Offer" >Ofrecer Servicio</option>
                             </select>
@@ -59,17 +60,17 @@ function PostCreate() {
 
                     <div class="grid grid-cols-1 mt-5 mx-7">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Titulo</label>
-                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Titulo" onChange={handleChange} name="title" />
+                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Titulo" onChange={handleChange} name="title" autoComplete="off" />
                     </div>
                     <div class="grid grid-cols-1 mt-5 mx-7">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Descripción</label>
-                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="textarea" placeholder="Descripción" onChange={handleChange} name="description" />
+                        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="textarea" placeholder="Descripción" onChange={handleChange} name="description" autoComplete="off" />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                         <div class="grid grid-cols-1">
                             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Area de trabajo</label>
-                            <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Area de trabajo" name="workingArea" onChange={handleChangeArray} />
+                            <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Area de trabajo" name="workingArea" onChange={handleChangeArray} autoComplete="off" />
                         </div>
                         <div class="grid grid-cols-1">
                             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Input 3</label>
@@ -80,6 +81,7 @@ function PostCreate() {
                         <div class="grid grid-cols-1 mt-5 mx-7">
                             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Metodos de pago</label>
                             <select class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="paymentMethods" onChange={handleChangeArray}>
+                                <option>Elegir</option>
                                 <option value="Mercado Pago">Mercado Pago</option>
                                 <option value="Efectivo">Efectivo</option>
                                 <option value="Transferencia">Transferencia</option>
@@ -89,6 +91,7 @@ function PostCreate() {
                         <div class="grid grid-cols-1 mt-5 mx-7">
                             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Horarios</label>
                             <select class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="timeRange" onChange={handleChangeArray} >
+                                <option>Elegir</option>
                                 <option value="Mañana">Mañana</option>
                                 <option value="Tarde">Tarde</option>
                                 <option value="Noche">Noche</option>
