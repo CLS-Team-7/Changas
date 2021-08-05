@@ -8,7 +8,7 @@ function FaqComponen() {
           FAQ
         </h2>
         <dl class="w-full md:w-2/3">
-          <dt class="mb-4">
+          <dt class="mb-4 ">
             <h3 class="text-xl font-semibold">
               ¿Qué es changas / Quienes somos?
             </h3>
