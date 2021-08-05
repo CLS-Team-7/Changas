@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 const profile = ['Your Profile', 'Settings', 'Sign out']
@@ -12,6 +13,7 @@ function classNames(...classes) {
 
 function TestPosts() {
 
+    const { logout } = useAuth0();
 
 
     return (
@@ -48,6 +50,9 @@ function TestPosts() {
                                             </Link>
                                             <Link to="/about" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
                                                 Sobre Nosotros
+                                            </Link>
+                                            <Link to="/myproftest" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
+                                                Profile Test
                                             </Link>
                                         </div>
                                     </div>
@@ -106,10 +111,10 @@ function TestPosts() {
                                                                     <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Configuracion</Link>
                                                                 </div>
                                                                 <div className="flex flex-row justify-start items-center place-content-center">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                                                    </svg>
-                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Desconectarse</Link>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                                                </svg>
+                                                                    <button onClick={ ()=> logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Desconectarse</button>
                                                                 </div>
                                                             </div>
                                                         </Menu.Items>
@@ -186,10 +191,10 @@ function TestPosts() {
                                         <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Configuracion</Link>
                                     </div>
                                     <div className="flex flex-row  items-center place-content-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                        </svg>
-                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Desconectarse</Link>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                        <button onClick={ ()=> logout()} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Desconectarse</button>
                                     </div>
                                 </div>
                             </div>
