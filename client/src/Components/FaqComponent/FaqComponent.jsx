@@ -165,7 +165,7 @@ function FaqComponen() {
             </p>
           </div>
         </div>
-        <div class="p-2">
+        <div class="p-2 pb-10">
           <div class="bg-white p-4 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold mb-2 text-gray-800">
               ¿Qué métodos de pago aceptan?
@@ -180,7 +180,7 @@ function FaqComponen() {
         <div>
           <div class="flex items-center ">
             <div class="container mx-auto">
-              <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-sm">
+              <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-lg">
                 <div class="text-center">
                   <h1 class="my-3 text-3xl font-semibold">
                     Contanos tu experiencia
