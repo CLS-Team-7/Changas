@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function AdminPanelComp({ Users }) {
     return (
-        < tbody className="bg-white divide-y divide-gray-200 ">
+        < div>
             {Users.map(person => {
                 return <tr key={person.id}>
                     <td className="px-6 py-4 whitespace-nowrap py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 " >
@@ -44,7 +44,7 @@ function AdminPanelComp({ Users }) {
                     </td>
                 </tr>
             })}
-        </tbody>
+        </div>
     )
 }
 
