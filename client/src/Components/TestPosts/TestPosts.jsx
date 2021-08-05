@@ -83,7 +83,7 @@ function TestPosts() {
                                                             className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                                         >
                                                             <div className="mt-3 px-2 space-y-1">
-                                                                <div className="flex flex-row items-center place-content-center">
+                                                                <div className="flex flex-row justify-start items-center place-content-center">
                                                                     <div class="text-black ">
                                                                         <svg
                                                                             fill="none"
@@ -99,7 +99,7 @@ function TestPosts() {
                                                                     </div>
                                                                     <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Mi Perfil</Link>
                                                                 </div>
-                                                                <div className="flex flex-row items-center place-content-center">
+                                                                <div className="flex flex-row justify-start items-center place-content-center">
                                                                     <div class="text-black">
                                                                         <svg
                                                                             fill="none"
@@ -116,8 +116,8 @@ function TestPosts() {
                                                                     </div>
                                                                     <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Configuracion</Link>
                                                                 </div>
-                                                                <div className="flex flex-row items-center place-content-center">
-                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Deslogear</Link>
+                                                                <div className="flex flex-row justify-start items-center place-content-center">
+                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Desconectarse</Link>
                                                                 </div>
                                                             </div>
                                                         </Menu.Items>
@@ -209,8 +209,8 @@ function TestPosts() {
                                         </div>
                                         <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Configuracion</Link>
                                     </div>
-                                    <div className="flex flex-row items-center place-content-center">
-                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Deslogear</Link>
+                                    <div className="flex flex-row  items-center place-content-center">
+                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Desconectarse</Link>
                                     </div>
                                 </div>
                             </div>
