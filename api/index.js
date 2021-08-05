@@ -15,7 +15,7 @@ conn.sync({ force: true }).then(() => {
         title: post.title,
         description: post.description,
         image: post.image || 'https://st.depositphotos.com/1158045/2262/i/600/depositphotos_22620531-stock-photo-technician-repairing-an-hot-water.jpg',
-        princeRange: post.princeRange,
+        priceRange: post.priceRange,
         timeRange: post.timeRange,
         category: post.category,
         specialty: post.specialty,

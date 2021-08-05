@@ -51,6 +51,10 @@ module.exports = (sequelize) => {
     isActive: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
+      defaultValue: true
     },
+    userId: {
+      type: DataTypes.UUID,
+    }
   });
 };

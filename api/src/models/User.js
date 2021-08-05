@@ -59,14 +59,17 @@ module.exports = (sequelize) => {
         isNew: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
+            defaultValue: true
         },
         isAdmin: {
             type: DataTypes.BOOLEAN,
-            allowNull: true
+            allowNull: true,
+            defaultValue: false
         },
         isActive: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
+            defaultValue: true
         },
     });
 };

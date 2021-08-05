@@ -39,7 +39,7 @@ router.get('/:idPost', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
-		let { typePost, title, description, image, priceRange, timeRange, category, specialty, paymentMethods, workingArea, isActive } = req.body;
+		let { typePost, title, description, image, priceRange, timeRange, category, specialty, paymentMethods, workingArea, isActive, userId } = req.body;
 		let newPost = await Post.create({
 			typePost,
 			title,
@@ -51,8 +51,10 @@ router.post('/', async (req, res, next) => {
 			specialty,
 			paymentMethods,
 			workingArea,
-			isActive
+			isActive,
+			userId
 		});
+		// newPost.setUser(userId);
 		res.json(newPost)
 	} catch (err) {
 		next(err);
