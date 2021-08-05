@@ -1,26 +1,26 @@
 const categoriesDB = [
     {
-        id: 100,
+        id: 101,
         title: "Oficios y Ocupaciones Varias"
     },
     {
-        id: 101,
+        id: 102,
         title: "Empleados y Cadetes"
     },
     {
-        id: 102,
+        id: 103,
         title: "Choferes, Personal de Transporte y Abastecimiento, Autos"
     },
     {
-        id: 103,
+        id: 104,
         title: "Empleados, Vendedores, Ejecutivos de Cuentas, Viajantes, Corredores, Repositores"
     },
     {
-        id: 104,
+        id: 105,
         title: "Personal auxiliar de Casas Particulares. Hoteles, Clínicas"
     },
     {
-        id: 105,
+        id: 106,
         title: "Electrónicos. Comunicaciones, Mecánicos, Químicos. Otros"
     },
     {

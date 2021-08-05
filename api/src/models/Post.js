@@ -37,11 +37,11 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     category: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // INTEGER, cambiar seeder
       allowNull: false,
     },
     specialty: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // INTEGER, cambiar seeder
       allowNull: false,
     },
     paymentMethods: {

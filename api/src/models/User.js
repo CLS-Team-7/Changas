@@ -52,6 +52,14 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER, // arrancaria siempre en cero 
             allowNull: true,
         },
+        // category: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true
+        // },
+        // specialty: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true
+        // },
         isVaccinated: {
             type: DataTypes.BOOLEAN,
             allowNull: true,

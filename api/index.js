@@ -1,8 +1,9 @@
 const server = require('./src/app.js');
-const { conn, Post, User, Order } = require('./src/db.js');
+const { conn, Post, User, Order, Category, Specialty } = require('./src/db.js');
 const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
-
+const categoriesDB = require('./src/seeders/categories-demo');
+const specialtiesDB = require('./src/seeders/specialties-demo');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
@@ -22,8 +23,8 @@ conn.sync({ force: true }).then(() => {
         paymentMethods: post.paymentMethods,
         workingArea: post.workingArea,
         isActive: post.isActive
-      })
-    })
+      });
+    });
     console.log('Precarga de posts en DB OK!')
 
     usersDB.map(user => {
@@ -43,8 +44,27 @@ conn.sync({ force: true }).then(() => {
         isNew: user.isNew,
         isAdmin: user.isAdmin,
         isActive: user.isActive,
-      })
-    })
+      });
+    });
     console.log('Precarga de users en DB OK!')
+
+    categoriesDB.map(category => {
+      Category.create({
+        id: category.id,
+        title: category.title
+      });
+    });
+    console.log('Precarga de categories en DB OK!')
+
+    specialtiesDB.map(specialty => {
+      Specialty.create({
+        id: specialty.id,
+        categoryId: specialty.categoryId,
+        title: specialty.title
+      });
+    });
+    console.log('Precarga de specialties en DB OK!')
+
+
   });
 });
