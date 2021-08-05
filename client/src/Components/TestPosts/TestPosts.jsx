@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
 
-const navigation = ['Dashboard', 'Team', 'Projects', 'Calendar', 'Reports']
+
 const profile = ['Your Profile', 'Settings', 'Sign out']
 
 function classNames(...classes) {
@@ -23,6 +24,7 @@ function TestPosts() {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <img
+                                            className="flex title-font font-medium items-center  mb-4 md:mb-0"
                                             width="120"
                                             src="https://media.discordapp.net/attachments/868284643886120985/872487883771092992/2.png?width=1019&height=219"
                                             alt="Workflow"
@@ -30,24 +32,18 @@ function TestPosts() {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-10 flex items-baseline space-x-4">
-                                            {navigation.map((item, itemIdx) =>
-                                                itemIdx === 0 ? (
-                                                    <Fragment key={item}>
-                                                        {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                                        <a href="#" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
-                                                            {item}
-                                                        </a>
-                                                    </Fragment>
-                                                ) : (
-                                                    <a
-                                                        key={item}
-                                                        href="#"
-                                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                                    >
-                                                        {item}
-                                                    </a>
-                                                )
-                                            )}
+                                            <Link to="/admin" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
+                                                Panel Admin
+                                            </Link>
+                                            <Link to="/createpost" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
+                                                Create Post
+                                            </Link>
+                                            <Link to="/faq" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
+                                                FAQ
+                                            </Link>
+                                            <Link to="/about" className=" text-white px-3 py-2 rounded-md text-sm font-medium">
+                                                Sobre Nosotros
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -86,21 +82,44 @@ function TestPosts() {
                                                             static
                                                             className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                                         >
-                                                            {profile.map((item) => (
-                                                                <Menu.Item key={item}>
-                                                                    {({ active }) => (
-                                                                        <a
-                                                                            href="#"
-                                                                            className={classNames(
-                                                                                active ? 'bg-gray-100' : '',
-                                                                                'block px-4 py-2 text-sm text-gray-700'
-                                                                            )}
+                                                            <div className="mt-3 px-2 space-y-1">
+                                                                <div className="flex flex-row items-center place-content-center">
+                                                                    <div class="text-black ">
+                                                                        <svg
+                                                                            fill="none"
+                                                                            stroke="currentColor"
+                                                                            strokeLinecap="round"
+                                                                            strokeLinejoin="round"
+                                                                            strokeWidth="1"
+                                                                            viewBox="0 0 24 24"
+                                                                            class="w-5 h-5"
                                                                         >
-                                                                            {item}
-                                                                        </a>
-                                                                    )}
-                                                                </Menu.Item>
-                                                            ))}
+                                                                            <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Mi Perfil</Link>
+                                                                </div>
+                                                                <div className="flex flex-row items-center place-content-center">
+                                                                    <div class="text-black">
+                                                                        <svg
+                                                                            fill="none"
+                                                                            stroke="currentColor"
+                                                                            strokeLinecap="round"
+                                                                            strokeLinejoin="round"
+                                                                            strokeWidth="1"
+                                                                            viewBox="0 0 24 24"
+                                                                            class="w-5 h-5"
+                                                                        >
+                                                                            <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                                                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Configuracion</Link>
+                                                                </div>
+                                                                <div className="flex flex-row items-center place-content-center">
+                                                                    <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300">Deslogear</Link>
+                                                                </div>
+                                                            </div>
                                                         </Menu.Items>
                                                     </Transition>
                                                 </>
@@ -124,24 +143,19 @@ function TestPosts() {
 
                         <Disclosure.Panel className="md:hidden">
                             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                {navigation.map((item, itemIdx) =>
-                                    itemIdx === 0 ? (
-                                        <Fragment key={item}>
-                                            {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                            <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-                                                {item}
-                                            </a>
-                                        </Fragment>
-                                    ) : (
-                                        <a
-                                            key={item}
-                                            href="#"
-                                            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                        >
-                                            {item}
-                                        </a>
-                                    )
-                                )}
+                                <Link to="/admin" className="  text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                                    Panel Admin
+                                </Link>
+                                <Link to="/createpost" className="  text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                                    Create Post
+                                </Link>
+                                <Link to="/faq" className=" text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                                    FAQ
+                                </Link>
+                                <Link to="/about" className=" text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                                    Sobre Nosotros
+                                </Link>
+
                             </div>
                             <div className="pt-4 pb-3 border-t border-gray-700">
                                 <div className="flex items-center px-5">
@@ -162,15 +176,42 @@ function TestPosts() {
                                     </button>
                                 </div>
                                 <div className="mt-3 px-2 space-y-1">
-                                    {profile.map((item) => (
-                                        <a
-                                            key={item}
-                                            href="#"
-                                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                                        >
-                                            {item}
-                                        </a>
-                                    ))}
+                                    <div className="flex flex-row items-center place-content-center">
+                                        <div class="text-white ">
+                                            <svg
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="1"
+                                                viewBox="0 0 24 24"
+                                                class="w-5 h-5"
+                                            >
+                                                <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Mi Perfil</Link>
+                                    </div>
+                                    <div className="flex flex-row items-center place-content-center">
+                                        <div class="text-white">
+                                            <svg
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="1"
+                                                viewBox="0 0 24 24"
+                                                class="w-5 h-5"
+                                            >
+                                                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                        </div>
+                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Configuracion</Link>
+                                    </div>
+                                    <div className="flex flex-row items-center place-content-center">
+                                        <Link to="" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Deslogear</Link>
+                                    </div>
                                 </div>
                             </div>
                         </Disclosure.Panel>
