@@ -6,176 +6,72 @@ function MyProfile() {
     console.log(user)
     return (
         isAuthenticated && (
-            <div>
-                <div class="container mx-auto my-5 p-5">
-        <div class="md:flex no-wrap md:-mx-2 ">
-            
-            <div class="w-full md:w-3/12 md:mx-2">
-                
-                <div class="bg-white p-3 border-t-4 border-green-400">
-                    <div class="image overflow-hidden">
-                        <img class="h-auto w-full mx-auto"
-                            src={user.picture}
-                            alt="" />
-                    </div>
-                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{user.name}</h1>
-                    <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Company Inc.</h3>
-                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit.
-                        Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
-                    <ul
-                        class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                        <li class="flex items-center py-3">
-                            <span>Status</span>
-                            <span class="ml-auto"><span
-                                    class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
-                        </li>
-                        <li class="flex items-center py-3">
-                            <span>Member since</span>
-                            <span class="ml-auto">Nov 07, 2016</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="my-4"></div>
-                
-                <div class="bg-white p-3 hover:shadow">
-                    <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                        <span class="text-green-500">
-                            
-                        </span>
-                        
-                    </div>
-                    
-                </div>
-                
-            </div>
-            
-            <div class="w-full md:w-9/12 mx-2 h-64">
-                
-                <div class="bg-white p-3 shadow-sm rounded-sm">
-                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-                        <span clas="text-green-500">
-                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </span>
-                        <span class="tracking-wide">About</span>
-                    </div>
-                    <div class="text-gray-700">
-                        <div class="grid md:grid-cols-2 text-sm">
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">First Name</div>
-                                <div class="px-4 py-2">{user.given_name}</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Last Name</div>
-                                <div class="px-4 py-2">{user.family_name}</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Gender</div>
-                                <div class="px-4 py-2">?</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                <div class="px-4 py-2">+11 998001001</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                                <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Email.</div>
-                                <div class="px-4 py-2">
-                                    <a class="text-blue-800" href={`mailto:${user.email}`}>{user.email}</a>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Birthday</div>
-                                <div class="px-4 py-2">Feb 06, 1998</div>
-                            </div>
-                        </div>
-                    </div>
-                    <button
-                        class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
-                        Full Information</button>
-                </div>
-                
-
-                <div class="my-4"></div>
-
-                
-                <div class="bg-white p-3 shadow-sm rounded-sm">
-
-                    <div class="grid grid-cols-2">
-                        <div>
-                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                <span clas="text-green-500">
-                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </span>
-                                <span class="tracking-wide">Experience</span>
-                            </div>
-                            <ul class="list-inside space-y-2">
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                <span clas="text-green-500">
-                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                        <path fill="#fff"
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                    </svg>
-                                </span>
-                                <span class="tracking-wide">Education</span>
-                            </div>
-                            <ul class="list-inside space-y-2">
-                                <li>
-                                    <div class="text-teal-600">Masters Degree in Oxford</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-            </div>
-        </div>
+            <div class="w-full relative mt-4 shadow-2xl rounded my-24 overflow-hidden">
+  <div class="top h-64 w-full bg-blue-600 overflow-hidden relative" >
+    <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="bg w-full h-full object-cover object-center absolute z-0" />
+    <div class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
+      <img src={user.picture} class="h-24 w-24 object-cover rounded-full" />
+      <h1 class="text-2xl font-semibold">{user.name}</h1>
+      <h4 class="text-sm font-semibold">Joined Since '19</h4>
     </div>
+  </div>
+  <div class="grid grid-cols-12 bg-white ">
+
+    <div class="col-span-12 w-full px-3 py-6 justify-center flex space-x-4 border-b border-solid md:space-x-0 md:space-y-4 md:flex-col md:col-span-2 md:justify-start ">
+
+      <div class="text-sm p-2 bg-indigo-900 text-white text-center rounded font-bold">Basic Information</div>
+
+      
+
+    </div>
+
+    <div class="col-span-12 md:border-solid md:border-l md:border-black md:border-opacity-25 h-full pb-12 md:col-span-10">
+      <div class="px-4 pt-4">
+        <form action="#" class="flex flex-col space-y-8">
+
+          <div>
+            <h3 class="text-2xl font-semibold">Basic Information</h3>
+            <hr />
+          </div>
+
+          <div class="form-item">
+            <label class="text-xl ">Full Name</label>
+            <input type="text" value={user.name} class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200" disabled />
+          </div>
+
+          <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
+
+            <div class="form-item w-full">
+              <label class="text-xl ">Username</label>
+              <input type="text" value={user.nickname} class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+            </div>
+
+            <div class="form-item w-full">
+              <label class="text-xl ">Email</label>
+              <input type="text" value={user.email} class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold ">More About Me</h3>
+            <hr />
+          </div>
+
+          <div class="form-item w-full">
+            <label class="text-xl text-align-left">Biography</label>
+            <textarea cols="30" rows="10" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem natus nobis odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, eveniet fugiat? Explicabo assumenda dignissimos quisquam perspiciatis corporis sint commodi cumque rem tempora!</textarea>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold">Posts</h3>
+            <hr />
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
 </div>
         
         )
