@@ -178,7 +178,7 @@ function FaqComponen() {
         </div>
         <hr />
         <div>
-          <div class="flex items-center min-h-screen ">
+          <div class="flex items-center ">
             <div class="container mx-auto">
               <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-sm">
                 <div class="text-center">
