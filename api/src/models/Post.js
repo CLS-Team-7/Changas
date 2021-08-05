@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
       //allowNull: false,
       primaryKey: true,
     },
+    // user_id: {
+    //   type: DataTypes.UUID,
+    //   // allowNull: false // commentado porque sino los seeders rompen aca, habria que ver como modificar los seeders
+    // },
     typePost: {
       type: DataTypes.ENUM('Offer', 'Petition'),
       allowNull: false,
@@ -53,8 +57,5 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: true
     },
-    userId: {
-      type: DataTypes.UUID,
-    }
   });
 };

@@ -10,7 +10,12 @@ const router = Router();
 
 router.get('/', async (req, res, next) => { //http://localhost:3001/post --> 
 	try {
-		let posts = await Post.findAll();
+		let posts = await Post.findAll({
+			include: {
+				model: User,
+				attributes: ['id', 'firstName', 'lastName']
+			}
+		});
 		res.json(posts);
 	} catch (err) {
 		next(err)
@@ -54,7 +59,7 @@ router.post('/', async (req, res, next) => {
 			isActive,
 			userId
 		});
-		// newPost.setUser(userId);
+		newPost.setUser(userId);
 		res.json(newPost)
 	} catch (err) {
 		next(err);

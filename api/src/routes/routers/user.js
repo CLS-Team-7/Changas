@@ -10,7 +10,11 @@ const router = Router();
 
 router.get('/', async (req, res, next) => { //http://localhost:3001/user --> 
 	try {
-		let users = await User.findAll();
+		let users = await User.findAll({
+			include: {
+				model: Post
+			}
+		});
 		res.json(users);
 	} catch (err) {
 		next(err)
@@ -21,7 +25,14 @@ router.get('/:idUser', async (req, res, next) => {
 	let { idUser } = req.params;
 	if (idUser && idUser.length === 36) { // 36 es la length del UUID
 		try {
-			let result = await User.findByPk(idUser);
+			let result = await User.findOne({
+				where: {
+					id: idUser
+				},
+				include: {
+					model: Post
+				}
+			});
 			if (result) res.json(result);
 			else throw new Error('ERROR 500: El usuario no fue encontrado en la base de datos (UUID no existe).');
 		} catch (err) {
@@ -81,7 +92,14 @@ router.put('/:idUser', async (req, res, next) => {
 				id: idUser
 			}
 		});
-		let updatedUser = await User.findByPk(idUser);
+		let updatedUser = await User.findOne({ // await User.findByPk(idUser);
+			where: {
+				id: idUser
+			},
+			include: {
+				model: Post
+			}
+		});
 		res.json(updatedUser); // se envia el user modificado al front
 	} catch (err) {
 		next(err);
