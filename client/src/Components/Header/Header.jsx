@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="text-gray-600 bg-Medium__Champagne body-font ">
-      <div className="container text-sm mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+      <div className="container text-sm mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center pt-4">
         <Link
           to="/home"
           className="flex title-font font-medium items-center  mb-4 md:mb-0"
@@ -30,7 +30,7 @@ function Header() {
           </Link>
         </nav>
         <Link to="/login">
-          <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border hover:border-Mahogany  hover:text-white ">
+          <span class=" bg-Gamboge text-white font-bold py-2 px-2 rounded border-black hover:bg-Alloy__Orange hover:border-Alloy__Orange  hover:text-white ">
             Entrar / Registrar
           </span>
         </Link>

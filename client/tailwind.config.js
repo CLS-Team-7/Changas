@@ -10,7 +10,7 @@ module.exports = {
         Middle__Blue: '#94D2BD',
         Medium__Champagne: '#E9D8A6',
         Gamboge: '#EE9B00',
-        Alloy__Orange: '#EE9B00',
+        Alloy__Orange: '#CA6702',
         Mahogany: '#BB3E03',
         Rufous: '#AE2012',
         Ruby__Red: '#9B2226'
