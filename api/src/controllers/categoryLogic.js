@@ -17,8 +17,3 @@ module.exports = {
 	updateSarasa,
 	deleteSarasa
 };
-
-
-
-
-

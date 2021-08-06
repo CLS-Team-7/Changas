@@ -65,19 +65,36 @@ router.post('/', async (req, res, next) => {
 });
 
 router.put('/:idSpecialty', async (req, res, next) => {
-
+	let { idSpecialty } = req.params;
+	let changes = req.body;
 	try {
-
-
+		await Specialty.update(changes, {
+			where: {
+				id: idSpecialty
+			}
+		});
+		let updatedSpecialty = await Specialty.findByPk(idSpecialty);
+		if (changes.category_id) updatedSpecialty.setCategory(changes.category_id);
+		res.json(updatedSpecialty);
 	} catch (err) {
 		next(err);
 	};
 });
 
 router.delete('/:idSpecialty', async (req, res, next) => {
+	let { idSpecialty } = req.params;
 	try {
-
-
+		let existsInDB = await Specialty.findByPk(idSpecialty);
+		if (existsInDB) {
+			await Specialty.destroy({
+				where: {
+					id: idSpecialty
+				}
+			});
+			return res.json(existsInDB);
+		} else {
+			throw new Error('ERROR 500: El puesto no fue encontrado en la base de datos (ID no existe).');
+		}
 	} catch (err) {
 		next(err);
 	};
