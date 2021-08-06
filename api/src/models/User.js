@@ -23,6 +23,7 @@ module.exports = (sequelize) => {
         ID_Passport: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         address: {
             type: DataTypes.STRING,
@@ -35,6 +36,7 @@ module.exports = (sequelize) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         summary: {
             type: DataTypes.TEXT,

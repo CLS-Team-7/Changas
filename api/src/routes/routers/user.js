@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { User, Order, Post } = require('../../db.js');
+const { User, Order, Post, Category, Specialty } = require('../../db.js');
 const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
@@ -12,7 +12,17 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/user -->
 	try {
 		let users = await User.findAll({
 			include: {
-				model: Post
+				model: Post,
+				include: [
+					{
+						model: Category,
+						attributes: ["id", "title"]
+					},
+					{
+						model: Specialty,
+						attributes: ["id", "title"]
+					}
+				]
 			}
 		});
 		res.json(users);
@@ -30,7 +40,17 @@ router.get('/:idUser', async (req, res, next) => {
 					id: idUser
 				},
 				include: {
-					model: Post
+					model: Post,
+					include: [
+						{
+							model: Category,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Specialty,
+							attributes: ["id", "title"]
+						}
+					]
 				}
 			});
 			if (result) res.json(result);
@@ -80,7 +100,6 @@ router.get('/favs', async (req, res, next) => {
 
 router.get('/myposts', async (req, res, next) => {
 
-
 });
 
 router.put('/:idUser', async (req, res, next) => {
@@ -96,9 +115,19 @@ router.put('/:idUser', async (req, res, next) => {
 			where: {
 				id: idUser
 			},
-			include: {
-				model: Post
-			}
+			// include: {
+			// 	model: Post,
+			// 	include: [
+			// 		{
+			// 			model: Category,
+			// 			attributes: ["id", "title"]
+			// 		},
+			// 		{
+			// 			model: Specialty,
+			// 			attributes: ["id", "title"]
+			// 		}
+			// 	]
+			// }
 		});
 		res.json(updatedUser); // se envia el user modificado al front
 	} catch (err) {
@@ -114,7 +143,20 @@ router.delete('/:idUser', async (req, res, next) => {
 			await User.destroy({ // de existir, lo destruye
 				where: {
 					id: idUser
-				}
+				},
+				// include: {
+				// 	model: Post,
+				// 	include: [
+				// 		{
+				// 			model: Category,
+				// 			attributes: ["id", "title"]
+				// 		},
+				// 		{
+				// 			model: Specialty,
+				// 			attributes: ["id", "title"]
+				// 		}
+				// 	]
+				// }
 			});
 			return res.json(existsInDB); // devuelve el post eliminado como el metodo pop()
 		} else {

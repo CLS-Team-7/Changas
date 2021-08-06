@@ -12,12 +12,15 @@ const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
 // const checkoutLogic = require('../controllers/checkoutLogic');
 // const adminLogic = require('../controllers/adminLogic');
-
+const routerCategory = require('./routers/category');
+const routerSpecialty = require('./routers/specialty');
 
 // router.use('/', landingLogic);
 // router.use('/home', homeLogic);
 router.use('/user', routerUser);
 router.use('/post', routerPost);
+router.use('/category', routerCategory);
+router.use('/specialty', routerSpecialty);
 // router.use('/checkout', checkoutLogic);
 // router.use('/admin', adminLogic);
 

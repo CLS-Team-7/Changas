@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { User, Order, Post } = require('../../db.js');
+const { User, Order, Post, Category, Specialty } = require('../../db.js');
 const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
@@ -11,10 +11,20 @@ const router = Router();
 router.get('/', async (req, res, next) => { //http://localhost:3001/post --> 
 	try {
 		let posts = await Post.findAll({
-			include: {
-				model: User,
-				attributes: ['id', 'firstName', 'lastName']
-			}
+			include: [
+				{
+					model: User,
+					attributes: ["firstName", "lastName"] // pueden agregarse mas cosas o menos
+				},
+				{
+					model: Category,
+					attributes: ["title"]
+				},
+				{
+					model: Specialty,
+					attributes: ["title"]
+				}
+			]
 		});
 		res.json(posts);
 	} catch (err) {
@@ -26,7 +36,25 @@ router.get('/:idPost', async (req, res, next) => {
 	let { idPost } = req.params;
 	if (idPost && idPost.length === 36) { // 36 es la length del UUID
 		try {
-			let result = await Post.findByPk(idPost);
+			let result = await Post.findOne({
+				where: {
+					id: idPost
+				},
+				include: [
+					{
+						model: User,
+						attributes: ["firstName", "lastName"] // pueden agregarse mas cosas o menos
+					},
+					{
+						model: Category,
+						attributes: ["title"]
+					},
+					{
+						model: Specialty,
+						attributes: ["title"]
+					}
+				]
+			});
 			if (result) res.json(result);
 			else throw new Error('ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe).');
 		} catch (err) {
@@ -44,7 +72,7 @@ router.get('/:idPost', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
-		let { typePost, title, description, image, priceRange, timeRange, category, specialty, paymentMethods, workingArea, isActive, userId } = req.body;
+		let { typePost, title, description, image, priceRange, timeRange, category_id, specialty_id, paymentMethods, workingArea, isActive, userId } = req.body;
 		let newPost = await Post.create({
 			typePost,
 			title,
@@ -52,14 +80,16 @@ router.post('/', async (req, res, next) => {
 			image,
 			priceRange,
 			timeRange,
-			category,
-			specialty,
+			category_id,
+			specialty_id,
 			paymentMethods,
 			workingArea,
 			isActive,
 			userId
 		});
 		newPost.setUser(userId);
+		newPost.setCategory(category_id);
+		newPost.setSpecialty(specialty_id);
 		res.json(newPost)
 	} catch (err) {
 		next(err);
@@ -76,6 +106,8 @@ router.put('/:idPost', async (req, res, next) => {
 			}
 		});
 		let updatedPost = await Post.findByPk(idPost);
+		if (changes.category_id) updatedPost.setCategory(changes.category_id);
+		if (changes.specialty_id) updatedPost.setSpecialty(changes.specialty_id);
 		res.json(updatedPost); // se envia el post modificado al front
 	} catch (err) {
 		next(err);

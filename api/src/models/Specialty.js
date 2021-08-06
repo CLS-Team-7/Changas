@@ -8,13 +8,12 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-        categoryId: {
-            type: DatatTypes.INTEGER,
+        category_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            // foreignKey: true // esto va asi? o se hace solo con el include?
         },
         title: {
-            type: DataTypes.STRING(255),
+            type: DataTypes.STRING,
             allowNull: false,
         }
     });

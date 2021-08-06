@@ -8,10 +8,10 @@ module.exports = (sequelize) => {
       //allowNull: false,
       primaryKey: true,
     },
-    // user_id: {
-    //   type: DataTypes.UUID,
-    //   // allowNull: false // commentado porque sino los seeders rompen aca, habria que ver como modificar los seeders
-    // },
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
     typePost: {
       type: DataTypes.ENUM('Offer', 'Petition'),
       allowNull: false,
@@ -29,19 +29,19 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     priceRange: {
-      type: DataTypes.ARRAY(DataTypes.STRING), // DataTypes.RANGE(DataTypes.INTEGER),
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
     timeRange: {
-      type: DataTypes.ARRAY(DataTypes.STRING), // DataTypes.RANGE(DataTypes.INTEGER),
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
-    category: {
-      type: DataTypes.STRING, // INTEGER, cambiar seeder
+    category_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    specialty: {
-      type: DataTypes.STRING, // INTEGER, cambiar seeder
+    specialty_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     paymentMethods: {
