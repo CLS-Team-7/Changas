@@ -12,23 +12,6 @@ conn.sync({ force: false }).then(() => {
   server.listen(3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
-    // ----*** INSTRUCCIONES para levantar la DB *** ----
-
-    // Dejo estos instrucciones acá porque aún no le encontré la vuelta a este tema y necesitaría una mano, pero quiero que puedan usar la db con lo que funciona hasta ahora.
-    // La idea es no tener que hacer nada de estos pasos, sólo con npm start arrancar a andar sin problemas:
-
-    // - La primera vez que levanten la DB, sólo tengan COMENTADO el map de postsDB (lineas 71 a 87). En postgres, van a poder ver los UUID de la tabla users. 
-    // - Luego MATAR el servidor. !!!
-    // - Con esos UUID, ir a al archivo posts-demo.js en la carpeta /seeders y ponerlos en los user_id de cada objeto dentro del array postsDB, como más les guste.
-    // - Una vez hechos los cambios, guardar el archivo con el servidor MUERTO todo el tiempo.
-    // - Después hay que comentar los maps de usersDB, categoriesDB y specialtiesDB de este archivo, y descomentar el map de postsDB.
-    // - Guardar los cambios y después levantar el servidor.
-
-    //  Listo! Todos los datos de los seeders estan en la DB, las rutas funcionan para crear, editar y borrar users y posts desde el front.
-
-
-    // -------------------********-----------------------
-
     // await categoriesDB.map(category => {
     //   Category.create({
     //     id: category.id,
@@ -48,6 +31,7 @@ conn.sync({ force: false }).then(() => {
 
     // await usersDB.map(user => {
     //   User.create({
+    //     id: user.id,
     //     firstName: user.firstName,
     //     lastName: user.lastName,
     //     age: user.age,
@@ -58,7 +42,7 @@ conn.sync({ force: false }).then(() => {
     //     summary: user.summary,
     //     photo: user.photo || 'https://ojodepezfotografos.com/wp-content/uploads/2019/03/SESION-DE-FOTOS-PERFIL-PROFESIONAL-10.jpg',
     //     score: user.score,
-    //     jobDone: user.jobDone,
+    //     jobsDone: user.jobsDone,
     //     isVaccinated: user.isVaccinated,
     //     isNew: user.isNew,
     //     isAdmin: user.isAdmin,

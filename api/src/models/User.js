@@ -16,6 +16,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
+        fullName: {
+            type: DataTypes.VIRTUAL,
+            get() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        },
         age: {
             type: DataTypes.INTEGER,
             allowNull: true,
@@ -50,7 +56,7 @@ module.exports = (sequelize) => {
             type: DataTypes.FLOAT,
             allowNull: true,
         },
-        jobDone: {
+        jobsDone: {
             type: DataTypes.INTEGER, // arrancaria siempre en cero 
             allowNull: true,
         },

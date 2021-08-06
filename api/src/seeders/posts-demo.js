@@ -1,6 +1,6 @@
 const postsDB = [
   {
-    user_id: "f7f32520-8568-4749-bc78-195ebc625866",
+    user_id: "e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1",
     typePost: "Offer",
     title: "Se ofrecen servicios de albañileria y relacionados",
     description: "Venenatis phasellus quis vel enim sociosqu congue quam.",
@@ -14,7 +14,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "1e907d14-5b6c-4595-b368-ae0ce9a95fc5",
+    user_id: "c58ef3a8-1ad7-4ce4-ab20-5c36ad327f9b",
     typePost: "Offer",
     title: "Electricista a domicilio",
     description: "Venenatis phasellus quis vel enim sociosqu congue quam.",
@@ -28,7 +28,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "575fc767-a451-4e60-853a-f2269e57a9c4",
+    user_id: "880fb38e-b686-49d7-8002-a3542d106d36",
     typePost: "Offer",
     title: "Cuidado de niños a domicilio / en hogar",
     description: "Venenatis phasellus quis vel enim sociosqu congue quam.",
@@ -42,7 +42,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "29347ce5-d55b-42ab-886e-28df6dd7e725",
+    user_id: "e3275235-8ea1-42a4-968d-d98255f75435",
     typePost: "Offer",
     title: "Costurera: La mejor de Bernal",
     description: "Venenatis phasellus quis vel enim sociosqu congue quam.",
@@ -56,7 +56,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "2b134353-a0d6-4e67-99bb-f65cbe398160",
+    user_id: "befba476-a405-4b2d-b0b2-bbd7fa45fe5a",
     typePost: "Offer",
     title: "Carpintero: 50 años de experiencia",
     description: "Ultrices eleifend dis porttitor auctor condimentum vehicula habitasse, facilisis duis.",
@@ -70,7 +70,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "3d55921e-3e03-40de-a2f0-284b809fbf6b",
+    user_id: "3210fa1e-9e2f-4b07-9ff7-3f58425ac564",
     typePost: "Petition",
     title: "Profesor de programación. Preparo alumnos para checkpoints de Henry",
     description: "sollicitudin magna euismod aenean quisque eu. Ullamcorper tempor habitasse sociis inceptos ultrices ornare integer.",
@@ -84,7 +84,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "c077a4b3-8c77-4501-9fa7-663509c8ccc2",
+    user_id: "c294a8ef-3bc1-4210-be26-615dc0d3c3b6",
     typePost: "Offer",
     title: "Zapatero Zona Sur",
     description: "habitasse sociis inceptos ultrices ornare integer, nostra a nunc ultricies gravida facilis integer.",
@@ -98,7 +98,7 @@ const postsDB = [
     isActive: false,
   },
   {
-    user_id: "b15b1116-d9c1-4bed-ad19-99af3456d628",
+    user_id: "d99f4ab1-c88e-49d3-b912-62057cb4a227",
     typePost: "Petition",
     title: "Volantero para evento social",
     description: "habitasse sociis inceptos ultrices ornare integer, nostra a nunc ultricies gravida facilis integer.",
@@ -112,7 +112,7 @@ const postsDB = [
     isActive: false,
   },
   {
-    user_id: "870cac3c-b251-4962-a7a6-016eb14b8a09",
+    user_id: "416541a4-7724-4fbb-a5ff-ea9f5b1b27bb",
     typePost: "Offer",
     title: "Gasista matriculado Precios imbatibles",
     description: "habitasse sociis inceptos ultrices ornare integer, nostra a nunc ultricies gravida facilis integer.",
@@ -126,7 +126,7 @@ const postsDB = [
     isActive: true,
   },
   {
-    user_id: "272ece37-cb57-47c1-86ec-42784cb288a4",
+    user_id: "e03a184d-7485-4708-9cc2-205c81f06e3e",
     typePost: "Offer",
     title: "Chofer a domicilio",
     description: "habitasse sociis inceptos ultrices ornare integer, nostra a nunc ultricies gravida facilis integer.",

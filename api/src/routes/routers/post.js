@@ -11,18 +11,19 @@ const router = Router();
 router.get('/', async (req, res, next) => { //http://localhost:3001/post --> 
 	try {
 		let posts = await Post.findAll({
+			attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
 			include: [
 				{
 					model: User,
-					attributes: ["firstName", "lastName"] // pueden agregarse mas cosas o menos
+					attributes: ["id", "firstName", "lastName", "fullName"]
 				},
 				{
 					model: Category,
-					attributes: ["title"]
+					attributes: ["id", "title"]
 				},
 				{
 					model: Specialty,
-					attributes: ["title"]
+					attributes: ["id", "title"]
 				}
 			]
 		});
@@ -40,18 +41,19 @@ router.get('/:idPost', async (req, res, next) => {
 				where: {
 					id: idPost
 				},
+				attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
 				include: [
 					{
 						model: User,
-						attributes: ["firstName", "lastName"] // pueden agregarse mas cosas o menos
+						attributes: ["id", "firstName", "lastName", "fullName"]
 					},
 					{
 						model: Category,
-						attributes: ["title"]
+						attributes: ["id", "title"]
 					},
 					{
 						model: Specialty,
-						attributes: ["title"]
+						attributes: ["id", "title"]
 					}
 				]
 			});
@@ -72,8 +74,9 @@ router.get('/:idPost', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
-		let { typePost, title, description, image, priceRange, timeRange, category_id, specialty_id, paymentMethods, workingArea, isActive, userId } = req.body;
+		let { user_id, typePost, title, description, image, priceRange, timeRange, category_id, specialty_id, paymentMethods, workingArea } = req.body;
 		let newPost = await Post.create({
+			user_id,
 			typePost,
 			title,
 			description,
@@ -83,11 +86,9 @@ router.post('/', async (req, res, next) => {
 			category_id,
 			specialty_id,
 			paymentMethods,
-			workingArea,
-			isActive,
-			userId
+			workingArea
 		});
-		newPost.setUser(userId);
+		newPost.setUser(user_id);
 		newPost.setCategory(category_id);
 		newPost.setSpecialty(specialty_id);
 		res.json(newPost)

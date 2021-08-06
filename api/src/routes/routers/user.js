@@ -13,6 +13,7 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/user -->
 		let users = await User.findAll({
 			include: {
 				model: Post,
+				attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
 				include: [
 					{
 						model: Category,
@@ -41,6 +42,7 @@ router.get('/:idUser', async (req, res, next) => {
 				},
 				include: {
 					model: Post,
+					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
 					include: [
 						{
 							model: Category,
@@ -70,7 +72,7 @@ router.get('/:idUser', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
-		let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
+		let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 		let newUser = await User.create({
 			firstName,
 			lastName,
@@ -82,7 +84,7 @@ router.post('/', async (req, res, next) => {
 			summary,
 			photo,
 			score,
-			jobDone,
+			jobsDone,
 			isVaccinated,
 			isNew,
 			isAdmin,
@@ -117,6 +119,7 @@ router.put('/:idUser', async (req, res, next) => {
 			},
 			// include: {
 			// 	model: Post,
+			// 	attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
 			// 	include: [
 			// 		{
 			// 			model: Category,
@@ -146,6 +149,7 @@ router.delete('/:idUser', async (req, res, next) => {
 				},
 				// include: {
 				// 	model: Post,
+				// 	attributes: { exclude: ["user_id"], "category_id", "specialty_id" },
 				// 	include: [
 				// 		{
 				// 			model: Category,
