@@ -242,7 +242,7 @@ function FaqComponen() {
                       type="text"
                       name="name"
                       id="name"
-                      placeholder="Tu nombre aquí"
+                      placeholder="Tu nombre aquí (Opcional)"
                       class="w-full px-3 py-2 placeholder-gray-300 border 
                         border-gray-300 rounded-md focus:outline-none focus:ring 
                         focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 
@@ -261,7 +261,7 @@ function FaqComponen() {
                       type="email"
                       name="email"
                       id="email"
-                      placeholder="Tu email aquí"
+                      placeholder="Tu email aquí (Opcional)"
                       class="w-full px-3 py-2 placeholder-gray-300 border 
                         border-gray-300 rounded-md focus:outline-none focus:ring 
                         focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 
@@ -280,7 +280,7 @@ function FaqComponen() {
                       rows="5"
                       name="message"
                       id="message"
-                      placeholder="Tu mensaje aquí"
+                      placeholder="Tu mensaje aquí (Obligatorio)"
                       class="w-full px-3 py-2 placeholder-gray-300 border 
                         border-gray-300 rounded-md focus:outline-none focus:ring 
                         focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 
