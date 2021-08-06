@@ -14,6 +14,7 @@ import  Profile from './views/Profile/Profile';
 import CreatePost from './views/CreatePost/CreatePost';
 import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
+import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
 
 
@@ -54,6 +55,9 @@ function App() {
         </Route>
         <Route exact path='/admin/category'>
           <AdminCategory/>
+        </Route>
+        <Route exact path='/admin/createuser'>
+          <AdminUserCreate/>
         </Route>
         *//////////////////** */
         <Route path='/createpost'>

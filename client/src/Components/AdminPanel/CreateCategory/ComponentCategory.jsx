@@ -50,7 +50,7 @@ function ComponentCategory() {
 
                         <div class="flex justify-center">
                             <div class="flex">
-                                <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Crear Especilidad</h1>
+                                <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Crear Especialidad</h1>
                             </div>
                         </div>
 
