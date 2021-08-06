@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.2.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "axios": "^0.21.1",
+    "daisyui": "^1.11.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "install": "^0.13.0",
