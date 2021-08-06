@@ -5,7 +5,7 @@ function FaqComponen() {
   return (
     <>
       <h1 class="mt-5 text-black text-4xl">FAQ</h1>
-      <div class="container w-1/2 mx-auto">
+      <div class="container w-1/3 mx-auto">
         <div class="m-2 rounded overflow-hidden">
           <div class="group outline-none accordion-section" tabindex="1">
             <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
@@ -97,7 +97,7 @@ function FaqComponen() {
       </div>
 
       <h1 class="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
-      <div class="container w-1/2 mx-auto">
+      <div class="container w-1/3 mx-auto">
         <div class="m-2 rounded overflow-hidden">
           <div class="group outline-none accordion-section" tabindex="1">
             <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
