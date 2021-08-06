@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
+import Search from "../Search/Search";
 
 function Header() {
   const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
@@ -55,6 +56,7 @@ function Header() {
                       >
                         Sobre Nosotros
                       </Link>
+                      <Search />
                     </div>
                   </div>
                 </div>
