@@ -28,7 +28,7 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/user -->
 		});
 		res.json(users);
 	} catch (err) {
-		next(err)
+		next(err);
 	};
 });
 
@@ -70,6 +70,15 @@ router.get('/:idUser', async (req, res, next) => {
 	};
 });
 
+
+router.get('/favs', async (req, res, next) => {
+	// a desarrollar para demo 1?
+});
+
+router.get('/myposts', async (req, res, next) => {
+	// a desarrollar para demo 1?
+});
+
 router.post('/', async (req, res, next) => {
 	try {
 		let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
@@ -94,14 +103,6 @@ router.post('/', async (req, res, next) => {
 	} catch (err) {
 		next(err);
 	};
-});
-
-router.get('/favs', async (req, res, next) => {
-
-});
-
-router.get('/myposts', async (req, res, next) => {
-
 });
 
 router.put('/:idUser', async (req, res, next) => {

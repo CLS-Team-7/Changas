@@ -29,7 +29,7 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/post -->
 		});
 		res.json(posts);
 	} catch (err) {
-		next(err)
+		next(err);
 	};
 });
 
