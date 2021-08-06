@@ -16,11 +16,11 @@ function NotFound() {
           </h2>
           <div className="lg:mt-0 lg:flex-shrink-0">
             <div className="mt-5 inline-flex rounded-md">
-            <Link to="/home" className="m-5 ">
-            <button class="transition duration-500 ease-in-out px-10 py-2 transform hover:-translate-y-1 hover:scale-110 rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
-              Home
-            </button>
-          </Link>
+              <Link to="/home" className="m-5 ">
+                <button className="transition duration-500 ease-in-out px-10 py-2 transform hover:-translate-y-1 hover:scale-110 rounded-full text-white  bg-Viridian__Green font-bold hover:bg-Blue__Shappire ">
+                  Home
+                </button>
+              </Link>
             </div>
           </div>
         </div>

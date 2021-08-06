@@ -3,16 +3,16 @@ import React from 'react'
 function Search() {
   return (
     <>
-      <div class="pt-2 relative mx-auto text-gray-600">
+      <div className="pt-2 relative mx-auto text-gray-600">
         <input
-          class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+          className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
           type="search"
           name="search"
           placeholder="Busqueda"
         />
-        <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+        <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
           <svg
-            class="text-gray-600 h-4 w-4 fill-current"
+            className="text-gray-600 h-4 w-4 fill-current"
             version="1.1"
             id="Capa_1"
             x="0px"
