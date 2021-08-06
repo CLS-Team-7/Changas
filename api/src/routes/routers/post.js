@@ -2,13 +2,14 @@ const { Router } = require('express');
 const axios = require('axios');
 const { User, Order, Post } = require('../../db.js');
 const Sequelize = require('sequelize');
+const { Op } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
 
 
 // solo los usuarios registrados pueden crear posts
 
-router.get('/', async (req, res, next) => { //http://localhost:3001/post --> 
+router.get('/', async (_req, res, next) => { //http://localhost:3001/post --> 
 	try {
 		let posts = await Post.findAll({
 			include: {
@@ -20,6 +21,34 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/post -->
 	} catch (err) {
 		next(err)
 	};
+});
+
+router.get('/search', async (req, res, next) => {
+	//Falta validación con caracteres especiales
+	let { keyword } = req.query;
+	try {
+		if (!keyword ){
+			throw new Error('ERROR 500: La publicación no fue encontrada en la base de datos.');
+		} else {
+			const result = await Post.findAll({
+			  where: 
+				  {
+					title: {
+					  [Op.iLike]: `%${keyword}%`,
+					},
+				  },
+			  // include: User, 
+			});
+			if(result.length === 0){
+				throw new Error('ERROR 500: La publicación no fue encontrada en la base de datos.');
+			} else {
+			return res.json(result);
+			}
+		  }
+		} 
+		catch (err) {
+		next (err);
+	}
 });
 
 router.get('/:idPost', async (req, res, next) => {
@@ -40,7 +69,7 @@ router.get('/:idPost', async (req, res, next) => {
 			next(err);
 		}
 	};
-});
+}); 
 
 router.post('/', async (req, res, next) => {
 	try {
