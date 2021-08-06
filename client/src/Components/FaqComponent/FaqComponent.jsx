@@ -4,15 +4,13 @@ require('./FaqComponent.css')
 function FaqComponen() {
   return (
     <>
+      <h1 class="mt-5 text-black text-4xl">FAQ</h1>
       <div class="container mx-auto">
-        <div class="m-8 rounded overflow-hidden">
+        <div class="m-2 rounded overflow-hidden">
           <div class="group outline-none accordion-section" tabindex="1">
-            <div class="group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
-              </div>
-              <div class="h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
             <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
@@ -27,12 +25,9 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
               <div class="group-focus:text-white transition ease duration-500">
                 ¿Cual es nuestro objetivo / Nuestros sueños son?
-              </div>
-              <div class="h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
             <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
@@ -47,12 +42,9 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
               <div class="group-focus:text-white transition ease duration-500">
                 ¿Dónde me registro?
-              </div>
-              <div class="h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
             <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
@@ -65,12 +57,9 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
               <div class="group-focus:text-white transition ease duration-500">
                 ¿De donde nace la idea del servicio?
-              </div>
-              <div class="h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                <i class="fas fa-chevron-down"></i>
               </div>
             </div>
             <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
@@ -83,21 +72,126 @@ function FaqComponen() {
             </div>
           </div>
 
-          <div class="group outline-none accordion-section" tabindex="3">
-            <div class="group bg-gray-900 flex justify-between px-4 py-3 items-center text-gray-500 transition ease duration-500 cursor-pointer pr-10 relative">
+          <div class="group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
               <div class="group-focus:text-white transition ease duration-500">
-                Title for Tab - 3
-              </div>
-              <div class="h-8 w-8 border border-gray-700 rounded-full items-center inline-flex justify-center transform transition ease duration-500 group-focus:text-white group-focus:-rotate-180 absolute top-0 right-0 mb-auto ml-auto mt-2 mr-2">
-                <i class="fas fa-chevron-down"></i>
+                ¿Por qué utilizar nuestra plataforma de servicios?
               </div>
             </div>
             <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
               <p class="p-2 text-gray-400 text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-                repellat amet doloribus consequuntur eos similique provident
-                tempora voluptates iure quia fuga dicta voluptatibus culpa
-                mollitia recusandae delectus id suscipit labore?
+                Poseemos un método de búsquedas por GPS y rango de distancias
+                que te proporcionará contratar de forma muy rápida el servicio
+                que desees, como así también cuenta con una sección de favoritos
+                para calificar el servicio y volver a contactar las mismas
+                personas. Estos son algunos de los aspectos de nuestro servicio,
+                pero de seguro te preguntas qué costo te saldrá adicional a la
+                contratación, para la sorpresa de todos y como en CHANGAS
+                sabemos el difícil momento que atraviesas decidimos que sea
+                TOTALMENTE GRATIS, así es GRATIS solo te pedimos que llenes la
+                sección de feedback para poder seguir mejorando tu experiencia!!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
+      <div class="container mx-auto">
+        <div class="m-2 rounded overflow-hidden">
+          <div class="group outline-none accordion-section" tabindex="1">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Qué necesito para registrarme?
+              </div>
+            </div>
+
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Para ingresar deberás registrarte con tu correo electrónico y
+                llenar el formulario correspondiente a tu tipo de cuenta en las
+                diferentes secciones. Debes ser mayor de 18 años y mantener los
+                protocolos de higiene pactados en el formulario.
+              </p>
+            </div>
+          </div>
+
+          <div class="group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Cómo publico mi servicio?
+              </div>
+            </div>
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Dirígete a la sección de post, ahora ve al botón crear post,
+                perfecto, ahora necesitas llenar todos los campos para tener un
+                posteo exitoso!!
+              </p>
+            </div>
+          </div>
+
+          <h1 class="mt-5 text-black text-4xl">FAQ - Contratar servicios</h1>
+
+          <div class="mt-3 group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Qué beneficios tiene adquirir este servicio?
+              </div>
+            </div>
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Dentro de los varios beneficios que posees en el sitio web es
+                que ofrecemos contratación directa, sin costos adicionales como
+                comisiones, es GRATIS, además de que contas con la posibilidad
+                de negociar directamente con la persona que te ofrece el
+                servicio, pudiendo así mejorar los plazos de pago y flexibilidad
+                de los mismos.
+              </p>
+            </div>
+          </div>
+          <div class=" group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Cómo contrato un servicio?
+              </div>
+            </div>
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Simple, dirígete a la pantalla principal y presiona el botón de
+                Posteos, en esta sección nos dirigimos a la tarjetas de los
+                trabajos ofrecidos y si no encuentras lo que buscas, puedes
+                filtrar según el tipo y disponibilidad del servicio además de
+                buscar por zonas alrededor de ti.
+              </p>
+            </div>
+          </div>
+          <div class=" group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Cómo funciona el servicio?
+              </div>
+            </div>
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Una vez pactado con la persona encargada de dar el servicio,
+                deberás confirmar a través del sitio web el día pactado y formas
+                de pago para dejar una constante y evitar inconvenientes a
+                futuro. Una vez terminado el servicio te pediremos que
+                califiques el mismo para dejar registrada tu experiencia.
+              </p>
+            </div>
+          </div>
+          <div class=" group outline-none accordion-section" tabindex="2">
+            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-white transition ease duration-500">
+                ¿Qué métodos de pago aceptan?
+              </div>
+            </div>
+            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
+              <p class="p-2 text-gray-400 text-justify">
+                Todo lo que refiere a métodos de pago queda bajo control de
+                ambas partes en el método de contacto de servicios.
               </p>
             </div>
           </div>
