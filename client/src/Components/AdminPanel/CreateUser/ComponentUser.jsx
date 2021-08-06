@@ -34,26 +34,33 @@ function ComponentUser() {
     
     
         function validate(input) {
-            if (!input.name) {
-                errors.name = 'You have to put a name for the activity'
+            if (!input.firstName) {
+                errors.firstName = 'You have to put a first name'
+            }
+            if (!input.lastName) {
+                errors.lastName = 'You have to put a last name'
             }
     
-            if (!input.difficulty) {
-                errors.difficulty = 'You have to set a difficulty for the activity'
+            if (!input.age) {
+                errors.age = 'You have to set an age'
             }
     
-            if (!input.season) {
-                errors.season = 'You have to specify a season for the activity'
+            if (!input.ID_Passport) {
+                errors.ID_Passport = 'You have to add a DNI'
             }
     
-            if (!input.duration) {
-                errors.duration = 'You have to set a duration for the activity'
-            } else if (input.duration <= 0) {
-                errors.duration = 'Invalid parameter'
+            if (!input.address) {
+                errors.address = 'You have to add an address'
             }
     
-            if (!input.countryId){
-                errors.countryId = 'No countries selected'
+            if (!input.phoneNumber){
+                errors.phoneNumber = 'You have to add a phone number'
+            }
+            if (!input.email){
+                errors.email = 'You have to add an email'
+            }
+            if (!input.photo){
+                errors.photo = 'You have to add a photo'
             }
     
             return errors;
@@ -63,11 +70,12 @@ function ComponentUser() {
         function handleSubmit(e) {
             e.preventDefault();
     
-            /* if (input.duration === '' || input.name === '' || input.countryId.length === 0) {
+            if (input.firstName === '' || input.lastName === '' || input.age <= 0 || input.ID_Passport === '' 
+            || input.address === '' || input.phoneNumber === '' || input.email === '' || input.photo === '' || input.score === '') {
                 alert('Invalid parameters')
                 setErrors({});
                 return
-            } */
+            }
             dispatch(postUser(input));
             alert('User Created');
         }
@@ -78,7 +86,7 @@ function ComponentUser() {
                 ...input,
                 [e.target.name]: e.target.value
             };
-            /* setErrors(validate(newInput)); */
+            setErrors(validate(newInput));
             setInput(newInput);
         }
     
