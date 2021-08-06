@@ -6,6 +6,17 @@ import NotFound from './views/NotFound/NotFound';
 import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import PostDetail from './views/PostDetail/PostDetail';
+import About from './views/About/About';
+import TestPosts from './Components/TestPosts/TestPosts';
+import Admin from './views/Admin/Admin';
+import { FAQ } from './views/FAQ/FAQ';
+import  Profile from './views/Profile/Profile';
+import CreatePost from './views/CreatePost/CreatePost';
+import MyProfile from './Components/MyProfile/MyProfile';
+import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
+import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
+import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
+
 
 function App() {
   return (
@@ -20,8 +31,40 @@ function App() {
         <Route exact path='/login'>
           <LoginPage />
         </Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
+        </Route>
+        <Route exact path='/testposts'>
+          <TestPosts />
+        </Route>
+        <Route exact path='/myproftest'>
+          <MyProfile />
+        </Route>
+        <Route exact path='/createusertest'>
+          <UserCreationTest />
+        </Route>
+        <Route path='/profile/:id'>
+          <Profile />
+        </Route>
+        *// Panel de administradorPruebas//*
+        <Route exact path='/admin'>
+          <Admin/>
+        </Route>
+        <Route exact path='/admin/category'>
+          <AdminCategory/>
+        </Route>
+        <Route exact path='/admin/createuser'>
+          <AdminUserCreate/>
+        </Route>
+        *//////////////////** */
+        <Route path='/createpost'>
+          <CreatePost/>
+        </Route>
+        <Route path='/faq'>
+          <FAQ/>
         </Route>
         <Route path='*'>
           <NotFound />
