@@ -102,11 +102,11 @@ function ComponentUser() {
 
 
     return (
-        <div id='finalWrapperForm' className="flex bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
-            <div id='actFormWrapper' className="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 mt-16 mb-16">
+        <div id='finalWrapperForm' className="flex bg-white items-center justify-center" /* md:mt-20 md:mb-36 sm:mt-72 sm:mb-96" */>
+            <div id='actFormWrapper' className="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 mt-16 mb-16 pt-6">
                 <div id='formH1' className="text-gray-600 font-bold md:text-2xl text-xl"><h1>Create User</h1></div>
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <div className="grid grid-cols-1 mt-5 mx-7">
+                    <div className="grid grid-cols-1 mt-5 mx-7 ">
                         <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">firstName: </label>
                         <input
                             className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
