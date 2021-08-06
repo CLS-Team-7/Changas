@@ -9,7 +9,7 @@ function CreateCategory() {
     const { user } = useAuth0()
     return (
         <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
-            <div class="flex items-start justify-between">
+            <div class="flex items-start justify-between bg-white">
 
                 <SideBarAdmin />
                 <div class="flex flex-col w-full md:space-y-4">
