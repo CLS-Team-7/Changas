@@ -13,6 +13,7 @@ import { FAQ } from './views/FAQ/FAQ';
 import  Profile from './views/Profile/Profile';
 import CreatePost from './views/CreatePost/CreatePost';
 import MyProfile from './Components/MyProfile/MyProfile';
+import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 
 
 function App() {
@@ -43,9 +44,14 @@ function App() {
         <Route path='/profile/:id'>
           <Profile />
         </Route>
-        <Route path='/admin'>
+        *// Panel de administradorPruebas//*
+        <Route exact path='/admin'>
           <Admin/>
         </Route>
+        <Route exact path='/admin/category'>
+          <AdminCategory/>
+        </Route>
+        *//////////////////** */
         <Route path='/createpost'>
           <CreatePost/>
         </Route>

@@ -1,10 +1,46 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 function AdminPanelComp({ Users }) {
     return (
         <div>
+            <thead className="bg-gray-50">
+                <tr>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Nombre
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Direccion
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Estado
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Posts
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Role
+                    </th>
+                    <th scope="col" className="relative px-6 py-3">
+                        <span className="sr-only">Edit</span>
+                    </th>
+                </tr>
+            </thead>
             {Users.map(person => {
                 return <tr key={person.id} className="">
                     <td className="px-6 py-4 whitespace-nowrap py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 " >
