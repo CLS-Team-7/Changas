@@ -5,16 +5,16 @@ function FaqComponen() {
   return (
     <>
       <h1 class="mt-5 text-black text-4xl">FAQ</h1>
-      <div class="container mx-auto">
+      <div class="container w-1/2 mx-auto">
         <div class="m-2 rounded overflow-hidden">
           <div class="group outline-none accordion-section" tabindex="1">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
               <div class="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Somos una empresa tecnológica que se encarga de conectar
                 personas con diferentes rubros, dividiendo en dos secciones
                 principales, tanto para quienes ofrecen servicios de plomeria,
@@ -25,13 +25,13 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Cual es nuestro objetivo / Nuestros sueños son?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Como empresa, ofrecemos un servicio web para que cada persona
                 pueda publicar o requerir trabajo, según su necesidad. Nuestro
                 objetivo es satisfacer rápidamente la demanda de cada persona
@@ -42,13 +42,13 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Dónde me registro?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Dirígete a nuestra barra inicial en el botón que dice
                 REGISTRATE; ahí te llevará hacia otra página donde llenarán un
                 formulario con los datos requeridos según tu tipo de perfil.
@@ -57,13 +57,13 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿De donde nace la idea del servicio?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 La idea principal nace en querer ayudar a quienes perdieron sus
                 trabajos a causa de la pandemia, proporcionándoles la
                 posibilidad de tener contratación directa con clientes mediante
@@ -73,13 +73,13 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Por qué utilizar nuestra plataforma de servicios?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Poseemos un método de búsquedas por GPS y rango de distancias
                 que te proporcionará contratar de forma muy rápida el servicio
                 que desees, como así también cuenta con una sección de favoritos
@@ -97,17 +97,17 @@ function FaqComponen() {
       </div>
 
       <h1 class="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
-      <div class="container mx-auto">
+      <div class="container w-1/2 mx-auto">
         <div class="m-2 rounded overflow-hidden">
           <div class="group outline-none accordion-section" tabindex="1">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
               </div>
             </div>
 
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Para ingresar deberás registrarte con tu correo electrónico y
                 llenar el formulario correspondiente a tu tipo de cuenta en las
                 diferentes secciones. Debes ser mayor de 18 años y mantener los
@@ -117,13 +117,13 @@ function FaqComponen() {
           </div>
 
           <div class="group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Cómo publico mi servicio?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Dirígete a la sección de post, ahora ve al botón crear post,
                 perfecto, ahora necesitas llenar todos los campos para tener un
                 posteo exitoso!!
@@ -134,13 +134,13 @@ function FaqComponen() {
           <h1 class="mt-5 text-black text-4xl">FAQ - Contratar servicios</h1>
 
           <div class="mt-3 group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Qué beneficios tiene adquirir este servicio?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Dentro de los varios beneficios que posees en el sitio web es
                 que ofrecemos contratación directa, sin costos adicionales como
                 comisiones, es GRATIS, además de que contas con la posibilidad
@@ -151,13 +151,13 @@ function FaqComponen() {
             </div>
           </div>
           <div class=" group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Cómo contrato un servicio?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Simple, dirígete a la pantalla principal y presiona el botón de
                 Posteos, en esta sección nos dirigimos a la tarjetas de los
                 trabajos ofrecidos y si no encuentras lo que buscas, puedes
@@ -167,13 +167,13 @@ function FaqComponen() {
             </div>
           </div>
           <div class=" group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Cómo funciona el servicio?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Una vez pactado con la persona encargada de dar el servicio,
                 deberás confirmar a través del sitio web el día pactado y formas
                 de pago para dejar una constante y evitar inconvenientes a
@@ -183,13 +183,13 @@ function FaqComponen() {
             </div>
           </div>
           <div class=" group outline-none accordion-section" tabindex="2">
-            <div class="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white transition ease duration-500 cursor-pointer pr-10 relative">
-              <div class="group-focus:text-white transition ease duration-500">
+            <div class="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+              <div class="group-focus:text-black transition ease duration-500">
                 ¿Qué métodos de pago aceptan?
               </div>
             </div>
-            <div class="group-focus:max-h-screen max-h-0 bg-gray-800 px-4 overflow-hidden ease duration-500">
-              <p class="p-2 text-gray-400 text-justify">
+            <div class="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p class="p-5 text-lg	text-black antialiased font-medium text-justify">
                 Todo lo que refiere a métodos de pago queda bajo control de
                 ambas partes en el método de contacto de servicios.
               </p>
@@ -197,16 +197,15 @@ function FaqComponen() {
           </div>
         </div>
       </div>
-
       <div>
         <div class="flex items-center ">
           <div class="container mx-auto">
-            <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-lg">
+            <div class="max-w-md mx-auto my-10 bg-gray-200 p-5 rounded-lg shadow-lg">
               <div class="text-center">
                 <h1 class="my-3 text-3xl font-semibold">
                   Contanos tu experiencia
                 </h1>
-                <p class="text-gray-400 dark:text-gray-400">
+                <p class="text-black dark:text-gray-400">
                   Completa abajo y envianos un mensaje
                 </p>
               </div>
@@ -293,8 +292,8 @@ function FaqComponen() {
                   <div class="mb-6">
                     <button
                       type="submit"
-                      class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md 
-                        focus:bg-indigo-600 focus:outline-none"
+                      class="w-full px-3 py-4 font-semibold text-black bg-yellow-500 rounded-md 
+                        focus:bg-yellow-600 focus:outline-solid"
                     >
                       Enviar Mensaje
                     </button>
