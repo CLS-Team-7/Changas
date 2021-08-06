@@ -80,8 +80,8 @@ router.get('/myposts', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+	let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 	try {
-		let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 		let newUser = await User.create({
 			firstName,
 			lastName,
@@ -99,7 +99,7 @@ router.post('/', async (req, res, next) => {
 			isAdmin,
 			isActive
 		});
-		res.json(newUser)
+		res.json(newUser);
 	} catch (err) {
 		next(err);
 	};
