@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import { postUser } from '../../Redux/actions'
 
 function PostCreate() {
+    const dispatch = useDispatch();
 
     const [postInput, setPostInput] = useState({
         typePost: "",
@@ -30,12 +33,13 @@ function PostCreate() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        dispatch(postUser(postInput))
     }
 
 
     return (
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e)=> handleSubmit(e)}>
             <div class="flex bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
                 <div class="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 mt-16 mb-16">
                     <div class="flex justify-center py-4">
@@ -133,7 +137,7 @@ function PostCreate() {
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <Link to="/home"><button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button></Link>
-                        <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Create</button>
+                        <button type='submit' class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Create</button>
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@ import  Profile from './views/Profile/Profile';
 import CreatePost from './views/CreatePost/CreatePost';
 import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
+import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route exact path='/myproftest'>
           <MyProfile />
+        </Route>
+        <Route exact path='/createusertest'>
+          <UserCreationTest />
         </Route>
         <Route path='/profile/:id'>
           <Profile />

@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_NAME } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_NAME, POST_USER } from '../constants';
 import axios from 'axios';
 
 
@@ -61,4 +61,10 @@ export const searchByName = (keyword) => {
             dispatch({type: SEARCH_BY_NAME, payload: data})
         })
     }
+}
+
+export const postUser = (payload) => {
+    return (dispatch) => {
+        axios.post("https://6100000bbca46600171cf681.mockapi.io/User", payload)
+    };
 }
