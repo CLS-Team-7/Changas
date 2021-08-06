@@ -4,31 +4,34 @@ const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
 const specialtiesDB = require('./src/seeders/specialties-demo');
+const db = require('./src/db.js');
+const cookieParser = require('cookie-parser');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+conn.sync({ force: false }).then(() => {
+  server.listen(3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
-    postsDB.map(post => {
-      Post.create({
-        typePost: post.typePost,
-        title: post.title,
-        description: post.description,
-        image: post.image || 'https://st.depositphotos.com/1158045/2262/i/600/depositphotos_22620531-stock-photo-technician-repairing-an-hot-water.jpg',
-        priceRange: post.priceRange,
-        timeRange: post.timeRange,
-        category: post.category,
-        specialty: post.specialty,
-        paymentMethods: post.paymentMethods,
-        workingArea: post.workingArea,
-        isActive: post.isActive
+    await categoriesDB.map(category => {
+      Category.create({
+        id: category.id,
+        title: category.title
       });
     });
-    console.log('Precarga de posts en DB OK!')
+    console.log('Precarga de categories en DB OK!')
 
-    usersDB.map(user => {
+    await specialtiesDB.map(specialty => {
+      Specialty.create({
+        id: specialty.id,
+        category_id: specialty.category_id,
+        title: specialty.title
+      });
+    });
+    console.log('Precarga de specialties en DB OK!')
+
+    await usersDB.map(user => {
       User.create({
+        id: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         age: user.age,
@@ -39,32 +42,33 @@ conn.sync({ force: true }).then(() => {
         summary: user.summary,
         photo: user.photo || 'https://ojodepezfotografos.com/wp-content/uploads/2019/03/SESION-DE-FOTOS-PERFIL-PROFESIONAL-10.jpg',
         score: user.score,
-        jobDone: user.jobDone,
+        jobsDone: user.jobsDone,
         isVaccinated: user.isVaccinated,
         isNew: user.isNew,
         isAdmin: user.isAdmin,
         isActive: user.isActive,
       });
     });
-    console.log('Precarga de users en DB OK!')
+    console.log('Precarga de users en DB OK!');
 
-    categoriesDB.map(category => {
-      Category.create({
-        id: category.id,
-        title: category.title
+
+    await postsDB.map(post => {
+      Post.create({
+        user_id: post.user_id,
+        typePost: post.typePost,
+        title: post.title,
+        description: post.description,
+        image: post.image || 'https://st.depositphotos.com/1158045/2262/i/600/depositphotos_22620531-stock-photo-technician-repairing-an-hot-water.jpg',
+        priceRange: post.priceRange,
+        timeRange: post.timeRange,
+        category_id: post.category_id,
+        specialty_id: post.specialty_id,
+        paymentMethods: post.paymentMethods,
+        workingArea: post.workingArea,
+        isActive: post.isActive
       });
     });
-    console.log('Precarga de categories en DB OK!')
-
-    specialtiesDB.map(specialty => {
-      Specialty.create({
-        id: specialty.id,
-        categoryId: specialty.categoryId,
-        title: specialty.title
-      });
-    });
-    console.log('Precarga de specialties en DB OK!')
-
+    console.log('Precarga de posts en DB OK!')
 
   });
 });

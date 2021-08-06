@@ -16,6 +16,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
+        fullName: {
+            type: DataTypes.VIRTUAL,
+            get() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        },
         age: {
             type: DataTypes.INTEGER,
             allowNull: true,
@@ -23,6 +29,7 @@ module.exports = (sequelize) => {
         ID_Passport: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         address: {
             type: DataTypes.STRING,
@@ -35,20 +42,21 @@ module.exports = (sequelize) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         summary: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
         photo: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         score: {
             type: DataTypes.FLOAT,
             allowNull: true,
         },
-        jobDone: {
+        jobsDone: {
             type: DataTypes.INTEGER, // arrancaria siempre en cero 
             allowNull: true,
         },

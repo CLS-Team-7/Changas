@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { User, Order, Post } = require('../../db.js');
+const { User, Order, Post, Category, Specialty } = require('../../db.js');
 const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
@@ -12,12 +12,23 @@ router.get('/', async (req, res, next) => { //http://localhost:3001/user -->
 	try {
 		let users = await User.findAll({
 			include: {
-				model: Post
+				model: Post,
+				attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+				include: [
+					{
+						model: Category,
+						attributes: ["id", "title"]
+					},
+					{
+						model: Specialty,
+						attributes: ["id", "title"]
+					}
+				]
 			}
 		});
 		res.json(users);
 	} catch (err) {
-		next(err)
+		next(err);
 	};
 });
 
@@ -30,7 +41,18 @@ router.get('/:idUser', async (req, res, next) => {
 					id: idUser
 				},
 				include: {
-					model: Post
+					model: Post,
+					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					include: [
+						{
+							model: Category,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Specialty,
+							attributes: ["id", "title"]
+						}
+					]
 				}
 			});
 			if (result) res.json(result);
@@ -48,9 +70,18 @@ router.get('/:idUser', async (req, res, next) => {
 	};
 });
 
+
+router.get('/favs', async (req, res, next) => {
+	// a desarrollar para demo 1?
+});
+
+router.get('/myposts', async (req, res, next) => {
+	// a desarrollar para demo 1?
+});
+
 router.post('/', async (req, res, next) => {
+	let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 	try {
-		let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 		let newUser = await User.create({
 			firstName,
 			lastName,
@@ -62,25 +93,16 @@ router.post('/', async (req, res, next) => {
 			summary,
 			photo,
 			score,
-			jobDone,
+			jobsDone,
 			isVaccinated,
 			isNew,
 			isAdmin,
 			isActive
 		});
-		res.json(newUser)
+		res.json(newUser);
 	} catch (err) {
 		next(err);
 	};
-});
-
-router.get('/favs', async (req, res, next) => {
-
-});
-
-router.get('/myposts', async (req, res, next) => {
-
-
 });
 
 router.put('/:idUser', async (req, res, next) => {
@@ -96,9 +118,20 @@ router.put('/:idUser', async (req, res, next) => {
 			where: {
 				id: idUser
 			},
-			include: {
-				model: Post
-			}
+			// include: {
+			// 	model: Post,
+			// 	attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+			// 	include: [
+			// 		{
+			// 			model: Category,
+			// 			attributes: ["id", "title"]
+			// 		},
+			// 		{
+			// 			model: Specialty,
+			// 			attributes: ["id", "title"]
+			// 		}
+			// 	]
+			// }
 		});
 		res.json(updatedUser); // se envia el user modificado al front
 	} catch (err) {
@@ -114,7 +147,21 @@ router.delete('/:idUser', async (req, res, next) => {
 			await User.destroy({ // de existir, lo destruye
 				where: {
 					id: idUser
-				}
+				},
+				// include: {
+				// 	model: Post,
+				// 	attributes: { exclude: ["user_id"], "category_id", "specialty_id" },
+				// 	include: [
+				// 		{
+				// 			model: Category,
+				// 			attributes: ["id", "title"]
+				// 		},
+				// 		{
+				// 			model: Specialty,
+				// 			attributes: ["id", "title"]
+				// 		}
+				// 	]
+				// }
 			});
 			return res.json(existsInDB); // devuelve el post eliminado como el metodo pop()
 		} else {
