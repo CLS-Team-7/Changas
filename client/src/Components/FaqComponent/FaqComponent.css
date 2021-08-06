@@ -1,5 +1,5 @@
 html {
-  line-height: 1.15;
+  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
 }
 body {
@@ -10,7 +10,7 @@ main {
 }
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 1em 0;
 }
 hr {
   box-sizing: content-box;
@@ -19,7 +19,7 @@ hr {
 }
 pre {
   font-family: monospace, monospace;
-  font-size: 1em;
+  font-size: 2em;
 }
 a {
   background-color: transparent;
