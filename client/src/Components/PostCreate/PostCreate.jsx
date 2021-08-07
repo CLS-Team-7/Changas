@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { postUser } from '../../Redux/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { sendPost } from '../../Redux/actions'
 
 function PostCreate() {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.userAdmin)
+    //ESTO ES PARA LA DEMO//
+
+
+    console.log(user)
 
     const [postInput, setPostInput] = useState({
+        user_id: "",
         typePost: "",
         title: "",
         description: "",
@@ -33,7 +39,7 @@ function PostCreate() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postUser(postInput))
+        dispatch(sendPost(postInput))
     }
 
 
@@ -60,7 +66,19 @@ function PostCreate() {
                                 <option value="Offer" >Ofrecer Servicio</option>
                             </select>
                         </div>
+
+                        <div className="grid grid-cols-1 mt-5 mx-7">
+                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de posteo</label>
+                            <select onChange={handleChange} name="user_id" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Elegir</option>
+                                {user.length !== 0 ? user.map(e => {
+                                    return <option value={e.id}>{e.fullName}</option>
+                                }) : <option>cargando...</option>
+                                }
+                            </select>
+                        </div>
                     </div>
+
 
                     <div className="grid grid-cols-1 mt-5 mx-7">
                         <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Titulo</label>
