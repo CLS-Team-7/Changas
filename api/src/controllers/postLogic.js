@@ -10,7 +10,7 @@ async function getAllPosts(_req, res, next) {
       include: [
         {
           model: User,
-          attributes: ["id", "given_name", "family_name", "fullName"],
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
         },
         {
           model: Category,
@@ -84,7 +84,7 @@ async function getPostById(req, res, next) {
         include: [
           {
             model: User,
-            attributes: ["id", "given_name", "family_name", "fullName"],
+            attributes: ["id", "given_name", "family_name", "fullName", "picture"],
           },
           {
             model: Category,

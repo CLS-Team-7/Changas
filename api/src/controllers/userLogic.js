@@ -74,27 +74,27 @@ async function getMyPosts(req, res, next) {
 };
 
 async function createUser(req, res, next) {
-	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
+	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin, isActive } = req.body;
 	try {
-		let newUser = await User.create({
-			sub,
-			given_name,
-			family_name,
-			age,
-			ID_Passport,
-			address,
-			phoneNumber,
-			email,
-			summary,
-			picture,
-			score,
-			jobsDone,
-			isVaccinated,
-			isNew,
-			isAdmin,
-			isActive
+		let [newUser, isCreated] = await User.findOrCreate({
+			where: {
+				sub,
+				given_name,
+				family_name,
+				age,
+				ID_Passport,
+				address,
+				phoneNumber,
+				email,
+				summary,
+				picture,
+				score,
+				jobsDone,
+				isVaccinated,
+				isAdmin,
+			}
 		});
-		res.json(newUser);
+		return res.json(newUser);
 	} catch (err) {
 		next(err);
 	};
