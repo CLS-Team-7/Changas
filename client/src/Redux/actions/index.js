@@ -1,10 +1,10 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_NAME, POST_USER } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, POST_USER } from '../constants';
 import axios from 'axios';
 
 
 export const getAllPosts = () => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/Posts`)
+        axios.get(`http://localhost:3001/post`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_ALL_POSTS, payload: data })
@@ -14,7 +14,7 @@ export const getAllPosts = () => {
 
 export const getSinglePost = (id) => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/Posts/${id}`)
+        axios.get(`http://localhost:3001/post/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_POST, payload: data })
@@ -30,7 +30,7 @@ export const clearSinglePost = () => {
 
 export const getUserAdmin = () => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/User`)
+        axios.get(`http://localhost:3001/user`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_USER_ADMIN, payload: data })
@@ -40,7 +40,7 @@ export const getUserAdmin = () => {
 
 export const getSingleUser = (id) => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/User/${id}`)
+        axios.get(`http://localhost:3001/user/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_USER, payload: data })
@@ -53,18 +53,22 @@ export const clearSingleUser = () => {
             }
     }
 
-export const searchByName = (keyword) => {
+export const searchByTitle = (keyword) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/post/search?title=${keyword}`)
+        axios.get(`http://localhost:3001/post/search?keyword=${keyword}`)
         .then(r => r.data)
         .then(data => {
-            dispatch({type: SEARCH_BY_NAME, payload: data})
+            dispatch({type: SEARCH_BY_TITLE, payload: data})
         })
     }
 }
-
+export const searchByTitleClean = () => {
+    return (dispatch) => {
+            dispatch({type: SEARCH_BY_TITLE, payload: []})
+    }
+}
 export const postUser = (payload) => {
     return (dispatch) => {
-        axios.post("https://6100000bbca46600171cf681.mockapi.io/User", payload)
+        axios.post("http://localhost:3001/user", payload)
     };
 }

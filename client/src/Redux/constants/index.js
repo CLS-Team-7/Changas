@@ -3,7 +3,7 @@ const GET_SINGLE_POST = 'GET_SINGLE_POST';
 const GET_USER_ADMIN = "GET_USER_ADMIN";
 const GET_SINGLE_USER = 'GET_SINGLE_USER';
 const POST_USER = 'POST_USER'
-const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
+const SEARCH_BY_TITLE = 'SEARCH_BY_TITLE';
 
 
 module.exports = {
@@ -11,6 +11,6 @@ module.exports = {
     GET_SINGLE_POST,
     GET_USER_ADMIN,
     GET_SINGLE_USER,
-    SEARCH_BY_NAME,
+    SEARCH_BY_TITLE,
     POST_USER,
 }

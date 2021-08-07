@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_NAME, POST_USER} from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, POST_USER} from '../constants';
 
 
 const initialState = {
@@ -6,7 +6,7 @@ const initialState = {
     singlePost : {},
     singleUser: {},
     userAdmin: [],
-    searchByName: [],
+    searchByTitle: [],
 }
 
 
@@ -34,10 +34,10 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 singleUser: payload
             }
-        case SEARCH_BY_NAME:
+        case SEARCH_BY_TITLE:
             return {
                 ...state,
-                searchByName: payload
+                searchByTitle: payload
             }
         default:
             return state;

@@ -2,7 +2,8 @@ import React from 'react'
 import CardPost from '../CardPost/CardPost'
 import { Link } from 'react-router-dom'
 
-function PostComp({ posts }) {
+function SearchComponent({ posts }) {
+    console.log(posts)
     return (
         <div className=" container flex flex-wrap -m-4">
             {posts.map(post => {
@@ -19,4 +20,4 @@ function PostComp({ posts }) {
     )
 }
 
-export default PostComp
+export default SearchComponent;
