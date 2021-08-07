@@ -30,7 +30,7 @@ export const clearSinglePost = () => {
 
 export const getUserAdmin = () => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/User`)
+        axios.get(`http://localhost:3001/user`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_USER_ADMIN, payload: data })
@@ -40,7 +40,7 @@ export const getUserAdmin = () => {
 
 export const getSingleUser = (id) => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/User/${id}`)
+        axios.get(`http://localhost:3001/user/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_USER, payload: data })
@@ -69,6 +69,6 @@ export const searchByTitleClean = () => {
 }
 export const postUser = (payload) => {
     return (dispatch) => {
-        axios.post("https://6100000bbca46600171cf681.mockapi.io/User", payload)
+        axios.post("http://localhost:3001/user", payload)
     };
 }
