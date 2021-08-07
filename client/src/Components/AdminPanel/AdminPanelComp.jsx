@@ -48,7 +48,7 @@ function AdminPanelComp({ Users }) {
 
                             <div className="flex-shrink-0 h-10 w-10">
 
-                                <img className="h-10 w-10 rounded-full" src={person.photo} alt="" />
+                                <img className="h-10 w-10 rounded-full" src={person.picture} alt="" />
                             </div>
                             <div className="ml-4">
                                 <th
@@ -56,7 +56,7 @@ function AdminPanelComp({ Users }) {
                                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
                                 </th>
-                                <Link to={`/profile/${person.id}`}><div className="text-sm font-medium text-gray-900">{`${person.firstName} ${person.lastName}`}</div></Link>
+                                <Link to={`/profile/${person.id}`}><div className="text-sm font-medium text-gray-900">{`${person.given_name} ${person.family_name}`}</div></Link>
                                 <div className="text-sm text-gray-500">{person.email}</div>
                             </div>
                         </div>
