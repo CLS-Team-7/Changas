@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const getAllPosts = () => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/Posts`)
+        axios.get(`http://localhost:3001/post`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_ALL_POSTS, payload: data })
@@ -14,7 +14,7 @@ export const getAllPosts = () => {
 
 export const getSinglePost = (id) => {
     return (dispatch) => {
-        axios.get(`https://6100000bbca46600171cf681.mockapi.io/Posts/${id}`)
+        axios.get(`http://localhost:3001/post/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_POST, payload: data })
@@ -62,7 +62,11 @@ export const searchByTitle = (keyword) => {
         })
     }
 }
-
+export const searchByTitleClean = () => {
+    return (dispatch) => {
+            dispatch({type: SEARCH_BY_TITLE, payload: []})
+    }
+}
 export const postUser = (payload) => {
     return (dispatch) => {
         axios.post("https://6100000bbca46600171cf681.mockapi.io/User", payload)
