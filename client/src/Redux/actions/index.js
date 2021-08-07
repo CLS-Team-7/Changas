@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, POST_USER } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, POST_USER, CATEGORY_POST, CATEGORY_SPECEALTY } from '../constants';
 import axios from 'axios';
 
 
@@ -8,6 +8,26 @@ export const getAllPosts = () => {
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_ALL_POSTS, payload: data })
+            })
+    }
+}
+
+export const getAllCategory = () => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/category`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: CATEGORY_POST, payload: data })
+            })
+    }
+}
+
+export const getAllSpecialty = () => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/specialty`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: CATEGORY_SPECEALTY, payload: data })
             })
     }
 }
