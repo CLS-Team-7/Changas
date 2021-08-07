@@ -16,7 +16,7 @@ import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
-import Search from './Components/Search/Search';
+import SearchView from './views/SearchView/SearchView';
 
 
 function App() {
@@ -38,8 +38,8 @@ function App() {
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
-        <Route exact path='/post/:title'>
-          <Search />
+        <Route exact path='/search/:title'>
+        <SearchView />
         </Route>
         <Route exact path='/testposts'>
           <TestPosts />

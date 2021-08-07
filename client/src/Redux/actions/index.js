@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_NAME, POST_USER } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, POST_USER } from '../constants';
 import axios from 'axios';
 
 
@@ -53,12 +53,12 @@ export const clearSingleUser = () => {
             }
     }
 
-export const searchByName = (keyword) => {
+export const searchByTitle = (keyword) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/post/search?title=${keyword}`)
+        axios.get(`http://localhost:3001/post/search?keyword=${keyword}`)
         .then(r => r.data)
         .then(data => {
-            dispatch({type: SEARCH_BY_NAME, payload: data})
+            dispatch({type: SEARCH_BY_TITLE, payload: data})
         })
     }
 }
