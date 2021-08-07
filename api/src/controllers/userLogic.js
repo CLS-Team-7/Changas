@@ -26,7 +26,7 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user -->
 	};
 };
 
-async function getUserById (req, res, next) {
+async function getUserById(req, res, next) {
 	let { idUser } = req.params;
 	if (idUser && idUser.length === 36) { // 36 es la length del UUID
 		try {
@@ -65,27 +65,28 @@ async function getUserById (req, res, next) {
 };
 
 
-async function getFavUsers (req, res, next) {
+async function getFavUsers(req, res, next) {
 	// a desarrollar para demo 1?
 };
 
-async function getMyPosts (req, res, next) {
+async function getMyPosts(req, res, next) {
 	// a desarrollar para demo 1?
 };
 
-async function createUser (req, res, next) {
-	let { firstName, lastName, age, ID_Passport, address, phoneNumber, email, summary, photo, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
+async function createUser(req, res, next) {
+	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isNew, isAdmin, isActive } = req.body;
 	try {
 		let newUser = await User.create({
-			firstName,
-			lastName,
+			sub,
+			given_name,
+			family_name,
 			age,
 			ID_Passport,
 			address,
 			phoneNumber,
 			email,
 			summary,
-			photo,
+			picture,
 			score,
 			jobsDone,
 			isVaccinated,
@@ -99,7 +100,7 @@ async function createUser (req, res, next) {
 	};
 };
 
-async function updateUser (req, res, next) {
+async function updateUser(req, res, next) {
 	let { idUser } = req.params;
 	let changes = req.body;
 	try {
@@ -133,7 +134,7 @@ async function updateUser (req, res, next) {
 	};
 };
 
-async function deleteUser (req, res, next) {
+async function deleteUser(req, res, next) {
 	let { idUser } = req.params;
 	try {
 		let existsInDB = await User.findByPk(idUser); // primero busca si existe el user en la DB. Si existe lo guarda en esta variable 
