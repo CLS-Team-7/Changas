@@ -8,18 +8,23 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-        firstName: {
+        sub: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            unique: true
+        },
+        given_name: {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
-        lastName: {
+        family_name: {
             type: DataTypes.STRING(255),
             allowNull: false,
         },
         fullName: {
             type: DataTypes.VIRTUAL,
             get() {
-                return `${this.firstName} ${this.lastName}`;
+                return `${this.given_name} ${this.family_name}`;
             }
         },
         age: {
@@ -28,27 +33,30 @@ module.exports = (sequelize) => {
         },
         ID_Passport: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             unique: true
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         phoneNumber: {
             type: DataTypes.BIGINT, // desde el json no puede empezar por 0. Chequear si no conviene datatype string
-            allowNull: false,
+            allowNull: true,
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
+        // email_verified: {
+        //     type: DataTypes.BOOLEAN,
+        // },
         summary: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
-        photo: {
+        picture: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
@@ -87,5 +95,10 @@ module.exports = (sequelize) => {
             allowNull: true,
             defaultValue: true
         },
+        isDataComplete: {
+            type: DataTypes.BOOLEAN,
+            // allowNull: false,
+            defaultValue: false
+        }
     });
 };
