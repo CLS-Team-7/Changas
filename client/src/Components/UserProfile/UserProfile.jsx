@@ -22,7 +22,7 @@ function UserProfile() {
                 <div className="shadow-lg rounded-2xl bg-white dark:bg-gray-800 p-4">
                     <div className="flex-row gap-4 flex justify-center items-center">
                         <div className="flex-shrink-0">
-                            <img alt="profil" src={user.photo} className="mx-auto object-cover rounded-full h-16 w-16 " />
+                            <img alt="profil" src={user.picture} className="mx-auto object-cover rounded-full h-16 w-16 " />
                         </div>
 
                     </div>
