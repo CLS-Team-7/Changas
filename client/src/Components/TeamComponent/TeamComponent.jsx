@@ -26,12 +26,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Pablo Gomila</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/pablogomila/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/pablogomila/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/pablogomila' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/pablogomila' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -44,12 +44,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Sibyl Perez</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/sibyl-perez/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/sibyl-perez/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/sibylperez' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/sibylperez' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -62,12 +62,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Mauro Vera</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/maurovera/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/maurovera/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/Mauro069' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/Mauro069' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -80,12 +80,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Manuel Miglioranza</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/manuel-miglioranza-arg/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/manuel-miglioranza-arg/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/mmiglioranza22' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/mmiglioranza22' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -98,12 +98,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Dario Gomez</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/dario-gomez-01666873/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/dario-gomez-01666873/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/Zven7' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/Zven7' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -116,12 +116,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Javier Ojeda</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/ojedaajavier/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/ojedaajavier/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/iCueLa' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/iCueLa' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -134,12 +134,12 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Douglas San Anton Bianchi</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
-                                        <a href='https://www.linkedin.com/in/douglas-san-anton-bianchi-1127941b2/?originalSubdomain=ar' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/douglas-san-anton-bianchi-1127941b2/?originalSubdomain=ar' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/Douglas-san-anton' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/Douglas-san-anton' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
                                     </span>
@@ -152,13 +152,13 @@ function TeamComponent() {
                                 <div className="flex-grow sm:pl-8">
                                     <h2 className="title-font font-medium text-lg text-gray-900">Eliana Ruiz</h2>
                                     <h3 className="text-gray-500 mb-3">Full-Stack Developer</h3>
-                                    <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                                    
                                     <span className="inline-flex">
                                         
-                                        <a href='https://www.linkedin.com/in/elianaruiz91/' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://www.linkedin.com/in/elianaruiz91/' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                                         </a>
-                                        <a href='https://github.com/Anailek' target="_blank" className="ml-2 text-gray-500">
+                                        <a rel='noreferrer' href='https://github.com/Anailek' target="_blank" className="ml-2 text-gray-500">
                                             <img style={{width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="" />
                                         </a>
 
