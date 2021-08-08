@@ -17,6 +17,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
 import SearchView from './views/SearchView/SearchView';
+import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 
 
 function App() {
@@ -63,10 +64,11 @@ function App() {
         <Route exact path='/admin/createuser'>
           <AdminUserCreate/>
         </Route>
-        *//////////////////** */
-        <Route path='/createpost'>
-          <CreatePost/>
+        <Route exact path='/admin/createpost'>
+          <AdminCreatePost/>
         </Route>
+        
+        *//////////////////** */
         <Route path='/faq'>
           <FAQ/>
         </Route>
