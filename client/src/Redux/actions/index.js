@@ -95,6 +95,6 @@ export const postUser = (payload) => {
 
 export const sendPost = (payload) => {
     return (dispatch) => {
-        axios.post("https://6100000bbca46600171cf681.mockapi.io/Posts", payload)
+        axios.post("http://localhost:3001/post", payload)
     };
 }
