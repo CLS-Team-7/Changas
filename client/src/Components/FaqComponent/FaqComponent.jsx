@@ -112,19 +112,44 @@ function FaqComponen() {
               </p>
             </div>
           </div>
+          <div className="group outline-none accordion-section" tabindex="2">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+              <div className="group-focus:text-black transition ease duration-500">
+                ¿Cómo empiezo?
+              </div>
+            </div>
+            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si buscas trabajo, primero necesitas registrarte. Lo haces en
+                menos de 3 minutos.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si ofreces trabajo, primero necesitas registrarte. Lo haces en
+                menos de 3 minutos.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Una vez registrado, buscas todas las ofertas, las puedes filtrar
+                según los criterios que mejor se ajusten a vos. ¡Vas a encontrar
+                alguna, incluso si buscas un trabajo de un sólo día!
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si ofreces trabajo, crea un anuncio indicando lo necesario. Sin
+                costo adicional. Un ofertón.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       <h1 className="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded overflow-hidden">
-          <div className="group outline-none accordion-section" tabindex="1">
+          <div className="group outline-none accordion-section" tabindex="2">
             <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
               </div>
             </div>
-
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Para ingresar deberás registrarte con tu correo electrónico y
@@ -145,8 +170,8 @@ function FaqComponen() {
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Dirígete a la sección de post, ahora ve al botón crear post,
-                ahora necesitas llenar todos los campos según el tipo
-                de publicación para realizar un posteo exitoso!!
+                ahora necesitas llenar todos los campos según el tipo de
+                publicación para realizar un posteo exitoso!!
               </p>
             </div>
           </div>
@@ -161,7 +186,7 @@ function FaqComponen() {
           >
             <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Qué beneficios tiene adquirir este servicio?
+                ¿Cuáles son los beneficios?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
