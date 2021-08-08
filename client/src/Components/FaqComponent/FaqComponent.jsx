@@ -176,19 +176,17 @@ function FaqComponen() {
               </p>
             </div>
           </div>
-
-
-          
         </div>
-        
       </div>
 
-      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Contratar servicios</h1>
+      <h1 className="mt-5 mb-5 text-black text-4xl">
+        FAQ - Contratar servicios
+      </h1>
 
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabindex="1">
-          <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cuáles son los beneficios?
               </div>
@@ -249,10 +247,7 @@ function FaqComponen() {
               </p>
             </div>
           </div>
-
-          
         </div>
-        
       </div>
 
       <div>
