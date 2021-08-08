@@ -8,7 +8,7 @@ function FaqComponen() {
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabindex="1">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
               </div>
@@ -28,7 +28,7 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cual es nuestra misión?
               </div>
@@ -50,7 +50,7 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿De donde nace la idea?
               </div>
@@ -82,7 +82,7 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Por qué somos diferentes del resto?
               </div>
@@ -113,7 +113,7 @@ function FaqComponen() {
             </div>
           </div>
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo empiezo?
               </div>
@@ -146,7 +146,7 @@ function FaqComponen() {
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabindex="1">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
               </div>
@@ -163,7 +163,7 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo hago una publicación?
               </div>
@@ -186,7 +186,7 @@ function FaqComponen() {
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabindex="1">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cuáles son los beneficios?
               </div>
@@ -203,7 +203,7 @@ function FaqComponen() {
           </div>
 
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo contrato?
               </div>
@@ -219,7 +219,7 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo funciona el servicio?
               </div>
@@ -235,7 +235,7 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué métodos de pago aceptan?
               </div>
