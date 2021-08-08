@@ -58,7 +58,7 @@ conn.sync({ force: false }).then(() => {
         typePost: post.typePost,
         title: post.title,
         description: post.description,
-        image: post.image || 'https://st.depositpictures.com/1158045/2262/i/600/depositpictures_22620531-stock-picture-technician-repairing-an-hot-water.jpg',
+        image: post.image || 'https://www.ucmq.com/wp-content/uploads/dia-del-trabajador-.jpg',
         priceRange: post.priceRange,
         timeRange: post.timeRange,
         category_id: post.category_id,

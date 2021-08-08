@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { postUser } from '../../../Redux/actions';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function ComponentUser() {
 
-
+    const { push } = useHistory()
     const dispatch = useDispatch();
     //const actList = useSelector(state => state.activitiesList);
     let id = 2000;
@@ -78,6 +79,7 @@ function ComponentUser() {
         }
         dispatch(postUser(input));
         alert('User Created');
+        push("/admin")
     }
 
 

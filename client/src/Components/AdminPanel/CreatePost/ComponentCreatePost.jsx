@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCategory, getAllSpecialty, sendPost } from '../../../Redux/actions/index'
 
 function ComponentCreatePost() {
+    const { push } = useHistory()
     const dispatch = useDispatch();
     //ESTO ES PARA LA DEMO//
     const user = useSelector(state => state.userAdmin)
@@ -57,6 +58,7 @@ function ComponentCreatePost() {
             [e.target.name]: e.target.value
         }))
         specialtyCategory()
+        push("/admin")
     }
 
 
