@@ -58,7 +58,6 @@ function ComponentCreatePost() {
             [e.target.name]: e.target.value
         }))
         specialtyCategory()
-        push("/admin")
     }
 
 
@@ -73,6 +72,7 @@ function ComponentCreatePost() {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(sendPost(postInput))
+        push("/admin")
     }
 
 
