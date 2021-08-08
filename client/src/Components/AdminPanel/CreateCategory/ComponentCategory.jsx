@@ -37,7 +37,7 @@ function ComponentCategory() {
         dispatch(sendCategory(categoryPost))
         alert("Categoria Creada")
         e.target.value = ""
-        /* push("/admin") */
+        push("/admin")
     }
 
     const handleSubmitSpecialty = (e) => {

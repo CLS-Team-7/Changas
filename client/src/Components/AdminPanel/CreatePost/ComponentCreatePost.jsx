@@ -9,16 +9,7 @@ function ComponentCreatePost() {
     //ESTO ES PARA LA DEMO//
     const user = useSelector(state => state.userAdmin)
     const category = useSelector(state => state.categoryPost)
-    const specialtys = useSelector(state => state.specialtyCategory)
 
-    /*     const prueba = () => {
-            const result = specialtys.filter(e => e.category.id.toString() === postInput.category_id)
-            const specialtysPrueba = result.map(e => {
-                return { title: e.title, id: e.id }
-            })
-            setSpecialtyBeta(specialtysPrueba)
-            console.log(specialtyBeta)
-        } */
 
     useEffect(() => {
         dispatch(getAllCategory())
