@@ -10,9 +10,9 @@ function MenuAdmin() {
     const categoryList = useSelector(state => state.categoryPost);
     const dispatch = useDispatch();
 
-    useEffect(state => {
+    useEffect(() => {
         dispatch(getAllCategory());
-    }, [dispatch, categoryList])
+    }, [dispatch])
 
     const { user } = useAuth0()
     return (
@@ -55,7 +55,7 @@ function MenuAdmin() {
                         </div>
                         <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
                             <div className="flex items-center w-full md:w-1/2 space-x-4">
-                                
+
                             </div>
                         </div>
                         <div className="flex items-center space-x-4">
