@@ -12,7 +12,7 @@ function MenuAdmin() {
 
     useEffect(state => {
         dispatch(getAllCategory());
-    }, [dispatch])
+    }, [dispatch, categoryList])
 
     const { user } = useAuth0()
     return (
@@ -22,11 +22,11 @@ function MenuAdmin() {
                 <SideBarAdmin />
                 <div className="flex flex-col w-full md:space-y-4">
 
-                    <div className="overflow-auto h-screen pb-24 px-4 md:px-6">
+                    <div className="overflow-auto h-screen pb-24 py-12 px-4 md:px-6">
                         <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">
                             {`Bienvenido ${user.name}`}
                         </h1>
-                        <h2 className="text-md text-gray-400">
+                        <h2 className="mb-8 text-md text-gray-400">
                             En este panel podras manejar la aplicacion.
                         </h2>
                         <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
@@ -41,10 +41,6 @@ function MenuAdmin() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
-                            <div className="flex items-center w-full md:w-1/2 space-x-4">
                                 <div className="w-1/2">
                                     <div className="shadow-lg px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                                         <p className="text-2xl text-black dark:text-white font-bold">
@@ -55,6 +51,11 @@ function MenuAdmin() {
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
+                            <div className="flex items-center w-full md:w-1/2 space-x-4">
+                                
                             </div>
                         </div>
                         <div className="flex items-center space-x-4">
