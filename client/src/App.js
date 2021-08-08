@@ -11,7 +11,6 @@ import TestPosts from './Components/TestPosts/TestPosts';
 import Admin from './views/Admin/Admin';
 import { FAQ } from './views/FAQ/FAQ';
 import  Profile from './views/Profile/Profile';
-import CreatePost from './views/CreatePost/CreatePost';
 import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
