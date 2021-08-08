@@ -98,3 +98,15 @@ export const sendPost = (payload) => {
         axios.post("http://localhost:3001/post", payload)
     };
 }
+
+export const sendCategory = (payload) => {
+    return (dispatch) => {
+        axios.post("http://localhost:3001/category", payload)
+    };
+}
+
+export const sendSpecialty = (payload) => {
+    return (dispatch) => {
+        axios.post("http://localhost:3001/specialty", payload)
+    };
+}
