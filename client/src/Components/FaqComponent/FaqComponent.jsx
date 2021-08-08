@@ -8,12 +8,12 @@ function FaqComponen() {
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded overflow-hidden">
           <div className="group outline-none accordion-section" tabindex="1">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Somos una empresa tecnológica que conecta personas que buscan y
                 ofrecen trabajos no profesionales. En criollo, cualquier persona
@@ -28,12 +28,12 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cual es nuestra misión?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Estamos convencidos de que cualquier persona que quiera y
                 necesite trabajar tiene que poder hacerlo, sin necesidad de
@@ -50,12 +50,12 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿De donde nace la idea?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Nos dimos cuenta de que no existía una solución sencilla para
                 aquellas personas que tenían que encontrar una fuente de ingreso
@@ -82,12 +82,12 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Por qué somos diferentes del resto?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Poseemos un método de búsquedas por GPS y rango de distancias
                 que te proporcionará contratar de forma muy rápida el servicio
@@ -113,12 +113,12 @@ function FaqComponen() {
             </div>
           </div>
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo empiezo?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Si buscas trabajo, primero necesitas registrarte. Lo haces en
                 menos de 3 minutos.
@@ -145,12 +145,12 @@ function FaqComponen() {
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded overflow-hidden">
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Para ingresar deberás registrarte con tu correo electrónico y
                 llenar el formulario correspondiente a tu tipo de cuenta en las
@@ -162,12 +162,12 @@ function FaqComponen() {
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo hago una publicación?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Dirígete a la sección de post, ahora ve al botón crear post,
                 ahora necesitas llenar todos los campos según el tipo de
@@ -184,12 +184,12 @@ function FaqComponen() {
             className="mt-3 group outline-none accordion-section"
             tabindex="2"
           >
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cuáles son los beneficios?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Podés contratar directamente en nuestra aplicación, sin costos
                 adicionales como comisiones, es GRATIS. Además de que contás con
@@ -200,12 +200,12 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo contrato?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Simple, dirígete a la pantalla principal y presiona el botón de
                 Posteos, en esta sección nos dirigimos a la tarjetas de los
@@ -216,12 +216,12 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo funciona el servicio?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Una vez pactado con la persona encargada de dar el servicio,
                 deberás confirmar a través del sitio web el día pactado y formas
@@ -232,12 +232,12 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué métodos de pago aceptan?
               </div>
             </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Todo lo que refiere a métodos de pago queda bajo control de
                 ambas partes en el método de contacto de servicios.
@@ -249,12 +249,12 @@ function FaqComponen() {
       <div>
         <div className="flex items-center ">
           <div className="container mx-auto">
-            <div className="max-w-md mx-auto my-10 bg-gray-200 p-5 rounded-lg shadow-lg">
+            <div className="max-w-md mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
               <div className="text-center">
                 <h1 className="my-3 text-3xl font-semibold">
                   Contanos tu experiencia
                 </h1>
-                <p className="text-black dark:text-gray-400">
+                <p className="text-white dark:text-gray-400">
                   Completa abajo y envianos un mensaje
                 </p>
               </div>
@@ -283,7 +283,7 @@ function FaqComponen() {
                   <div className="mb-6">
                     <label
                       for="name"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-sm text-white dark:text-gray-400"
                     >
                       Nombre
                     </label>
@@ -302,7 +302,7 @@ function FaqComponen() {
                   <div className="mb-6">
                     <label
                       for="email"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-sm text-white dark:text-gray-400"
                     >
                       Dirección de Email
                     </label>
@@ -321,7 +321,7 @@ function FaqComponen() {
                   <div className="mb-6">
                     <label
                       for="message"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-sm text-white dark:text-gray-400"
                     >
                       Tu mensaje
                     </label>
@@ -341,7 +341,7 @@ function FaqComponen() {
                   <div className="mb-6">
                     <button
                       type="submit"
-                      className="w-full px-3 py-4 font-semibold text-black bg-yellow-500 rounded-md 
+                      className="w-full px-3 py-4 font-semibold text-black bg-white rounded-md 
                         focus:bg-yellow-600 focus:outline-solid"
                     >
                       Enviar Mensaje
