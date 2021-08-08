@@ -41,7 +41,7 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         phoneNumber: {
-            type: DataTypes.BIGINT, // desde el json no puede empezar por 0. Chequear si no conviene datatype string
+            type: DataTypes.STRING, // desde el json no puede empezar por 0. Chequear si no conviene datatype string
             allowNull: true,
         },
         email: {
