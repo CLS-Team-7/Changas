@@ -48,13 +48,13 @@ function DetailComponent() {
                             <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                             </span>
                         </div>
-                        <p className="leading-relaxed"> Description : {description}</p>
+                        <p className="leading-relaxed"> Descripción : {description}</p>
                         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
 
                         </div>
                         <div className="flex">
-                            <span className="title-font font-medium text-2xl text-gray-900">Price: {priceRange?.map(e => `$${e}   `)}</span>
-                            <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contact</button>
+                            <span className="title-font font-medium text-2xl text-gray-900">Precio: {priceRange?.map(e => `$${e}   `)}</span>
+                            <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contactar</button>
                         </div>
                     </div>
                 </div>
