@@ -53,7 +53,7 @@ function DetailComponent() {
 
                         </div>
                         <div className="flex">
-                            <span className="title-font font-medium text-2xl text-gray-900">Price: ${`${priceRange ? priceRange[0] : ""} || ${priceRange ? priceRange[1] : ""}`}</span>
+                            <span className="title-font font-medium text-2xl text-gray-900">Price: {priceRange?.map(e => `$${e}   `)}</span>
                             <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contact</button>
                         </div>
                     </div>
