@@ -4,10 +4,10 @@ require('./FaqComponent.css')
 function FaqComponen() {
   return (
     <>
-      <h1 className="mt-5 text-black text-4xl">FAQ</h1>
+      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ</h1>
       <div className="container w-1/2 mx-auto">
-        <div className="m-2 rounded overflow-hidden">
-          <div className="group outline-none accordion-section" tabindex="1">
+        <div className="m-2 rounded shadow-2xl overflow-hidden">
+          <div className="group outline-none  accordion-section" tabindex="1">
             <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
@@ -141,10 +141,11 @@ function FaqComponen() {
         </div>
       </div>
 
-      <h1 className="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
+      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
+
       <div className="container w-1/2 mx-auto">
-        <div className="m-2 rounded overflow-hidden">
-          <div className="group outline-none accordion-section" tabindex="2">
+        <div className="m-2 rounded shadow-2xl overflow-hidden">
+          <div className="group outline-none  accordion-section" tabindex="1">
             <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
@@ -176,15 +177,18 @@ function FaqComponen() {
             </div>
           </div>
 
-          <h1 className="mt-5 text-black text-4xl">
-            FAQ - Contratar servicios
-          </h1>
 
-          <div
-            className="mt-3 group outline-none accordion-section"
-            tabindex="2"
-          >
-            <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+          
+        </div>
+        
+      </div>
+
+      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Contratar servicios</h1>
+
+      <div className="container w-1/2 mx-auto">
+        <div className="m-2 rounded shadow-2xl overflow-hidden">
+          <div className="group outline-none  accordion-section" tabindex="1">
+          <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cuáles son los beneficios?
               </div>
@@ -199,6 +203,7 @@ function FaqComponen() {
               </p>
             </div>
           </div>
+
           <div className=" group outline-none accordion-section" tabindex="2">
             <div className="group bg-gray-800 flex justify-between px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
@@ -244,12 +249,16 @@ function FaqComponen() {
               </p>
             </div>
           </div>
+
+          
         </div>
+        
       </div>
+
       <div>
         <div className="flex items-center ">
           <div className="container mx-auto">
-            <div className="max-w-md mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
+            <div className="max-w-md shadow-2xl mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
               <div className="text-center">
                 <h1 className="my-3 text-3xl font-semibold">
                   Contanos tu experiencia
