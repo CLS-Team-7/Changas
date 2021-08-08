@@ -10,7 +10,7 @@ function ContainerPostCard() {
     const [currentPost, setCurrentPost] = useState(1);
     const postsPerPage = 12;
 
-
+    const filterType = useSelector(state => state.filterType)
     const postList = useSelector(state => state.postList)
 
     useEffect(() => {
@@ -28,9 +28,18 @@ function ContainerPostCard() {
         setCurrentPost(pageNumber);
     }
 
+    let filteredPosts = [];
+
+    if(filterType === 'All'){
+        filteredPosts = posts;
+    } else{
+        filteredPosts = posts.filter(post => post.category.title === filterType);
+    }
+
+
     const indexOfLastPost = currentPost * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
 
 
@@ -41,7 +50,7 @@ function ContainerPostCard() {
                 <PostComp posts={currentPosts} />
             </div>
             <div className="flex justify-center my-14">
-                <Pagination ctsPerPage={postsPerPage} totalCts={posts.length} paginate={paginate} />
+                <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} />
             </div>
         </div>
     )
