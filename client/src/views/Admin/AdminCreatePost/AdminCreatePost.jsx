@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import CreatePost from '../../../Components/AdminPanel/CreatePost/CreatePost'
 import Footer from '../../../Components/Footer/Footer'
 import Header from '../../../Components/Header/Header'
-import PostCreate from '../../../Components/PostCreate/PostCreate'
 
 function AdminCreatePost() {
 
