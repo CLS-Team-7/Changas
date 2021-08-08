@@ -5,91 +5,136 @@ function FaqComponen() {
   return (
     <>
       <h1 className="mt-5 text-black text-4xl">FAQ</h1>
-      <div className="container w-1/3 mx-auto">
+      <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded overflow-hidden">
           <div className="group outline-none accordion-section" tabindex="1">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-orange transition ease duration-500">
                 ¿Qué es changas / Quienes somos?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
-                Somos una empresa tecnológica que se encarga de conectar
-                personas con diferentes rubros, dividiendo en dos secciones
-                principales, tanto para quienes ofrecen servicios de plomeria,
-                gasista, etc, como también personas que requieran contratar
-                dichos servicios.
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Somos una empresa tecnológica que conecta personas que buscan y
+                ofrecen trabajos no profesionales. En criollo, cualquier persona
+                que necesite de alguien para un trabajo o “changa” va a poder
+                encontrarla con nuestra aplicación, y cualquier persona que
+                quiera trabajar va poder ofrecer sus servicios.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Generamos oportunidades. Damos soluciones.
               </p>
             </div>
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Cual es nuestro objetivo / Nuestros sueños son?
+                ¿Cual es nuestra misión?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
-                Como empresa, ofrecemos un servicio web para que cada persona
-                pueda publicar o requerir trabajo, según su necesidad. Nuestro
-                objetivo es satisfacer rápidamente la demanda de cada persona
-                poniendo en contacto ambas partes, fomentando así, tanto el
-                trabajo como soluciones.
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Estamos convencidos de que cualquier persona que quiera y
+                necesite trabajar tiene que poder hacerlo, sin necesidad de
+                hacerse un currículum hermoso, ni tener más de 500 contactos, ni
+                hacer networking, ni nada. Las ganas de trabajar y el
+                profesionalismo son los únicos dos requisitos indispensables
+                para hacer cualquier “changa” o trabajo no profesional.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Y ahí entra CHANGAS: para vincular la oferta y la demanda de
+                trabajo de forma rápida, sencilla, eficiente y sin vueltas.
               </p>
             </div>
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Dónde me registro?
+                ¿De donde nace la idea?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
-                Dirígete a nuestra barra inicial en el botón que dice
-                REGISTRATE; ahí te llevará hacia otra página donde llenarán un
-                formulario con los datos requeridos según tu tipo de perfil.
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Nos dimos cuenta de que no existía una solución sencilla para
+                aquellas personas que tenían que encontrar una fuente de ingreso
+                de forma rápida y eficaz: las propuestas y sitios actuales usan
+                algoritmos que no dan visibilidad a quienes no cumplen con
+                requisitos “impuestos”, y por eso no responden a la necesidad de
+                encontrar trabajo rápido, sino que evalúan y categorizan a las
+                personas por su “perfil virtual”, “actividad”, “publicaciones”,
+                “red”, etc. En pocas palabras, sólo si son buenos usuarios son
+                “empleables/contratables”.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Vinimos a cambiar esto: existimos para ayudar a quienes no
+                teniendo los contactos, ni los conocimientos de networking, ni
+                las publicaciones, ni las redes de contactos puedan encontrar
+                trabajo, porque lo que importa es querer trabajar y ser
+                profesional al respecto. El resto, es puro cuento.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                CHANGAS no es una red social: es una solución a esos problemas
+                de visibilización de gente que quiere trabajar.
               </p>
             </div>
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿De donde nace la idea del servicio?
+                ¿Por qué somos diferentes del resto?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
-                La idea principal nace en querer ayudar a quienes perdieron sus
-                trabajos a causa de la pandemia, proporcionándoles la
-                posibilidad de tener contratación directa con clientes mediante
-                nuestro sitio web.
-              </p>
-            </div>
-          </div>
-
-          <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
-              <div className="group-focus:text-black transition ease duration-500">
-                ¿Por qué utilizar nuestra plataforma de servicios?
-              </div>
-            </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Poseemos un método de búsquedas por GPS y rango de distancias
                 que te proporcionará contratar de forma muy rápida el servicio
-                que desees, como así también cuenta con una sección de favoritos
-                para calificar el servicio y volver a contactar las mismas
-                personas. Estos son algunos de los aspectos de nuestro servicio,
-                pero de seguro te preguntas qué costo te saldrá adicional a la
-                contratación, para la sorpresa de todos y como en CHANGAS
-                sabemos el difícil momento que atraviesas decidimos que sea
-                TOTALMENTE GRATIS, así es GRATIS solo te pedimos que llenes la
-                sección de feedback para poder seguir mejorando tu experiencia!!
+                que desees en dónde te encuentras, como así también contamos con
+                una sección de favoritos para calificar el servicio y volver a
+                contactar las mismas personas.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Quienes ofrezcan sus servicios serán puntuados y recomendados
+                por su desempeño y profesionalismo, una vez realizados los
+                trabajos. Son sus clientes quienes lo hacen directamente en los
+                perfiles de los usuarios: más trabajos bien hechos, más
+                comentarios positivos, más ofertas de trabajo van a recibir. ¿No
+                es genial?
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Estos son algunos de los aspectos de nuestro servicio, pero de
+                seguro te preguntarás si hay algún costo adicional escondido en
+                la contratación. Para la sorpresa de todos, decidimos que eso
+                sea TOTALMENTE GRATIS. Si, leelo de vuelta, para quien busca
+                trabajo es así, es GRATIS.
+              </p>
+            </div>
+          </div>
+          <div className="group outline-none accordion-section" tabindex="2">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
+              <div className="group-focus:text-black transition ease duration-500">
+                ¿Cómo empiezo?
+              </div>
+            </div>
+            <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si buscas trabajo, primero necesitas registrarte. Lo haces en
+                menos de 3 minutos.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si ofreces trabajo, primero necesitas registrarte. Lo haces en
+                menos de 3 minutos.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Una vez registrado, buscas todas las ofertas, las puedes filtrar
+                según los criterios que mejor se ajusten a vos. ¡Vas a encontrar
+                alguna, incluso si buscas un trabajo de un sólo día!
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Si ofreces trabajo, crea un anuncio indicando lo necesario. Sin
+                costo adicional. Un ofertón.
               </p>
             </div>
           </div>
@@ -97,83 +142,87 @@ function FaqComponen() {
       </div>
 
       <h1 className="mt-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
-      <div className="container w-1/3 mx-auto">
+      <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded overflow-hidden">
-          <div className="group outline-none accordion-section" tabindex="1">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+          <div className="group outline-none accordion-section" tabindex="2">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué necesito para registrarme?
               </div>
             </div>
-
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Para ingresar deberás registrarte con tu correo electrónico y
                 llenar el formulario correspondiente a tu tipo de cuenta en las
                 diferentes secciones. Debes ser mayor de 18 años y mantener los
-                protocolos de higiene pactados en el formulario.
+                protocolos de higiene pactados en el formulario. El mismo tiene
+                carácter de declaración jurada.
               </p>
             </div>
           </div>
 
           <div className="group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Cómo publico mi servicio?
+                ¿Cómo hago una publicación?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Dirígete a la sección de post, ahora ve al botón crear post,
-                perfecto, ahora necesitas llenar todos los campos para tener un
-                posteo exitoso!!
+                ahora necesitas llenar todos los campos según el tipo de
+                publicación para realizar un posteo exitoso!!
               </p>
             </div>
           </div>
 
-          <h1 className="mt-5 text-black text-4xl">FAQ - Contratar servicios</h1>
+          <h1 className="mt-5 text-black text-4xl">
+            FAQ - Contratar servicios
+          </h1>
 
-          <div className="mt-3 group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+          <div
+            className="mt-3 group outline-none accordion-section"
+            tabindex="2"
+          >
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Qué beneficios tiene adquirir este servicio?
+                ¿Cuáles son los beneficios?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
-                Dentro de los varios beneficios que posees en el sitio web es
-                que ofrecemos contratación directa, sin costos adicionales como
-                comisiones, es GRATIS, además de que contas con la posibilidad
-                de negociar directamente con la persona que te ofrece el
-                servicio, pudiendo así mejorar los plazos de pago y flexibilidad
-                de los mismos.
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Podés contratar directamente en nuestra aplicación, sin costos
+                adicionales como comisiones, es GRATIS. Además de que contás con
+                la posibilidad de negociar directamente con la persona que te
+                ofrece el servicio, pudiendo así adaptar mejor las necesidades
+                de ambas partes, flexibilizando los tipos y plazos de pagos.
               </p>
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Cómo contrato un servicio?
+                ¿Cómo contrato?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Simple, dirígete a la pantalla principal y presiona el botón de
                 Posteos, en esta sección nos dirigimos a la tarjetas de los
                 trabajos ofrecidos y si no encuentras lo que buscas, puedes
                 filtrar según el tipo y disponibilidad del servicio además de
-                buscar por zonas alrededor de ti.
+                buscar por zonas alrededor tuyo.
               </p>
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Cómo funciona el servicio?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Una vez pactado con la persona encargada de dar el servicio,
                 deberás confirmar a través del sitio web el día pactado y formas
                 de pago para dejar una constante y evitar inconvenientes a
@@ -183,13 +232,13 @@ function FaqComponen() {
             </div>
           </div>
           <div className=" group outline-none accordion-section" tabindex="2">
-            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative">
+            <div className="group bg-gray-200 flex justify-between px-4 py-3 items-center text-black font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
                 ¿Qué métodos de pago aceptan?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-yellow-500 px-4 overflow-hidden ease duration-500">
-              <p className="p-5 text-lg	text-black antialiased font-medium text-justify">
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Todo lo que refiere a métodos de pago queda bajo control de
                 ambas partes en el método de contacto de servicios.
               </p>
