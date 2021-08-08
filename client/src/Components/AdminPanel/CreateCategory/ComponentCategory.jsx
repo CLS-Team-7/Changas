@@ -21,6 +21,7 @@ function ComponentCategory() {
             ...values,
             [e.target.name]: e.target.value
         }))
+
     }
 
 
@@ -35,7 +36,8 @@ function ComponentCategory() {
         e.preventDefault()
         dispatch(sendCategory(categoryPost))
         alert("Categoria Creada")
-        push("/admin")
+        e.target.value = ""
+        /* push("/admin") */
     }
 
     const handleSubmitSpecialty = (e) => {

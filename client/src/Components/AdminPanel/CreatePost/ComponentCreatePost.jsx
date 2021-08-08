@@ -9,6 +9,16 @@ function ComponentCreatePost() {
     //ESTO ES PARA LA DEMO//
     const user = useSelector(state => state.userAdmin)
     const category = useSelector(state => state.categoryPost)
+    const specialtys = useSelector(state => state.specialtyCategory)
+
+    /*     const prueba = () => {
+            const result = specialtys.filter(e => e.category.id.toString() === postInput.category_id)
+            const specialtysPrueba = result.map(e => {
+                return { title: e.title, id: e.id }
+            })
+            setSpecialtyBeta(specialtysPrueba)
+            console.log(specialtyBeta)
+        } */
 
     useEffect(() => {
         dispatch(getAllCategory())
@@ -52,11 +62,7 @@ function ComponentCreatePost() {
         }))
     }
 
-    function handleChangeCategory(e) {
-        setPostInput(values => ({
-            ...values,
-            [e.target.name]: e.target.value
-        }))
+    const handleClickCategory = () => {
         specialtyCategory()
     }
 
@@ -161,7 +167,7 @@ function ComponentCreatePost() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                         <div className="grid grid-cols-1 mt-5 mx-7">
                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categoria</label>{
-                                <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChangeCategory} name="category_id">
+                                <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="category_id">
                                     <option>Elegir</option>
                                     {category.length !== 0 ?
 
