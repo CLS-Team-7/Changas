@@ -9,10 +9,9 @@ import { Link } from 'react-router-dom';
 
 function Search() {
   const dispatch = useDispatch();
+  const searchTitle = useSelector(state => state.searchByTitle)
   let { title } = useParams()
 
-  const searchTitle = useSelector(state => state.searchByTitle)
-  console.log(searchTitle)
   useEffect(() => {
     dispatch(searchByTitle(title));
     return dispatch(searchByTitleClean())
@@ -32,14 +31,12 @@ function Search() {
   const indexOfLastPost = currentPost * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = searchTitle.slice(indexOfFirstPost, indexOfLastPost);
-  console.log(currentPosts)
 
   return (
     <div className="container px-5 py-24 m-auto ">
       <div>
-
         {
-          searchTitle.length !== 0 ? <SearchComponent posts={currentPosts} /> : <div classNameName="NotFound">
+          searchTitle.length !== 0 ? <SearchComponent posts={currentPosts} /> : <div className="NotFound">
             <div className="bg-white marginauto dark:bg-gray-800 h-full NotFoundContent min-h-screen">
               <div className="text-center w-full mx-auto   sm:px-6 lg:py-16 lg:px-8 z-20">
                 <h2 className="text-3xl font-extrabold text-red-600 dark:text-white sm:text-4xl">

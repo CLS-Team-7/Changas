@@ -6,7 +6,7 @@ import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
 function Admin() {
-    const { user, isAuthenticated } = useAuth0()
+    const { isAuthenticated } = useAuth0()
     console.log(isAuthenticated)
     return (
         <div className=" min-h-screen flex flex-col justify-between">
@@ -14,7 +14,7 @@ function Admin() {
             {
                 isAuthenticated ? <MenuAdmin />
                     :
-                    <div classNameName="NotFound">
+                    <div className="NotFound">
                         <div className="bg-white marginauto dark:bg-gray-800 h-full NotFoundContent min-h-screen">
                             <div className="text-center w-full mx-auto   sm:px-6 lg:py-16 lg:px-8 z-20">
                                 <h2 className="text-3xl font-extrabold text-red-600 dark:text-white sm:text-4xl">

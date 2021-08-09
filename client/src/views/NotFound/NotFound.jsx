@@ -6,7 +6,7 @@ import "./NotFound.css";
 
 function NotFound() {
   return (
-    <div classNameName="NotFound">
+    <div className="NotFound">
       <Header />
       <div className="bg-white marginauto dark:bg-gray-800 h-full NotFoundContent min-h-screen">
         <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">

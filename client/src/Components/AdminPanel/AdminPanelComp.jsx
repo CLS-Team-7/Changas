@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function AdminPanelComp({ Users }) {
     return (
-        <div>
+        <table>
             <thead className="bg-gray-50">
                 <tr>
                     <th
@@ -83,13 +83,13 @@ function AdminPanelComp({ Users }) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.isAdmin ? "Admin" : "Normal"}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                        <span className="text-indigo-600 hover:text-indigo-900">
                             Edit
-                        </a>
+                        </span>
                     </td>
                 </tr>
             })}
-        </div>
+        </table>
     )
 }
 
