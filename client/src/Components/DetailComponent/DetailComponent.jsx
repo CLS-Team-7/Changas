@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 
 
 function DetailComponent() {
     const dispatch = useDispatch();
-    const { title, image, description, priceRange, category, specialty } = useSelector(state => state.singlePost);
+    const { title, image, description, priceRange, category, specialty, user } = useSelector(state => state.singlePost);
     let { id } = useParams();
-    console.log(specialty)
+    console.log(user)
     useEffect(() => {
         dispatch(getSinglePost(id));
         dispatch(clearSinglePost())
@@ -54,7 +54,7 @@ function DetailComponent() {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">Precio: {priceRange?.map(e => `$${e}   `)}</span>
-                            <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contactar</button>
+                            <Link to={`/profile/${user?.id}`} className="flex ml-auto"><button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contactar</button></Link>
                         </div>
                     </div>
                 </div>
