@@ -12,6 +12,14 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       allowNull: false
     },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    specialty_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     typePost: {
       type: DataTypes.ENUM('Offer', 'Petition'),
       allowNull: false,
@@ -28,21 +36,13 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    priceRange: {
+    priceRange: { // basePrice
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
     timeRange: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
-    },
-    category_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    specialty_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
     paymentMethods: {
       type: DataTypes.ARRAY(DataTypes.STRING),
@@ -57,5 +57,10 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: true
     },
+    // acceptsQuestions : {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true,
+    //   defaultValue: false
+    // }
   });
 };
