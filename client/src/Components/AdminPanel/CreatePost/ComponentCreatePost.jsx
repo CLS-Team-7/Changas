@@ -159,6 +159,7 @@ function ComponentCreatePost() {
                         <div className="grid grid-cols-1 mt-5 mx-7">
                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categoria</label>{
                                 <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="category_id">
+                                    <option value="Null">Elegir</option>
                                     {category.length !== 0 ?
 
                                         category.map(e => {
@@ -176,7 +177,7 @@ function ComponentCreatePost() {
                                 <div className="grid grid-cols-1 mt-5 mx-7">
                                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Especialidad</label>
                                     <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} name="specialty_id">
-
+                                        <option value="Null">Elegir</option>
                                         {specialtyBeta.map(e => {
                                             return <option value={e.id}>{e.title}</option>
                                         })
