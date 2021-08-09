@@ -84,7 +84,7 @@ function ComponentCreatePost() {
 
                     <div className="flex justify-center">
                         <div className="flex">
-                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">CreatePost</h1>
+                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">Crear Post</h1>
                         </div>
                     </div>
 
@@ -130,7 +130,7 @@ function ComponentCreatePost() {
                             <input className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Area de trabajo" name="workingArea" onChange={handleChangeArray} autoComplete="off" />
                         </div>
                         <div className="grid grid-cols-1">
-                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Pagos</label>
+                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Precio Base</label>
                             <input className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Input 3" name="priceRange" onChange={handleChangeArray} />
                         </div>
                     </div>
