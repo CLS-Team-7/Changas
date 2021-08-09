@@ -94,7 +94,7 @@ function ComponentCategory() {
                                     <option>Elegir</option>
                                     {
                                         category?.map(e => {
-                                            return <option value={e.id} >{e.title}</option>
+                                            return <option value={e.id} key={e.id}>{e.title}</option>
                                         })
                                     }
 

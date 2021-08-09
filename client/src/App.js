@@ -1,4 +1,3 @@
-
 import { Route, Switch } from 'react-router-dom';
 import Home from './views/Home'
 import './App.css';
@@ -14,7 +13,6 @@ import  Profile from './views/Profile/Profile';
 import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
-import UserCreationTest from './Components/UserCreationTest/UserCreationTest';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 
@@ -46,9 +44,6 @@ function App() {
         </Route>
         <Route exact path='/myproftest'>
           <MyProfile />
-        </Route>
-        <Route exact path='/createusertest'>
-          <UserCreationTest />
         </Route>
         <Route path='/profile/:id'>
           <Profile />
