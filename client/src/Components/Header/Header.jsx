@@ -239,12 +239,6 @@ function Header() {
                   Panel Admin
                 </Link>
                 <Link
-                  to="/createpost"
-                  className="  text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Create Post
-                </Link>
-                <Link
                   to="/faq"
                   className=" text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
@@ -258,16 +252,16 @@ function Header() {
                 </Link>
               </div>
               {isAuthenticated === true ? (
-                <div className="pt-4 pb-3 border-t border-gray-700">
-                  <div className="flex content-center items-center px-5">
-                    <div className="flex-shrink-0">
+                <div className="pt-4 pb-3 border-t border-gray-700 ">
+                  <div className="flex content-center items-center px-5 flex-col ">
+                    <div className="flex-shrink-0 ">
                       <img
                         className="h-10 w-10 rounded-full"
                         src={user.picture}
                         alt=""
                       />
                     </div>
-                    <div className="ml-3 flex flex-col content-center ">
+                    <div className=" flex flex-col content-center mx-auto">
                       <div className="text-base font-medium leading-none text-white pb-2">
                         {user.name}
                       </div>
