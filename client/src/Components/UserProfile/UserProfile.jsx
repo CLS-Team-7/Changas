@@ -32,7 +32,7 @@ function UserProfile() {
                 <dl>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Nombre Completo</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.firstName} {user.lastName}</dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.firstName ? user.firstName : user.given_name} {user.lastName ? user.lastName : user.family_name}</dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Telefono</dt>
@@ -43,7 +43,7 @@ function UserProfile() {
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.email}</dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Salary expectation</dt>
+                        <dt className="text-sm font-medium text-gray-500">Precio base/Salario</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -55,7 +55,7 @@ function UserProfile() {
                         </dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Attachments</dt>
+                        <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
                                 {
@@ -67,7 +67,7 @@ function UserProfile() {
                                             </div>
                                             <div className="ml-4 flex-shrink-0">
                                                 <Link to={`/posts/${e.id}`} className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                    Ir al Post
+                                                    Ir a la publicación
                                                 </Link>
                                             </div>
                                         </li>
