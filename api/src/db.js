@@ -41,12 +41,14 @@ Order.belongsTo(User, { foreignKey: 'user_id' }); // una orden pertenece a un un
 User.hasMany(Question, { foreignKey: 'user_id' }); // un usuario puede tener/hacer muchas preguntas (a posteos)
 Question.belongsTo(User, { foreignKey: 'user_id' }) // una pregunta pertenece a un unico usuario
 
+// EN PRINCIPIO ESTA BIEN PERO SERIA REDUNDANTE, post tiene ya el id de este usuario que responde
 User.hasMany(Answer, { foreignKey: 'user_id' }); // un usuario que publico un post puede tener/haber dado muchas respuestas 
 Answer.belongsTo(User, { foreignKey: 'user_id' }) // una respueta pertenece/fue dada a un unico usuario 
 
 User.hasMany(Review, { foreignKey: 'user_id' }); // un usuario puede tener/recibir muchas reviews
 Review.belongsTo(User, { foreignKey: 'user_id' }); // una review pertenece a un unico user
 
+// VER EL TEMA DE LOS ARCHIVOS ADJUNTOS CON SEQUELIZE-FILE Y COMO GUARDAR EL ID DEL USUARIO DENUNCIADO.
 User.hasMany(Report, { foreignKey: 'user_id' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
 Report.belongsTo(User, { foreignKey: 'user_id' }); // un report pertenece/fue hecho por un unico user
 
