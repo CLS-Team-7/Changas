@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
     },
     complaint: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: false,
     },
     evidence: {
       type: DataTypes.STRING(255),
