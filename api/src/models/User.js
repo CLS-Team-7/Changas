@@ -10,8 +10,8 @@ module.exports = (sequelize) => {
         },
         sub: {
             type: DataTypes.STRING,
-            allowNull: true,
-            unique: true
+            allowNull: true, // VER CON LOS SEEDERS
+            // unique: true
         },
         given_name: {
             type: DataTypes.STRING(255),
@@ -49,9 +49,10 @@ module.exports = (sequelize) => {
             allowNull: false,
             unique: true
         },
-        // email_verified: {
-        //     type: DataTypes.BOOLEAN,
-        // },
+        email_verified: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
         summary: {
             type: DataTypes.TEXT,
             allowNull: true,
@@ -99,6 +100,8 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             // allowNull: false,
             defaultValue: false
-        }
+        },
+        // deberia guardarse aca cualquier informacion de mercadopago. VER CON LA API COMO FUNCIONA 
+        // Ejemplo: un user quiere ofrecer servicios y cobrar por mercadopago, su info de mercado pago (solo la relevante), se tiene que guardar aca.
     });
 };

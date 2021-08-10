@@ -19,7 +19,6 @@ module.exports = (sequelize) => {
 		question: {
 			type: DataTypes.STRING(220),
 			allowNull: false,
-			unique: true
 		}
 	});
 };

@@ -36,8 +36,8 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    priceRange: { // basePrice
-      type: DataTypes.ARRAY(DataTypes.STRING),
+    priceRange: { // MODIFICAR A basePrice LUEGO DE TENER EL OK DESDE EL FRONT
+      type: DataTypes.ARRAY(DataTypes.STRING), // esto tiene que ser solo un string en el futuro, ver con el formulario de post del front, como manda la info
       allowNull: true,
     },
     timeRange: {
@@ -57,10 +57,10 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: true
     },
-    // acceptsQuestions : {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true,
-    //   defaultValue: false
-    // }
+    acceptsQuestions: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      // defaultValue: false // depende el tipo de post. El formulario controlario deberia reflejar esto
+    }
   });
 };

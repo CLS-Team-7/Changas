@@ -8,25 +8,20 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
+        user_id: {			// id del user que pregunta
+            type: DataTypes.UUID,
+            allowNull: false
         },
-        isActive: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true,
+        post_id: {
+            type: DataTypes.UUID,
+            allowNull: false
         },
-        paymentMethod: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        paymentState: {
-            type: DataTypes.ENUM("Done", "Pending"),
-            allowNull: false,
-        },
-        isComplete: {
+        isCompleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-        }
+        },
+        // ver si aca guardamos alguna id del pago de mercadopago
+        // cuando se paga, mercado pago deberia dar algun ide o algo que sirva para guardar en la DB,
+        // y mandar desde el front un dipatch(completeOrder) a Order para meter isCompleted en true.
     });
 };
