@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const axios = require("axios").default;
-const { User, Post, Order, Category, Specialty } = require("../db.js");
+const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review } = require("../db.js");
 
 async function getAllPosts(_req, res, next) {
   //http://localhost:3001/post -->

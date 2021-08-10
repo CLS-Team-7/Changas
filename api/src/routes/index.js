@@ -21,7 +21,12 @@ router.use('/user', routerUser);
 router.use('/post', routerPost);
 router.use('/category', routerCategory);
 router.use('/specialty', routerSpecialty);
-// router.use('/checkout', checkoutLogic);
+router.use('/order', routerOrder);
+router.use('/question', routerQuestion);
+router.use('/answer', routerAnswer);
+router.use('/review', routerReview);
+router.use('/report', routerReport);
+// router.use('/checkout', checkoutLogic); // ver primero lo de mercadopago
 // router.use('/admin', adminLogic);
 
 
