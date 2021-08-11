@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
+import SafeTips from '../SafeTips/SafeTips';
 
 
 function DetailComponent() {
@@ -58,6 +59,7 @@ function DetailComponent() {
                         </div>
                     </div>
                 </div>
+                <SafeTips />
             </div>
         </section>
     )
