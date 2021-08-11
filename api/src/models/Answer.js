@@ -8,9 +8,9 @@ module.exports = (sequelize) => {
 			allowNull: false,
 			primaryKey: true
 		},
-			question_id: { // rompe si ponemos este atributo y en las asociaciones una FK con el mismo nombre, pero porque no rompe en los otros???
-		 	type: DataTypes.INTEGER,
-		 	allowNull: false
+		question_id: { // rompe si ponemos este atributo y en las asociaciones una FK con el mismo nombre, pero porque no rompe en los otros???
+			type: DataTypes.INTEGER,
+			allowNull: false
 		},
 		user_id: {			// id del user que responde
 			type: DataTypes.UUID,

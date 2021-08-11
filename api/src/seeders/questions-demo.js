@@ -3,7 +3,7 @@ const questionsDB = [
     id: '10000',
     user_id: 'e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1',
     post_id: '50d01a97-5631-41f8-8949-aed8fb487b98',
-    question: 'Se puede entregar en mi casa?',
+    question: 'Trabajas a domicilio?',
   },
   {
     id: '10001',

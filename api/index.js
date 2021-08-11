@@ -72,7 +72,7 @@ conn.sync({ force: true }).then(() => {
         isActive: post.isActive
       });
     });
-    console.log('Precarga de posts en DB OK!')
+    console.log('Precarga de posts en DB OK!');
 
     await questionsDB.map(question => {
       Question.create({
@@ -82,7 +82,17 @@ conn.sync({ force: true }).then(() => {
         question: question.question
       });
     });
-    console.log('Precarga de categories en DB OK!')
+    console.log('Precarga de questions en DB OK!');
+
+    await answerDB.map(answer => {
+      Answer.create({
+        id: answer.id,
+        user_id: answer.user_id,
+        question_id: answer.question_id,
+        answer: answer.answer
+      });
+    });
+    console.log('Precarga de answers en DB OK!')
 
   });
 });
