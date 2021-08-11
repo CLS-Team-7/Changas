@@ -18,9 +18,9 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
-  ayudaofrecer = () => {
+  ayudaOfrecer = () => {
     const message = this.createChatBotMessage(
-      'Dirígete a la sección de post, ahora ve al botón crear post, necesitas llenar todos los campos según el tipo de publicación para realizar un posteo exitoso!!',
+      'Dirígete a la FAQ para conocer más detalles',
     )
     this.addMessageToState(message)
   }

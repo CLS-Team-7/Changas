@@ -4,9 +4,18 @@ import Chatbot from 'react-chatbot-kit'
 import config from '../Chatbot/config'
 import ActionProvider from '../Chatbot/ActionProvider'
 import MessageParser from '../Chatbot/MessageParser'
+import './Footer.css'
 
 function Footer() {
   return (
+    <div>
+        <div className="boot">
+          <Chatbot
+            config={config}
+            actionProvider={ActionProvider}
+            messageParser={MessageParser}
+          />
+        </div>
     <footer className="text-gray-600 body-font">
       <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
         <Link
@@ -30,15 +39,9 @@ function Footer() {
             @GitHub
           </Link>
         </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <Chatbot
-            config={config}
-            actionProvider={ActionProvider}
-            messageParser={MessageParser}
-          />
-        </span>
       </div>
     </footer>
+    </div>
   )
 }
 
