@@ -1,17 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
-import { searchByTitle } from "../../Redux/actions";
+import { postUser, searchByTitle } from "../../Redux/actions";
 
 
 function Header() {
+  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [title, setTitle] = useState("");
+  const [accountUser, setAccountUser] = useState()
   const dispatch = useDispatch();
   const { push } = useHistory();
+  //////////acount create//////////////
+  const userCreate = () => {
+    if (user) {
+      setAccountUser({
+        sub: user.sub,    // ver con auth0
+        given_name: user.given_name,
+        family_name: user.family_name,
+        email: user.email,
+        picture: user.picture,
+        ID_Passport: '0',
+        address: 'Sin Completar',
+        phoneNumber: 'Sin Completar',
+        summary: '0',
+        score: 0,
+        jobsDone: 0,
+        isVaccinated: true,
+        isNew: true,
+        isAdmin: false,
+        isActive: true,
+        age: 0
+      })
+    }
+  }
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      userCreate()
+      if (accountUser) {
+        dispatch(postUser(accountUser))
+      }
+    }
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +55,7 @@ function Header() {
     push(`/search/${title}`)
   }
 
-  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-800">
