@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    reportType: {
-      type: DataTypes.ENUM('Order', 'Post', 'User'),
+    reportSubject: {
+      type: DataTypes.ENUM('Order', 'Post', 'User', 'Question', 'Answer', 'Review'),
       allowNull: false,
     },
     user_id: { // ID DEL USUARIO QUE HACE EL REPORT

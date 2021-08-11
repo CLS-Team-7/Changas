@@ -48,10 +48,13 @@ Answer.belongsTo(User, { foreignKey: 'user_id' }) // una respueta pertenece/fue 
 User.hasMany(Review, { foreignKey: 'user_id' }); // un usuario puede tener/recibir muchas reviews
 Review.belongsTo(User, { foreignKey: 'user_id' }); // una review pertenece a un unico user
 
+
 // VER EL TEMA DE LOS ARCHIVOS ADJUNTOS CON SEQUELIZE-FILE Y COMO GUARDAR EL ID DEL USUARIO DENUNCIADO.
+
 // esta es many to many
 User.belongsToMany(Report, { through: 'user_id' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
-Report.belongsToMany(User, { through: 'user_id' }); // un report pertenece/fue hecho por un unico user
+Report.belongsToMany(User, { through: 'user_id' }); // un report puede tener siempre 2 users (denunciado y denunciante), caso de la denuncia de perfil directa
+
 
 // Asociaciones de Post (one-to-many)
 

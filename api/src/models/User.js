@@ -58,7 +58,7 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         picture: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT, // type.BLOB? Sequelize-file
             allowNull: true,
         },
         score: {
