@@ -15,6 +15,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import Basic from '../src/Components/Formik/Formik.jsx'
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
       <Switch>
         <Route path='/home'>
           <Home />
+        </Route>
+        <Route path='/formik'>
+          <Basic />
         </Route>
         <Route exact path='/'>
           <LandingPage />
