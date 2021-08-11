@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_FAVORITE_POST } from '../constants';
 import axios from 'axios';
 
 
@@ -114,5 +114,11 @@ export const sendSpecialty = (payload) => {
 export const getFilterType = (filterType) => {
     return (dispatch) => {
             dispatch({ type: GET_FILTER_TYPE, payload: filterType })
-    }  
+    };  
+}
+
+export const getFavoritePost = (favoritePost) => {
+    return (dispatch) => {
+            dispatch({ type: GET_FAVORITE_POST, payload: favoritePost })
+    };  
 }
