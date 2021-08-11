@@ -50,6 +50,7 @@ function Header() {
     e.preventDefault();
     setTitle("");
   }
+
   function handleClick() {
     dispatch(searchByTitle(title))
     push(`/search/${title}`)
