@@ -84,7 +84,7 @@ Specialty.belongsTo(Category, { foreignKey: 'category_id' }) // una especialidad
 
 
 //******* VER PROBLEMA CON LAS FK, question_id tiraba error de constraint por la FK, sin el atributo en el modelo no tira el error.
-Question.hasOne(Answer, { foreignKey: 'questionIdd' }); // una pregunta puede tener una respuesta
+Question.hasOne(Answer, { foreignKey: 'question_id' }); // una pregunta puede tener una respuesta
 Answer.belongsTo(Question) //, { foreignKey: 'question_id' }); // una respuesta puede tener una pregunta
 
 Question.hasMany(Report, { foreignKey: 'question_id' }); // una question puede tener muchos reports (la denuncian varios)

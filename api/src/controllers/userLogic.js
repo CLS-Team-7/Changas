@@ -39,9 +39,9 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 						{
 							model: Question,
 							include: [
-								{
-									model: Report
-								},
+								// {
+								// 	model: Report
+								// },
 								{
 									model: Answer,
 									include: {
@@ -164,7 +164,55 @@ async function createUser(req, res, next) {
 				jobsDone,
 				isVaccinated,
 				isAdmin,
-			}
+			},
+			include: [
+				{
+					model: Order,
+				},
+				{
+					model: Report,
+				},
+				{
+					model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+				},
+				{
+					model: Question, // las que el hizo a otros posts
+				},
+				// {
+				// 	model: Answer,
+				// },
+				{
+					model: Post,
+					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					include: [
+						{
+							model: Category,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Specialty,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+						},
+						{
+							model: Question,
+							include: [
+								// {
+								// 	model: Report
+								// },
+								{
+									model: Answer,
+									include: {
+										model: Report
+									}
+								}
+							]
+						},
+					]
+				}
+			]
 		});
 		return res.json(newUser);
 	} catch (err) {
