@@ -49,8 +49,9 @@ User.hasMany(Review, { foreignKey: 'user_id' }); // un usuario puede tener/recib
 Review.belongsTo(User, { foreignKey: 'user_id' }); // una review pertenece a un unico user
 
 // VER EL TEMA DE LOS ARCHIVOS ADJUNTOS CON SEQUELIZE-FILE Y COMO GUARDAR EL ID DEL USUARIO DENUNCIADO.
-User.hasMany(Report, { foreignKey: 'user_id' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
-Report.belongsTo(User, { foreignKey: 'user_id' }); // un report pertenece/fue hecho por un unico user
+// esta es many to many
+User.belongsToMany(Report, { through: 'user_id' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
+Report.belongsToMany(User, { through: 'user_id' }); // un report pertenece/fue hecho por un unico user
 
 // Asociaciones de Post (one-to-many)
 
@@ -76,10 +77,18 @@ Post.belongsTo(Specialty, { foreignKey: 'specialty_id' }); // un post puede tene
 Category.hasMany(Specialty, { foreignKey: 'category_id' }); // una categoria puede tener muchas especialidades (categoria 'Construccion' tiene especialidades 'albañil, capataz, etc')
 Specialty.belongsTo(Category, { foreignKey: 'category_id' }) // una especialidad puede tener una unica categoria
 
-//  Asociaciones Question, Answer (propias)
+//  Asociaciones Question, Answer (propias) y con Report.
 
+
+//******* VER PROBLEMA CON LAS FK, question_id tiraba error de constraint por la FK, sin el atributo en el modelo no tira el error.
 Question.hasOne(Answer, { foreignKey: 'question_id' }); // una pregunta puede tener una respuesta
 Answer.belongsTo(Question, { foreignKey: 'question_id' }); // una respuesta puede tener una pregunta
+
+Question.hasMany(Report, { foreignKey: 'question_id' }); // una question puede tener muchos reports (la denuncian varios)
+Report.belongsTo(Question, { foreignKey: 'question_id' }); // un report pertenece/apunta a una unica question
+
+Answer.hasMany(Report, { foreignKey: 'answer_id' }); // una answer puede tener muchos reports (la denuncian varios)
+Report.belongsTo(Answer, { foreignKey: 'answer_id' }); // un report pertenece/apunta a una unica answer
 
 // Asociaciones Order
 

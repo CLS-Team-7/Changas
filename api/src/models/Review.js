@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    user_id: { // ID DEL USUARIO QUIEN RECIBE EL REVIEW
+    user_id: { // ID DEL USUARIO QUIEN RECIBE EL REVIEW // como que no haria falta, el order ya tiene un post que tiene un user_id que es este
       type: DataTypes.UUID,
       allowNull: false
     },

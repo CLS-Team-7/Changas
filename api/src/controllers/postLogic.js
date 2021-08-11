@@ -20,13 +20,26 @@ async function getAllPosts(_req, res, next) {
           model: Specialty,
           attributes: ["id", "title"],
         },
+        {
+          model: Question,
+          include:
+          {
+            model: Answer,
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report // ESTO LO DEBERIA VER SOLO EL ADMIN
+        }
       ],
     });
     res.json(posts);
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function getPostByTitle(req, res, next) {
   //Falta validación con caracteres especiales
@@ -56,6 +69,19 @@ async function getPostByTitle(req, res, next) {
             model: Specialty,
             attributes: ["id", "title"],
           },
+          {
+            model: Question,
+            include:
+            {
+              model: Answer,
+            }
+          },
+          {
+            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+          },
+          {
+            model: Report
+          }
         ],
       });
       if (result.length === 0) {
@@ -68,13 +94,12 @@ async function getPostByTitle(req, res, next) {
     }
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function getPostById(req, res, next) {
   let { idPost } = req.params;
-  if (idPost && idPost.length === 36) {
-    // 36 es la length del UUID
+  if (idPost && idPost.length === 36) { // 36 es la length del UUID
     try {
       let result = await Post.findOne({
         where: {
@@ -94,6 +119,18 @@ async function getPostById(req, res, next) {
             model: Specialty,
             attributes: ["id", "title"],
           },
+          {
+            model: Question,
+            include: {
+              model: Answer,
+            }
+          },
+          {
+            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+          },
+          {
+            model: Report
+          }
         ],
       });
       if (result) res.json(result);
@@ -113,8 +150,8 @@ async function getPostById(req, res, next) {
     } catch (err) {
       next(err);
     }
-  }
-}
+  };
+};
 
 async function createPost(req, res, next) {
 

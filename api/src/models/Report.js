@@ -24,10 +24,10 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       allowNull: true
     },
-    // reportedUser_id : { // ID DEL USUARIO QUE HACE EL REPORT
-    //   type: DataTypes.UUID,
-    //   allowNull: true
-    // },
+    reportedUser_id: { // ID DEL USUARIO QUE HACE EL REPORT
+      type: DataTypes.UUID,
+      allowNull: true
+    },
     complaint: {
       type: DataTypes.STRING(255),
       allowNull: false,

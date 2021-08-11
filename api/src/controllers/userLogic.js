@@ -13,14 +13,14 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 					model: Report,
 				},
 				{
-					model: Review,
+					model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
 				},
 				{
-					model: Question
+					model: Question, // las que el hizo a otros posts
 				},
-				{
-					model: Answer,
-				},
+				// {
+				// 	model: Answer,
+				// },
 				{
 					model: Post,
 					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
@@ -32,6 +32,23 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 						{
 							model: Specialty,
 							attributes: ["id", "title"]
+						},
+						{
+							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+						},
+						{
+							model: Question,
+							include: [
+								{
+									model: Report
+								},
+								{
+									model: Answer,
+									include: {
+										model: Report
+									}
+								}
+							]
 						},
 					]
 				}
@@ -62,11 +79,11 @@ async function getUserById(req, res, next) {
 						model: Review,
 					},
 					{
-						model: Question
+						model: Question // preguntas que el hizo a otros posts
 					},
-					{
-						model: Answer,
-					},
+					// {
+					// 	model: Answer, // son las que el da en sus posts
+					// },
 					{
 						model: Post,
 						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
@@ -78,7 +95,24 @@ async function getUserById(req, res, next) {
 							{
 								model: Specialty,
 								attributes: ["id", "title"]
-							}
+							},
+							{
+								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+							},
+							{
+								model: Question, // preguntas que le hicieron a esos posts
+								include: [
+									{
+										model: Report
+									},
+									{
+										model: Answer, // respuestas que hizo a esas preguntas
+										include: {
+											model: Report
+										}
+									}
+								]
+							},
 						]
 					}
 				]
