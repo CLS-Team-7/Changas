@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 	sequelize.define('question', {
 		id: {
-			type: DataTypes.BIGINT,
+			type: DataTypes.INTEGER,
 			autoIncrement: true,
 			allowNull: false,
 			primaryKey: true

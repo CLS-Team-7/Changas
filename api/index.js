@@ -74,15 +74,15 @@ conn.sync({ force: true }).then(() => {
     });
     console.log('Precarga de posts en DB OK!')
 
-     await questionsDB.map(question => {
-       Question.create({
-         id: question.id,
-         post_id: question.id_post,
-         user_id: question.user_id,
-         question: question.question
-       });
-     });
-     console.log('Precarga de categories en DB OK!')
+    await questionsDB.map(question => {
+      Question.create({
+        id: question.id,
+        post_id: question.post_id,
+        user_id: question.user_id,
+        question: question.question
+      });
+    });
+    console.log('Precarga de categories en DB OK!')
 
   });
 });

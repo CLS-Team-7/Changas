@@ -61,8 +61,8 @@ Report.belongsToMany(User, { through: 'user_id' }); // un report puede tener sie
 Post.hasMany(Order, { foreignKey: 'post_id' }); // un post puede tener muchas ordenes (muchos usuarios quieren contratar ese post)
 Order.belongsTo(Post, { foreignKey: 'post_id' }); // una orden pertenece a un unico post
 
-Post.hasMany(Question, { foreignKey: 'idPost' }); // un post puede tener muchas preguntas
-Question.belongsTo(Post, { foreignKey: 'idPost' }); // una pregunta puede pertencer a un unico post
+Post.hasMany(Question, { foreignKey: 'post_id' }); // un post puede tener muchas preguntas
+Question.belongsTo(Post, { foreignKey: 'post_id' }); // una pregunta puede pertencer a un unico post
 
 Post.hasMany(Report, { foreignKey: 'post_id' }); // un post puede tener muchos reports (varios usuarios lo denuncian)
 Report.belongsTo(Post, { foreignKey: 'post_id' });
