@@ -1,6 +1,16 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 
+const validate = (values, prorps) => {
+    const errors = {};
+
+    if (!values.age) {
+      errors.age = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.age)) {
+      errors.age = 'Invalid email address';
+    }
+    return errors;
+}
 const Basic = () => (
   <div>
     <h1>Sign Up</h1>
@@ -37,7 +47,7 @@ const Basic = () => (
         <label htmlFor="isVaccinated">Estas vacunado</label>
         <Field id="isVaccinated" name="isVaccinated" placeholder="" />
 
-        <button type="submit">Submit</button>
+        <button onClick={validate} type="submit">Submit</button>
       </Form>
     </Formik>
   </div>
