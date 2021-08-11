@@ -14,11 +14,13 @@ function Header() {
   const [accountUser, setAccountUser] = useState()
   const dispatch = useDispatch();
   const { push } = useHistory();
+
+
   //////////acount create//////////////
   const userCreate = () => {
     if (user) {
       setAccountUser({
-        sub: user.sub,    // ver con auth0
+        sub: user.sub,
         given_name: user.given_name,
         family_name: user.family_name,
         email: user.email,
@@ -37,6 +39,8 @@ function Header() {
       })
     }
   }
+
+
   useEffect(() => {
     if (isAuthenticated === true) {
       userCreate()
