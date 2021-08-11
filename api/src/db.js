@@ -61,8 +61,8 @@ Report.belongsToMany(User, { through: 'user_id' }); // un report puede tener sie
 Post.hasMany(Order, { foreignKey: 'post_id' }); // un post puede tener muchas ordenes (muchos usuarios quieren contratar ese post)
 Order.belongsTo(Post, { foreignKey: 'post_id' }); // una orden pertenece a un unico post
 
-Post.hasMany(Question, { foreignKey: 'post_id' }); // un post puede tener muchas preguntas
-Question.belongsTo(Post, { foreignKey: 'post_id' }); // una pregunta puede pertencer a un unico post
+Post.hasMany(Question, { foreignKey: 'idPost' }); // un post puede tener muchas preguntas
+Question.belongsTo(Post, { foreignKey: 'idPost' }); // una pregunta puede pertencer a un unico post
 
 Post.hasMany(Report, { foreignKey: 'post_id' }); // un post puede tener muchos reports (varios usuarios lo denuncian)
 Report.belongsTo(Post, { foreignKey: 'post_id' });
@@ -84,8 +84,8 @@ Specialty.belongsTo(Category, { foreignKey: 'category_id' }) // una especialidad
 
 
 //******* VER PROBLEMA CON LAS FK, question_id tiraba error de constraint por la FK, sin el atributo en el modelo no tira el error.
-Question.hasOne(Answer, { foreignKey: 'question_id' }); // una pregunta puede tener una respuesta
-Answer.belongsTo(Question, { foreignKey: 'question_id' }); // una respuesta puede tener una pregunta
+Question.hasOne(Answer, { foreignKey: 'id_question' }); // una pregunta puede tener una respuesta
+Answer.belongsTo(Question, { foreignKey: 'id_question' }); // una respuesta puede tener una pregunta
 
 Question.hasMany(Report, { foreignKey: 'question_id' }); // una question puede tener muchos reports (la denuncian varios)
 Report.belongsTo(Question, { foreignKey: 'question_id' }); // un report pertenece/apunta a una unica question

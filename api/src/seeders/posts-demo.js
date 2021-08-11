@@ -1,5 +1,6 @@
 const postsDB = [
   {
+    id: '50d01a97-5631-41f8-8949-aed8fb487b98',
     user_id: "e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1",
     typePost: "Offer",
     title: "Se ofrecen servicios de albañileria y relacionados",
