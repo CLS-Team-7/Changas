@@ -3,7 +3,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import FilterComponent from '../FilterComponent/FilterComponent'
 
 
 function TestPosts() {
@@ -196,7 +195,7 @@ function TestPosts() {
                     </>
                 )}
             </Disclosure>
-            <FilterComponent />
+           
 
         </div>
     )
