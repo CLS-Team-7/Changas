@@ -89,6 +89,7 @@ conn.sync({ force: true }).then(() => {
         id: answer.id,
         user_id: answer.user_id,
         question_id: answer.question_id,
+        questionIdd: answer.questionIdd,
         answer: answer.answer
       });
     });
