@@ -6,15 +6,15 @@ class ActionProvider {
   }
   saludar = () => {
     const message = this.createChatBotMessage(
-      'Mucho gusto.! En que le puedo ayudar?',
+      'Mucho gusto.! En que le puedo ayudar?'
     );
-    this.addMessageToState(message)
+    this.addMessageToState(message);
   }
 
   addMessageToState = (message) => {
     this.setState((prevState) => ({
       ...prevState,
-      messages: [...prevState.messages, message],
+      messages: [...prevState.messages, message]
     }))
   }
 }

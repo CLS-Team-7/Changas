@@ -17,8 +17,8 @@ function Home() {
             <ContainerPostCard />
             <Chatbot
                 config={config}
-                messageParser={MessageParser}
                 actionProvider={ActionProvider}
+                messageParser={MessageParser}
       />
             <Footer />
         </div>
