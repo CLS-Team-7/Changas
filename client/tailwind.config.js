@@ -13,7 +13,8 @@ module.exports = {
         Alloy__Orange: '#CA6702',
         Mahogany: '#BB3E03',
         Rufous: '#AE2012',
-        Ruby__Red: '#9B2226'
+        Ruby__Red: '#9B2226',
+        Gris__Claro: '#E4E4E4'
       }
     },
   },
