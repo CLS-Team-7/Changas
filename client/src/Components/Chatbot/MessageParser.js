@@ -1,15 +1,17 @@
 class MessageParser {
-    constructor(ActionProvider, state) {
-      this.ActionProvider = ActionProvider;
-      this.state = state;
+    constructor(actionProvider) {
+      this.actionProvider = actionProvider;
     }
   
     parse(message) {
-      const lowercase = message.toLowerCase();
 
-      if (lowercase.includes("Hola")) {
-          this.ActionProvider.saludar();
+      const lowercase = message.toLowerCase();
+      if (lowercase.includes("hola")) {
+          this.actionProvider.saludar();
       }
+      if (lowercase.includes("ofrecer")) {
+        this.actionProvider.ayudaofrecer();
+    }
     }
   }
   

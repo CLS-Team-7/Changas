@@ -3,10 +3,7 @@ import ContainerPostCard from '../Components/ContainerPostCard/ContainerPostCard
 import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import FilterButton from '../Components/FilterButton/FilterButton'
-import Chatbot from 'react-chatbot-kit'
-import config from '../Components/Chatbot/config'
-import ActionProvider from '../Components/Chatbot/ActionProvider'
-import MessageParser from '../Components/Chatbot/MessageParser'
+
 
 
 function Home() {
@@ -15,11 +12,6 @@ function Home() {
             <Header />
             <FilterButton />
             <ContainerPostCard />
-            <Chatbot
-                config={config}
-                actionProvider={ActionProvider}
-                messageParser={MessageParser}
-      />
             <Footer />
         </div>
     )

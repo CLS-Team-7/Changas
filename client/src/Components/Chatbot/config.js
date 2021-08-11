@@ -1,10 +1,10 @@
 import { createChatBotMessage } from 'react-chatbot-kit'
 
 const config = {
-  botName: 'Asistente de Changas',
+  botName: "Changas",
   initialMessages: [
     createChatBotMessage(
-      `Hola! Gracias por visitarnos, en que te puedo ayudar?`,
+      "Hola! Gracias por visitarnos, en que le puedo ayudar?",
     ),
   ],
 }
