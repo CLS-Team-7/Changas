@@ -4,6 +4,8 @@ const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
 const specialtiesDB = require('./src/seeders/specialties-demo');
+const answerDB = require('./src/seeders/answers-demo');
+const ordersDB = require('./src/seeders/orders-demo');
 const db = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 
