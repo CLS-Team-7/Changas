@@ -6,11 +6,13 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0, User } from "@auth0/auth0-react";
 import { getUserAdmin, postUser, searchByTitle } from "../../Redux/actions";
+import { v4 as uuidv4 } from 'uuid'
 
 var Logeado = false
-
+var dni = uuidv4()
 
 function Header() {
+  console.log(dni)
   const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [title, setTitle] = useState("");
   const [accountUser, setAccountUser] = useState({
@@ -19,7 +21,7 @@ function Header() {
     family_name: user?.family_name,
     email: user?.email,
     picture: user?.picture,
-    ID_Passport: '0',
+    ID_Passport: dni,
     address: 'Sin Completar',
     phoneNumber: 'Sin Completar',
     summary: '0',
