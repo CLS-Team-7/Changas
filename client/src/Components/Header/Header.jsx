@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useAuth0 } from "@auth0/auth0-react";
-import { postUser, searchByTitle } from "../../Redux/actions";
+import { useAuth0, User } from "@auth0/auth0-react";
+import { getUserAdmin, postUser, searchByTitle } from "../../Redux/actions";
 
 var Logeado = false
+
+
 function Header() {
   const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [title, setTitle] = useState("");
@@ -35,12 +37,18 @@ function Header() {
 
   //////////acount create//////////////
   if (Logeado === false) {
-    if (accountUser.sub !== undefined) {
+    if (accountUser.sub !== undefined && accountUser.given_name !== undefined) {
       dispatch(postUser(accountUser))
       Logeado = true
     }
   }
 
+  const handleClickLogout = () => {
+    logout()
+    Logeado = false
+  }
+  //////////////////////////////////////
+  /////////////// usermenu/////////////
 
 
 
@@ -78,12 +86,15 @@ function Header() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
-                      <Link
-                        to="/admin"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        Panel Admin
-                      </Link>
+                      {
+
+                        <Link
+                          to="/admin"
+                          className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          Panel Admin
+                        </Link>
+                      }
                       <Link
                         to="/faq"
                         className=" text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -225,7 +236,7 @@ function Header() {
                                       />
                                     </svg>
                                     <button
-                                      onClick={() => logout()}
+                                      onClick={handleClickLogout}
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Desconectarse
@@ -372,7 +383,7 @@ function Header() {
                         />
                       </svg>
                       <button
-                        onClick={() => logout()}
+                        onClick={handleClickLogout}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Desconectarse
