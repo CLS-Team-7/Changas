@@ -117,6 +117,8 @@ async function getPostById(req, res, next) {
 }
 
 async function createPost(req, res, next) {
+
+  // faltaria hacer un update del User donde se actualiza el isNew a false, una vez que crea el primer post
   let {
     user_id,
     typePost,

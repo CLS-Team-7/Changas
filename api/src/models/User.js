@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
         },
         sub: {
             type: DataTypes.STRING,
-            allowNull: true, // VER CON LOS SEEDERS
+            allowNull: true, // esta en true por los seeders, pero deberia ser false y unique true. VER si conviene agregarlo en los SEEDERS
             // unique: true
         },
         given_name: {
@@ -98,7 +98,7 @@ module.exports = (sequelize) => {
         },
         isDataComplete: {
             type: DataTypes.BOOLEAN,
-            // allowNull: false,
+            allowNull: false,
             defaultValue: false
         },
         // deberia guardarse aca cualquier informacion de mercadopago. VER CON LA API COMO FUNCIONA 
