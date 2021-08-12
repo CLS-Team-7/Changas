@@ -15,6 +15,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
 
 
@@ -64,8 +65,11 @@ function App() {
         </Route>
         
         *//////////////////**Panel User*/
-        <Route path='/user'>
+        <Route  exact path='/user'>
           <PanelUser/>
+        </Route>
+        <Route exact path='/user/config'>
+          <PanerUserConfig/>
         </Route>
 
         <Route path='/faq'>
