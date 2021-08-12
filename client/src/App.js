@@ -15,6 +15,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import Reviews from './Components/Review/Review';
 
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
         <SearchView />
         </Route>
         <Route exact path='/testposts'>
-          <TestPosts />
+          <Reviews />
         </Route>
         <Route exact path='/myproftest'>
           <MyProfile />
