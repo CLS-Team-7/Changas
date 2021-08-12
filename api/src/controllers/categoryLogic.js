@@ -2,7 +2,7 @@ const { Op } = require("sequelize")
 const axios = require('axios').default;
 const { User, Post, Order, Category, Specialty } = require('../db.js');
 
-async function getAllCategories (_req, res, next) { //http://localhost:3001/category --> 
+async function getAllCategories(_req, res, next) { //http://localhost:3001/category --> 
 	try {
 		let categories = await Category.findAll({
 			attributes: ["id", "title"],
@@ -17,8 +17,7 @@ async function getAllCategories (_req, res, next) { //http://localhost:3001/cate
 	};
 };
 
-
-async function getCategoryById (req, res, next) {
+async function getCategoryById(req, res, next) {
 	let { idCategory } = req.params;
 	if (idCategory && !isNaN(idCategory) && parseInt(idCategory) > 0) { // chequea que el id sea exista, sea un numero, y sea mayor a 0
 		try {
@@ -46,8 +45,7 @@ async function getCategoryById (req, res, next) {
 	}
 };
 
-
-async function createCategory (req, res, next) {
+async function createCategory(req, res, next) {
 	let { title } = req.body;
 	try {
 		let newCategory = await Category.create({
@@ -59,7 +57,7 @@ async function createCategory (req, res, next) {
 	};
 };
 
-async function updateCategory (req, res, next) {
+async function updateCategory(req, res, next) {
 	let { idCategory } = req.params;
 	let changes = req.body;
 	try {
@@ -84,7 +82,7 @@ async function updateCategory (req, res, next) {
 	};
 };
 
-async function deleteCategory (req, res, next) {
+async function deleteCategory(req, res, next) {
 	let { idCategory } = req.params;
 	try {
 		let existsInDB = await Category.findByPk(idCategory);
@@ -107,11 +105,6 @@ async function deleteCategory (req, res, next) {
 		next(err);
 	};
 };
-
-
-
-
-
 
 
 module.exports = {

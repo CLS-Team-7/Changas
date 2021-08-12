@@ -10,8 +10,8 @@ module.exports = (sequelize) => {
         },
         sub: {
             type: DataTypes.STRING,
-            allowNull: true,
-            unique: true
+            allowNull: true, // esta en true por los seeders, pero deberia ser false y unique true. VER si conviene agregarlo en los SEEDERS
+            // unique: true
         },
         given_name: {
             type: DataTypes.STRING(255),
@@ -49,15 +49,16 @@ module.exports = (sequelize) => {
             allowNull: false,
             unique: true
         },
-        // email_verified: {
-        //     type: DataTypes.BOOLEAN,
-        // },
+        email_verified: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
         summary: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
         picture: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT, // type.BLOB? Sequelize-file
             allowNull: true,
         },
         score: {
@@ -97,8 +98,10 @@ module.exports = (sequelize) => {
         },
         isDataComplete: {
             type: DataTypes.BOOLEAN,
-            // allowNull: false,
+            allowNull: false,
             defaultValue: false
-        }
+        },
+        // deberia guardarse aca cualquier informacion de mercadopago. VER CON LA API COMO FUNCIONA 
+        // Ejemplo: un user quiere ofrecer servicios y cobrar por mercadopago, su info de mercado pago (solo la relevante), se tiene que guardar aca.
     });
 };
