@@ -19,7 +19,7 @@ async function getAllSpecialties(_req, res, next) { //http://localhost:3001/spec
 
 async function getSpecialtyById(req, res, next) {
 	let { idSpecialty } = req.params;
-	if (idSpecialty && !isNaN(idSpecialty) && parseInt(idSpecialty) > 0) { // chequea que el id sea exista, sea un numero, y sea mayor a 0
+	if (idSpecialty && !isNaN(idSpecialty) && parseInt(idSpecialty) > 0) { // chequea que el id exista, que sea un numero, y que sea mayor a 0
 		try {
 			let result = await Specialty.findOne({
 				where: {
@@ -89,7 +89,7 @@ async function deleteSpecialty(req, res, next) {
 			return res.json(existsInDB);
 		} else {
 			throw new Error('ERROR 500: El puesto no fue encontrado en la base de datos (ID no existe).');
-		}
+		};
 	} catch (err) {
 		next(err);
 	};
