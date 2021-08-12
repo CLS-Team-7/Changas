@@ -1,7 +1,7 @@
 const questionsDB = [
   {
     id: '10000',
-    user_id: 'e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1',
+    user_id: '880fb38e-b686-49d7-8002-a3542d106d36',
     post_id: '50d01a97-5631-41f8-8949-aed8fb487b98',
     question: 'Trabajas a domicilio?',
   },

@@ -42,8 +42,8 @@ User.hasMany(Question, { foreignKey: 'user_id' }); // un usuario puede tener/hac
 Question.belongsTo(User, { foreignKey: 'user_id' }) // una pregunta pertenece a un unico usuario
 
 // EN PRINCIPIO ESTA BIEN PERO SERIA REDUNDANTE, post tiene ya el id de este usuario que responde
-User.hasMany(Answer, { foreignKey: 'user_id' }); // un usuario que publico un post puede tener/haber dado muchas respuestas 
-Answer.belongsTo(User, { foreignKey: 'user_id' }) // una respueta pertenece/fue dada a un unico usuario 
+// User.hasMany(Answer, { foreignKey: 'user_id' }); // un usuario que publico un post puede tener/haber dado muchas respuestas 
+// Answer.belongsTo(User, { foreignKey: 'user_id' }) // una respueta pertenece/fue dada a un unico usuario 
 
 User.hasMany(Review, { foreignKey: 'user_id' }); // un usuario puede tener/recibir muchas reviews
 Review.belongsTo(User, { foreignKey: 'user_id' }); // una review pertenece a un unico user
@@ -84,8 +84,6 @@ Specialty.belongsTo(Category, { foreignKey: 'category_id' }) // una especialidad
 
 
 //******* VER PROBLEMA CON LAS FK, question_id tiraba error de constraint por la FK, sin el atributo en el modelo no tira el error.
-Question.hasOne(Answer, { foreignKey: 'question_id' }); // una pregunta puede tener una respuesta
-Answer.belongsTo(Question) //, { foreignKey: 'question_id' }); // una respuesta puede tener una pregunta
 
 Question.hasMany(Report, { foreignKey: 'question_id' }); // una question puede tener muchos reports (la denuncian varios)
 Report.belongsTo(Question, { foreignKey: 'question_id' }); // un report pertenece/apunta a una unica question
@@ -100,6 +98,22 @@ Review.belongsTo(Order, { foreignKey: 'order_id' }); // una review pertenece a u
 
 Order.hasOne(Report, { foreignKey: 'order_id' }); // una order puede tener un unico report (quien quiere contratar - quien genero la order - puede reportar al usuario por cualquier abuso/incumpliento)
 Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenecer a una unica order (es un unico usuario quien genera la order, y es el exclusivamente que puede hacer un report)
+
+
+
+
+//************ aca esta el conflicto*/
+
+
+// en principio, la relacion es hasOne, pero con hasMany funciona y no rompe
+
+Question.hasMany(Answer, { foreignKey: "question_id" }); // una pregunta puede tener una respuesta
+// Answer.belongsTo(Question); // una respuesta puede tener una pregunta
+
+
+//************ */
+
+
 
 
 

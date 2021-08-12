@@ -87,9 +87,8 @@ conn.sync({ force: true }).then(() => {
     await answerDB.map(answer => {
       Answer.create({
         id: answer.id,
-        user_id: answer.user_id,
+        // user_id: answer.user_id,
         question_id: answer.question_id,
-        questionIdd: answer.questionIdd,
         answer: answer.answer
       });
     });

@@ -9,6 +9,12 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
 
+	try {
+		let answers = await Answer.findAll();
+		res.json(answers);
+	} catch (err) {
+		next(err)
+	}
 });
 
 

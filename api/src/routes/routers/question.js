@@ -9,6 +9,16 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
 
+	try {
+		let questions = await Question.findAll({
+			include: {
+				model: Answer
+			}
+		})
+		res.json(questions);
+	} catch (err) {
+		next(err)
+	}
 });
 
 
