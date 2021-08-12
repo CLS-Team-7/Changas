@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Chatbot from 'react-chatbot-kit'
 import config from '../Chatbot/config'
@@ -6,30 +6,31 @@ import ActionProvider from '../Chatbot/ActionProvider'
 import MessageParser from '../Chatbot/MessageParser'
 import './Footer.css'
 
-function Footer() {
-  return (
-    <div >
+function Button() {
 
-        <div className="container w-1/5 mx-auto">
-        <div className="m-2 rounded shadow-2xl overflow-hidden">
-          <div className="group outline-none  accordion-section" tabIndex="1">
-            <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
-              <div className="group-focus:text-orange transition ease duration-500">
-                *
-              </div>
-            </div>
-            <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
-            <div className="bot">
-          <Chatbot
-            config={config}
-            actionProvider={ActionProvider}
-            messageParser={MessageParser}
-          />
-        </div>
-            </div>
-          </div>
-          </div>
-          </div>
+  return(
+    <div className="boot">
+      <Chatbot
+        config={config}
+        actionProvider={ActionProvider}
+        messageParser={MessageParser}
+      />
+    </div>
+    )
+}
+
+function Footer() {
+    let [click, setClick] = useState(false);
+
+    let handleClick = (e) => {
+      setClick(!click)
+    }
+    return (
+  <div >
+  <div className='boot-Container'>
+    <button className='btn' onClick={handleClick}>Chango</button>
+    {click? <Button/>: null}
+  </div>
     <footer className="text-gray-600 body-font">
       <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
         <Link
