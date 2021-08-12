@@ -396,7 +396,7 @@ function Header() {
               ) : (
                 <button
                   onClick={() => loginWithRedirect()}
-                  className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                  className="bg-Alloy__Orange text-white text-base font-bold py-1 px-4 border-b-4 border-Mahogany hover:border-Ruby__Red rounded transform hover:scale-105 transition duration-300 mb-3"
                 >
                   Entrar/Registrar
                 </button>
