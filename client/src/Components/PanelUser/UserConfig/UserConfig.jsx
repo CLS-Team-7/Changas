@@ -21,6 +21,7 @@ function UserConfig() {
           phoneNumber: "",
           summary: "",
           isVaccinated: false,
+          isComplete: true
         }}
         onSubmit={async (values, actions) => {
           setNewInfo(JSON.stringify(values, null, 2));
