@@ -107,8 +107,13 @@ Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenec
 
 // en principio, la relacion es hasOne, pero con hasMany funciona y no rompe
 
-Question.hasMany(Answer, { foreignKey: "question_id" }); // una pregunta puede tener una respuesta
-// Answer.belongsTo(Question); // una respuesta puede tener una pregunta
+Question.hasMany(Answer, {
+
+  foreignKey: "question_id",
+  constraints: false
+
+}); // una pregunta puede tener una respuesta
+Answer.belongsTo(Question, { foreignKey: "question_id", constraints: false }); // una respuesta puede tener una pregunta
 
 
 //************ */

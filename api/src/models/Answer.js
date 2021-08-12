@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
 		question_id: { // rompe si ponemos este atributo y en las asociaciones una FK con el mismo nombre, pero porque no rompe en los otros???
 			type: DataTypes.INTEGER,
 			// allowNull: false
-			foreignKey: true
+			// foreignKey: true
 		},
 		answer: {
 			type: DataTypes.STRING(220),
