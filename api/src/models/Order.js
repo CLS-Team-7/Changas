@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
         },
-        user_id: {			// id del user que pregunta
+        user_id: {			// id del user que crea la orden
             type: DataTypes.UUID,
             allowNull: false
         },
