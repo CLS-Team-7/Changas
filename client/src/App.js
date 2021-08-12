@@ -17,12 +17,16 @@ import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
+import CheckoutTest from './CheckoutTest';
 
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path='/testcheckout'>
+          <CheckoutTest />
+        </Route>
         <Route path='/home'>
           <Home />
         </Route>

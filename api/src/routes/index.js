@@ -8,6 +8,7 @@ const router = Router();
 
 // const landingLogic = require('../controllers/landingLogic');
 // const homeLogic = require('../controllers/homeLogic');
+const mercadopago = require('./routers/mercadoPago');
 const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
 const routerOrder = require('./routers/order');
@@ -32,6 +33,7 @@ router.use('/question', routerQuestion);
 router.use('/answer', routerAnswer);
 router.use('/review', routerReview);
 router.use('/report', routerReport);
+router.use('/mercadopago', mercadopago);
 // router.use('/checkout', checkoutLogic); // ver primero lo de mercadopago
 // router.use('/admin', adminLogic);
 
