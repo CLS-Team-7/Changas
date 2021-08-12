@@ -1,28 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useAuth0 } from "@auth0/auth0-react";
-import { searchByTitle } from "../../Redux/actions";
+import { useAuth0, User } from "@auth0/auth0-react";
+import { getUserAdmin, postUser, searchByTitle } from "../../Redux/actions";
+import { v4 as uuidv4 } from 'uuid'
 
+var Logeado = false
+var dni = uuidv4()
 
 function Header() {
+  console.log(dni)
+  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [title, setTitle] = useState("");
+  const [accountUser, setAccountUser] = useState({
+    sub: user?.sub,
+    given_name: user?.given_name,
+    family_name: user?.family_name,
+    email: user?.email,
+    picture: user?.picture,
+    ID_Passport: dni,
+    address: 'Sin Completar',
+    phoneNumber: 'Sin Completar',
+    summary: '0',
+    score: 0,
+    jobsDone: 0,
+    isVaccinated: true,
+    isNew: true,
+    isAdmin: false,
+    isActive: true,
+    age: 0
+  })
   const dispatch = useDispatch();
   const { push } = useHistory();
+
+
+  //////////acount create//////////////
+  if (Logeado === false) {
+    if (accountUser.sub !== undefined && accountUser.given_name !== undefined) {
+      dispatch(postUser(accountUser))
+      Logeado = true
+    }
+  }
+
+  const handleClickLogout = () => {
+    logout()
+    Logeado = false
+  }
+  //////////////////////////////////////
+  /////////////// usermenu/////////////
+
+
 
   function handleSubmit(e) {
     e.preventDefault();
     setTitle("");
   }
+
   function handleClick() {
     dispatch(searchByTitle(title))
     push(`/search/${title}`)
   }
 
-  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-800">
@@ -46,12 +88,15 @@ function Header() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
-                      <Link
-                        to="/admin"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        Panel Admin
-                      </Link>
+                      {
+
+                        <Link
+                          to="/admin"
+                          className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          Panel Admin
+                        </Link>
+                      }
                       <Link
                         to="/faq"
                         className=" text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -95,7 +140,7 @@ function Header() {
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Profile dropdown */}
                     {isAuthenticated === true ? (
-                      <Menu as="div" className="ml-3 relative">
+                      <Menu as="div" className="ml-3 relative ">
                         {({ open }) => (
                           <>
                             <div>
@@ -120,7 +165,7 @@ function Header() {
                             >
                               <Menu.Items
                                 static
-                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 "
                               >
                                 <div className="mt-3 px-2 space-y-1">
                                   <div className="flex flex-row justify-start items-center place-content-center">
@@ -141,7 +186,7 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to="/myproftest"
+                                      to="/user"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Mi Perfil
@@ -171,7 +216,7 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to=""
+                                      to="/user/config"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Configuracion
@@ -193,7 +238,7 @@ function Header() {
                                       />
                                     </svg>
                                     <button
-                                      onClick={() => logout()}
+                                      onClick={handleClickLogout}
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Desconectarse
@@ -340,7 +385,7 @@ function Header() {
                         />
                       </svg>
                       <button
-                        onClick={() => logout()}
+                        onClick={handleClickLogout}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Desconectarse
@@ -351,7 +396,7 @@ function Header() {
               ) : (
                 <button
                   onClick={() => loginWithRedirect()}
-                  className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                  className="bg-Alloy__Orange text-white text-base font-bold py-1 px-4 border-b-4 border-Mahogany hover:border-Ruby__Red rounded transform hover:scale-105 transition duration-300 mb-3"
                 >
                   Entrar/Registrar
                 </button>

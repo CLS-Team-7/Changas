@@ -16,6 +16,7 @@
     "daisyui": "^1.11.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "formik": "^2.2.9",
     "install": "^0.13.0",
     "npm": "^7.20.3",
     "react": "^17.0.1",
@@ -28,6 +29,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
