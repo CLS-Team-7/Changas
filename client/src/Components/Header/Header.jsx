@@ -140,7 +140,7 @@ function Header() {
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Profile dropdown */}
                     {isAuthenticated === true ? (
-                      <Menu as="div" className="ml-3 relative">
+                      <Menu as="div" className="ml-3 relative ">
                         {({ open }) => (
                           <>
                             <div>
@@ -165,7 +165,7 @@ function Header() {
                             >
                               <Menu.Items
                                 static
-                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 "
                               >
                                 <div className="mt-3 px-2 space-y-1">
                                   <div className="flex flex-row justify-start items-center place-content-center">
@@ -186,7 +186,7 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to="/myproftest"
+                                      to="/user"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Mi Perfil
@@ -216,7 +216,7 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to=""
+                                      to="/user/config"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Configuracion
