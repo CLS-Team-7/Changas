@@ -9,7 +9,7 @@ import './Footer.css'
 function Footer() {
   return (
     <div>
-        <div className="boot">
+        <div className="bot">
           <Chatbot
             config={config}
             actionProvider={ActionProvider}

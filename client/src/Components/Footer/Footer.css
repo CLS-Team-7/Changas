@@ -3,9 +3,9 @@
   bottom: 0;
 }
 
-.boot {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-right: 50px;
+.bot {
+  box-shadow: 5px black;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
 }
