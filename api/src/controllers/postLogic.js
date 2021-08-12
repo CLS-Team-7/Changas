@@ -22,9 +22,11 @@ async function getAllPosts(_req, res, next) {
         },
         {
           model: Question,
+          attributes: { exclude: ["post_id"] },
           include:
           {
             model: Answer,
+            attributes: { exclude: ["question_id"] },
           }
         },
         {
@@ -71,9 +73,11 @@ async function getPostByTitle(req, res, next) {
           },
           {
             model: Question,
+            attributes: { exclude: ["post_id"] },
             include:
             {
               model: Answer,
+              attributes: { exclude: ["question_id"] },
             }
           },
           {
@@ -90,8 +94,8 @@ async function getPostByTitle(req, res, next) {
         );
       } else {
         return res.json(result);
-      }
-    }
+      };
+    };
   } catch (err) {
     next(err);
   };
@@ -121,8 +125,10 @@ async function getPostById(req, res, next) {
           },
           {
             model: Question,
+            attributes: { exclude: ["post_id"] },
             include: {
               model: Answer,
+              attributes: { exclude: ["question_id"] },
             }
           },
           {
@@ -140,8 +146,8 @@ async function getPostById(req, res, next) {
         );
     } catch (err) {
       next(err);
-    }
-  }
+    };
+  };
   if (idPost && idPost.length !== 36) {
     try {
       throw new TypeError(
@@ -189,8 +195,8 @@ async function createPost(req, res, next) {
     res.json(newPost);
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function updatePost(req, res, next) {
   let { idPost } = req.params;
@@ -207,8 +213,8 @@ async function updatePost(req, res, next) {
     res.json(updatedPost); // se envia el post modificado al front
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function deletePost(req, res, next) {
   let { idPost } = req.params;
@@ -226,11 +232,11 @@ async function deletePost(req, res, next) {
       throw new Error(
         "ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe)."
       );
-    }
+    };
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 module.exports = {
   getAllPosts,

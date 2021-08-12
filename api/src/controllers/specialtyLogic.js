@@ -2,7 +2,7 @@ const { Op } = require("sequelize")
 const axios = require('axios').default;
 const { User, Post, Order, Category, Specialty } = require('../db.js');
 
-async function getAllSpecialties (_req, res, next) { //http://localhost:3001/specialty --> 
+async function getAllSpecialties(_req, res, next) { //http://localhost:3001/specialty --> 
 	try {
 		let specialties = await Specialty.findAll({
 			attributes: ["id", "title"],
@@ -17,7 +17,7 @@ async function getAllSpecialties (_req, res, next) { //http://localhost:3001/spe
 	};
 };
 
-async function getSpecialtyById (req, res, next) {
+async function getSpecialtyById(req, res, next) {
 	let { idSpecialty } = req.params;
 	if (idSpecialty && !isNaN(idSpecialty) && parseInt(idSpecialty) > 0) { // chequea que el id sea exista, sea un numero, y sea mayor a 0
 		try {
@@ -45,8 +45,7 @@ async function getSpecialtyById (req, res, next) {
 	}
 };
 
-
-async function createSpecialty (req, res, next) {
+async function createSpecialty(req, res, next) {
 	let { category_id, title } = req.body;
 	try {
 		let newSpecialty = await Specialty.create({
@@ -60,7 +59,7 @@ async function createSpecialty (req, res, next) {
 	};
 };
 
-async function updateSpecialty (req, res, next) {
+async function updateSpecialty(req, res, next) {
 	let { idSpecialty } = req.params;
 	let changes = req.body;
 	try {
@@ -77,7 +76,7 @@ async function updateSpecialty (req, res, next) {
 	};
 };
 
-async function deleteSpecialty (req, res, next) {
+async function deleteSpecialty(req, res, next) {
 	let { idSpecialty } = req.params;
 	try {
 		let existsInDB = await Specialty.findByPk(idSpecialty);

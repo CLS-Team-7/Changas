@@ -18,9 +18,6 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 				{
 					model: Question, // las que el hizo a otros posts
 				},
-				// {
-				// 	model: Answer,
-				// },
 				{
 					model: Post,
 					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
@@ -39,9 +36,6 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 						{
 							model: Question,
 							include: [
-								// {
-								// 	model: Report
-								// },
 								{
 									model: Answer,
 									include: {
@@ -79,11 +73,11 @@ async function getUserById(req, res, next) {
 						model: Review,
 					},
 					{
-						model: Question // preguntas que el hizo a otros posts
+						model: Question, // preguntas que el hizo a otros posts
+						include: {
+							model: Report
+						}
 					},
-					// {
-					// 	model: Answer, // son las que el da en sus posts
-					// },
 					{
 						model: Post,
 						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
@@ -102,9 +96,6 @@ async function getUserById(req, res, next) {
 							{
 								model: Question, // preguntas que le hicieron a esos posts
 								include: [
-									{
-										model: Report
-									},
 									{
 										model: Answer, // respuestas que hizo a esas preguntas
 										include: {
@@ -145,9 +136,9 @@ async function createUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
 
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
-
+	//console.log(req.body)
 	try {
-		let [newUser, isCreated] = await User.findOrCreate({
+		let [newUser, isCreated] = await User.create({
 			where: {
 				sub,
 				given_name,
@@ -157,7 +148,7 @@ async function createUser(req, res, next) {
 				address,
 				phoneNumber,
 				email,
-				email_verified,
+				//email_verified,
 				summary,
 				picture,
 				score,
@@ -165,54 +156,54 @@ async function createUser(req, res, next) {
 				isVaccinated,
 				isAdmin,
 			},
-			include: [
-				{
-					model: Order,
-				},
-				{
-					model: Report,
-				},
-				{
-					model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
-				},
-				{
-					model: Question, // las que el hizo a otros posts
-				},
-				// {
-				// 	model: Answer,
-				// },
-				{
-					model: Post,
-					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-					include: [
-						{
-							model: Category,
-							attributes: ["id", "title"]
-						},
-						{
-							model: Specialty,
-							attributes: ["id", "title"]
-						},
-						{
-							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-						},
-						{
-							model: Question,
-							include: [
-								// {
-								// 	model: Report
-								// },
-								{
-									model: Answer,
-									include: {
-										model: Report
-									}
-								}
-							]
-						},
-					]
-				}
-			]
+			// include: [
+			// 	{
+			// 		model: Order,
+			// 	},
+			// 	{
+			// 		model: Report,
+			// 	},
+			// 	{
+			// 		model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+			// 	},
+			// 	{
+			// 		model: Question, // las que el hizo a otros posts
+			// 	},
+			// 	// {
+			// 	// 	model: Answer,
+			// 	// },
+			// 	{
+			// 		model: Post,
+			// 		attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+			// 		include: [
+			// 			{
+			// 				model: Category,
+			// 				attributes: ["id", "title"]
+			// 			},
+			// 			{
+			// 				model: Specialty,
+			// 				attributes: ["id", "title"]
+			// 			},
+			// 			// {
+			// 			// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+			// 			// },
+			// 			{
+			// 				model: Question,
+			// 				include: [
+			// 					// {
+			// 					// 	model: Report
+			// 					// },
+			// 					{
+			// 						model: Answer,
+			// 						// include: {
+			// 						// 	model: Report
+			// 						// }
+			// 					}
+			// 				]
+			// 			},
+			// 		]
+			// 	}
+			// ]
 		});
 		return res.json(newUser);
 	} catch (err) {

@@ -54,7 +54,6 @@ conn.sync({ force: true }).then(() => {
     });
     console.log('Precarga de users en DB OK!');
 
-
     await postsDB.map(post => {
       Post.create({
         id: post.id,
@@ -87,7 +86,6 @@ conn.sync({ force: true }).then(() => {
     await answerDB.map(answer => {
       Answer.create({
         id: answer.id,
-        // user_id: answer.user_id,
         question_id: answer.question_id,
         answer: answer.answer
       });
