@@ -15,6 +15,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import PanelUser from './views/PanelUser/PanelUser';
 
 
 function App() {
@@ -62,7 +63,11 @@ function App() {
           <AdminCreatePost/>
         </Route>
         
-        *//////////////////** */
+        *//////////////////**Panel User*/
+        <Route path='/user'>
+          <PanelUser/>
+        </Route>
+
         <Route path='/faq'>
           <FAQ/>
         </Route>
