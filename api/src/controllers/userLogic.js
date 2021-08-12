@@ -132,7 +132,7 @@ async function getUserById(req, res, next) {
 // 	// a desarrollar para demo 1?
 // };
 
-async function createUser(req, res, next) {
+async function createAndCompleteUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
 
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
@@ -176,9 +176,9 @@ async function createUser(req, res, next) {
 								model: Specialty,
 								attributes: ["id", "title"]
 							},
-							// {
-							// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-							// },
+							{
+								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+							},
 							{
 								model: Question,
 								include: [
@@ -214,54 +214,46 @@ async function createUser(req, res, next) {
 				isVaccinated,
 				isAdmin,
 			},
-			// include: [ // cuando se crea, esto nunca va a devolverse aunque este escrito aca, porque recien se le asigna un ID. Tendria que hacer un nuevo User.findOne con el id creado
-			// 	{
-			// 		model: Order,
-			// 	},
-			// 	{
-			// 		model: Report,
-			// 	},
-			// 	{
-			// 		model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
-			// 	},
-			// 	{
-			// 		model: Question, // las que el hizo a otros posts
-			// 	},
-			// 	// {
-			// 	// 	model: Answer,
-			// 	// },
-			// 	{
-			// 		model: Post,
-			// 		attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-			// 		include: [
-			// 			{
-			// 				model: Category,
-			// 				attributes: ["id", "title"]
-			// 			},
-			// 			{
-			// 				model: Specialty,
-			// 				attributes: ["id", "title"]
-			// 			},
-			// 			// {
-			// 			// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-			// 			// },
-			// 			{
-			// 				model: Question,
-			// 				include: [
-			// 					// {
-			// 					// 	model: Report
-			// 					// },
-			// 					{
-			// 						model: Answer,
-			// 						// include: {
-			// 						// 	model: Report
-			// 						// }
-			// 					}
-			// 				]
-			// 			},
-			// 		]
-			// 	}
-			// ]
+			include: [ // cuando se crea, esto nunca va a devolverse aunque este escrito aca, porque recien se le asigna un ID. Tendria que hacer un nuevo User.findOne con el id creado
+				{
+					model: Order,
+				},
+				{
+					model: Report,
+				},
+				{
+					model: Review,
+				},
+				{
+					model: Question, // las que el hizo a otros posts
+				},
+				{
+					model: Post,
+					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					include: [
+						{
+							model: Category,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Specialty,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+						},
+						{
+							model: Question,
+							include: {
+								model: Answer,
+								include: {
+									model: Report
+								}
+							}
+						},
+					]
+				}
+			]
 		});
 		return res.json(newUser); // se envia el user recien creado con pocos datos al front
 	} catch (err) {
@@ -284,20 +276,20 @@ async function updateUser(req, res, next) {
 			where: {
 				id: idUser
 			},
-			// include: {
-			// 	model: Post,
-			// 	attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-			// 	include: [
-			// 		{
-			// 			model: Category,
-			// 			attributes: ["id", "title"]
-			// 		},
-			// 		{
-			// 			model: Specialty,
-			// 			attributes: ["id", "title"]
-			// 		}
-			// 	]
-			// }
+			include: {
+				model: Post,
+				attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+				include: [
+					{
+						model: Category,
+						attributes: ["id", "title"]
+					},
+					{
+						model: Specialty,
+						attributes: ["id", "title"]
+					}
+				]
+			}
 		});
 		res.json(updatedUser); // se envia el user modificado al front
 	} catch (err) {
@@ -342,7 +334,7 @@ async function deleteUser(req, res, next) {
 module.exports = {
 	getAllUser,
 	getUserById,
-	createUser,
+	createAndCompleteUser,
 	updateUser,
 	deleteUser
 };
