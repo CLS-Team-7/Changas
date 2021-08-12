@@ -26,7 +26,7 @@ function Footer() {
   }
   return (
     <div>
-      <div className="boot-Container">
+      <div className="boot-Container shadow-2xl ">
         <button className="btn" onClick={handleClick}>
           Chango
         </button>

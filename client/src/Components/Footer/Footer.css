@@ -1,17 +1,13 @@
 .FooterElement {
   position: fixed;
-  
 }
 
-
-
-.boot-Container{
+.boot-Container {
   display: flex;
   flex-direction: column-reverse;
   position: fixed;
   bottom: 10px;
   right: 10px;
-
 }
 
 .btn {
@@ -20,13 +16,11 @@
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
-  padding: 5px;
+  padding: 10px;
   text-decoration: none;
-  top: 10px
 }
 
 .btn:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
-
