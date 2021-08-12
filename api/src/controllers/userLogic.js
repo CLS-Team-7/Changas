@@ -30,9 +30,9 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 							model: Specialty,
 							attributes: ["id", "title"]
 						},
-						{
-							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-						},
+						// {
+						// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+						// },
 						{
 							model: Question,
 							include: [
@@ -138,7 +138,65 @@ async function createUser(req, res, next) {
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
 	//console.log(req.body)
 	try {
-		let [newUser, isCreated] = await User.create({
+		if (req.body.id) { // si se manda un id por body, entonces el usuario ya estaba creado y se va a actualizar los datos
+			let { id } = req.body;
+			let changes = req.body;
+			changes = { ...changes, isDataComplete: true } // como el usuario ya existia y ahora manda datos completos, se setea isDataComplete a true
+			await User.update(changes, { // actualiza datos
+				where: {
+					id: id
+				}
+			});
+			let updatedUser = await User.findOne({ // busca nuevo usuario actualizado y lo devuelve con todas las tablas asociadas
+				where: {
+					id,
+				},
+				include: [
+					{
+						model: Order,
+					},
+					{
+						model: Report,
+					},
+					{
+						model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+					},
+					{
+						model: Question, // las que el hizo a otros posts
+					},
+					{
+						model: Post,
+						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+						include: [
+							{
+								model: Category,
+								attributes: ["id", "title"]
+							},
+							{
+								model: Specialty,
+								attributes: ["id", "title"]
+							},
+							// {
+							// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+							// },
+							{
+								model: Question,
+								include: [
+									{
+										model: Answer,
+										include: {
+											model: Report
+										}
+									}
+								]
+							},
+						]
+					},
+				]
+			});
+			return res.json(updatedUser); // se envia el user modificado al front
+		};
+		let [newUser, isCreated] = await User.findOrCreate({ // en el login con google, crea el usuario con pocos datos (given_name, family_name, sub, email...)
 			where: {
 				sub,
 				given_name,
@@ -156,7 +214,7 @@ async function createUser(req, res, next) {
 				isVaccinated,
 				isAdmin,
 			},
-			// include: [
+			// include: [ // cuando se crea, esto nunca va a devolverse aunque este escrito aca, porque recien se le asigna un ID. Tendria que hacer un nuevo User.findOne con el id creado
 			// 	{
 			// 		model: Order,
 			// 	},
@@ -205,7 +263,7 @@ async function createUser(req, res, next) {
 			// 	}
 			// ]
 		});
-		return res.json(newUser);
+		return res.json(newUser); // se envia el user recien creado con pocos datos al front
 	} catch (err) {
 		next(err);
 	};
