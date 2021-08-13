@@ -2,7 +2,7 @@ const { Op } = require("sequelize")
 const axios = require('axios').default;
 const { User, Post, Order, Category, Specialty, Review } = require('../db.js');
 
-async function getAllReviews (_req, res, next) { //http://localhost:3001/review --> 
+async function getAllReviews (_req, res, next) { //http://localhost:3001/review -->
     try {
 		let reviews = await Review.findAll({
             attributes: { exclude: ["user_id"] },
@@ -10,13 +10,13 @@ async function getAllReviews (_req, res, next) { //http://localhost:3001/review 
         {
           model: User,
           attributes: ["id", "given_name", "family_name", "fullName", "picture"],
-        }, 
-     ], 
+        },
+     ],
     });
     res.json(reviews);
 } catch (err) {
   next(err); 
-    }  
+    } 
 }
 
 async function getReviewById (req, res, next) {
@@ -43,9 +43,41 @@ async function getReviewById (req, res, next) {
 	} 
 };
 
+async function createReview (req, res, next) {
+	let { rating, description } = req.body;
+	try {
+		let newReview = await Review.create({
+			rating,
+            description
+		});
+		res.json(newReview);
+	} catch (err) {
+		next(err);
+	};
+};
 
+async function updateReview (req, res, next) {
+	let { idReview } = req.params;
+	let {rating,description} = req.body;
+	try {
+		await Review.update(
+            {
+                rating:rating,
+                description:description
+            }, {
+			where: {
+				review_id: idReview
+			}
+		});
+		res.status(200).send('Review modificado');
+	} catch (err) {
+		next(err);
+	};
+};
 
 module.exports = {
 	getAllReviews,
     getReviewById,
+    createReview,
+    updateReview
 };
