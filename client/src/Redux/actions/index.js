@@ -96,6 +96,15 @@ export const postUser = (payload) => {
             })
     };
 }
+export const UpdateUserData = (payload) => {
+    return (dispatch) => {
+        axios.put("http://localhost:3001/user", payload)
+        .then(r => r.data)
+            .then(data => {
+                dispatch({ type: USER_LOGIN, payload: data })
+            })
+    };
+}
 
 export const sendPost = (payload) => {
     return (dispatch) => {
