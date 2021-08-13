@@ -15,7 +15,7 @@ async function getAllReviews (_req, res, next) { //http://localhost:3001/review 
     });
     res.json(reviews);
 } catch (err) {
-  next(err);
+  next(err); 
     }  
 }
 
@@ -25,9 +25,9 @@ async function getReviewById (req, res, next) {
 		try {
 			let result = await Review.findOne({
 				where: {
-					id: idReview
+					review_id: idReview
 				},
-				attributes: ["review_id", "rating", "decription"],
+				attributes: ["review_id", "rating", "description"],
 			});
 			if (result) res.json(result);
 			else throw new Error('ERROR 500: El review buscado no fue encontrado en la base de datos (ID no existe)');
@@ -42,6 +42,8 @@ async function getReviewById (req, res, next) {
 		} 
 	} 
 };
+
+
 
 module.exports = {
 	getAllReviews,
