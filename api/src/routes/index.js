@@ -14,6 +14,7 @@ const routerPost = require('./routers/post');
 // const adminLogic = require('../controllers/adminLogic');
 const routerCategory = require('./routers/category');
 const routerSpecialty = require('./routers/specialty');
+const routerReview = require('./routers/review');
 
 // router.use('/', landingLogic);
 // router.use('/home', homeLogic);
@@ -21,6 +22,7 @@ router.use('/user', routerUser);
 router.use('/post', routerPost);
 router.use('/category', routerCategory);
 router.use('/specialty', routerSpecialty);
+router.use('/review', routerReview);
 // router.use('/checkout', checkoutLogic);
 // router.use('/admin', adminLogic);
 
