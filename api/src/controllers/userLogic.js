@@ -134,22 +134,90 @@ async function getUserById(req, res, next) {
 
 async function createUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
-
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
 	//console.log(req.body)
 	try {
-		if (req.body.id) { // si se manda un id por body, entonces el usuario ya estaba creado y se va a actualizar los datos
-			let { id } = req.body;
-			let changes = req.body;
-			changes = { ...changes, isDataComplete: true } // como el usuario ya existia y ahora manda datos completos, se setea isDataComplete a true
+		let [newUser, isCreated] = await User.findOrCreate({ // en el login con google, crea el usuario con pocos datos (given_name, family_name, sub, email...)
+			where: {
+				sub,
+				given_name,
+				family_name,
+				age,
+				ID_Passport,
+				address,
+				phoneNumber,
+				email,
+				//email_verified,
+				summary,
+				picture,
+				score,
+				jobsDone,
+				isVaccinated,
+				isAdmin,
+			},
+			include: [
+				// cuando se crea, esto nunca va a devolverse aunque este escrito aca, porque la primera vez se le asigna un ID y ahi crea las FK. 
+				// Tendria que hacer un nuevo User.findOne con el id creado para que traiga las tablas vinculada, creo
+				{
+					model: Order,
+				},
+				{
+					model: Report,
+				},
+				{
+					model: Review,
+				},
+				{
+					model: Question, // las que el hizo a otros posts
+				},
+				{
+					model: Post,
+					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					include: [
+						{
+							model: Category,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Specialty,
+							attributes: ["id", "title"]
+						},
+						{
+							model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+						},
+						{
+							model: Question,
+							include: {
+								model: Answer,
+								include: {
+									model: Report
+								}
+							}
+						},
+					]
+				}
+			]
+		});
+		return res.json(newUser); // se envia el user recien creado con pocos datos al front
+	} catch (err) {
+		next(err);
+	};
+};
+
+async function updateUser(req, res, next) {
+	//let { sub } = req.body;
+	let changes = req.body;
+	changes = { ...changes, isDataComplete: true } // como el usuario ya existia y ahora manda datos completos, se setea isDataComplete a true
+	if (req.body.sub) {
+		try {
 			await User.update(changes, { // actualiza datos
 				where: {
-					id: id
+					sub: req.body.sub
 				}
 			});
 			let updatedUser = await User.findOne({ // busca nuevo usuario actualizado y lo devuelve con todas las tablas asociadas
 				where: {
-					id,
+					sub: req.body.sub,
 				},
 				include: [
 					{
@@ -176,9 +244,9 @@ async function createUser(req, res, next) {
 								model: Specialty,
 								attributes: ["id", "title"]
 							},
-							// {
-							// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-							// },
+							{
+								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+							},
 							{
 								model: Question,
 								include: [
@@ -195,114 +263,51 @@ async function createUser(req, res, next) {
 				]
 			});
 			return res.json(updatedUser); // se envia el user modificado al front
+		} catch (err) {
+			next(err);
 		};
-		let [newUser, isCreated] = await User.findOrCreate({ // en el login con google, crea el usuario con pocos datos (given_name, family_name, sub, email...)
-			where: {
-				sub,
-				given_name,
-				family_name,
-				age,
-				ID_Passport,
-				address,
-				phoneNumber,
-				email,
-				//email_verified,
-				summary,
-				picture,
-				score,
-				jobsDone,
-				isVaccinated,
-				isAdmin,
-			},
-			// include: [ // cuando se crea, esto nunca va a devolverse aunque este escrito aca, porque recien se le asigna un ID. Tendria que hacer un nuevo User.findOne con el id creado
-			// 	{
-			// 		model: Order,
-			// 	},
-			// 	{
-			// 		model: Report,
-			// 	},
-			// 	{
-			// 		model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
-			// 	},
-			// 	{
-			// 		model: Question, // las que el hizo a otros posts
-			// 	},
-			// 	// {
-			// 	// 	model: Answer,
-			// 	// },
-			// 	{
-			// 		model: Post,
-			// 		attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-			// 		include: [
-			// 			{
-			// 				model: Category,
-			// 				attributes: ["id", "title"]
-			// 			},
-			// 			{
-			// 				model: Specialty,
-			// 				attributes: ["id", "title"]
-			// 			},
-			// 			// {
-			// 			// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-			// 			// },
-			// 			{
-			// 				model: Question,
-			// 				include: [
-			// 					// {
-			// 					// 	model: Report
-			// 					// },
-			// 					{
-			// 						model: Answer,
-			// 						// include: {
-			// 						// 	model: Report
-			// 						// }
-			// 					}
-			// 				]
-			// 			},
-			// 		]
-			// 	}
-			// ]
-		});
-		return res.json(newUser); // se envia el user recien creado con pocos datos al front
-	} catch (err) {
-		next(err);
-	};
-};
-
-async function updateUser(req, res, next) {
-	let { idUser } = req.params;
-	let changes = req.body;
-	// contemplar el caso de hacer un if completo si isDataComplete viene en false, o directamente poner siempre en isDataComplete en true, venga lo que venga.
-	// habria que en tal caso manipular lo que viene por req.body y hacer desctructuring.
-	try {
-		await User.update(changes, {
-			where: {
-				id: idUser
-			}
-		});
-		let updatedUser = await User.findOne({ // await User.findByPk(idUser);
-			where: {
-				id: idUser
-			},
-			// include: {
-			// 	model: Post,
-			// 	attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-			// 	include: [
-			// 		{
-			// 			model: Category,
-			// 			attributes: ["id", "title"]
-			// 		},
-			// 		{
-			// 			model: Specialty,
-			// 			attributes: ["id", "title"]
-			// 		}
-			// 	]
-			// }
-		});
-		res.json(updatedUser); // se envia el user modificado al front
-	} catch (err) {
-		next(err);
-	};
+	} else {
+		try {
+			throw new Error("ERROR 404: El sub del usuario no esta siendo enviado por req.body") // a ser modificado
+		} catch (err) {
+			next(err);
+		};
+	}
+	// update previo, que filtraba por id
+	//
+	// let { idUser } = req.params;
+	// let changes = req.body;
+	// // contemplar el caso de hacer un if completo si isDataComplete viene en false, o directamente poner siempre en isDataComplete en true, venga lo que venga.
+	// // habria que en tal caso manipular lo que viene por req.body y hacer desctructuring.
+	// try {
+	// 	await User.update(changes, {
+	// 		where: {
+	// 			id: idUser
+	// 		}
+	// 	});
+	// 	let updatedUser = await User.findOne({ // await User.findByPk(idUser);
+	// 		where: {
+	// 			id: idUser
+	// 		},
+	// 		include: {
+	// 			model: Post,
+	// 			attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+	// 			include: [
+	// 				{
+	// 					model: Category,
+	// 					attributes: ["id", "title"]
+	// 				},
+	// 				{
+	// 					model: Specialty,
+	// 					attributes: ["id", "title"]
+	// 				}
+	// 			]
+	// 		}
+	// 	});
+	// 	res.json(updatedUser); // se envia el user modificado al front
+	// } catch (err) {
+	// 	next(err);
+	// };
 };
 
 async function deleteUser(req, res, next) {
