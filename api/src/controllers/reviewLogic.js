@@ -5,13 +5,16 @@ const { User, Post, Order, Category, Specialty, Review } = require('../db.js');
 async function getAllReviews (_req, res, next) { //http://localhost:3001/review -->
     try {
 		let reviews = await Review.findAll({
-            attributes: { exclude: ["user_id"] },
-      include: [
-        {
-          model: User,
-          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
-        },
-     ],
+            // attributes: { exclude: ["user_id"] },
+			include : [
+				{
+				model : User,
+				attributes: ['id', 'given_name','family_name', 'fullName']
+			}, {
+				model: Post,
+				attributes: ['id', 'title']
+			}
+		]
     });
     res.json(reviews);
 } catch (err) {
@@ -28,6 +31,15 @@ async function getReviewById (req, res, next) {
 					review_id: idReview
 				},
 				attributes: ["review_id", "rating", "description"],
+				include : [
+					{
+					model : User,
+					attributes: ['id', 'given_name','family_name', 'fullName']
+				}, {
+					model: Post,
+					attributes: ['id', 'title']
+				}
+			]
 			});
 			if (result) res.json(result);
 			else throw new Error('ERROR 500: El review buscado no fue encontrado en la base de datos (ID no existe)');

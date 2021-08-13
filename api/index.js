@@ -9,7 +9,7 @@ const db = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
@@ -29,15 +29,6 @@ conn.sync({ force: false }).then(() => {
       });
     });
     console.log('Precarga de specialties en DB OK!')
-
-    await reviewsDB.map(review => {
-      Review.create({
-        review_id: review.review_id,
-        rating: review.rating, 
-        description: review.description 
-      });
-    });
-    console.log('Precarga de reviews en DB OK!')
 
     await usersDB.map(user => {
       User.create({ 
@@ -80,5 +71,15 @@ conn.sync({ force: false }).then(() => {
     });
     console.log('Precarga de posts en DB OK!')
 
+    await reviewsDB.map(review => {
+      Review.create({
+        review_id: review.review_id,
+        rating: review.rating,
+        description: review.description,
+        user_id: review.user_id,
+        post_id: review.post_id,
+      });
+    });
+    console.log('Precarga de reviews en DB OK!')
   });
 });

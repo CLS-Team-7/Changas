@@ -48,8 +48,8 @@ Post.belongsTo(Specialty, { foreignKey: 'specialty_id' }); // un post puede tene
 Category.hasMany(Specialty, { foreignKey: 'category_id' }); // una categoria puede tener muchas especialidades (categoria 'Construccion' tiene especialidades 'albañil, capataz, etc')
 Specialty.belongsTo(Category, { foreignKey: 'category_id' }); // una especialidad puede tener una unica categoria
 
-Post.hasMany(Review, {foreignKey: 'user_id'}); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
-Review.belongsTo(Post, {foreignKey: 'user_id'}); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
+Post.hasMany(Review, {foreignKey: 'post_id', constraints:false}); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
+Review.belongsTo(Post, {foreignKey: 'post_id', constraints:false}); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
 
 User.hasMany(Review, {foreignKey: 'user_id'}); // un usuario puede realizar varias reviews **REVISAR FOREIGN_KEY
 Review.belongsTo(User, {foreignKey: 'user_id'}) // un review pertenece a un unico usuario **REVISAR FOREIGN_KEY

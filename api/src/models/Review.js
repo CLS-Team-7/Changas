@@ -18,6 +18,14 @@ module.exports = (sequelize) => {
         description:{
             type: DataTypes.TEXT,
             allowNull: true,
+        },
+        user_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
+        post_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
         }
     });
 };
