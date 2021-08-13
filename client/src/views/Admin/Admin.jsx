@@ -18,7 +18,7 @@ function Admin() {
                         <div className="bg-white marginauto dark:bg-gray-800 h-full NotFoundContent min-h-screen">
                             <div className="text-center w-full mx-auto   sm:px-6 lg:py-16 lg:px-8 z-20">
                                 <h2 className="text-3xl font-extrabold text-red-600 dark:text-white sm:text-4xl">
-                                    <span className="block font-extrabold text-Rich__Black">Error 404</span>
+                                    <span className="block font-extrabold text-Rich__Black">Error 401</span>
                                     <span className="block text-red-600">No estas Autorizado</span>
                                 </h2>
                                 <div className="lg:mt-0 lg:flex-shrink-0">
