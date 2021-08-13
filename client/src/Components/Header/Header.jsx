@@ -26,7 +26,7 @@ function Header() {
     summary: '0',
     score: 0,
     jobsDone: 0,
-    isVaccinated: true,
+    isVaccinated: false,
     isNew: true,
     isAdmin: false,
     isActive: true,
