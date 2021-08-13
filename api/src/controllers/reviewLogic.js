@@ -39,8 +39,8 @@ async function getReviewById (req, res, next) {
 			throw new TypeError('ERROR 404: ID inválido (ID no es un tipo INTEGER válido).') // automaticamente rechaza un error, sin buscar por la DB
 		} catch (err) {
 			next(err);
-		} 
-	} 
+		}
+	}
 };
 
 async function createReview (req, res, next) {
@@ -75,9 +75,24 @@ async function updateReview (req, res, next) {
 	};
 };
 
+async function deleteReview (req,res) {
+    let { idReview } = req.params;
+    try{
+    	Review.destroy({
+        	where:{
+            	review_id: idReview
+        	}
+    	});
+    	res.status(200).send('Review eliminado')
+	}catch (err) {
+    	next(err);
+	}
+};
+
 module.exports = {
 	getAllReviews,
     getReviewById,
     createReview,
-    updateReview
+    updateReview,
+	deleteReview
 };
