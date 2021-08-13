@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN } from '../constants';
 import axios from 'axios';
 
 
@@ -90,6 +90,10 @@ export const searchByTitleClean = () => {
 export const postUser = (payload) => {
     return (dispatch) => {
         axios.post("http://localhost:3001/user", payload)
+        .then(r => r.data)
+            .then(data => {
+                dispatch({ type: USER_LOGIN, payload: data })
+            })
     };
 }
 
