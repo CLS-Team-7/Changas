@@ -4,15 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useAuth0, User } from "@auth0/auth0-react";
-import { getUserAdmin, postUser, searchByTitle } from "../../Redux/actions";
-import { v4 as uuidv4 } from 'uuid'
+import { useAuth0 } from "@auth0/auth0-react";
+import { postUser, searchByTitle } from "../../Redux/actions";
 
 var Logeado = false
-var dni = uuidv4()
+
 
 function Header() {
-  console.log(dni)
+
   const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [title, setTitle] = useState("");
   const [accountUser, setAccountUser] = useState({
@@ -21,7 +20,7 @@ function Header() {
     family_name: user?.family_name,
     email: user?.email,
     picture: user?.picture,
-    ID_Passport: dni,
+    ID_Passport: user?.sub,
     address: 'Sin Completar',
     phoneNumber: 'Sin Completar',
     summary: '0',
@@ -44,6 +43,7 @@ function Header() {
       Logeado = true
     }
   }
+
 
   const handleClickLogout = () => {
     logout()

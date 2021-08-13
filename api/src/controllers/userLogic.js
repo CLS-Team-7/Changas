@@ -200,7 +200,60 @@ async function createUser(req, res, next) {
 		});
 		return res.json(newUser); // se envia el user recien creado con pocos datos al front
 	} catch (err) {
-		next(err);
+		try {
+			
+			let updatedUser = await User.findOne({ // busca nuevo usuario actualizado y lo devuelve con todas las tablas asociadas
+							where: {
+								sub: req.body.sub,
+							},
+							include: [
+								{
+									model: Order,
+								},
+								{
+									model: Report,
+								},
+								{
+									model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+								},
+								{
+									model: Question, // las que el hizo a otros posts
+								},
+								{
+									model: Post,
+									attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+									include: [
+										{
+											model: Category,
+											attributes: ["id", "title"]
+										},
+										{
+											model: Specialty,
+											attributes: ["id", "title"]
+										},
+										{
+											model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+										},
+										{
+											model: Question,
+											include: [
+												{
+													model: Answer,
+													include: {
+														model: Report
+													}
+												}
+											]
+										},
+									]
+								},
+							]
+						});
+						return res.json(updatedUser); // se envia el user modificado al front
+		} catch (error) {
+			next(error) 
+		}
+		/* next(err) */;
 	};
 };
 
