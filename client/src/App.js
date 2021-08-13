@@ -15,7 +15,7 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
-
+// import FavsTest from './Components/FavTest/FavTest';
 
 function App() {
   return (
@@ -33,6 +33,9 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* <Route exact path='/favs'>
+          <FavsTest/>
+        </Route> */}
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
