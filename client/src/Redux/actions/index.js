@@ -127,5 +127,17 @@ export const sendSpecialty = (payload) => {
 export const getFilterType = (filterType) => {
     return (dispatch) => {
             dispatch({ type: GET_FILTER_TYPE, payload: filterType })
-    }  
+    };  
 }
+
+// export const addFavoritePost = (favoritePost) => {
+//     return (dispatch) => {
+//             dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
+//     };  
+// }
+
+// export const addFavTest = (favTest) => {
+//     return (dispatch) => {
+//     localStorage.setItem("favTest", favTest)
+//     }
+// }

@@ -35,6 +35,9 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* <Route exact path='/favs'>
+          <FavsTest/>
+        </Route> */}
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>

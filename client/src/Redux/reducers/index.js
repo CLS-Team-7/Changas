@@ -10,9 +10,9 @@ const initialState = {
     searchByTitle: [],
     categoryPost: [],
     specialtyCategory: [],
-    filterType: 'All'
+    filterType: 'All',
+    // favoritePost: [],
 }
-
 
 function rootReducer(state = initialState, action) {
     const { payload, type } = action;
@@ -63,7 +63,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 filterType: payload
             }
-
+        // case ADD_FAVORITE_POST:
+        //     return{
+        //         ...state,
+        //         favoritePost: payload
+        //     }
         default:
             return state;
     }
