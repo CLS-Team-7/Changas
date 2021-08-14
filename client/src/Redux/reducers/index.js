@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS } from '../constants';
 
 
 const initialState = {
@@ -9,7 +9,8 @@ const initialState = {
     searchByTitle: [],
     categoryPost: [],
     specialtyCategory: [],
-    filterType: 'All'
+    filterType: 'All',
+    allReview: []
 }
 
 
@@ -57,6 +58,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 filterType: payload
             }
+            case GET_ALL_REVIEWS:
+            return {
+                ...state,
+                allReview: payload
+            };
 
         default:
             return state;
