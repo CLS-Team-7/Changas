@@ -12,7 +12,7 @@ const mercadopago = require('./routers/mercadoPago');
 const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
 const routerOrder = require('./routers/order');
-const routerCheckout = require('./routers/checkout');
+// const routerCheckout = require('./routers/checkout');
 // const adminLogic = require('../controllers/adminLogic');
 const routerCategory = require('./routers/category');
 const routerSpecialty = require('./routers/specialty');
@@ -34,7 +34,7 @@ router.use('/answer', routerAnswer);
 router.use('/review', routerReview);
 router.use('/report', routerReport);
 router.use('/mercadopago', mercadopago);
-router.use('/checkout', routerCheckout); // ver primero lo de mercadopago
+// router.use('/checkout', routerCheckout); // ver primero lo de mercadopago
 // router.use('/admin', adminLogic);
 
 
