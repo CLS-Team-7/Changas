@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, ADD_FAVORITE_POST } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE } from '../constants';
 import axios from 'axios';
 
 
@@ -117,14 +117,14 @@ export const getFilterType = (filterType) => {
     };  
 }
 
-export const addFavoritePost = (favoritePost) => {
-    return (dispatch) => {
-            dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
-    };  
-}
+// export const addFavoritePost = (favoritePost) => {
+//     return (dispatch) => {
+//             dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
+//     };  
+// }
 
-export const addFavTest = (favTest) => {
-    return (dispatch) => {
-    localStorage.setItem("favTest", favTest)
-    }
-}
+// export const addFavTest = (favTest) => {
+//     return (dispatch) => {
+//     localStorage.setItem("favTest", favTest)
+//     }
+// }
