@@ -97,12 +97,13 @@ conn.sync({ force: true }).then(() => {
     await ordersDB.map(order => {
       Order.create({
         id: order.id,
-        user_id: order.user,
-        post_id: order.post,
+        user_id: order.user_id,
+        post_id: order.post_id,
         option: order.option,
         price: order.price,
         quantity: order.quantity
       })
     })
+    console.log('Precarga de orders en DB OK!')
   });
 });

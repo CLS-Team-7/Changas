@@ -16,7 +16,7 @@ mercadopago.configure({
 });
 
 //Ruta que genera la URL de MercadoPago
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
 
 
 	// Entiendo que la mecánica con MP y el back podría ser algo así, iniciando con un user que quiere promocionar su posteo:
@@ -35,6 +35,7 @@ router.get("/", (req, res, next) => {
 	let order_id = 'e2c3Kfbd-6c29-477d-b4eb-dbb69081dfd1'; //ver como el front me dice que el id es este -> req.body.orderId??
 
 	let order = await Order.findByPk(id);
+	console.log(order)
 
 	//Cargamos el carrido de la bd ------> aplica paso 2)
 	const carrito = [
