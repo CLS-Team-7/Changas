@@ -1,5 +1,5 @@
 const server = require('./src/app.js');
-const { conn, Post, User, Order, Category, Specialty, Question, Answer } = require('./src/db.js');
+const { conn, Post, User, Order, Category, Specialty, Question, Answer, Report, Review } = require('./src/db.js');
 const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
@@ -7,6 +7,8 @@ const specialtiesDB = require('./src/seeders/specialties-demo');
 const answerDB = require('./src/seeders/answers-demo');
 const questionsDB = require('./src/seeders/questions-demo')
 const ordersDB = require('./src/seeders/orders-demo');
+// const reportsDB = require('./src/seeders/reports-demo');
+// const reviewsDB = require('./src/seeders/reviews-demo');
 const db = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 
@@ -92,5 +94,15 @@ conn.sync({ force: true }).then(() => {
     });
     console.log('Precarga de answers en DB OK!')
 
+    await ordersDB.map(order => {
+      Order.create({
+        id: order.id,
+        user_id: order.user,
+        post_id: order.post,
+        option: order.option,
+        price: order.price,
+        quantity: order.quantity
+      })
+    })
   });
 });

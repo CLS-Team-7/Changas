@@ -11,6 +11,10 @@ router.get('/', async (req, res, next) => {
 
 });
 
+router.post('/', async (req, res, next) => { // logica con checkout
+
+});
+
 
 
 module.exports = router;

@@ -153,4 +153,4 @@ router.get("/pagos/:id", (req, res) => {
 		})
 })
 
-module.exports = server;
+module.exports = router;
