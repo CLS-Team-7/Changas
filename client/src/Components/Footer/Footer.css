@@ -2,6 +2,19 @@
   position: fixed;
 }
 
+.react-chatbot-kit-chat-message-container{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.react-chatbot-kit-chat-input{
+  border: 2px solid
+}
+
+.react-chatbot-kit-chat-input::placeholder {
+  color: transparent;
+}
+
 .boot-Container {
   display: flex;
   flex-direction: column-reverse;
