@@ -39,6 +39,13 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
+  registro = () => {
+    const message = this.createChatBotMessage(
+      'Para registrarte encontraras un boton arriba a la derecha donde podras ingresar con tu cuenta de Google',
+    )
+    this.addMessageToState(message)
+  }
+
   palabrasBroma = () => {
     const message = this.createChatBotMessage(
       'Acabamos de congelar sus cuentas bancarias, con Changas no se jode 😈',
@@ -55,7 +62,7 @@ class ActionProvider {
 
   ayudaPublicarNecesidad = () => {
     const message = this.createChatBotMessage(
-      'Para contratar un servicio deberás dirigirte a la sección de posteos, hacer click sobre el servicio que necesites y seguir todos sus pasos.',
+      'Para contratar un servicio deberás dirigirte a la sección de posteos, hacer click sobre el servicio que necesites y seguir los pasos.',
     )
     this.addMessageToState(message)
   }

@@ -24,13 +24,28 @@ class MessageParser {
     if (lowercase.includes("contratar")) {
       this.actionProvider.ayudaPublicarNecesidad();
     }
+    if (lowercase.includes("contrato")) {
+      this.actionProvider.ayudaPublicarNecesidad();
+    }
     if (lowercase.includes("publicar")) {
       this.actionProvider.ayudaPublicarOfrecer();
     }
-    if (lowercase.includes("quiero")) {
-      this.actionProvider.ayudaOfrecer();
+    if (lowercase.includes("publico")) {
+      this.actionProvider.ayudaPublicarOfrecer();
+    }
+    if (lowercase.includes("registrarme")) {
+      this.actionProvider.registro();
+    }
+    if (lowercase.includes("registrarse")) {
+      this.actionProvider.registro();
+    }
+    if (lowercase.includes("registro")) {
+      this.actionProvider.registro();
     }
     if (lowercase.includes("gracias")) {
+      this.actionProvider.palabrasGracias();
+    }
+    if (lowercase.includes("listo")) {
       this.actionProvider.palabrasGracias();
     }
     if (lowercase.includes("puto")) {

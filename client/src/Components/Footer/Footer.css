@@ -10,6 +10,21 @@
   right: 10px;
 }
 
+.react-chatbot-kit-chat-btn-send-icon{
+  display: inline-block;
+}
+
+.react-chatbot-kit-chat-bot-avatar-container{
+  background-color: white
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+  content: url(g569.png);
+  width: 30px;
+  height: 40px;
+  
+}
+
 .btn {
   background: #2d3748;
   border-radius: 5px;
