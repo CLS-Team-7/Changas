@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
             type: DataTypes.UUID,
             allowNull: false
         },
-        option: { // semanal, quincenal, mensual
+        title: { // semanal, quincenal, mensual
             type: DataTypes.STRING,
             allowNull: false
         },

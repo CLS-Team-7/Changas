@@ -99,7 +99,7 @@ conn.sync({ force: true }).then(() => {
         id: order.id,
         user_id: order.user_id,
         post_id: order.post_id,
-        option: order.option,
+        title: order.title,
         price: order.price,
         quantity: order.quantity
       })

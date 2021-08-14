@@ -32,19 +32,22 @@ router.get("/", async (req, res, next) => {
 
 	// Esta forma de hacerlo nos permitiria hacer un carrito mas adelante si queremos, un poco mas complejo para implementar pero posible
 
-	let order_id = 'e2c3Kfbd-6c29-477d-b4eb-dbb69081dfd1'; //ver como el front me dice que el id es este -> req.body.orderId??
 
-	let order = await Order.findByPk(id);
-	console.log(order)
 
 	//Cargamos el carrido de la bd ------> aplica paso 2)
+	let order_id = 'e2c3Kfbd-6c29-477d-b4eb-dbb69081dfd1'; //ver como el front me dice que el id es este -> req.body.orderId??
+
+	let order = await Order.findByPk(order_id);
+	// console.log(order)
+	// console.log('hola')
+
 	const carrito = [
-		{ title: "Producto 1", quantity: 5, price: 10.52 }, // "Promocion publicacion semanal / quincenal / mensual "
-		// { title: "Producto 2", quantity: 15, price: 100.52 },
-		// { title: "Producto 3", quantity: 6, price: 200 }
+		{ title: order.title, quantity: order.quantity, price: order.price }, // "Promocion publicacion semanal / quincenal / mensual "
+		// 	// { title: "Producto 2", quantity: 15, price: 100.52 },
+		// 	// { title: "Producto 3", quantity: 6, price: 200 }
 	];
 
-	const items_ml = carrito.map(i => ({
+	const items = carrito.map(i => ({
 		title: i.title,
 		unit_price: i.price,
 		quantity: i.quantity,
@@ -52,8 +55,8 @@ router.get("/", async (req, res, next) => {
 
 	// Crea un objeto de preferencia
 	let preference = {
-		items: items_ml,
-		external_reference: `${id_orden}`, // ese tiene que ser el order_id, lo saco de la store porque ya creé la order interna en mi DB
+		items: items,
+		external_reference: `${order.id}`, // ese tiene que ser el order_id, lo saco de la store porque ya creé la order interna en mi DB
 		payment_methods: {
 			excluded_payment_types: [
 				{
