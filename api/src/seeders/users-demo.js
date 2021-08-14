@@ -16,6 +16,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "c58ef3a8-1ad7-4ce4-ab20-5c36ad327f9b",
@@ -34,6 +35,7 @@ const usersDB = [
     isNew: true,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "880fb38e-b686-49d7-8002-a3542d106d36",
@@ -52,6 +54,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: false,
+    isDataComplete: true
   },
   {
     id: "e3275235-8ea1-42a4-968d-d98255f75435",
@@ -70,6 +73,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "befba476-a405-4b2d-b0b2-bbd7fa45fe5a",
@@ -88,6 +92,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "3210fa1e-9e2f-4b07-9ff7-3f58425ac564",
@@ -106,6 +111,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "c294a8ef-3bc1-4210-be26-615dc0d3c3b6",
@@ -124,6 +130,7 @@ const usersDB = [
     isNew: true,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "d99f4ab1-c88e-49d3-b912-62057cb4a227",
@@ -142,6 +149,7 @@ const usersDB = [
     isNew: true,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "416541a4-7724-4fbb-a5ff-ea9f5b1b27bb",
@@ -160,6 +168,7 @@ const usersDB = [
     isNew: true,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
   {
     id: "e03a184d-7485-4708-9cc2-205c81f06e3e",
@@ -178,6 +187,7 @@ const usersDB = [
     isNew: false,
     isAdmin: false,
     isActive: true,
+    isDataComplete: true
   },
 ]
 
