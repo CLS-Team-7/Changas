@@ -32,7 +32,7 @@ function App() {
         <Route path='/testcheckoutback'>
           <CheckoutTestBACK />
         </Route>
-        <Route path='/paymentsuccesstest'>
+        <Route path='/paymentsuccesstest/:id'>
           <PaymentSuccessTest />
         </Route>
         <Route path='/home'>

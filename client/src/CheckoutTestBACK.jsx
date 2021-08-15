@@ -24,7 +24,7 @@ function CheckoutTestBACK() {
 			})
 			.catch(err => console.error(err))
 
-	}, []) // ?
+	}, []) // si pongo la dependencia, entra en loop
 
 
 	return (
