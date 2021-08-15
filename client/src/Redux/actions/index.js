@@ -151,6 +151,16 @@ export const postReview = (payload) => {
     };
 }
 
+export const getReview = (id) => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/review/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "GET_REVIEW", payload: data })
+            })
+    }
+}
+
 export const getOrderTest = (payload) => {
     return (dispatch) => {
         dispatch({ type: "TEST_ORDER", payload })

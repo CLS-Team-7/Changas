@@ -60,11 +60,10 @@ Report.belongsToMany(User, { through: 'user_report' }); // un report va a tener 
 // User.belongsToMany(Review, { through: 'user_review' }); // un usuario puede HACER y RECIBIR muchas reviews
 // Review.belongsToMany(User, { through: 'user_review' }); // una review va a tener siempre 2 users (quien contrata el servicio y quien lo realiza/presta)
 
-Post.hasMany(Review, {foreignKey: 'post_id', constraints:false}); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
-Review.belongsTo(Post, {foreignKey: 'post_id', constraints:false}); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
-
-
 // Asociaciones de Post (one-to-many)
+
+Post.hasMany(Review, { foreignKey: 'post_id', constraints: false }); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
+Review.belongsTo(Post, { foreignKey: 'post_id', constraints: false }); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
 
 Post.hasMany(Order, { foreignKey: 'post_id' }); // un post puede tener muchas ordenes (muchos usuarios quieren contratar ese post)
 Order.belongsTo(Post, { foreignKey: 'post_id' }); // una orden pertenece a un unico post
@@ -127,8 +126,8 @@ Answer.belongsTo(Question, { foreignKey: "question_id", constraints: false }); /
 
 
 
-User.hasMany(Review, {foreignKey: 'user_id'}); // un usuario puede realizar varias reviews **REVISAR FOREIGN_KEY
-Review.belongsTo(User, {foreignKey: 'user_id'}) // un review pertenece a un unico usuario **REVISAR FOREIGN_KEY
+User.hasMany(Review, { foreignKey: 'user_id' }); // un usuario puede realizar varias reviews **REVISAR FOREIGN_KEY
+Review.belongsTo(User, { foreignKey: 'user_id' }) // un review pertenece a un unico usuario **REVISAR FOREIGN_KEY
 
 module.exports = {
   ...sequelize.models,
