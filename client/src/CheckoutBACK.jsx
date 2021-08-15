@@ -28,17 +28,11 @@ export default function ComprarBack({ productos, data }) {
 
 				<h4>Checkout BACK 1</h4>
 				<div>
-					{productos.map((producto, i) => {
-						return (
-							<div key={i}>
-								<ul  >
-									<li>{producto.title}</li>
-									<li>{'$' + producto.price}</li>
-									<li>{producto.quantity}</li>
-								</ul>
-							</div>
-						)
-					})}
+					<p>Numero de identificacion de orden: {productos.id}</p>
+					<p>	Id Posteo: {productos.post_id}</p>
+					<p>	Tipo de promocion: {productos.title}</p>
+					<p>	Precio Unitario: {productos.price}</p>
+					<p>	Cantidad: {productos.quantity}</p>
 				</div>
 			</form>
 

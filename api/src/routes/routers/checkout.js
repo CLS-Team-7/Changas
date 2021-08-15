@@ -68,8 +68,8 @@ router.get("/", async (req, res, next) => { // localhost:3001/testcheckout  /mer
 		},
 		back_urls: { // rutas a las cuales MP contesta una vez efectuado el pago, 3000 o 3001??
 			success: 'http://localhost:3001/testcheckoutback/success', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
-			failure: 'http://localhost:3001/mercadopago/pagos', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
-			pending: 'http://localhost:3001/mercadopago/pagos',
+			failure: 'http://localhost:3001/testcheckoutback/failure', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
+			pending: 'http://localhost:3001/testcheckoutback/pending',
 		},
 	};
 
@@ -89,10 +89,11 @@ router.get("/", async (req, res, next) => { // localhost:3001/testcheckout  /mer
 			console.info('********MP RESPONDIO********')
 			//Este valor reemplazará el string"<%= global.id %>" en tu HTML
 			global.id = response.body.id;
+			global.id_db = response.body.external_reference;
 			// console.log(response.body)
 			mpData.forEach(d => console.log({ [`${d}`]: response.body[d] }));
 			//console.log('GLOBAL ID' + global.id)
-			res.json({ id: global.id }); // esto es lo que responde al front
+			res.json({ id: global.id, id_db: global.id_db }); // esto es lo que responde al front
 		})
 		.catch(function (error) {
 			// console.log(error);
