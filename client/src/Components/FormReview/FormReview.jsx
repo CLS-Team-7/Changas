@@ -23,12 +23,6 @@ export default function AddFormReview(props) {
           <button className="bg-white hover:bg-gray-800 m-4 hover:text-white border border-blue-500 text-gray-800 font-bold py-2 px-4 rounded">
             Enviar
           </button>
-          <button
-            className="bg-transparent m-4hover:bg-red-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mr-3 border border-blue-500 hover:border-transparent rounded"
-            type="button"
-          >
-            Cancelar
-          </button>
         </div>
       </form>
     </div>
