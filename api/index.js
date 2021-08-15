@@ -55,6 +55,7 @@ conn.sync({ force: true }).then(() => {
 
     await postsDB.map(post => {
       Post.create({
+        id: post.id,
         user_id: post.user_id,
         typePost: post.typePost,
         title: post.title,

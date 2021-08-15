@@ -56,11 +56,13 @@ async function getReviewById (req, res, next) {
 };
 
 async function createReview (req, res, next) {
-	let { rating, description } = req.body;
+	let { rating, description, user_id, post_id } = req.body;
 	try {
 		let newReview = await Review.create({
 			rating,
-            description
+            description,
+			user_id,
+			post_id
 		});
 		res.json(newReview);
 	} catch (err) {

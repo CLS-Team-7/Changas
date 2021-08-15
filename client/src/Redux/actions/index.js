@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW } from '../constants';
 import axios from 'axios';
 
 
@@ -125,4 +125,14 @@ export const getAllReviews = () => {
                 dispatch({ type: GET_ALL_REVIEWS, payload: data })
             })
     }
+}
+
+export const postReview = (payload) => {
+    return (dispatch) => {
+        axios.post("http://localhost:3001/review", payload)
+        .then(r => r.data)
+            .then(data => {
+                dispatch({ type: POST_REVIEW, payload: data })
+            })
+    };
 }
