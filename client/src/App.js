@@ -16,6 +16,9 @@ import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 import Reviews from './Components/Review/Review';
+import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
+import PanelUser from './views/PanelUser/PanelUser';
+
 
 
 function App() {
@@ -34,13 +37,16 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* <Route exact path='/favs'>
+          <FavsTest/>
+        </Route> */}
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
         <Route exact path='/search/:title'>
         <SearchView />
         </Route>
-        <Route exact path='/testposts'>
+        <Route exact path='/testposts'> // ver esto 
           <Reviews />
         </Route>
         <Route exact path='/myproftest'>
@@ -63,7 +69,14 @@ function App() {
           <AdminCreatePost/>
         </Route>
         
-        *//////////////////** */
+        *//////////////////**Panel User*/
+        <Route  exact path='/user'>
+          <PanelUser/>
+        </Route>
+        <Route exact path='/user/config'>
+          <PanerUserConfig/>
+        </Route>
+
         <Route path='/faq'>
           <FAQ/>
         </Route>

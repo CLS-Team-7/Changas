@@ -1,10 +1,13 @@
 const server = require('./src/app.js');
-const { conn, Post, User, Order, Category, Specialty, Review } = require('./src/db.js');
+const { conn, Post, User, Order, Category, Specialty, Question, Answer, Review } = require('./src/db.js');
 const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
 const specialtiesDB = require('./src/seeders/specialties-demo');
-const reviewsDB = require('./src/seeders/review-demo')
+const reviewsDB = require('./src/seeders/review-demo');
+const answerDB = require('./src/seeders/answers-demo');
+const questionsDB = require('./src/seeders/questions-demo')
+const ordersDB = require('./src/seeders/orders-demo');
 const db = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 
@@ -52,7 +55,6 @@ conn.sync({ force: true }).then(() => {
     });
     console.log('Precarga de users en DB OK!');
 
-
     await postsDB.map(post => {
       Post.create({
         id: post.id,
@@ -70,7 +72,26 @@ conn.sync({ force: true }).then(() => {
         isActive: post.isActive
       });
     });
-    console.log('Precarga de posts en DB OK!')
+    console.log('Precarga de posts en DB OK!');
+
+    await questionsDB.map(question => {
+      Question.create({
+        id: question.id,
+        post_id: question.post_id,
+        user_id: question.user_id,
+        question: question.question
+      });
+    });
+    console.log('Precarga de questions en DB OK!');
+
+    await answerDB.map(answer => {
+      Answer.create({
+        id: answer.id,
+        question_id: answer.question_id,
+        answer: answer.answer
+      });
+    });
+    console.log('Precarga de answers en DB OK!')
 
     await reviewsDB.map(review => {
       Review.create({
