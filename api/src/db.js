@@ -56,9 +56,12 @@ Question.belongsTo(User, { foreignKey: 'user_id' }) // una pregunta pertenece a 
 User.belongsToMany(Report, { through: 'user_report' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
 Report.belongsToMany(User, { through: 'user_report' }); // un report va a tener siempre 2 users (denunciado y denunciante), caso de la denuncia de perfil directa
 
-User.belongsToMany(Review, { through: 'user_review' }); // un usuario puede HACER y RECIBIR muchas reviews
-Review.belongsToMany(User, { through: 'user_review' }); // una review va a tener siempre 2 users (quien contrata el servicio y quien lo realiza/presta)
+// ver finalmente con lo trabajado en ReviewFront
+// User.belongsToMany(Review, { through: 'user_review' }); // un usuario puede HACER y RECIBIR muchas reviews
+// Review.belongsToMany(User, { through: 'user_review' }); // una review va a tener siempre 2 users (quien contrata el servicio y quien lo realiza/presta)
 
+Post.hasMany(Review, {foreignKey: 'post_id', constraints:false}); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
+Review.belongsTo(Post, {foreignKey: 'post_id', constraints:false}); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
 
 
 // Asociaciones de Post (one-to-many)
@@ -83,7 +86,9 @@ Post.belongsTo(Specialty, { foreignKey: 'specialty_id' }); // un post puede tene
 // Asociaciones Category (one-to-many)
 
 Category.hasMany(Specialty, { foreignKey: 'category_id' }); // una categoria puede tener muchas especialidades (categoria 'Construccion' tiene especialidades 'albañil, capataz, etc')
-Specialty.belongsTo(Category, { foreignKey: 'category_id' }) // una especialidad puede tener una unica categoria
+Specialty.belongsTo(Category, { foreignKey: 'category_id' }); // una especialidad puede tener una unica categoria
+
+
 
 //  Asociaciones Question, Answer (propias) y con Report.
 
@@ -98,9 +103,11 @@ Report.belongsTo(Answer, { foreignKey: 'answer_id' }); // un report pertenece/ap
 
 // Asociaciones Order
 
+
 // a chequear estas relaciones, en principio no corresponden **
-Order.hasOne(Review, { foreignKey: 'order_id' }); // una order puede tener una unica review (le da su id a review para que esta sea valida)
-Review.belongsTo(Order, { foreignKey: 'order_id' }); // una review pertenece a una unica order (su id es lo que la valida a una contratacion efectiva)
+// Order.hasOne(Review, { foreignKey: 'order_id' }); // una order puede tener una unica review (le da su id a review para que esta sea valida)
+// Review.belongsTo(Order, { foreignKey: 'order_id' }); // una review pertenece a una unica order (su id es lo que la valida a una contratacion efectiva)
+
 
 Order.hasOne(Report, { foreignKey: 'order_id' }); // una order puede tener un unico report (quien quiere contratar - quien genero la order - puede reportar al usuario por cualquier abuso/incumpliento)
 Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenecer a una unica order (es un unico usuario quien genera la order, y es el exclusivamente que puede hacer un report)
@@ -120,7 +127,8 @@ Answer.belongsTo(Question, { foreignKey: "question_id", constraints: false }); /
 
 
 
-
+User.hasMany(Review, {foreignKey: 'user_id'}); // un usuario puede realizar varias reviews **REVISAR FOREIGN_KEY
+Review.belongsTo(User, {foreignKey: 'user_id'}) // un review pertenece a un unico usuario **REVISAR FOREIGN_KEY
 
 module.exports = {
   ...sequelize.models,

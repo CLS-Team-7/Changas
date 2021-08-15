@@ -15,11 +15,13 @@ import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import Reviews from './Components/Review/Review';
 import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
 import CheckoutTest from './CheckoutTest';
 import CheckoutTestBACK from './CheckoutTestBACK';
 import PaymentSuccessTest from './PaymentSuccessTest';
+
 
 
 function App() {
@@ -47,14 +49,17 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* <Route exact path='/favs'>
+          <FavsTest/>
+        </Route> */}
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
         <Route exact path='/search/:title'>
           <SearchView />
         </Route>
-        <Route exact path='/testposts'>
-          <TestPosts />
+        <Route exact path='/testposts'> // ver esto 
+          <Reviews />
         </Route>
         <Route exact path='/myproftest'>
           <MyProfile />

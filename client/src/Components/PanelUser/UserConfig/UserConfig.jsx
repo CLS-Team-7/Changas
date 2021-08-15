@@ -7,26 +7,32 @@ import {
   validatePhone,
   validateSummary,
 } from "./Validaciones";
+import { useDispatch, useSelector } from "react-redux";
+import { UpdateUserData } from "../../../Redux/actions";
 
 function UserConfig() {
-  const [newInfo, setNewInfo] = useState("")
-  console.log(newInfo)
+  const dispatch = useDispatch()
+  const state = useSelector(state => state.userLogin)
+  console.log(state.sub)
   return (
     <div>
       <Formik
         initialValues={{
+          sub: state.sub,
           age: "",
           ID_Passport: "",
           address: "",
           phoneNumber: "",
           summary: "",
           isVaccinated: false,
-          isComplete: true
         }}
+
         onSubmit={async (values, actions) => {
-          setNewInfo(JSON.stringify(values, null, 2));
+          dispatch(UpdateUserData(values));
+          console.log(values)
           actions.resetForm({
             values: {
+              sub: state?.sub,
               age: '',
               ID_Passport: "",
               address: "",
