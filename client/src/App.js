@@ -58,7 +58,7 @@ function App() {
         <Route exact path='/search/:title'>
           <SearchView />
         </Route>
-        <Route exact path='/testposts'> // ver esto 
+        <Route exact path='/testposts'>
           <Reviews />
         </Route>
         <Route exact path='/myproftest'>
