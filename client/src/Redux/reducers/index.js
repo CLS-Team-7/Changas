@@ -10,8 +10,10 @@ const initialState = {
     categoryPost: [],
     specialtyCategory: [],
     filterType: 'All',
-    allReview: []
+    testorder: {},
+    allReview: [],
     // favoritePost: [],
+
 }
 
 function rootReducer(state = initialState, action) {
@@ -59,9 +61,14 @@ function rootReducer(state = initialState, action) {
                 searchByTitle: payload
             }
         case GET_FILTER_TYPE:
-            return{
+            return {
                 ...state,
                 filterType: payload
+            }
+        case "TEST_ORDER":
+            return {
+                ...state,
+                testorder: payload
             }
 
             case GET_ALL_REVIEWS:

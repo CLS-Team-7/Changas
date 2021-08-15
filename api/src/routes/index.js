@@ -8,11 +8,12 @@ const router = Router();
 
 // const landingLogic = require('../controllers/landingLogic');
 // const homeLogic = require('../controllers/homeLogic');
+// const adminLogic = require('../controllers/adminLogic');
+const mercadopago = require('./routers/mercadoPago');
+const routerCheckout = require('./routers/checkout');
 const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
 const routerOrder = require('./routers/order');
-// const checkoutLogic = require('../controllers/checkoutLogic');
-// const adminLogic = require('../controllers/adminLogic');
 const routerCategory = require('./routers/category');
 const routerSpecialty = require('./routers/specialty');
 
@@ -35,7 +36,8 @@ router.use('/question', routerQuestion);
 router.use('/answer', routerAnswer);
 router.use('/review', routerReview);
 router.use('/report', routerReport);
-// router.use('/checkout', checkoutLogic); // ver primero lo de mercadopago
+router.use('/mercadopago', mercadopago);
+router.use('/testcheckoutback', routerCheckout); // ver primero lo de mercadopago
 // router.use('/admin', adminLogic);
 
 

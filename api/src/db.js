@@ -103,8 +103,11 @@ Report.belongsTo(Answer, { foreignKey: 'answer_id' }); // un report pertenece/ap
 
 // Asociaciones Order
 
+
+// a chequear estas relaciones, en principio no corresponden **
 // Order.hasOne(Review, { foreignKey: 'order_id' }); // una order puede tener una unica review (le da su id a review para que esta sea valida)
 // Review.belongsTo(Order, { foreignKey: 'order_id' }); // una review pertenece a una unica order (su id es lo que la valida a una contratacion efectiva)
+
 
 Order.hasOne(Report, { foreignKey: 'order_id' }); // una order puede tener un unico report (quien quiere contratar - quien genero la order - puede reportar al usuario por cualquier abuso/incumpliento)
 Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenecer a una unica order (es un unico usuario quien genera la order, y es el exclusivamente que puede hacer un report)

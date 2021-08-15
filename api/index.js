@@ -1,5 +1,5 @@
 const server = require('./src/app.js');
-const { conn, Post, User, Order, Category, Specialty, Question, Answer, Review } = require('./src/db.js');
+const { conn, Post, User, Order, Category, Specialty, Question, Answer, Report, Review } = require('./src/db.js');
 const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
@@ -8,6 +8,8 @@ const reviewsDB = require('./src/seeders/review-demo');
 const answerDB = require('./src/seeders/answers-demo');
 const questionsDB = require('./src/seeders/questions-demo')
 const ordersDB = require('./src/seeders/orders-demo');
+// const reportsDB = require('./src/seeders/reports-demo');
+// const reviewsDB = require('./src/seeders/reviews-demo');
 const db = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 
@@ -91,7 +93,7 @@ conn.sync({ force: true }).then(() => {
         answer: answer.answer
       });
     });
-    console.log('Precarga de answers en DB OK!')
+    console.log('Precarga de answers en DB OK!');
 
     await reviewsDB.map(review => {
       Review.create({
@@ -102,6 +104,19 @@ conn.sync({ force: true }).then(() => {
         post_id: review.post_id,
       });
     });
-    console.log('Precarga de reviews en DB OK!')
+    console.log('Precarga de reviews en DB OK!');
+    
+    await ordersDB.map(order => {
+      Order.create({
+        id: order.id,
+        user_id: order.user_id,
+        post_id: order.post_id,
+        title: order.title,
+        price: order.price,
+        quantity: order.quantity
+      })
+    })
+    console.log('Precarga de orders en DB OK!');
+
   });
 });
