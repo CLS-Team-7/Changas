@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
+import FormReview from '../FormReview/FormReview';
 
 
 function DetailComponent() {
@@ -60,6 +61,7 @@ function DetailComponent() {
                         </div>
                     </div>
                 </div>
+                <FormReview />
             </div>
         </section>
     )
