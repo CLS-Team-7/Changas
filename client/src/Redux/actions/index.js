@@ -90,7 +90,7 @@ export const searchByTitleClean = () => {
 export const postUser = (payload) => {
     return (dispatch) => {
         axios.post("http://localhost:3001/user", payload)
-        .then(r => r.data)
+            .then(r => r.data)
             .then(data => {
                 dispatch({ type: USER_LOGIN, payload: data })
             })
@@ -99,7 +99,7 @@ export const postUser = (payload) => {
 export const UpdateUserData = (payload) => {
     return (dispatch) => {
         axios.put("http://localhost:3001/user", payload)
-        .then(r => r.data)
+            .then(r => r.data)
             .then(data => {
                 dispatch({ type: USER_LOGIN, payload: data })
             })
@@ -130,12 +130,6 @@ export const getFilterType = (filterType) => {
     }
 }
 
-export const getOrderTest = (payload) => {
-    return (dispatch) => {
-        dispatch({ type: "TEST_ORDER", payload })
-    }
-}
-
 
 export const getAllReviews = () => {
     return (dispatch) => {
@@ -150,7 +144,7 @@ export const getAllReviews = () => {
 export const postReview = (payload) => {
     return (dispatch) => {
         axios.post("http://localhost:3001/review", payload)
-        .then(r => r.data)
+            .then(r => r.data)
             .then(data => {
                 dispatch({ type: POST_REVIEW, payload: data })
             })
