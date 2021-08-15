@@ -34,6 +34,10 @@ async function getAllPosts(_req, res, next) {
         },
         {
           model: Report // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
         }
       ],
     });
@@ -85,6 +89,10 @@ async function getPostByTitle(req, res, next) {
           },
           {
             model: Report
+          },
+          {
+            model: Review,
+            attributes: { exclude: ["post_id", "updatedAt"] }
           }
         ],
       });
@@ -136,6 +144,14 @@ async function getPostById(req, res, next) {
           },
           {
             model: Report
+          },
+          {
+            model: Review,
+            attributes: { exclude: ["post_id", "updatedAt"] },
+            include: [{
+              model: User,
+              attributes: ["given_name", "family_name", "fullName"]
+            }]
           }
         ],
       });

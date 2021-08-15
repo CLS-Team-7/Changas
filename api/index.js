@@ -20,8 +20,8 @@ conn.sync({ force: true }).then(() => {
 
     await categoriesDB.map(category => {
       Category.create({
-        id: category.id, 
-        title: category.title 
+        id: category.id,
+        title: category.title
       });
     });
     console.log('Precarga de categories en DB OK!')
@@ -36,7 +36,7 @@ conn.sync({ force: true }).then(() => {
     console.log('Precarga de specialties en DB OK!')
 
     await usersDB.map(user => {
-      User.create({ 
+      User.create({
         id: user.id,
         given_name: user.given_name,
         family_name: user.family_name,
@@ -97,15 +97,15 @@ conn.sync({ force: true }).then(() => {
 
     await reviewsDB.map(review => {
       Review.create({
-        review_id: review.review_id,
-        rating: review.rating,
-        description: review.description,
+        id: review.id,
         user_id: review.user_id,
         post_id: review.post_id,
+        rating: review.rating,
+        description: review.description,
       });
     });
     console.log('Precarga de reviews en DB OK!');
-    
+
     await ordersDB.map(order => {
       Order.create({
         id: order.id,

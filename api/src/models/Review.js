@@ -2,10 +2,18 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('review', {
-        review_id: {
+        id: {
             type: DataTypes.INTEGER,
             autoIncrement: true, //incrementa el id cada vez que se crea un post
             primaryKey: true
+        },
+        user_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
+        post_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
         },
         rating: {
             type: DataTypes.INTEGER,
@@ -15,18 +23,10 @@ module.exports = (sequelize) => {
                 max: 5
             }
         },
-        description:{
+        description: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
-        user_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-        },
-        post_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-        }
     });
 };
 

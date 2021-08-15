@@ -1,10 +1,10 @@
 const reviewsDB = [
     {
-        review_id: 100,
-        user_id:'e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1',
-        post_id: "c1e8eb34-494e-47b7-92df-7fcb833f92ea",
+        id: 100,
+        user_id: 'e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1',
+        post_id: "d671dc74-8c73-43db-b562-227367698c35",
         rating: 3,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi"
+        description: "Sarasa sarasa"
     },
     // {
     //     review_id: 101,
