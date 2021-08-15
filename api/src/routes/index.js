@@ -15,11 +15,11 @@ const routerOrder = require('./routers/order');
 // const adminLogic = require('../controllers/adminLogic');
 const routerCategory = require('./routers/category');
 const routerSpecialty = require('./routers/specialty');
+
 const routerQuestion = require('./routers/question');
 const routerAnswer = require('./routers/answer');
 const routerReport = require('./routers/report');
 const routerReview = require('./routers/review');
-
 
 // router.use('/', landingLogic);
 // router.use('/home', homeLogic);
@@ -27,6 +27,9 @@ router.use('/user', routerUser);
 router.use('/post', routerPost);
 router.use('/category', routerCategory);
 router.use('/specialty', routerSpecialty);
+
+// router.use('/checkout', checkoutLogic);
+
 router.use('/order', routerOrder);
 router.use('/question', routerQuestion);
 router.use('/answer', routerAnswer);

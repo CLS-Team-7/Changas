@@ -2,7 +2,10 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
+import Reviews from '../Review/Reviews';
+import ReviewPost from '../Review/ReviewPost';
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
+
 
 
 function DetailComponent() {
@@ -61,6 +64,8 @@ function DetailComponent() {
                     </div>
                 </div>
             </div>
+            <Reviews/>
+            <ReviewPost/>
         </section>
     )
 }

@@ -1,0 +1,14 @@
+.commentsIcons {
+    float: right;
+    margin-left: 14px;
+    position: relative;
+    color: yellow;
+    cursor: pointer;
+    -webkit-transition: color 0.3s ease;
+    --o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+.stars {
+    display: inline-flex;
+}
