@@ -5,6 +5,7 @@ import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 import Reviews from '../Review/Reviews';
 import ReviewPost from '../Review/ReviewPost';
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
+import FormReview from '../FormReview/FormReview';
 
 
 
@@ -63,6 +64,7 @@ function DetailComponent() {
                         </div>
                     </div>
                 </div>
+                <FormReview />
             </div>
             <Reviews/>
             <ReviewPost/>
