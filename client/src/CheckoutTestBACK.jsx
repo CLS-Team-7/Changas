@@ -8,6 +8,15 @@ function CheckoutTestBACK() {
 
 	useEffect(() => {
 		axios
+			.get("http://localhost:3001/testcheckoutback")
+			.then((data) => {
+				setDatos(data.data)
+				console.info('Contenido de data:', data)
+			})
+			.catch(err => console.error(err))
+
+
+		axios
 			.get('http://localhost:3001/order')
 			.then(o => {
 				setOrder([...order, o])

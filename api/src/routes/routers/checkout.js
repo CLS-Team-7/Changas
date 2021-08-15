@@ -16,8 +16,9 @@ mercadopago.configure({
 });
 
 //Ruta que genera la URL de MercadoPago
-router.get("/", async (req, res, next) => {
+router.get("/", async (req, res, next) => { // localhost:3001/testcheckout  /mercadopago
 
+	// mandamos por body los datos de la order?? como es esto?? La order ya tiene que estar creada antes, en NuevaOrden, y al hacer click en pagar, se hace el GET a /mercadopago y ahi mando por body??  
 
 	// Entiendo que la mecánica con MP y el back podría ser algo así, iniciando con un user que quiere promocionar su posteo:
 	//
@@ -35,7 +36,7 @@ router.get("/", async (req, res, next) => {
 
 
 	//Cargamos el carrido de la bd ------> aplica paso 2)
-	let order_id = 'e2c3Kfbd-6c29-477d-b4eb-dbb69081dfd1'; //ver como el front me dice que el id es este -> req.body.orderId??
+	let order_id = 'd200c399-e807-4eab-9da4-8639307b5611'; //ver como el front me dice que el id es este -> req.body.orderId??
 
 	let order = await Order.findByPk(order_id);
 	// console.log(order)
@@ -47,7 +48,7 @@ router.get("/", async (req, res, next) => {
 		// 	// { title: "Producto 3", quantity: 6, price: 200 }
 	];
 
-	const items = carrito.map(i => ({
+	const items_ml = carrito.map(i => ({
 		title: i.title,
 		unit_price: i.price,
 		quantity: i.quantity,
@@ -55,7 +56,7 @@ router.get("/", async (req, res, next) => {
 
 	// Crea un objeto de preferencia
 	let preference = {
-		items: items,
+		items: items_ml,
 		external_reference: `${order.id}`, // ese tiene que ser el order_id, lo saco de la store porque ya creé la order interna en mi DB
 		payment_methods: {
 			excluded_payment_types: [
@@ -65,8 +66,8 @@ router.get("/", async (req, res, next) => {
 			],
 			installments: 1  //Cantidad máximo de cuotas
 		},
-		back_urls: {
-			success: 'http://localhost:3001/mercadopago/pagos', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
+		back_urls: { // rutas a las cuales MP contesta una vez efectuado el pago, 3000 o 3001??
+			success: 'http://localhost:3001/testcheckoutback/success', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
 			failure: 'http://localhost:3001/mercadopago/pagos', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
 			pending: 'http://localhost:3001/mercadopago/pagos',
 		},
@@ -84,20 +85,62 @@ router.get("/", async (req, res, next) => {
 	];
 
 	mercadopago.preferences.create(preference)
-
 		.then(function (response) {
 			console.info('********MP RESPONDIO********')
 			//Este valor reemplazará el string"<%= global.id %>" en tu HTML
 			global.id = response.body.id;
 			// console.log(response.body)
 			mpData.forEach(d => console.log({ [`${d}`]: response.body[d] }));
-			res.json({ id: global.id });
+			//console.log('GLOBAL ID' + global.id)
+			res.json({ id: global.id }); // esto es lo que responde al front
 		})
 		.catch(function (error) {
 			// console.log(error);
 			next(err)
 		})
-})
+});
+
+
+// Ruta que recibe la informacion del pago PROPIA
+
+
+router.get('/pagos', async (req, res, next) => {
+
+	console.info("EN LA RUTA PAGOS ", req)
+	const payment_id = req.query.payment_id
+	const payment_status = req.query.status
+	const external_reference = req.query.external_reference
+	const merchant_order_id = req.query.merchant_order_id
+	console.log("EXTERNAL REFERENCE ", external_reference)
+
+	let infoMP = {
+		payment_id,
+		payment_status,
+		merchant_order_id,
+		status: "completed"
+	}
+
+	//let orderDB = await Order.findByPk(external_reference);
+
+	await Order.update(infoMP, {
+		where: {
+			id: external_reference
+		}
+	});
+	console.info('Salvando order en DB con datos de MP')
+	return res.redirect(`http://localhost:3000/paymentsuccesstest/:${external_reference}`)
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 

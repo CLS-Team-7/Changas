@@ -34,7 +34,7 @@ router.use('/answer', routerAnswer);
 router.use('/review', routerReview);
 router.use('/report', routerReport);
 router.use('/mercadopago', mercadopago);
-router.use('/testcheckout', routerCheckout); // ver primero lo de mercadopago
+router.use('/testcheckoutback', routerCheckout); // ver primero lo de mercadopago
 // router.use('/admin', adminLogic);
 
 

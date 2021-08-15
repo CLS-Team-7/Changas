@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, STRING } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('order', {
@@ -31,25 +31,41 @@ module.exports = (sequelize) => {
             defaultValue: 1
         },
         status: {
-            type: DataTypes.ENUM("pending", "approved"), //, "failed")
+            type: DataTypes.ENUM("created", "processing", "cancelled", "completed"), //, "failed")
             allowNull: false,
-            defaultValue: "pending"
+            defaultValue: "created"
         },
-        mp_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "pending"
-        },
-        mp_date_created: {              // toda la info de aca para abajo deberia estar guardada en OTRO modelo, OrderDetail (pero no es indispensable para ahora)
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "pending"
-        },
+        // mp_id: {  // global.id que devuelve MP
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     defaultValue: "pending"
+        // },
+        // mp_date_created: {              // toda la info de aca para abajo deberia estar guardada en OTRO modelo, OrderDetail (pero no es indispensable para ahora)
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     defaultValue: "pending"      // ver que manda MP por query / body
+        // },
         total_amount: {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
-        }
+        },
+        payment_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: 0
+        },
+        payment_status: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: ""
+        },
+        merchant_order_id: {
+            type: DataTypes.BIGINT,
+            allowNull: true,
+            defaultValue: 0
+        },
+
         // isCompleted: {
         //     type: DataTypes.BOOLEAN,
         //     allowNull: false,

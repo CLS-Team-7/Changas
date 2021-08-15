@@ -26,7 +26,7 @@ export default function ComprarBack({ productos, data }) {
 
 			<form id='form1'>
 
-				<h4>Checkout BACK</h4>
+				<h4>Checkout BACK 1</h4>
 				<div>
 					{productos.map((producto, i) => {
 						return (

@@ -44,9 +44,9 @@ export const getSinglePost = (id) => {
 
 export const clearSinglePost = () => {
     return (dispatch) => {
-                dispatch({ type: GET_SINGLE_POST, payload: [] })
-            }
+        dispatch({ type: GET_SINGLE_POST, payload: [] })
     }
+}
 
 export const getUserAdmin = () => {
     return (dispatch) => {
@@ -69,22 +69,22 @@ export const getSingleUser = (id) => {
 }
 export const clearSingleUser = () => {
     return (dispatch) => {
-                dispatch({ type: GET_SINGLE_USER, payload: [] })
-            }
+        dispatch({ type: GET_SINGLE_USER, payload: [] })
     }
+}
 
 export const searchByTitle = (keyword) => {
     return (dispatch) => {
         axios.get(`http://localhost:3001/post/search?keyword=${keyword}`)
-        .then(r => r.data)
-        .then(data => {
-            dispatch({type: SEARCH_BY_TITLE, payload: data})
-        })
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: SEARCH_BY_TITLE, payload: data })
+            })
     }
 }
 export const searchByTitleClean = () => {
     return (dispatch) => {
-            dispatch({type: SEARCH_BY_TITLE, payload: []})
+        dispatch({ type: SEARCH_BY_TITLE, payload: [] })
     }
 }
 export const postUser = (payload) => {
@@ -113,6 +113,12 @@ export const sendSpecialty = (payload) => {
 
 export const getFilterType = (filterType) => {
     return (dispatch) => {
-            dispatch({ type: GET_FILTER_TYPE, payload: filterType })
-    }  
+        dispatch({ type: GET_FILTER_TYPE, payload: filterType })
+    }
+}
+
+export const getOrderTest = (payload) => {
+    return (dispatch) => {
+        dispatch({ type: "TEST_ORDER", payload })
+    }
 }

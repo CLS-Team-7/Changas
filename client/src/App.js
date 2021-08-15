@@ -19,6 +19,7 @@ import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
 import CheckoutTest from './CheckoutTest';
 import CheckoutTestBACK from './CheckoutTestBACK';
+import PaymentSuccessTest from './PaymentSuccessTest';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path='/testcheckoutback'>
           <CheckoutTestBACK />
+        </Route>
+        <Route path='/paymentsuccesstest'>
+          <PaymentSuccessTest />
         </Route>
         <Route path='/home'>
           <Home />

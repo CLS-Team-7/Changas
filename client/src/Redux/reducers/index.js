@@ -2,14 +2,15 @@ import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH
 
 
 const initialState = {
-    postList : [],
-    singlePost : {},
+    postList: [],
+    singlePost: {},
     singleUser: {},
     userAdmin: [],
     searchByTitle: [],
     categoryPost: [],
     specialtyCategory: [],
-    filterType: 'All'
+    filterType: 'All',
+    testorder: {}
 }
 
 
@@ -53,9 +54,14 @@ function rootReducer(state = initialState, action) {
                 searchByTitle: payload
             }
         case GET_FILTER_TYPE:
-            return{
+            return {
                 ...state,
                 filterType: payload
+            }
+        case "TEST_ORDER":
+            return {
+                ...state,
+                testorder: payload
             }
 
         default:
