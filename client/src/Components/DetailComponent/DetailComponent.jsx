@@ -2,6 +2,11 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
+import Reviews from '../Review/Reviews';
+import ReviewPost from '../Review/ReviewPost';
+import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
+import FormReview from '../FormReview/FormReview';
+
 
 
 function DetailComponent() {
@@ -23,6 +28,7 @@ function DetailComponent() {
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={image} />
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <FavoriteComponent/>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
                         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1>
@@ -58,7 +64,10 @@ function DetailComponent() {
                         </div>
                     </div>
                 </div>
+                <FormReview />
             </div>
+            <Reviews/>
+            <ReviewPost/>
         </section>
     )
 }

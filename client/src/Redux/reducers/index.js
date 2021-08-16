@@ -1,18 +1,21 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN } from '../constants';
-
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW } from '../constants';
 
 const initialState = {
-    postList : [],
+    postList: [],
     userLogin: [],
-    singlePost : {},
+    singlePost: {},
     singleUser: {},
     userAdmin: [],
     searchByTitle: [],
     categoryPost: [],
     specialtyCategory: [],
-    filterType: 'All'
-}
+    filterType: 'All',
+    testorder: {},
+    allReview: [],
+    singleReview: {}
+    // favoritePost: [],
 
+}
 
 function rootReducer(state = initialState, action) {
     const { payload, type } = action;
@@ -48,7 +51,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 singleUser: payload
             }
-         case USER_LOGIN:
+        case USER_LOGIN:
             return {
                 ...state,
                 userLogin: payload
@@ -59,10 +62,36 @@ function rootReducer(state = initialState, action) {
                 searchByTitle: payload
             }
         case GET_FILTER_TYPE:
-            return{
+            return {
                 ...state,
                 filterType: payload
             }
+        case "TEST_ORDER":
+            return {
+                ...state,
+                testorder: payload
+            }
+
+        case GET_ALL_REVIEWS:
+            return {
+                ...state,
+                allReview: payload
+            };
+        case POST_REVIEW:
+            return {
+                ...state,
+                allReview: payload
+            };
+        case "GET_REVIEW":
+            return {
+                ...state,
+                singleReview: payload
+            }
+        // case ADD_FAVORITE_POST:
+        //     return{
+        //         ...state,
+        //         favoritePost: payload
+        //     }
 
         default:
             return state;
