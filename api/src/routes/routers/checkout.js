@@ -14,8 +14,103 @@ const ACCESS_TOKEN = MP_ACCESS_TOKEN;
 mercadopago.configure({
 	access_token: ACCESS_TOKEN
 });
+// Ruta que recibe la informacion del pago PROPIA
+
+router.get('/success', async (req, res, next) => {
+
+	//console.info("EN LA RUTA PAGOS ", req)
+	const payment_id = req.query.payment_id
+	const payment_status = req.query.status
+	const external_reference = req.query.external_reference
+	const merchant_order_id = req.query.merchant_order_id
+
+	// const collection_id = req.query.collection_id
+
+	// const payment_type = req.query.payment_type
+	const preference_id = req.query.preference_id // ID DE MP
+
+	//console.log("EXTERNAL REFERENCE ", external_reference)
+
+	let infoMP = {
+		payment_id,
+		payment_status,
+		merchant_order_id,
+		status: "completed",
+		mp_id: preference_id,
+		isCompleted: true
+	}
+
+	let orderDB = await Order.findByPk(external_reference); // busco la order, que tiene el post_id
+	try {
+		let changes = { isPremium: true };
+		await Post.update(changes, {
+			where: {
+				id: orderDB.post_id
+			}
+		})
+	} catch (err) {
+		next(err);
+	}
+
+	// actualiza la order con los datos de MP
+	try {
+
+		await Order.update(infoMP, {
+			where: {
+				id: external_reference
+			}
+		});
+		console.info('Guardando order en DB con datos de MP: SUCCESS')
+		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
+
+	} catch (err) {
+		next(err);
+	};
+});
+
+
+router.get('/failure', async (req, res, next) => {
+	console.info("EN LA RUTA PAGOS ", req)
+	const payment_id = req.query.payment_id
+	const payment_status = req.query.status
+	const external_reference = req.query.external_reference
+	const merchant_order_id = req.query.merchant_order_id
+
+	// const collection_id = req.query.collection_id
+
+	// const payment_type = req.query.payment_type
+	const preference_id = req.query.preference_id // ID DE MP
+
+	//console.log("EXTERNAL REFERENCE ", external_reference)
+
+	let infoMP = {
+		payment_id,
+		payment_status,
+		merchant_order_id,
+		status: "cancelled",
+		mp_id: preference_id,
+		isCompleted: false
+	}
+
+	//let orderDB = await Order.findByPk(external_reference);
+
+	try {
+
+		await Order.update(infoMP, {
+			where: {
+				id: external_reference
+			}
+		});
+		console.info('Guardando order en DB con datos de MP: FAILURE')
+		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
+
+	} catch (err) {
+		next(err);
+	}
+})
 
 //Ruta que genera la URL de MercadoPago
+
 router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /mercadopago
 
 	// mandamos por body los datos de la order?? como es esto?? La order ya tiene que estar creada antes, en NuevaOrden, y al hacer click en pagar, se hace el GET a /mercadopago y ahi mando por body??  
@@ -102,91 +197,8 @@ router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /
 });
 
 
-// Ruta que recibe la informacion del pago PROPIA
 
 
-router.get('/success', async (req, res, next) => {
-
-	//console.info("EN LA RUTA PAGOS ", req)
-	const payment_id = req.query.payment_id
-	const payment_status = req.query.status
-	const external_reference = req.query.external_reference
-	const merchant_order_id = req.query.merchant_order_id
-
-	// const collection_id = req.query.collection_id
-
-	// const payment_type = req.query.payment_type
-	const preference_id = req.query.preference_id // ID DE MP
-
-	//console.log("EXTERNAL REFERENCE ", external_reference)
-
-	let infoMP = {
-		payment_id,
-		payment_status,
-		merchant_order_id,
-		status: "completed",
-		mp_id: preference_id,
-		isCompleted: true
-	}
-
-	//let orderDB = await Order.findByPk(external_reference);
-
-	try {
-
-		await Order.update(infoMP, {
-			where: {
-				id: external_reference
-			}
-		});
-		console.info('Guardando order en DB con datos de MP: SUCCESS')
-		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
-
-	} catch (err) {
-		next(err);
-	}
-
-});
-
-
-router.get('/failure', async (req, res, next) => {
-	console.info("EN LA RUTA PAGOS ", req)
-	const payment_id = req.query.payment_id
-	const payment_status = req.query.status
-	const external_reference = req.query.external_reference
-	const merchant_order_id = req.query.merchant_order_id
-
-	// const collection_id = req.query.collection_id
-
-	// const payment_type = req.query.payment_type
-	const preference_id = req.query.preference_id // ID DE MP
-
-	//console.log("EXTERNAL REFERENCE ", external_reference)
-
-	let infoMP = {
-		payment_id,
-		payment_status,
-		merchant_order_id,
-		status: "cancelled",
-		mp_id: preference_id,
-		isCompleted: false
-	}
-
-	//let orderDB = await Order.findByPk(external_reference);
-
-	try {
-
-		await Order.update(infoMP, {
-			where: {
-				id: external_reference
-			}
-		});
-		console.info('Guardando order en DB con datos de MP: FAILURE')
-		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
-
-	} catch (err) {
-		next(err);
-	}
-})
 
 //Ruta que recibe la información del pago
 // router.get("/pagos", (req, res) => {              // no entiendo bien esta parte, a MP a buscar datos de pago??
