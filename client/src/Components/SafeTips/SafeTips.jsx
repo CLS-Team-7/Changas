@@ -62,12 +62,15 @@ const SafeTips = () => {
                   <p className="my-4 px-5 text-blueGray-500 text-sm text-left leading-relaxed ">
                     Está comprobado que la gran mayoría de servicios contratados
                     por internet terminan siendo experiencias positivas tanto
-                    para el profesional como para el cliente. Nuestro objetivo
-                    es beneficiar el trabajo honesto de calidad, y que ambas
-                    partes se beneficien. Somos buena gente, como vos. Por ello
-                    te pedimos que sigas atentamente estas sugerencias y nos
-                    ayudes a construir una comunidad segura para todos,
-                    cuidándote vos y cuidando al resto de los usuarios.
+                    para el profesional como para el cliente.
+                  </p>
+                  <p className="my-4 px-5 text-blueGray-500 text-sm text-left leading-relaxed ">
+                    Nuestro objetivo es beneficiar el trabajo honesto y de
+                    calidad, beneficiando a ambas partes. Somos buena gente,
+                    como vos. Por ello te pedimos que sigas atentamente estas
+                    sugerencias y nos ayudes a construir una comunidad segura
+                    para todos, cuidándote vos y cuidando al resto de los
+                    usuarios.
                   </p>
                 </div>
                 <div className="border-t border-solid border-blueGray-200 text-xs py-5 text-left">
@@ -77,12 +80,15 @@ const SafeTips = () => {
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Antes de coordinar una visita, <b> chequeá los datos </b>{" "}
-                    del prestador del servicio como del sitio al cual tienes que
-                    dirigirte.
+                    del prestador del servicio/cliente.
                   </li>
                   <li className="mt-3 text-left px-5 ">
-                    <b> Lee atentamente las recomendaciones de usuario </b>,
-                    tanto si sos prestador o consumidor de un servicio
+                    <b>
+                      {" "}
+                      Lee atentamente los comentarios y reseñas de la
+                      publicación{" "}
+                    </b>
+                    .
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Nunca reveles tus contraseñas ni claves bancarias. NO
@@ -103,19 +109,20 @@ const SafeTips = () => {
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Sugerimos <b> coordinar por chat </b> los detalles y
-                    pormenores de los servicios que se vayan a contratar, esto
-                    te permitirá contar con información escrita y correcta,
-                    evitando malos entendidos.
+                    pormenores de los servicios que se vayan a contratar. Esto
+                    te permitirá contar con{" "}
+                    <b> información escrita y correcta </b>, evitando malos
+                    entendidos.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Es importante <b> que dejes una opinión </b> sobre el
-                    usuario, ya que esto nos ayuda a crecer como comunidad.
-                    Tanto si el resultado fue positivo o no, queremos saber si
-                    estás satisfecho con el servicio que contrataste y con el
-                    cliente que te contrató. De esta forma se ayuda a otras
-                    personas a elegir con mayor confianza y además, el
-                    profesional logrará multiplicar su cantidad de trabajo.
-                  </li>
+                    usuario que te presto el servicio, ya que esto nos ayuda a
+                    crecer como comunidad. Tanto si el resultado fue positivo o
+                    no, queremos saber si estás satisfecho con el servicio que
+                    contrataste. De esta forma ayudas a otras personas a elegir
+                    con mayor confianza y al profesional que logrará multiplicar
+                    su cantidad de trabajo.
+                  </li>{" "}
                   <li className="mt-3 text-left px-5 ">
                     Asegúrate antes de realizar cualquier pago que el
                     <b> presupuesto contemple </b> todo lo necesario, inclusive
@@ -126,7 +133,7 @@ const SafeTips = () => {
                     COVID-19.
                   </li>
                 </div>
-                {/*footer*/}
+
                 <div className="flex items-center justify-end   rounded-b">
                   <button
                     className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
