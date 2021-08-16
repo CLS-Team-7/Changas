@@ -10,11 +10,17 @@ const router = Router();
 router.get('/', async (req, res, next) => { // localhost:3001/order
 	try {
 		let orders = await Order.findAll({
-			// attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-			include: {
-				model: User,
-				attributes: ["id", "given_name", "family_name", "fullName", "picture"],
-			}
+			attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+			include: [
+				{
+					model: User,
+					attributes: ["id", "given_name", "family_name", "fullName",],
+				},
+				{
+					model: Post,
+					attributes: ["id", "title", "description"]
+				}
+			]
 		});
 		res.json(orders);
 	} catch (err) {
@@ -26,17 +32,23 @@ router.get('/', async (req, res, next) => { // localhost:3001/order
 
 router.get('/:idOrder', async (req, res, next) => {
 	let { idOrder } = req.params;
-	if (idOrder) { // ver que validacion puedo hacer aca
+	if (idOrder && idOrder.length === 36) {
 		try {
 			let result = await Order.findOne({
 				where: {
 					id: idOrder,
 				},
-				// attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-				include: {
-					model: User,
-					attributes: ["id", "given_name", "family_name", "fullName"],
-				}
+				attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+				include: [
+					{
+						model: User,
+						attributes: ["id", "given_name", "family_name", "fullName",],
+					},
+					{
+						model: Post,
+						attributes: ["id", "title", "description"]
+					}
+				]
 			});
 			if (result) res.json(result);
 			else
@@ -47,18 +59,33 @@ router.get('/:idOrder', async (req, res, next) => {
 			next(err);
 		};
 	};
-	// if (idPost && idPost.length !== 36) {
-	// 	try {
-	// 		throw new TypeError(
-	// 			"ERROR 404: ID inválido (ID no es un tipo XXX válido)."
-	// 		); // automaticamente rechaza un error, sin buscar por la DB
-	// 	} catch (err) {
-	// 		next(err);
-	// 	}
-	// };
+	if (idOrder && idOrder.length !== 36) {
+		try {
+			throw new TypeError(
+				"ERROR 404: ID inválido (ID no es un tipo UUID válido)."
+			); // automaticamente rechaza un error, sin buscar por la DB
+		} catch (err) {
+			next(err);
+		}
+	};
 });
 
 router.post('/', async (req, res, next) => { // logica con checkout
+
+	let { user_id, post_id, title, price } = req.body;
+	try {
+		let newOrder = await Order.create({
+			user_id,
+			post_id,
+			title,
+			price
+		})
+		newOrder.setUser(user_id);
+		newOrder.setPost(post_id);
+		res.send(newOrder)
+	} catch (err) {
+		next(err)
+	}
 
 });
 

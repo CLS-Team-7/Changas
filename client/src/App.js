@@ -30,15 +30,19 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path='/testcheckout'>
+        {/*<Route path='/testcheckout'>
           <CheckoutTest />
-        </Route>
-        <Route path='/testcheckoutback'>
+        </Route>*/}
+        <Route path='/testcheckout/:id'>
           <CheckoutTestBACK />
         </Route>
         <Route path='/paymentsuccesstest/:id'>
           <PaymentSuccessTest />
         </Route>
+        {/*
+        <Route path='/paymentfailuretest/:id'>
+          <PaymentFailureTest /> aun queda crear este componente, pero para la demo final
+        </Route>*/}
         <Route path='/home'>
           <Home />
         </Route>
@@ -91,10 +95,10 @@ function App() {
           <PanerUserConfig />
         </Route>
         <Route exact path='/user/posts'>
-          <PanelUserPost/>
+          <PanelUserPost />
         </Route>
         <Route exact path='/user/createpost'>
-          <PanelCreatePost/>
+          <PanelCreatePost />
         </Route>
 
         <Route path='/faq'>
