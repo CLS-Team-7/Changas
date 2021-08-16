@@ -27,10 +27,10 @@ class MessageParser {
     if (lowercase.includes("contrato")) {
       this.actionProvider.ayudaPublicarNecesidad();
     }
-    if (lowercase.includes("publicar")) {
+    if (lowercase.includes("public")) {
       this.actionProvider.ayudaPublicarOfrecer();
     }
-    if (lowercase.includes("publico")) {
+    if (lowercase.includes("post")) {
       this.actionProvider.ayudaPublicarOfrecer();
     }
     if (lowercase.includes("registrarme")) {
