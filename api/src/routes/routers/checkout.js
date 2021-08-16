@@ -16,7 +16,7 @@ mercadopago.configure({
 });
 
 //Ruta que genera la URL de MercadoPago
-router.get("/", async (req, res, next) => { // localhost:3001/testcheckout  /mercadopago
+router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /mercadopago
 
 	// mandamos por body los datos de la order?? como es esto?? La order ya tiene que estar creada antes, en NuevaOrden, y al hacer click en pagar, se hace el GET a /mercadopago y ahi mando por body??  
 
@@ -36,9 +36,9 @@ router.get("/", async (req, res, next) => { // localhost:3001/testcheckout  /mer
 
 
 	//Cargamos el carrido de la bd ------> aplica paso 2)
-	let order_id = 'd200c399-e807-4eab-9da4-8639307b5611'; //ver como el front me dice que el id es este -> req.body.orderId??
+	let { id } = req.params; //ver como el front me dice que el id es este -> req.body.orderId??
 
-	let order = await Order.findByPk(order_id);
+	let order = await Order.findByPk(id);
 	// console.log(order)
 	// console.log('hola')
 
