@@ -33,7 +33,7 @@ function App() {
         {/*<Route path='/testcheckout'>
           <CheckoutTest />
         </Route>*/}
-        <Route path='/testcheckoutback/:id'>
+        <Route path='/testcheckout/:id'>
           <CheckoutTestBACK />
         </Route>
         <Route path='/paymentsuccesstest/:id'>
