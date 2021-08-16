@@ -139,7 +139,7 @@ router.get('/success', async (req, res, next) => {
 			}
 		});
 		console.info('Guardando order en DB con datos de MP')
-		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
+		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
 
 	} catch (err) {
 		next(err);
@@ -181,7 +181,7 @@ router.get('/failure', async (req, res, next) => {
 			}
 		});
 		console.info('Guardando order en DB con datos de MP')
-		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
+		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
 
 	} catch (err) {
 		next(err);
