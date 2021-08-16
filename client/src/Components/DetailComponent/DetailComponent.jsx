@@ -6,20 +6,18 @@ import Reviews from '../Review/Reviews';
 import ReviewPost from '../Review/ReviewPost';
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
 import FormReview from '../FormReview/FormReview';
-
-
+import SafeTips from "../SafeTips/SafeTips";
 
 function DetailComponent() {
-    const dispatch = useDispatch();
-    const { title, image, description, priceRange, category, specialty, user } = useSelector(state => state.singlePost);
-    let { id } = useParams();
+  const dispatch = useDispatch();
+  const { title, image, description, priceRange, category, specialty } =
+    useSelector((state) => state.singlePost);
+  let { id } = useParams();
 
-    useEffect(() => {
-        dispatch(getSinglePost(id));
-        dispatch(clearSinglePost())
-    }, [dispatch, id])
-
-
+  useEffect(() => {
+    dispatch(getSinglePost(id));
+    dispatch(clearSinglePost());
+  }, [dispatch, id]);
 
 
     return (
@@ -60,7 +58,7 @@ function DetailComponent() {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">Precio Base: {priceRange?.map(e => `$${e}   `)}</span>
-                            <Link to={`/profile/${user?.id}`} className="flex ml-auto"><button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Contactar</button></Link>
+                            <SafeTips />
                         </div>
                     </div>
                 </div>
@@ -72,4 +70,4 @@ function DetailComponent() {
     )
 }
 
-export default DetailComponent
+export default DetailComponent;
