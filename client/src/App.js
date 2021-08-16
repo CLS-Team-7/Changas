@@ -21,7 +21,9 @@ import PanelUser from './views/PanelUser/PanelUser';
 import CheckoutTest from './CheckoutTest';
 import CheckoutTestBACK from './CheckoutTestBACK';
 import PaymentSuccessTest from './PaymentSuccessTest';
-
+import UserPost from './Components/PanelUser/UserPosts/UserPost';
+import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
+import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 
 
 function App() {
@@ -87,6 +89,12 @@ function App() {
         </Route>
         <Route exact path='/user/config'>
           <PanerUserConfig />
+        </Route>
+        <Route exact path='/user/posts'>
+          <PanelUserPost/>
+        </Route>
+        <Route exact path='/user/createpost'>
+          <PanelCreatePost/>
         </Route>
 
         <Route path='/faq'>

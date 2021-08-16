@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux';
 
 
 function UserDataComp() {
-    const { user, isAuthenticated } = useAuth0();
-    const prueba = useSelector(state => state.userLogin)
-    console.log(prueba)
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    const userLogin = useSelector(state => state.userLogin)
     return (
         isAuthenticated && (
             <div>
@@ -25,18 +24,18 @@ function UserDataComp() {
 
                                     <div className="form-item">
                                         <label className="text-xl ">Nombre Completo</label>
-                                        <input type="text" value={`${user.given_name} ${user.family_name}`} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200" disabled />
+                                        <input type="text" value={`${userLogin?.given_name} ${userLogin?.family_name}`} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200" disabled />
                                     </div>
                                     <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Edad</label>
-                                            <input type="text" value={"Sin completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.age !== 0 ? userLogin.age : "Sin Completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Vacunado</label>
-                                            <input type="text" value={"Sin completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.isVaccinated ? "Vacunado" : "No vacunado"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
                                     </div>
 
@@ -44,30 +43,30 @@ function UserDataComp() {
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Email</label>
-                                            <input type="text" value={user.email} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.email} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Direccion</label>
-                                            <input type="text" value={"Sin Completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.address} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
                                     </div>
                                     <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Teléfono</label>
-                                            <input type="text" value={"Sin completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.phoneNumber} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">DNI/Pasaporte</label>
-                                            <input type="text" value={"Sin completar"} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.ID_Passport?.includes("google") ? "Sin completar" : userLogin?.ID_Passport} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
                                     </div>
 
                                     <div className="form-item w-full">
                                         <label className="text-xl text-align-left">Descripcion</label>
-                                        <p cols="30" rows="10" className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem natus nobis odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, eveniet fugiat? Explicabo assumenda dignissimos quisquam perspiciatis corporis sint commodi cumque rem tempora!</p>
+                                        <p cols="30" rows="10" className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled>{userLogin?.summary === 0 ? "Sin completar" : userLogin?.summary}</p>
                                     </div>
                                 </form>
                             </div>

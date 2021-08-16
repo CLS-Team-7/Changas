@@ -79,6 +79,7 @@ module.exports = (sequelize) => {
         // },
         isVaccinated: {
             type: DataTypes.BOOLEAN,
+            defaultValue:false,
             allowNull: true,
         },
         isNew: {
