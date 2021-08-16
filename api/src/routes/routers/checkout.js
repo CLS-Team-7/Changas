@@ -124,9 +124,9 @@ router.get('/success', async (req, res, next) => {
 		payment_id,
 		payment_status,
 		merchant_order_id,
-		status: "cancelled",
+		status: "completed",
 		mp_id: preference_id,
-		isCompleted: false
+		isCompleted: true
 	}
 
 	//let orderDB = await Order.findByPk(external_reference);
@@ -138,7 +138,7 @@ router.get('/success', async (req, res, next) => {
 				id: external_reference
 			}
 		});
-		console.info('Guardando order en DB con datos de MP')
+		console.info('Guardando order en DB con datos de MP: SUCCESS')
 		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
 
 	} catch (err) {
@@ -149,7 +149,7 @@ router.get('/success', async (req, res, next) => {
 
 
 router.get('/failure', async (req, res, next) => {
-	//console.info("EN LA RUTA PAGOS ", req)
+	console.info("EN LA RUTA PAGOS ", req)
 	const payment_id = req.query.payment_id
 	const payment_status = req.query.status
 	const external_reference = req.query.external_reference
@@ -166,9 +166,9 @@ router.get('/failure', async (req, res, next) => {
 		payment_id,
 		payment_status,
 		merchant_order_id,
-		status: "completed",
+		status: "cancelled",
 		mp_id: preference_id,
-		isCompleted: true
+		isCompleted: false
 	}
 
 	//let orderDB = await Order.findByPk(external_reference);
@@ -180,7 +180,7 @@ router.get('/failure', async (req, res, next) => {
 				id: external_reference
 			}
 		});
-		console.info('Guardando order en DB con datos de MP')
+		console.info('Guardando order en DB con datos de MP: FAILURE')
 		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
 
 	} catch (err) {
