@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const axios = require("axios").default;
-const { User, Post, Order, Category, Specialty } = require("../db.js");
+const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review } = require("../db.js");
 
 async function getAllPosts(_req, res, next) {
   //http://localhost:3001/post -->
@@ -20,13 +20,32 @@ async function getAllPosts(_req, res, next) {
           model: Specialty,
           attributes: ["id", "title"],
         },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
       ],
     });
     res.json(posts);
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function getPostByTitle(req, res, next) {
   //Falta validación con caracteres especiales
@@ -56,6 +75,25 @@ async function getPostByTitle(req, res, next) {
             model: Specialty,
             attributes: ["id", "title"],
           },
+          {
+            model: Question,
+            attributes: { exclude: ["post_id"] },
+            include:
+            {
+              model: Answer,
+              attributes: { exclude: ["question_id"] },
+            }
+          },
+          {
+            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+          },
+          {
+            model: Report
+          },
+          {
+            model: Review,
+            attributes: { exclude: ["post_id", "updatedAt"] }
+          }
         ],
       });
       if (result.length === 0) {
@@ -64,17 +102,16 @@ async function getPostByTitle(req, res, next) {
         );
       } else {
         return res.json(result);
-      }
-    }
+      };
+    };
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function getPostById(req, res, next) {
   let { idPost } = req.params;
-  if (idPost && idPost.length === 36) {
-    // 36 es la length del UUID
+  if (idPost && idPost.length === 36) { // 36 es la length del UUID
     try {
       let result = await Post.findOne({
         where: {
@@ -94,6 +131,28 @@ async function getPostById(req, res, next) {
             model: Specialty,
             attributes: ["id", "title"],
           },
+          {
+            model: Question,
+            attributes: { exclude: ["post_id"] },
+            include: {
+              model: Answer,
+              attributes: { exclude: ["question_id"] },
+            }
+          },
+          {
+            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+          },
+          {
+            model: Report
+          },
+          {
+            model: Review,
+            attributes: { exclude: ["post_id", "updatedAt"] },
+            include: [{
+              model: User,
+              attributes: ["given_name", "family_name", "fullName"]
+            }]
+          }
         ],
       });
       if (result) res.json(result);
@@ -103,8 +162,8 @@ async function getPostById(req, res, next) {
         );
     } catch (err) {
       next(err);
-    }
-  }
+    };
+  };
   if (idPost && idPost.length !== 36) {
     try {
       throw new TypeError(
@@ -113,10 +172,12 @@ async function getPostById(req, res, next) {
     } catch (err) {
       next(err);
     }
-  }
-}
+  };
+};
 
 async function createPost(req, res, next) {
+
+  // faltaria hacer un update del User donde se actualiza el isNew a false, una vez que crea el primer post
   let {
     user_id,
     typePost,
@@ -150,8 +211,8 @@ async function createPost(req, res, next) {
     res.json(newPost);
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function updatePost(req, res, next) {
   let { idPost } = req.params;
@@ -168,8 +229,8 @@ async function updatePost(req, res, next) {
     res.json(updatedPost); // se envia el post modificado al front
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 async function deletePost(req, res, next) {
   let { idPost } = req.params;
@@ -187,11 +248,11 @@ async function deletePost(req, res, next) {
       throw new Error(
         "ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe)."
       );
-    }
+    };
   } catch (err) {
     next(err);
-  }
-}
+  };
+};
 
 module.exports = {
   getAllPosts,

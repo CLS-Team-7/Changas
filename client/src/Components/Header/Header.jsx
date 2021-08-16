@@ -1,28 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
-import { searchByTitle } from "../../Redux/actions";
+import { postUser, searchByTitle } from "../../Redux/actions";
+
+var Logeado = false
 
 
 function Header() {
+
+  const { logout, isAuthenticated, loginWithPopup, user } = useAuth0();
   const [title, setTitle] = useState("");
+  const [accountUser, setAccountUser] = useState({
+    sub: user?.sub,
+    given_name: user?.given_name,
+    family_name: user?.family_name,
+    email: user?.email,
+    picture: user?.picture,
+    ID_Passport: user?.sub,
+    address: 'Sin Completar',
+    phoneNumber: 'Sin Completar',
+    summary: '0',
+    score: 0,
+    jobsDone: 0,
+    isVaccinated: false,
+    isNew: true,
+    isAdmin: false,
+    isActive: true,
+    age: 0
+  })
   const dispatch = useDispatch();
   const { push } = useHistory();
+
+
+  //////////acount create//////////////
+  if (Logeado === false) {
+    if (accountUser.sub !== undefined && accountUser.given_name !== undefined) {
+      dispatch(postUser(accountUser))
+      Logeado = true
+    }
+  }
+
+
+  const handleClickLogout = () => {
+    logout()
+    Logeado = false
+  }
+  //////////////////////////////////////
+  /////////////// usermenu/////////////
+
+
 
   function handleSubmit(e) {
     e.preventDefault();
     setTitle("");
   }
+
   function handleClick() {
     dispatch(searchByTitle(title))
     push(`/search/${title}`)
   }
 
-  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const userLogin = useSelector(state => state.userLogin)
+  /* console.log(userLogin) */
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-800">
@@ -33,7 +76,7 @@ function Header() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <Link
-                      to="/home"
+                      to="/"
                       className="flex title-font font-medium items-center  mb-4 md:mb-0"
                     >
                       <img
@@ -46,11 +89,20 @@ function Header() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
+                      {
+
+                        <Link
+                          to="/home"
+                          className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          Home
+                        </Link>
+                      }
                       <Link
-                        to="/admin"
+                        to="/user/createpost"
                         className=" text-white px-3 py-2 rounded-md text-sm font-medium"
                       >
-                        Panel Admin
+                        Crear Post
                       </Link>
                       <Link
                         to="/faq"
@@ -95,7 +147,7 @@ function Header() {
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Profile dropdown */}
                     {isAuthenticated === true ? (
-                      <Menu as="div" className="ml-3 relative">
+                      <Menu as="div" className="ml-3 relative ">
                         {({ open }) => (
                           <>
                             <div>
@@ -120,7 +172,7 @@ function Header() {
                             >
                               <Menu.Items
                                 static
-                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 "
                               >
                                 <div className="mt-3 px-2 space-y-1">
                                   <div className="flex flex-row justify-start items-center place-content-center">
@@ -141,7 +193,7 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to="/myproftest"
+                                      to="/user"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Mi Perfil
@@ -171,11 +223,46 @@ function Header() {
                                       </svg>
                                     </div>
                                     <Link
-                                      to=""
+                                      to="/user/config"
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Configuracion
                                     </Link>
+                                  </div>
+                                  <div className="flex flex-row justify-start items-center place-content-center">
+                                    {
+                                      userLogin?.isAdmin ?
+                                        <>
+                                          <div className="text-black">
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              className="h-6 w-6"
+                                              fill="none"
+                                              viewBox="0 0 24 24"
+                                              stroke="currentColor"
+                                            >
+                                              <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                              />
+                                              <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                              />
+                                            </svg>
+                                          </div>
+                                          <Link
+                                            to="/admin"
+                                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
+                                          >
+                                            Admin
+                                          </Link></> :
+                                        <span></span>
+                                    }
                                   </div>
                                   <div className="flex flex-row justify-start items-center place-content-center">
                                     <svg
@@ -193,7 +280,7 @@ function Header() {
                                       />
                                     </svg>
                                     <button
-                                      onClick={() => logout()}
+                                      onClick={handleClickLogout}
                                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
                                     >
                                       Desconectarse
@@ -207,7 +294,7 @@ function Header() {
                       </Menu>
                     ) : (
                       <button
-                        onClick={() => loginWithRedirect()}
+                        onClick={() => loginWithPopup()}
                         className="bg-Alloy__Orange text-white text-base font-bold py-1 px-4 border-b-4 border-Mahogany hover:border-Ruby__Red rounded transform hover:scale-105 transition duration-300"
                       >
                         Entrar / Registrarse
@@ -231,12 +318,6 @@ function Header() {
 
             <Disclosure.Panel className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <Link
-                  to="/admin"
-                  className="  text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Panel Admin
-                </Link>
                 <Link
                   to="/faq"
                   className=" text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -288,7 +369,7 @@ function Header() {
                         </svg>
                       </div>
                       <Link
-                        to="/myproftest"
+                        to="/user"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Mi Perfil
@@ -318,11 +399,46 @@ function Header() {
                         </svg>
                       </div>
                       <Link
-                        to=""
+                        to="user/config"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Configuracion
                       </Link>
+                    </div>
+                    <div className="flex flex-row items-center place-content-center">
+                      {
+                        userLogin?.isAdmin ?
+                          <>
+                            <div className="text-white">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                              </svg>
+                            </div>
+                            <Link
+                              to="/admin"
+                              className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-300"
+                            >
+                              Admin
+                            </Link></> :
+                          <span></span>
+                      }
                     </div>
                     <div className="flex flex-row  items-center place-content-center">
                       <svg
@@ -340,7 +456,7 @@ function Header() {
                         />
                       </svg>
                       <button
-                        onClick={() => logout()}
+                        onClick={handleClickLogout}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Desconectarse
@@ -350,8 +466,8 @@ function Header() {
                 </div>
               ) : (
                 <button
-                  onClick={() => loginWithRedirect()}
-                  className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                  onClick={() => loginWithPopup()}
+                  className="bg-Alloy__Orange text-white text-base font-bold py-1 px-4 border-b-4 border-Mahogany hover:border-Ruby__Red rounded transform hover:scale-105 transition duration-300 mb-3"
                 >
                   Entrar/Registrar
                 </button>

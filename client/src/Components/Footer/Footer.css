@@ -1,4 +1,54 @@
 .FooterElement {
   position: fixed;
-  bottom: 0;
+}
+
+.react-chatbot-kit-chat-message-container{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.react-chatbot-kit-chat-input{
+  border: 2px solid
+}
+
+.react-chatbot-kit-chat-input::placeholder {
+  color: transparent;
+}
+
+.boot-Container {
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.react-chatbot-kit-chat-btn-send-icon{
+  display: inline-block;
+}
+
+.react-chatbot-kit-chat-bot-avatar-container{
+  background-color: white
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+  content: url(g569.png);
+  width: 30px;
+  height: 40px;
+  
+}
+
+.btn {
+  background: #2d3748;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #384458;
+  text-decoration: none;
 }

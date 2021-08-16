@@ -9,18 +9,40 @@ import About from './views/About/About';
 import TestPosts from './Components/TestPosts/TestPosts';
 import Admin from './views/Admin/Admin';
 import { FAQ } from './views/FAQ/FAQ';
-import  Profile from './views/Profile/Profile';
+import Profile from './views/Profile/Profile';
 import MyProfile from './Components/MyProfile/MyProfile';
 import AdminCategory from './views/Admin/AdminCategory/AdminCategory';
 import AdminUserCreate from './views/Admin/AdminUserCreate/AdminUserCreate';
 import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
+import Reviews from './Components/Review/Review';
+import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
+import PanelUser from './views/PanelUser/PanelUser';
+import CheckoutTest from './CheckoutTest';
+import CheckoutTestBACK from './CheckoutTestBACK';
+import PaymentSuccessTest from './PaymentSuccessTest';
+import UserPost from './Components/PanelUser/UserPosts/UserPost';
+import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
+import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        {/*<Route path='/testcheckout'>
+          <CheckoutTest />
+        </Route>*/}
+        <Route path='/testcheckout/:id'>
+          <CheckoutTestBACK />
+        </Route>
+        <Route path='/paymentsuccesstest/:id'>
+          <PaymentSuccessTest />
+        </Route>
+        {/*
+        <Route path='/paymentfailuretest/:id'>
+          <PaymentFailureTest /> aun queda crear este componente, pero para la demo final
+        </Route>*/}
         <Route path='/home'>
           <Home />
         </Route>
@@ -33,14 +55,17 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* <Route exact path='/favs'>
+          <FavsTest/>
+        </Route> */}
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
         <Route exact path='/search/:title'>
-        <SearchView />
+          <SearchView />
         </Route>
         <Route exact path='/testposts'>
-          <TestPosts />
+          <Reviews />
         </Route>
         <Route exact path='/myproftest'>
           <MyProfile />
@@ -50,21 +75,34 @@ function App() {
         </Route>
         *// Panel de administradorPruebas//*
         <Route exact path='/admin'>
-          <Admin/>
+          <Admin />
         </Route>
         <Route exact path='/admin/category'>
-          <AdminCategory/>
+          <AdminCategory />
         </Route>
         <Route exact path='/admin/createuser'>
-          <AdminUserCreate/>
+          <AdminUserCreate />
         </Route>
         <Route exact path='/admin/createpost'>
-          <AdminCreatePost/>
+          <AdminCreatePost />
         </Route>
-        
-        *//////////////////** */
+
+        *//////////////////**Panel User*/
+        <Route exact path='/user'>
+          <PanelUser />
+        </Route>
+        <Route exact path='/user/config'>
+          <PanerUserConfig />
+        </Route>
+        <Route exact path='/user/posts'>
+          <PanelUserPost />
+        </Route>
+        <Route exact path='/user/createpost'>
+          <PanelCreatePost />
+        </Route>
+
         <Route path='/faq'>
-          <FAQ/>
+          <FAQ />
         </Route>
         <Route path='*'>
           <NotFound />

@@ -12,6 +12,14 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       allowNull: false
     },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    specialty_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     typePost: {
       type: DataTypes.ENUM('Offer', 'Petition'),
       allowNull: false,
@@ -28,21 +36,13 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    priceRange: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+    priceRange: { // MODIFICAR A basePrice LUEGO DE TENER EL OK DESDE EL FRONT
+      type: DataTypes.ARRAY(DataTypes.STRING), // esto tiene que ser solo un string en el futuro, ver con el formulario de post del front, como manda la info
       allowNull: true,
     },
     timeRange: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
-    },
-    category_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    specialty_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
     paymentMethods: {
       type: DataTypes.ARRAY(DataTypes.STRING),
@@ -57,5 +57,15 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: true
     },
+    acceptsQuestions: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      // defaultValue: false // depende el tipo de post. El formulario controlario deberia reflejar esto
+    },
+    isPremium: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    }
   });
 };

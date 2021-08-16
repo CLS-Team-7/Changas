@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN } from '../constants';
 import axios from 'axios';
 
 
@@ -44,9 +44,9 @@ export const getSinglePost = (id) => {
 
 export const clearSinglePost = () => {
     return (dispatch) => {
-                dispatch({ type: GET_SINGLE_POST, payload: [] })
-            }
+        dispatch({ type: GET_SINGLE_POST, payload: [] })
     }
+}
 
 export const getUserAdmin = () => {
     return (dispatch) => {
@@ -69,27 +69,40 @@ export const getSingleUser = (id) => {
 }
 export const clearSingleUser = () => {
     return (dispatch) => {
-                dispatch({ type: GET_SINGLE_USER, payload: [] })
-            }
+        dispatch({ type: GET_SINGLE_USER, payload: [] })
     }
+}
 
 export const searchByTitle = (keyword) => {
     return (dispatch) => {
         axios.get(`http://localhost:3001/post/search?keyword=${keyword}`)
-        .then(r => r.data)
-        .then(data => {
-            dispatch({type: SEARCH_BY_TITLE, payload: data})
-        })
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: SEARCH_BY_TITLE, payload: data })
+            })
     }
 }
 export const searchByTitleClean = () => {
     return (dispatch) => {
-            dispatch({type: SEARCH_BY_TITLE, payload: []})
+        dispatch({ type: SEARCH_BY_TITLE, payload: [] })
     }
 }
 export const postUser = (payload) => {
     return (dispatch) => {
         axios.post("http://localhost:3001/user", payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: USER_LOGIN, payload: data })
+            })
+    };
+}
+export const UpdateUserData = (payload) => {
+    return (dispatch) => {
+        axios.put("http://localhost:3001/user", payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: USER_LOGIN, payload: data })
+            })
     };
 }
 
@@ -113,6 +126,57 @@ export const sendSpecialty = (payload) => {
 
 export const getFilterType = (filterType) => {
     return (dispatch) => {
-            dispatch({ type: GET_FILTER_TYPE, payload: filterType })
-    }  
+        dispatch({ type: GET_FILTER_TYPE, payload: filterType })
+    }
 }
+
+
+export const getAllReviews = () => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/review`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_ALL_REVIEWS, payload: data })
+            })
+    }
+}
+
+export const postReview = (payload) => {
+    return (dispatch) => {
+        axios.post("http://localhost:3001/review", payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: POST_REVIEW, payload: data })
+            })
+    };
+}
+
+export const getReview = (id) => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/review/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "GET_REVIEW", payload: data })
+            })
+    }
+}
+
+export const getOrderTest = (payload) => {
+    return (dispatch) => {
+        dispatch({ type: "TEST_ORDER", payload })
+    }
+}
+
+// export const addFavoritePost = (favoritePost) => {
+//     return (dispatch) => {
+//             dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
+//     };  
+// }
+
+// export const addFavTest = (favTest) => {
+//     return (dispatch) => {
+//     localStorage.setItem("favTest", favTest)
+//     }
+// }
+
+
