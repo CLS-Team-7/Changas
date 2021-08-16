@@ -63,8 +63,7 @@ const SafeTips = () => {
                     Está comprobado que la gran mayoría de servicios contratados
                     por internet terminan siendo experiencias positivas tanto
                     para el profesional como para el cliente.
-                  </p>
-                  <p className="my-4 px-5 text-blueGray-500 text-sm text-left leading-relaxed ">
+                    <br />
                     Nuestro objetivo es beneficiar el trabajo honesto y de
                     calidad, beneficiando a ambas partes. Somos buena gente,
                     como vos. Por ello te pedimos que sigas atentamente estas
