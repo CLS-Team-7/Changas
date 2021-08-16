@@ -11,7 +11,7 @@ function CheckoutTestBACK() {
 	useEffect(() => {
 		// creo que todo esto se puede simplificar en un unico axios.get, pero queda para despues de la demo
 		axios
-			.get(`http://localhost:3001/testcheckoutback`)
+			.get(`http://localhost:3001/testcheckoutback/${id}`)
 			.then((data) => {
 				setDatos(data.data)
 				console.info('Contenido de data:', data)
