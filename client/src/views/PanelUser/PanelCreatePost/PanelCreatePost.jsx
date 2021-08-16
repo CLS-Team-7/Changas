@@ -20,7 +20,7 @@ function PanelCreatePost() {
                         <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
                             <h2 className="text-3xl font-extrabold text-red-600 dark:text-white sm:text-4xl">
                                 <span className="block font-extrabold text-Rich__Black">No estas Registrado</span>
-                                <span className="block text-red-600">Hace Click en el boton e ingresa</span>
+                                <span className="block text-red-600">Haz click en el boton e ingresa</span>
                             </h2>
                             <div className="lg:mt-0 lg:flex-shrink-0">
                                 <div className="mt-5 inline-flex rounded-md">
