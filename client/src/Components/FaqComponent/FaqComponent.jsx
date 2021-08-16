@@ -258,8 +258,8 @@ function FaqComponen() {
                 Una vez prestado el servicio, el usuario cliente puede dejar una
                 reseña y un puntaje por la calidad del servicio en la
                 publicacion del servicio que contrato. Y así
-                <strong>ayudamos</strong> a quienes cumplen con su trabajo a
-                <strong>conseguir mas clientes.</strong>
+                <strong> ayudamos </strong> a quienes cumplen con su trabajo a
+                <strong> conseguir mas clientes.</strong>
               </p>
             </div>
           </div>
