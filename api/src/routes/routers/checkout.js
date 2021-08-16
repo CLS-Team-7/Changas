@@ -139,7 +139,7 @@ router.get('/success', async (req, res, next) => {
 			}
 		});
 		console.info('Guardando order en DB con datos de MP')
-		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
+		return res.redirect(`http://localhost:3000/paymentfailuretest/${external_reference}`)
 
 	} catch (err) {
 		next(err);
@@ -149,7 +149,43 @@ router.get('/success', async (req, res, next) => {
 
 
 router.get('/failure', async (req, res, next) => {
+	//console.info("EN LA RUTA PAGOS ", req)
+	const payment_id = req.query.payment_id
+	const payment_status = req.query.status
+	const external_reference = req.query.external_reference
+	const merchant_order_id = req.query.merchant_order_id
 
+	// const collection_id = req.query.collection_id
+
+	// const payment_type = req.query.payment_type
+	const preference_id = req.query.preference_id // ID DE MP
+
+	//console.log("EXTERNAL REFERENCE ", external_reference)
+
+	let infoMP = {
+		payment_id,
+		payment_status,
+		merchant_order_id,
+		status: "completed",
+		mp_id: preference_id,
+		isCompleted: true
+	}
+
+	//let orderDB = await Order.findByPk(external_reference);
+
+	try {
+
+		await Order.update(infoMP, {
+			where: {
+				id: external_reference
+			}
+		});
+		console.info('Guardando order en DB con datos de MP')
+		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
+
+	} catch (err) {
+		next(err);
+	}
 })
 
 //Ruta que recibe la información del pago
