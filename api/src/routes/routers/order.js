@@ -72,8 +72,20 @@ router.get('/:idOrder', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => { // logica con checkout
 
-	let { user_id, post_id, title, price, quantity } = req.body;
-
+	let { user_id, post_id, title, price } = req.body;
+	try {
+		let newOrder = await Order.create({
+			user_id,
+			post_id,
+			title,
+			price
+		})
+		newOrder.setUser(user_id);
+		newOrder.setPost(post_id);
+		res.send(newOrder)
+	} catch (err) {
+		next(err)
+	}
 
 });
 
