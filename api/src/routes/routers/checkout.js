@@ -124,9 +124,9 @@ router.get('/success', async (req, res, next) => {
 		payment_id,
 		payment_status,
 		merchant_order_id,
-		status: "completed",
+		status: "cancelled",
 		mp_id: preference_id,
-		isCompleted: true
+		isCompleted: false
 	}
 
 	//let orderDB = await Order.findByPk(external_reference);
