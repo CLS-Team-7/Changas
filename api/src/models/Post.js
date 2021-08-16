@@ -61,6 +61,11 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       allowNull: true,
       // defaultValue: false // depende el tipo de post. El formulario controlario deberia reflejar esto
+    },
+    isPremium: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   });
 };
