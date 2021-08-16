@@ -17,6 +17,8 @@ import SearchView from './views/SearchView/SearchView';
 import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
+import UserPost from './Components/PanelUser/UserPosts/UserPost';
+import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 
 
 function App() {
@@ -70,6 +72,9 @@ function App() {
         </Route>
         <Route exact path='/user/config'>
           <PanerUserConfig/>
+        </Route>
+        <Route exact path='/user/posts'>
+          <PanelUserPost/>
         </Route>
 
         <Route path='/faq'>
