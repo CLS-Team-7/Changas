@@ -32,9 +32,9 @@ function CheckoutTestBACK() {
 
 	return (
 		<div className="min-h-screen bg-gray-100 flex items-center justify-center">
-			{!datos
+			{/* !datos
 				? <h1 className="text-2xl text-gray-800 font-semibold mb-3">Aguarde un momento....</h1>
-				: <CheckoutBACK productos={order} data={datos} />
+				: */ <CheckoutBACK productos={order} data={datos} />
 			}
 		</div>
 	);
