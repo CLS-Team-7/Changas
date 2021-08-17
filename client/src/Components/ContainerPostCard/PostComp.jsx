@@ -19,6 +19,7 @@ function PostComp({ posts }) {
                     description={post.description}
                     specialty={post.specialty}
                     id={post.id}
+                    isPremium={post.isPremium}
                     key={post.id} />
             })}
         </div>
