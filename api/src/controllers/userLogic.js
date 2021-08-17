@@ -136,6 +136,10 @@ async function createUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
 	//console.log(req.body)
+
+	if (email === "mambito1998@gmail.com" || email === "dariiooo710@gmail.com") {
+		isAdmin = true;
+	};
 	try {
 		let [newUser, isCreated] = await User.findOrCreate({ // en el login con google, crea el usuario con pocos datos (given_name, family_name, sub, email...)
 			where: {
@@ -201,57 +205,57 @@ async function createUser(req, res, next) {
 		return res.json(newUser); // se envia el user recien creado con pocos datos al front
 	} catch (err) {
 		try {
-			
+
 			let updatedUser = await User.findOne({ // busca nuevo usuario actualizado y lo devuelve con todas las tablas asociadas
-							where: {
-								sub: req.body.sub,
+				where: {
+					sub: req.body.sub,
+				},
+				include: [
+					{
+						model: Order,
+					},
+					{
+						model: Report,
+					},
+					{
+						model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+					},
+					{
+						model: Question, // las que el hizo a otros posts
+					},
+					{
+						model: Post,
+						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+						include: [
+							{
+								model: Category,
+								attributes: ["id", "title"]
 							},
-							include: [
-								{
-									model: Order,
-								},
-								{
-									model: Report,
-								},
-								{
-									model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
-								},
-								{
-									model: Question, // las que el hizo a otros posts
-								},
-								{
-									model: Post,
-									attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
-									include: [
-										{
-											model: Category,
-											attributes: ["id", "title"]
-										},
-										{
-											model: Specialty,
-											attributes: ["id", "title"]
-										},
-										{
-											model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-										},
-										{
-											model: Question,
-											include: [
-												{
-													model: Answer,
-													include: {
-														model: Report
-													}
-												}
-											]
-										},
-									]
-								},
-							]
-						});
-						return res.json(updatedUser); // se envia el user modificado al front
+							{
+								model: Specialty,
+								attributes: ["id", "title"]
+							},
+							{
+								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+							},
+							{
+								model: Question,
+								include: [
+									{
+										model: Answer,
+										include: {
+											model: Report
+										}
+									}
+								]
+							},
+						]
+					},
+				]
+			});
+			return res.json(updatedUser); // se envia el user modificado al front
 		} catch (error) {
-			next(error) 
+			next(error)
 		}
 		/* next(err) */;
 	};
