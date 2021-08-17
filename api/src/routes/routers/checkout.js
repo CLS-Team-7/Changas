@@ -162,9 +162,9 @@ router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /
 			installments: 1  //Cantidad máximo de cuotas
 		},
 		back_urls: { // rutas a las cuales MP contesta una vez efectuado el pago, 3000 o 3001??
-			success: 'http://localhost:3001/testcheckoutback/success', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
-			failure: 'http://localhost:3001/testcheckoutback/failure', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
-			pending: 'http://localhost:3001/testcheckoutback/pending',
+			success: 'https://changas.herokuapp.com/testcheckoutback/success', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
+			failure: 'https://changas.herokuapp.com/testcheckoutback/failure', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
+			pending: 'https://changas.herokuapp.com/testcheckoutback/pending',
 		},
 	};
 
