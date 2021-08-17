@@ -26,8 +26,11 @@ function UserPost() {
                     <div className="overflow-auto h-screen pb-24 py-12 px-4 md:px-6">
 
                         <div /* className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4" */>
-                            <div className="bg-white divide-y divide-gray-200">
-                                <UserpostsComp Users={FilterPost} />
+                            <div className="bg-white divide-y divide-gray-200 flex justify-center">
+                                { FilterPost.length > 0
+                                ? <UserpostsComp Users={FilterPost} />
+                                :<h1 className=''>Aun no has realizado ninguna publicación</h1>
+                                }
                             </div>
                         </div>
                     </div>

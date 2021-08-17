@@ -58,9 +58,9 @@ server.get("/", (req, res, next) => {
       installments: 1  //Cantidad máximo de cuotas
     },
     back_urls: {
-      success: 'http://localhost:3001/mercadopago/pagos', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
-      failure: 'http://localhost:3001/mercadopago/pagos', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
-      pending: 'http://localhost:3001/mercadopago/pagos',
+      success: 'https://changas.herokuapp.com/mercadopago/pagos', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
+      failure: 'https://changas.herokuapp.com/mercadopago/pagos', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
+      pending: 'https://changas.herokuapp.com/mercadopago/pagos',
     },
   };
 
@@ -114,16 +114,16 @@ server.get("/pagos", (req, res) => {              // no entiendo bien esta parte
         .then((_) => {
           console.info('redirect success')
 
-          return res.redirect("http://localhost:3000")
+          return res.redirect("https://changas.vercel.app")
         })
         .catch((err) => {
           console.error('error al salvar', err)
-          return res.redirect(`http://localhost:3000/?error=${err}&where=al+salvar`)
+          return res.redirect(`https://changas.vercel.app/?error=${err}&where=al+salvar`)
         })
     })
     .catch(err => {
       console.error('error al buscar', err)
-      return res.redirect(`http://localhost:3000/?error=${err}&where=al+buscar`)
+      return res.redirect(`https://changas.vercel.app/?error=${err}&where=al+buscar`)
     })
 
   //proceso los datos del pago 
