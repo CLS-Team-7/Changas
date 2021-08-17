@@ -39,7 +39,7 @@ function App() {
         <Route path='/paymentsuccesstest/:id'>
           <SuccessCheckout />
         </Route>
-        {/*
+        {/*a
         <Route path='/paymentfailuretest/:id'>
           <PaymentFailureTest /> aun queda crear este componente, pero para la demo final
         </Route>*/}
