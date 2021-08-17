@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO } from '../constants';
 import axios from 'axios';
 
 
@@ -166,6 +166,22 @@ export const getOrderTest = (payload) => {
         dispatch({ type: "TEST_ORDER", payload })
     }
 }
+export const CheckoutPost= (data) => {
+    return (dispatch) => {
+        axios.post(`http://localhost:3001/order`, data)
+            .then(r => r.data)
+            .then(data => {
+                console.log(data, "ANDA O ME MATO")
+                dispatch({ type:  GET_MP_ORDER_INFO, payload: data })
+            })
+    }
+}
+export const clearCheckoutPost = () => {
+    return (dispatch) => {
+        dispatch({ type: GET_MP_ORDER_INFO, payload: {} })
+    }
+}
+
 
 // export const addFavoritePost = (favoritePost) => {
 //     return (dispatch) => {

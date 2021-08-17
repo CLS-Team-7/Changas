@@ -31,9 +31,9 @@ function CheckoutTestBACK() {
 
 
 	return (
-		<div className="App">
+		<div className="min-h-screen bg-gray-100 flex items-center justify-center">
 			{!datos
-				? <p>Aguarde un momento....</p>
+				? <h1 className="text-2xl text-gray-800 font-semibold mb-3">Aguarde un momento....</h1>
 				: <CheckoutBACK productos={order} data={datos} />
 			}
 		</div>

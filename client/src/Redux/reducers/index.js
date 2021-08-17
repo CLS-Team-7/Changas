@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW } from '../constants';
 
 const initialState = {
     postList: [],
@@ -12,7 +12,8 @@ const initialState = {
     filterType: 'All',
     testorder: {},
     allReview: [],
-    singleReview: {}
+    singleReview: {},
+    orderInfo: {}
     // favoritePost: [],
 
 }
@@ -82,7 +83,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allReview: payload
             };
-        case "GET_REVIEW":
+        case GET_MP_ORDER_INFO:
+            return {
+                ...state,
+                orderInfo: payload
+            };
+        case GET_REVIEW:
             return {
                 ...state,
                 singleReview: payload

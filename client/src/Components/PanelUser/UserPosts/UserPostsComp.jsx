@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ModalPricing from '../../Checkout/ModalPricing/ModalPricing'
 
 function UserpostsComp({ Users }) {
-
+    console.log(Users)
 
     return (
         <table>
@@ -36,7 +37,7 @@ function UserpostsComp({ Users }) {
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                        Preguntas
+                        Tipo de publicacion
                     </th>
                 </tr>
             </thead>
@@ -70,12 +71,20 @@ function UserpostsComp({ Users }) {
                         <div className="text-sm text-gray-900">{person.category?.title}</div>
                         <div className="text-sm text-gray-500">{person.specialty?.title}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.questions?.length}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.isPremium ? "Premium" : "Normal"}</td>
                     {/* <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <span className="text-indigo-600 hover:text-indigo-900">
                             Edit
                         </span>
                     </td> */}
+                    {
+                        person.isPremium ?
+                            <span></span> :
+                            <ModalPricing
+                                USERID={person?.user.id}
+                                POSTID={person.id} />
+                    }
+
                 </tr>
             })}
         </table>
@@ -84,3 +93,4 @@ function UserpostsComp({ Users }) {
 }
 
 export default UserpostsComp
+
