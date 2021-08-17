@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 function UserDataComp() {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated } = useAuth0();
     const userLogin = useSelector(state => state.userLogin)
     return (
         isAuthenticated && (
