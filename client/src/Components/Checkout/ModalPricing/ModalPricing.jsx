@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import PricingPanel from './PricingPanel';
 
 export default function ModalPricing({ USERID, POSTID }) {
