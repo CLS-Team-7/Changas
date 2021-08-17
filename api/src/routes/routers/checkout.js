@@ -61,7 +61,7 @@ router.get('/success', async (req, res, next) => {
 			}
 		});
 		console.info('Guardando order en DB con datos de MP: SUCCESS')
-		return res.redirect(`http://localhost:3000/paymentsuccesstest/${external_reference}`)
+		return res.redirect(`https://changas.vercel.app/paymentsuccesstest/${external_reference}`)
 
 	} catch (err) {
 		next(err);
