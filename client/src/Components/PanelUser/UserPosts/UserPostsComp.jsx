@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import ModalPricing from '../../Checkout/ModalPricing/ModalPricing'
 
 function UserpostsComp({ Users }) {
-    console.log(Users)
 
     return (
         <table>

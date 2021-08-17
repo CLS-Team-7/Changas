@@ -6,7 +6,6 @@ import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import PostDetail from './views/PostDetail/PostDetail';
 import About from './views/About/About';
-import TestPosts from './Components/TestPosts/TestPosts';
 import Admin from './views/Admin/Admin';
 import { FAQ } from './views/FAQ/FAQ';
 import Profile from './views/Profile/Profile';

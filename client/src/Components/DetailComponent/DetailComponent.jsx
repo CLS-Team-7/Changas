@@ -1,23 +1,20 @@
 import React, { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
-import Reviews from '../Review/Reviews';
-import ReviewPost from '../Review/ReviewPost';
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
-import FormReview from '../FormReview/FormReview';
 import SafeTips from "../SafeTips/SafeTips";
 
 function DetailComponent() {
-  const dispatch = useDispatch();
-  const { title, image, description, priceRange, category, specialty } =
-    useSelector((state) => state.singlePost);
-  let { id } = useParams();
+    const dispatch = useDispatch();
+    const { title, image, description, priceRange, category, specialty } =
+        useSelector((state) => state.singlePost);
+    let { id } = useParams();
 
-  useEffect(() => {
-    dispatch(getSinglePost(id));
-    dispatch(clearSinglePost());
-  }, [dispatch, id]);
+    useEffect(() => {
+        dispatch(getSinglePost(id));
+        dispatch(clearSinglePost());
+    }, [dispatch, id]);
 
 
     return (
