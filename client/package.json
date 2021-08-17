@@ -14,6 +14,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "axios": "^0.21.1",
     "daisyui": "^1.11.0",
+    "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "formik": "^2.2.9",
@@ -31,8 +32,8 @@
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",
-    "webpack": "4.44.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webpack": "4.44.2"
   },
   "scripts": {
     "start": "craco start",

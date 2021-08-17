@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const getAllPosts = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/post`)
+        axios.get(`/post`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_ALL_POSTS, payload: data })
@@ -14,7 +14,7 @@ export const getAllPosts = () => {
 
 export const getAllCategory = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/category`)
+        axios.get(`/category`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: CATEGORY_POST, payload: data })
@@ -24,7 +24,7 @@ export const getAllCategory = () => {
 
 export const getAllSpecialty = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/specialty`)
+        axios.get(`/specialty`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: CATEGORY_SPECEALTY, payload: data })
@@ -34,7 +34,7 @@ export const getAllSpecialty = () => {
 
 export const getSinglePost = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/post/${id}`)
+        axios.get(`/post/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_POST, payload: data })
@@ -50,7 +50,7 @@ export const clearSinglePost = () => {
 
 export const getUserAdmin = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/user`)
+        axios.get(`/user`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_USER_ADMIN, payload: data })
@@ -60,7 +60,7 @@ export const getUserAdmin = () => {
 
 export const getSingleUser = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/user/${id}`)
+        axios.get(`/user/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_SINGLE_USER, payload: data })
@@ -75,7 +75,7 @@ export const clearSingleUser = () => {
 
 export const searchByTitle = (keyword) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/post/search?keyword=${keyword}`)
+        axios.get(`/post/search?keyword=${keyword}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: SEARCH_BY_TITLE, payload: data })
@@ -89,7 +89,7 @@ export const searchByTitleClean = () => {
 }
 export const postUser = (payload) => {
     return (dispatch) => {
-        axios.post("http://localhost:3001/user", payload)
+        axios.post("/user", payload)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: USER_LOGIN, payload: data })
@@ -98,7 +98,7 @@ export const postUser = (payload) => {
 }
 export const UpdateUserData = (payload) => {
     return (dispatch) => {
-        axios.put("http://localhost:3001/user", payload)
+        axios.put("/user", payload)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: USER_LOGIN, payload: data })
@@ -108,19 +108,19 @@ export const UpdateUserData = (payload) => {
 
 export const sendPost = (payload) => {
     return (dispatch) => {
-        axios.post("http://localhost:3001/post", payload)
+        axios.post("/post", payload)
     };
 }
 
 export const sendCategory = (payload) => {
     return (dispatch) => {
-        axios.post("http://localhost:3001/category", payload)
+        axios.post("/category", payload)
     };
 }
 
 export const sendSpecialty = (payload) => {
     return (dispatch) => {
-        axios.post("http://localhost:3001/specialty", payload)
+        axios.post("/specialty", payload)
     };
 }
 
@@ -133,7 +133,7 @@ export const getFilterType = (filterType) => {
 
 export const getAllReviews = () => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/review`)
+        axios.get(`/review`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_ALL_REVIEWS, payload: data })
@@ -143,7 +143,7 @@ export const getAllReviews = () => {
 
 export const postReview = (payload) => {
     return (dispatch) => {
-        axios.post("http://localhost:3001/review", payload)
+        axios.post("/review", payload)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: POST_REVIEW, payload: data })
@@ -153,7 +153,7 @@ export const postReview = (payload) => {
 
 export const getReview = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3001/review/${id}`)
+        axios.get(`/review/${id}`)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: "GET_REVIEW", payload: data })
@@ -168,7 +168,7 @@ export const getOrderTest = (payload) => {
 }
 export const CheckoutPost= (data) => {
     return (dispatch) => {
-        axios.post(`http://localhost:3001/order`, data)
+        axios.post(`/order`, data)
             .then(r => r.data)
             .then(data => {
                 console.log(data, "ANDA O ME MATO")
