@@ -9,14 +9,12 @@ function UserProfile() {
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
 
-    console.log(user.posts)
-
     useEffect(() => {
         dispatch(getSingleUser(id))
     }, [dispatch, id])
 
     return (
-        <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div className="bg-white shadow overflow-hidden sm:rounded-lg min-h-screen">
             <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg leading-6 font-medium text-gray-900 bold">Información Personal</h3>
                 <div className="shadow-lg rounded-2xl bg-white dark:bg-gray-800 p-4">
@@ -42,7 +40,7 @@ function UserProfile() {
                         <dt className="text-sm font-medium text-gray-500">Email</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.email}</dd>
                     </div>
-                    <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    {/* <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Precio base/Salario</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
                     </div>
@@ -53,7 +51,7 @@ function UserProfile() {
                             qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
                             pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
                         </dd>
-                    </div>
+                    </div> */}
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
