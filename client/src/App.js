@@ -20,8 +20,6 @@ import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
 import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
-import CheckoutTestBACK from './Components/Checkout/CheckoutTestBACK';
-import PaymentSuccessTest from './Components/Checkout/PaymentSuccessTest';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 
