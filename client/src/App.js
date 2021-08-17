@@ -18,12 +18,12 @@ import AdminCreatePost from './views/Admin/AdminCreatePost/AdminCreatePost';
 import Reviews from './Components/Review/Review';
 import PanerUserConfig from './views/PanelUser/PanerUserConfig/PanerUserConfig';
 import PanelUser from './views/PanelUser/PanelUser';
-import CheckoutTest from './CheckoutTest';
-import CheckoutTestBACK from './CheckoutTestBACK';
-import PaymentSuccessTest from './PaymentSuccessTest';
-import UserPost from './Components/PanelUser/UserPosts/UserPost';
 import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
+import CheckoutTestBACK from './Components/Checkout/CheckoutTestBACK';
+import PaymentSuccessTest from './Components/Checkout/PaymentSuccessTest';
+import CheckoutView from './views/CheckoutView/CheckoutView';
+import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 
 
 function App() {
@@ -34,10 +34,10 @@ function App() {
           <CheckoutTest />
         </Route>*/}
         <Route path='/testcheckout/:id'>
-          <CheckoutTestBACK />
+          <CheckoutView />
         </Route>
         <Route path='/paymentsuccesstest/:id'>
-          <PaymentSuccessTest />
+          <SuccessCheckout />
         </Route>
         {/*
         <Route path='/paymentfailuretest/:id'>
