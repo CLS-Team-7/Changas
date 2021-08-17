@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
+
   server.listen(process.env.PORT || 3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
 
