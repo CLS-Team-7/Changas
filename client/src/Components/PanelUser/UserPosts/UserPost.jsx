@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserpostsComp from './UserPostsComp';
 import SideBarUser from "../SideBarUser/SideBarUser"
@@ -27,9 +27,9 @@ function UserPost() {
 
                         <div /* className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4" */>
                             <div className="bg-white divide-y divide-gray-200 flex justify-center">
-                                { FilterPost.length > 0
-                                ? <UserpostsComp Users={FilterPost} />
-                                :<h1 className=''>Aun no has realizado ninguna publicación</h1>
+                                {FilterPost.length > 0
+                                    ? <UserpostsComp Users={FilterPost} />
+                                    : <h1 className=''>Aun no has realizado ninguna publicación</h1>
                                 }
                             </div>
                         </div>

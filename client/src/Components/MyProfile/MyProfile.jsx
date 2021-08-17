@@ -1,11 +1,8 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 
 function MyProfile() {
   const { user, isAuthenticated } = useAuth0();
-  console.log(user)
   return (
     isAuthenticated && (
       <div>

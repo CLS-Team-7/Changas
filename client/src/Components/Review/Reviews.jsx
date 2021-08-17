@@ -10,14 +10,11 @@ export default function Reviews() {
     let { id } = useParams();
     const singlePost = useSelector(state => state.singlePost);
     let reviews = singlePost.reviews;
-    console.log(singlePost)
 
     useEffect(() => {
         dispatch(getSinglePost(id))
     }, [dispatch, id])
 
-
-    console.log(reviews)
 
 
     return (

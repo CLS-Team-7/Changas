@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 // import CheckoutBACK from './CheckoutBACK.jsx'
 // import { useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";

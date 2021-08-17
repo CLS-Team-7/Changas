@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ContainerPostCard from '../Components/ContainerPostCard/ContainerPostCard'
 import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import FilterButton from '../Components/FilterButton/FilterButton'
-import { useAuth0 } from '@auth0/auth0-react'
-import { useDispatch } from 'react-redux'
 
 
 
