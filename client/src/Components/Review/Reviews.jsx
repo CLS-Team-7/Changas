@@ -19,7 +19,7 @@ export default function Reviews() {
 
     return (
         <div>
-            <h2 className="font-bold text-xl mb-2 ml-14 flex justify-start"> Comentarios </h2>
+            <h2 className="font-bold text-xl mb-2 ml-14 flex justify-start"> Reseñas </h2>
             <div>{!reviews?.length ? 'Este posteo no tiene comentarios'
                 : reviews.map(review => <Review
                     rating={review.rating}

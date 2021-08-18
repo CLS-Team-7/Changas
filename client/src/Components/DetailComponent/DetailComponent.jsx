@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
 import SafeTips from "../SafeTips/SafeTips";
+import Reviews from "../Review/Reviews";
 
 function DetailComponent() {
     const dispatch = useDispatch();
@@ -57,10 +58,11 @@ function DetailComponent() {
                             <span className="title-font font-medium text-2xl text-gray-900">Precio Base: {priceRange?.map(e => `$${e}   `)}</span>
                             <SafeTips />
                         </div>
-                        <Link to={`/reviews`} className="flex ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Comentar</button></Link>
+                        <Link to={`/reviews`} className="flex ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
                     </div>
                 </div>
             </div>
+            <Reviews />
         </section>
     )
 }
