@@ -179,7 +179,7 @@ const usersDB = [
     address: "Chacabuco 705, CABA",
     phoneNumber: 11356989276,
     email: "user_laura@changas.com",
-    summary: 'Venenatis phasellus quis vel enim sociosqu congue quam.',
+    summary: 'Albañil y Programadora Full stack (graduada Henry). Hago trabajos simples de construcción y también doy clases particulares individuales y grupales.',
     picture: "",
     score: 3,
     jobsDone: 1,

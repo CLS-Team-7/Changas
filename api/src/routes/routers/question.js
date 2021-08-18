@@ -11,10 +11,14 @@ router.get('/', async (req, res, next) => { // http://localhost:3001/question
 	try {
 		let questions = await Question.findAll({
 			attributes: { exclude: ["updatedAt"] },
-			include: {
+			include: [{
 				model: Answer,
 				attributes: { exclude: ["updatedAt", "question_id"] }
-			}
+			},
+			{
+				model: User,
+				attributes: ["given_name"]
+			}]
 		});
 		res.json(questions);
 	} catch (err) {
@@ -31,10 +35,14 @@ router.get('/:idQuestion', async (req, res, next) => {
 					id: idQuestion
 				},
 				attributes: { exclude: ["updatedAt"] },
-				include: {
+				include: [{
 					model: Answer,
 					attributes: { exclude: ["updatedAt", "question_id"] }
-				}
+				},
+				{
+					model: User,
+					attributes: ["given_name"]
+				}]
 			})
 			if (question) res.json(question);
 			else {

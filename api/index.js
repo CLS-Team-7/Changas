@@ -80,8 +80,8 @@ conn.sync({ force: true }).then(() => {
     await questionsDB.map(question => {
       Question.create({
         id: question.id,
-        post_id: question.post_id,
         user_id: question.user_id,
+        post_id: question.post_id,
         question: question.question
       });
     });
