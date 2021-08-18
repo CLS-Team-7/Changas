@@ -79,7 +79,7 @@ function UserProfile() {
                     </div>
                 </dl>
             </div>
-            <SendMailToUser userEmail={user.email}/>
+            <SendMailToUser userMail={user.email}/>
         </div>
     )
 }
