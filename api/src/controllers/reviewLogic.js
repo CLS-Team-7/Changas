@@ -95,10 +95,10 @@ async function createReview(req, res, next) {
 	let { rating, description, user_id, post_id } = req.body;
 	try {
 		let newReview = await Review.create({
-			rating,
-			description,
 			user_id,
-			post_id
+			post_id,
+			rating,
+			description
 		});
 		res.json(newReview);
 	} catch (err) {

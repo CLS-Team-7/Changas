@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import SideBarUser from '../SideBarUser/SideBarUser'
-import { getAllPosts } from '../../../Redux/actions'
+import { getAllReviews } from '../../../Redux/actions'
 import ModalReviewValidate from './modalReviewValidate';
 
 function UserPost() {
@@ -11,11 +11,11 @@ function UserPost() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllPosts())
+    dispatch(getAllReviews())
   }, [dispatch])
 
-  const filterReviews = allReview.filter(e => e.isValidated === false)
-
+  const filterReviews = allReview?.filter(e => e.isValidated === false)
+console.log(filterReviews)
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">
@@ -27,25 +27,27 @@ function UserPost() {
             <th className="px-2 py-3">Validacion</th>
           </tr>
 
+ {filterReviews.length > 0 ? filterReviews.map((r)=> {
+     
+     return(
+        <>
           <tr className="bg-gray-100 border-b border-gray-200">
-            {filterReviews.length ? filterReviews.map(review => {
-                <>
-                <td className="px-4 py-3">{review.user.fullName}</td>
-            <td className="px-4 py-3">{review.post.title}</td>
-            <td className="px-4 py-3">
+          <td className="px-4 py-3">{r.user?.fullName}</td>
+            <td className="px-4 py-3">{r.post?.title}</td>
+                <td className="px-4 py-3">
               <button className="bg-green-300 hover:bg-green-500 text-white decoration-none font-bold py-2 px-4 rounded-full">
-                <ModalReviewValidate />
+                <ModalReviewValidate review={r} />
               </button>
             </td>
-            </>
-            })
-            :
-            null
-            }
-
-
-            
           </tr>
+          </>
+     )
+ })
+ 
+ : null
+ }
+
+
         </table>
       </div>
     </main>

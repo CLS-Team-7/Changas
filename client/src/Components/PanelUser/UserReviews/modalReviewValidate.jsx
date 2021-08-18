@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
-//import { clearSinglePost, getSinglePost } from "../../";
+import { useDispatch } from 'react-redux'
+import { updateReview } from '../../../Redux/actions'
+import { useHistory } from "react-router-dom";
 
 
 
-const ModalReviewValidate = () => {
+
+const ModalReviewValidate = ({review}) => {
   const [showModal, setShowModal] = useState(false)
-  const { user } = useSelector((state) => state.singlePost)
-
+  const { push } = useHistory()
   const dispatch = useDispatch()
 
 function handleClickAccept() {
-    dispatch()
+    dispatch(updateReview({isValidated: true}, review.id ))
     setShowModal(false)
+    push(`/posts/${review.post.id}`)
 }
 
 function handleClickDenied() {

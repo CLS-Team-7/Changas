@@ -161,9 +161,9 @@ export const getReview = (id) => {
     }
 }
 
-export const updateReview = (id) => {
+export const updateReview = (payload, id) => {
     return (dispatch) => {
-        axios.put(`/review/${id}`)
+        axios.put(`/review/${id}`, payload)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: "UPDATE_REVIEW", payload: data })
