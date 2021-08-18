@@ -15,6 +15,9 @@ module.exports = {
         Rufous: '#AE2012',
         Ruby__Red: '#9B2226',
         Gris__Claro: '#E4E4E4'
+      },
+      dropShadow: {
+        'md': '0 1px 1px rgba(255, 255, 255, 0.85)',
       }
     },
   },

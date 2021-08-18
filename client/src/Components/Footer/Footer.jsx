@@ -5,6 +5,7 @@ import config from '../Chatbot/config'
 import ActionProvider from '../Chatbot/ActionProvider'
 import MessageParser from '../Chatbot/MessageParser'
 import './Footer.css'
+import changoImg from './g569.png';
 
 function Button() {
   return (
@@ -23,12 +24,18 @@ function Footer() {
 
   let handleClick = (e) => {
     setClick(!click)
+
+    if(click){
+      document.getElementById('chango').classList.remove('btn-no-round') 
+    } else{
+      document.getElementById('chango').classList.add('btn-no-round')
+    }
   }
   return (
     <div>
       <div className="boot-Container shadow-2xl ">
-        <button className="btn" onClick={handleClick}>
-          Chango
+        <button id='chango' className="btn" onClick={handleClick}>
+          <img className='w-8 filter drop-shadow-md' src={changoImg} alt="" />
         </button>
         {click ? <Button /> : null}
       </div>
