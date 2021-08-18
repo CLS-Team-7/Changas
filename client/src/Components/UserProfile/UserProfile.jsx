@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { getSingleUser } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom'
-
+import { Link, useParams } from 'react-router-dom';
+import WhatsAppButton from '../WhatsAppButton/WhatsAppButton';
+import SendMailToUser from '../SendMailToUser/SendMailToUser';
 
 function UserProfile() {
     const dispatch = useDispatch()
@@ -34,7 +35,9 @@ function UserProfile() {
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Telefono</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}</dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}
+                            <WhatsAppButton userPhone={user.phoneNumber}/>
+                        </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Email</dt>
@@ -76,6 +79,7 @@ function UserProfile() {
                     </div>
                 </dl>
             </div>
+            <SendMailToUser userEmail={user.email}/>
         </div>
     )
 }
