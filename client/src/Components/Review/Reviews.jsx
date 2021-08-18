@@ -10,6 +10,9 @@ export default function Reviews() {
     let { id } = useParams();
     const singlePost = useSelector(state => state.singlePost);
     let reviews = singlePost.reviews;
+    let validatedReviews = reviews?.filter(review => review.isValidated);
+    console.log("reviews", reviews);
+    console.log("validated", validatedReviews);
 
     useEffect(() => {
         dispatch(getSinglePost(id))
@@ -20,14 +23,15 @@ export default function Reviews() {
     return (
         <div>
             <h2 className="font-bold text-xl mb-2 ml-14 flex justify-start"> Reseñas </h2>
-            <div>{!reviews?.length ? 'Este posteo no tiene comentarios'
-                : reviews.map(review => <Review
-                    rating={review.rating}
-                    description={review.description}
-                    fullName={review.user.fullName}
-                    createdAt={review.createdAt}
-                />
-                )}
+            <div>
+                {!validatedReviews?.length ? 'Este posteo no tiene reseñas'
+                    : validatedReviews.map(review => <Review
+                        rating={review.rating}
+                        description={review.description}
+                        fullName={review.user.fullName}
+                        createdAt={review.createdAt}
+                    />
+                    )}
             </div >
 
         </div>
