@@ -21,6 +21,7 @@ import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
+import FormReview from './Components/FormReview/FormReview';
 
 
 function App() {
@@ -52,9 +53,9 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
-        {/* <Route exact path='/favs'>
-          <FavsTest/>
-        </Route> */}
+        <Route exact path='/reviews'>
+          <FormReview/>
+        </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>

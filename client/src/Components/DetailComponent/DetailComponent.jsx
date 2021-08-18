@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSinglePost, getSinglePost } from '../../Redux/actions'
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
@@ -57,12 +57,10 @@ function DetailComponent() {
                             <span className="title-font font-medium text-2xl text-gray-900">Precio Base: {priceRange?.map(e => `$${e}   `)}</span>
                             <SafeTips />
                         </div>
+                        <Link to={`/reviews`} className="flex ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Comentar</button></Link>
                     </div>
                 </div>
-                {/* <FormReview /> */}
             </div>
-            {/* <Reviews />
-            <ReviewPost /> */}
         </section>
     )
 }
