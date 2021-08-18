@@ -22,6 +22,7 @@ import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 import FormReview from './Components/FormReview/FormReview';
+import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
 
 
 function App() {
@@ -97,6 +98,9 @@ function App() {
         </Route>
         <Route exact path='/user/createpost'>
           <PanelCreatePost />
+        </Route>
+        <Route exact path='/user/reviews'>
+          <PanelUserReviews />
         </Route>
 
         <Route path='/faq'>
