@@ -161,6 +161,16 @@ export const getReview = (id) => {
     }
 }
 
+export const updateReview = (id) => {
+    return (dispatch) => {
+        axios.put(`/review/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "UPDATE_REVIEW", payload: data })
+            })
+    }
+}
+
 export const getOrderTest = (payload) => {
     return (dispatch) => {
         dispatch({ type: "TEST_ORDER", payload })
