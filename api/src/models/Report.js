@@ -9,44 +9,41 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     reportSubject: {
-      type: DataTypes.ENUM('Order', 'Post', 'User', 'Question', 'Answer', 'Review'),
+      type: DataTypes.ENUM('user', 'post', 'question', 'answer'), // no haria falta user, no es una red social, se juzgan los POSTEOS como interacciones
       allowNull: false,
     },
-    // user_id: { // ID DEL USUARIO QUE HACE EL REPORT
-    //   type: DataTypes.UUID,
-    //   allowNull: false
-    // },
-    post_id: { // esto tiene que venir del front
+    user_id: { // ID DEL USUARIO QUE HACE EL REPORT
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    reported_user: { // ID DEL USUARIO QUE HACE EL REPORT
       type: DataTypes.UUID,
       allowNull: true
     },
-    order_id: { // esto tiene que venir del front
+    post_id: {
       type: DataTypes.UUID,
       allowNull: true
     },
-    question_id: { // esto tiene que venir del front
+    question_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    answer_id: { // esto tiene que venir del front
+    answer_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    review_id: { // esto tiene que venir del front
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    // reportedUser_id: { // ID DEL USUARIO QUE HACE EL REPORT
-    //   type: DataTypes.UUID,
-    //   allowNull: true
-    // },
     complaint: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     evidence: {
-      type: DataTypes.STRING(255), // ver con sequelize-file, type.BLOB?
+      type: DataTypes.STRING, // ver con sequelize-file, type.BLOB?
       allowNull: true,
     },
+    isSettled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    }
   })
 }

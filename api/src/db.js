@@ -9,30 +9,30 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
-        dialect: "postgres",
-        host: DB_HOST,
-        port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
+      database: DB_NAME,
+      dialect: "postgres",
+      host: DB_HOST,
+      port: 5432,
+      username: DB_USER,
+      password: DB_PASSWORD,
+      pool: {
+        max: 3,
+        min: 1,
+        idle: 10000,
+      },
+      dialectOptions: {
+        ssl: {
+          require: true,
+          // Ref.: https://github.com/brianc/node-postgres/issues/2009
+          rejectUnauthorized: false,
         },
-        dialectOptions: {
-          ssl: {
-            require: true,
-            // Ref.: https://github.com/brianc/node-postgres/issues/2009
-            rejectUnauthorized: false,
-          },
-          keepAlive: true,
-        },
-        ssl: true,
-      })
+        keepAlive: true,
+      },
+      ssl: true,
+    })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
-        { logging: false, native: false }
+      `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+      { logging: false, native: false }
     );
 
 const basename = path.basename(__filename);
@@ -56,7 +56,6 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { User, Post, Order, Category, Specialty, Review, Report, Question, Answer } = sequelize.models;
 
 // Asociaciones de User (todas one-to-many)
-
 User.hasMany(Post, { foreignKey: 'user_id' });  // un usuario tiene muchos posts
 Post.belongsTo(User, { foreignKey: 'user_id' }); // un post pertenece a un unico usuario (quien CREA el post)
 
@@ -70,23 +69,23 @@ Question.belongsTo(User, { foreignKey: 'user_id' }) // una pregunta pertenece a 
 // User.hasMany(Answer, { foreignKey: 'user_id' }); // un usuario que publico un post puede tener/haber dado muchas respuestas 
 // Answer.belongsTo(User, { foreignKey: 'user_id' }) // una respueta pertenece/fue dada a un unico usuario 
 
-
-
 // VER EL TEMA DE LOS ARCHIVOS ADJUNTOS CON SEQUELIZE-FILE Y COMO GUARDAR EL ID DEL USUARIO DENUNCIADO.
 
+// estas son many to many
+// User.belongsToMany(Report, { through: 'user_report' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
+// Report.belongsToMany(User, { through: 'user_report' }); // un report va a tener siempre 2 users (denunciado y denunciante), caso de la denuncia de perfil directa
 
+// User.hasMany(Report, { foreignKey: 'user_id' }); // puedo agregar mas de una foreignKey, por el momento no
+// Report.belongsTo(User, { foreignKey: 'user_id' });
 
-// estas don many to many
-
-User.belongsToMany(Report, { through: 'user_report' }); // un usuario puede HACER muchos reportes de abuso/incumplimiento/denuncias
-Report.belongsToMany(User, { through: 'user_report' }); // un report va a tener siempre 2 users (denunciado y denunciante), caso de la denuncia de perfil directa
+User.hasMany(Report, { foreignKey: 'reported_user' }); // esta es la que vale, porque importa saber si un usuario FUE denunciado, no si hizo una denuncia (alguien lo denuncio)
+Report.belongsTo(User, { foreignKey: 'reported_user' });
 
 // ver finalmente con lo trabajado en ReviewFront
 // User.belongsToMany(Review, { through: 'user_review' }); // un usuario puede HACER y RECIBIR muchas reviews
 // Review.belongsToMany(User, { through: 'user_review' }); // una review va a tener siempre 2 users (quien contrata el servicio y quien lo realiza/presta)
 
 // Asociaciones de Post (one-to-many)
-
 Post.hasMany(Review, { foreignKey: 'post_id', constraints: false }); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
 Review.belongsTo(Post, { foreignKey: 'post_id', constraints: false }); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
 
@@ -97,44 +96,32 @@ Post.hasMany(Question, { foreignKey: 'post_id' }); // un post puede tener muchas
 Question.belongsTo(Post, { foreignKey: 'post_id' }); // una pregunta puede pertencer a un unico post
 
 Post.hasMany(Report, { foreignKey: 'post_id' }); // un post puede tener muchos reports (varios usuarios lo denuncian)
-Report.belongsTo(Post, { foreignKey: 'post_id' });
+Report.belongsTo(Post, { foreignKey: 'post_id' }); // un report puede apuntar a un unico post
 
 // Asociaciones Category y Specialty con Post (one-to-many)
-
 Category.hasMany(Post, { foreignKey: 'category_id' }); // una categoria tiene muchos posts / puede estar en muchos posts
 Post.belongsTo(Category, { foreignKey: 'category_id' }); // un post puede tener una unica categoria (categoria 'Transporte y mudanzas')
 
 Specialty.hasMany(Post, { foreignKey: 'specialty_id' }); // una especialidad tiene muchos posts / puede estar en muchos posts
 Post.belongsTo(Specialty, { foreignKey: 'specialty_id' }); // un post puede tener una unica especialidad (especialidad 'Fletero')
 
-// Asociaciones Category (one-to-many)
-
 Category.hasMany(Specialty, { foreignKey: 'category_id' }); // una categoria puede tener muchas especialidades (categoria 'Construccion' tiene especialidades 'albañil, capataz, etc')
 Specialty.belongsTo(Category, { foreignKey: 'category_id' }); // una especialidad puede tener una unica categoria
 
-
-
 //  Asociaciones Question, Answer (propias) y con Report.
-
-
 //******* VER PROBLEMA CON LAS FK, question_id tiraba error de constraint por la FK, sin el atributo en el modelo no tira el error.
-
 Question.hasMany(Report, { foreignKey: 'question_id' }); // una question puede tener muchos reports (la denuncian varios)
 Report.belongsTo(Question, { foreignKey: 'question_id' }); // un report pertenece/apunta a una unica question
 
 Answer.hasMany(Report, { foreignKey: 'answer_id' }); // una answer puede tener muchos reports (la denuncian varios)
 Report.belongsTo(Answer, { foreignKey: 'answer_id' }); // un report pertenece/apunta a una unica answer
 
-// Asociaciones Order
-
 
 // a chequear estas relaciones, en principio no corresponden **
 // Order.hasOne(Review, { foreignKey: 'order_id' }); // una order puede tener una unica review (le da su id a review para que esta sea valida)
 // Review.belongsTo(Order, { foreignKey: 'order_id' }); // una review pertenece a una unica order (su id es lo que la valida a una contratacion efectiva)
-
-
-Order.hasOne(Report, { foreignKey: 'order_id' }); // una order puede tener un unico report (quien quiere contratar - quien genero la order - puede reportar al usuario por cualquier abuso/incumpliento)
-Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenecer a una unica order (es un unico usuario quien genera la order, y es el exclusivamente que puede hacer un report)
+// Order.hasOne(Report, { foreignKey: 'order_id' }); // una order puede tener un unico report (quien quiere contratar - quien genero la order - puede reportar al usuario por cualquier abuso/incumpliento)
+// Report.belongsTo(Order, { foreignKey: 'order_id' }); // un report puede pertenecer a una unica order (es un unico usuario quien genera la order, y es el exclusivamente que puede hacer un report)
 
 
 

@@ -19,6 +19,11 @@ module.exports = (sequelize) => {
 		question: {
 			type: DataTypes.STRING(220),
 			allowNull: false,
-		}
+		},
+		isActive: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: true
+		},
 	});
 };

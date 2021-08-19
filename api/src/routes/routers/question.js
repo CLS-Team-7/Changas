@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { User, Order, Post, Answer, Question, Review } = require('../../db.js');
+const { User, Order, Post, Answer, Question, Review, Report } = require('../../db.js');
 const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
@@ -18,7 +18,12 @@ router.get('/', async (req, res, next) => { // http://localhost:3001/question
 			{
 				model: User,
 				attributes: ["given_name"]
-			}]
+			},
+			{
+				model: Report,
+				attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+			}
+			]
 		});
 		res.json(questions);
 	} catch (err) {
@@ -42,7 +47,12 @@ router.get('/:idQuestion', async (req, res, next) => {
 				{
 					model: User,
 					attributes: ["given_name"]
-				}]
+				},
+				{
+					model: Report,
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+				}
+				]
 			})
 			if (question) res.json(question);
 			else {

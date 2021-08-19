@@ -33,7 +33,8 @@ async function getAllPosts(_req, res, next) {
           model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
         },
         {
-          model: Report // ESTO LO DEBERIA VER SOLO EL ADMIN
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
         },
         {
           model: Review,
@@ -88,7 +89,9 @@ async function getPostByTitle(req, res, next) {
             model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
           },
           {
-            model: Report
+            model: Report,
+            attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+
           },
           {
             model: Review,
@@ -143,7 +146,8 @@ async function getPostById(req, res, next) {
             model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
           },
           {
-            model: Report
+            model: Report,
+            attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
           },
           {
             model: Review,

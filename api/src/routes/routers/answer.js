@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { User, Order, Post, Answer, Question, Review } = require('../../db.js');
+const { User, Order, Post, Answer, Question, Review, Report } = require('../../db.js');
 const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const router = Router();
@@ -11,10 +11,16 @@ router.get('/', async (req, res, next) => {
 	try {
 		let answers = await Answer.findAll({
 			attributes: { exclude: ["updatedAt", "question_id"] },
-			include: {
-				model: Question,
-				attributes: { exclude: ["updatedAt", "post_id"] },
-			}
+			include: [
+				{
+					model: Question,
+					attributes: { exclude: ["updatedAt", "post_id"] },
+				},
+				{
+					model: Report,
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+				}
+			]
 		});
 		res.json(answers);
 	} catch (err) {
@@ -31,10 +37,16 @@ router.get('/:idAnswer', async (req, res, next) => {
 					id: idAnswer
 				},
 				attributes: { exclude: ["updatedAt", "question_id"] },
-				include: {
-					model: Question,
-					attributes: { exclude: ["updatedAt", "post_id"] }
-				}
+				include: [
+					{
+						model: Question,
+						attributes: { exclude: ["updatedAt", "post_id"] }
+					},
+					{
+						model: Report,
+						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+					}
+				]
 			})
 			if (answer) res.json(answer);
 			else {

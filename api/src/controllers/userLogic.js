@@ -10,13 +10,17 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 					model: Order,
 				},
 				{
-					model: Report,
+					model: Report, // los que hizo
 				},
 				{
-					model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+					model: Review,
 				},
 				{
-					model: Question, // las que el hizo a otros posts
+					model: Question,
+					include: {
+						model: Report, // los reportes que tengan las preguntas que hizo
+						attributes: { exclude: ['updatedAt'] }
+					}
 				},
 				{
 					model: Post,
@@ -30,16 +34,16 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 							model: Specialty,
 							attributes: ["id", "title"]
 						},
-						// {
-						// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-						// },
+						{
+							model: Report // los reports que tienen sus posteos
+						},
 						{
 							model: Question,
 							include: [
 								{
 									model: Answer,
 									include: {
-										model: Report
+										model: Report // los reports que tienen sus respuestas
 									}
 								}
 							]
@@ -68,14 +72,17 @@ async function getUserById(req, res, next) {
 					},
 					{
 						model: Report,
+						attributes: { exclude: ['updatedAt'] }
+
 					},
 					{
 						model: Review,
 					},
 					{
-						model: Question, // preguntas que el hizo a otros posts
+						model: Question,
 						include: {
-							model: Report
+							model: Report,
+							attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
 						}
 					},
 					{
@@ -91,15 +98,17 @@ async function getUserById(req, res, next) {
 								attributes: ["id", "title"]
 							},
 							{
-								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+								model: Report
 							},
 							{
-								model: Question, // preguntas que le hicieron a esos posts
+								model: Question,
 								include: [
 									{
-										model: Answer, // respuestas que hizo a esas preguntas
+										model: Answer,
 										include: {
-											model: Report
+											model: Report,
+											attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+
 										}
 									}
 								]
@@ -137,7 +146,7 @@ async function createUser(req, res, next) {
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
 	//console.log(req.body)
 
-	if (email === "mambito1998@gmail.com" || email === "dariiooo710@gmail.com") {
+	if (email === "mambito1998@gmail.com" || email === "dariiooo710@gmail.com" || email === "mmiglioranza22@gmail.com") {
 		isAdmin = true;
 	};
 	try {
