@@ -39,7 +39,7 @@ const questionsDB = [
     id: '10006',
     user_id: 'e03a184d-7485-4708-9cc2-205c81f06e3e',
     post_id: 'b1c4f80b-0e40-4232-b5c7-332b38d6cd73',
-    question: 'Que checkpoint tenes que preparar? Soy profesora mandame un msj',
+    question: 'Soy alumna recibida en Henry! mandame un msj y coordinamos',
   },
   {
     id: '10007',
