@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
 			allowNull: false,
 			primaryKey: true
 		},
+
+		// si agrego user_id aca, agregarlo en index.js, en db.js, en seeders, en controllers POST
+
+
 		question_id: { // rompe si ponemos este atributo y en las asociaciones una FK con el mismo nombre, pero porque no rompe en los otros???
 			type: DataTypes.INTEGER,
 			// allowNull: false
