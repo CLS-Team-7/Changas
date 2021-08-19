@@ -42,9 +42,8 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
     <div className="lg:w-64">
       {/* Sidebar backdrop (mobile only) */}
       <div
-        className={`fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${
-          sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
         aria-hidden="true"
       ></div>
 
@@ -52,9 +51,8 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
       <div
         id="sidebar"
         ref={sidebar}
-        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-gray-800 p-4 transition-transform duration-200 ease-in-out ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-64'
-        }`}
+        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-gray-800 p-4 transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'
+          }`}
       >
         {/* Sidebar header */}
         <div className="flex justify-between mb-10 pr-3 sm:px-2">
@@ -86,16 +84,14 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
           <ul className="mt-3">
             {/* Team */}
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                page.startsWith('team-') && 'bg-gray-900'
-              }`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${page.startsWith('team-') && 'bg-gray-900'
+                }`}
             >
               <NavLink
                 exact
                 to="/user"
-                className={`block text-gray-200 hover:text-white transition duration-150 ${
-                  page.startsWith('team-') && 'hover:text-gray-200'
-                }`}
+                className={`block text-gray-200 hover:text-white transition duration-150 ${page.startsWith('team-') && 'hover:text-gray-200'
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex flex-grow">
@@ -104,15 +100,13 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
                       viewBox="0 0 24 24"
                     >
                       <path
-                        className={`fill-current text-gray-600 ${
-                          page.startsWith('team-') && 'text-indigo-500'
-                        }`}
+                        className={`fill-current text-gray-600 ${page.startsWith('team-') && 'text-indigo-500'
+                          }`}
                         d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z"
                       />
                       <path
-                        className={`fill-current text-gray-400 ${
-                          page.startsWith('team-') && 'text-indigo-300'
-                        }`}
+                        className={`fill-current text-gray-400 ${page.startsWith('team-') && 'text-indigo-300'
+                          }`}
                         d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"
                       />
                     </svg>
@@ -123,16 +117,14 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
             </li>
             {/* Tasks */}
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                page === 'tasks' && 'bg-gray-900'
-              }`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${page === 'tasks' && 'bg-gray-900'
+                }`}
             >
               <NavLink
                 exact
                 to="/user/posts"
-                className={`block text-gray-200 hover:text-white transition duration-150 ${
-                  page === 'tasks' && 'hover:text-gray-200'
-                }`}
+                className={`block text-gray-200 hover:text-white transition duration-150 ${page === 'tasks' && 'hover:text-gray-200'
+                  }`}
               >
                 <div className="flex flex-grow">
                   <svg
@@ -140,21 +132,18 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
                     viewBox="0 0 24 24"
                   >
                     <path
-                      className={`fill-current text-gray-600 ${
-                        page === 'tasks' && 'text-indigo-500'
-                      }`}
+                      className={`fill-current text-gray-600 ${page === 'tasks' && 'text-indigo-500'
+                        }`}
                       d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z"
                     />
                     <path
-                      className={`fill-current text-gray-600 ${
-                        page === 'tasks' && 'text-indigo-500'
-                      }`}
+                      className={`fill-current text-gray-600 ${page === 'tasks' && 'text-indigo-500'
+                        }`}
                       d="M1 1h22v23H1z"
                     />
                     <path
-                      className={`fill-current text-gray-400 ${
-                        page === 'tasks' && 'text-indigo-300'
-                      }`}
+                      className={`fill-current text-gray-400 ${page === 'tasks' && 'text-indigo-300'
+                        }`}
                       d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z"
                     />
                   </svg>
@@ -164,16 +153,14 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
             </li>
             {/* Create User */}
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                page.startsWith('team-') && 'bg-gray-900'
-              }`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${page.startsWith('team-') && 'bg-gray-900'
+                }`}
             >
               <NavLink
                 exact
                 to="/user/config"
-                className={`block text-gray-200 hover:text-white transition duration-150 ${
-                  page.startsWith('team-') && 'hover:text-gray-200'
-                }`}
+                className={`block text-gray-200 hover:text-white transition duration-150 ${page.startsWith('team-') && 'hover:text-gray-200'
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex flex-grow">
@@ -182,27 +169,23 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
                       viewBox="0 0 24 24"
                     >
                       <path
-                        className={`fill-current text-gray-600 ${
-                          page === 'settings' && 'text-indigo-500'
-                        }`}
+                        className={`fill-current text-gray-600 ${page === 'settings' && 'text-indigo-500'
+                          }`}
                         d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z"
                       />
                       <path
-                        className={`fill-current text-gray-400 ${
-                          page === 'settings' && 'text-indigo-300'
-                        }`}
+                        className={`fill-current text-gray-400 ${page === 'settings' && 'text-indigo-300'
+                          }`}
                         d="M10.714 18.3c.4-.195.84-.298 1.286-.3a3 3 0 11-3 3c.002-.446.105-.885.3-1.286l-6.007-6.007 1.414-1.414 6.007 6.007z"
                       />
                       <path
-                        className={`fill-current text-gray-600 ${
-                          page === 'settings' && 'text-indigo-500'
-                        }`}
+                        className={`fill-current text-gray-600 ${page === 'settings' && 'text-indigo-500'
+                          }`}
                         d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z"
                       />
                       <path
-                        className={`fill-current text-gray-400 ${
-                          page === 'settings' && 'text-indigo-300'
-                        }`}
+                        className={`fill-current text-gray-400 ${page === 'settings' && 'text-indigo-300'
+                          }`}
                         d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z"
                       />
                     </svg>
@@ -215,16 +198,14 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
             </li>
 
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                page.startsWith('team-') && 'bg-gray-900'
-              }`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${page.startsWith('team-') && 'bg-gray-900'
+                }`}
             >
               <NavLink
                 exact
                 to="/user/reviews"
-                className={`block text-gray-200 hover:text-white transition duration-150 ${
-                  page.startsWith('team-') && 'hover:text-gray-200'
-                }`}
+                className={`block text-gray-200 hover:text-white transition duration-150 ${page.startsWith('team-') && 'hover:text-gray-200'
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex flex-grow">
@@ -246,6 +227,31 @@ function SideBarUser({ sidebarOpen, setSidebarOpen }) {
                       </svg>
                     </svg>
                     <span className="text-sm font-medium">Mis Reseñas</span>
+                  </div>
+                </div>
+              </NavLink>
+            </li>
+            <li
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${page.startsWith('team-') && 'bg-gray-900'
+                }`}
+            >
+              <NavLink
+                exact
+                to="/user/questions"
+                className={`block text-gray-200 hover:text-white transition duration-150 ${page.startsWith('team-') && 'hover:text-gray-200'
+                  }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-grow">
+                    <svg
+                      className="flex-shrink-0 h-6 w-6 mr-3"
+                      viewBox="0 0 24 24"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </svg>
+                    <span className="text-sm font-medium">Preguntas recibidas</span>
                   </div>
                 </div>
               </NavLink>

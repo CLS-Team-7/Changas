@@ -23,6 +23,7 @@ import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 import FormReview from './Components/FormReview/FormReview';
 import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
+import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
 
 
 function App() {
@@ -55,7 +56,7 @@ function App() {
           <About />
         </Route>
         <Route exact path='/reviews'>
-          <FormReview/>
+          <FormReview />
         </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
@@ -101,6 +102,9 @@ function App() {
         </Route>
         <Route exact path='/user/reviews'>
           <PanelUserReviews />
+        </Route>
+        <Route exact path='/user/questions'>
+          <PanelUserQuestions />
         </Route>
 
         <Route path='/faq'>
