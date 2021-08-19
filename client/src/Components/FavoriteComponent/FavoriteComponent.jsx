@@ -16,6 +16,14 @@ function FavoriteComponent() {
     window.localStorage.setItem("favs", JSON.stringify(favs));
   }, [favs]);
 
+  let favoritos = window.localStorage.getItem('favs')
+
+  let listFavorite = JSON.parse(favoritos)
+
+  let result = listFavorite?.map(e => {
+    return e.title
+  })
+  console.log(result)
 
   let isPostFavorite = favsFromLocalStorage.find((e) => e.id === post?.id);
 
