@@ -6,6 +6,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { postUser, searchByTitle } from "../../Redux/actions";
+import FavoriteButton from "../FavoriteComponent/FavoriteButton";
 
 var Logeado = false
 
@@ -143,6 +144,7 @@ function Header() {
                     </div>
                   </div>
                 </div>
+                <FavoriteButton/>
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Profile dropdown */}
