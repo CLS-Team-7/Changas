@@ -171,6 +171,17 @@ export const updateReview = (payload, id) => {
     }
 }
 
+export const deleteReview = (id) => {
+    return (dispatch) => {
+        axios.delete(`/review/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "DELETE_REVIEW" })
+            })
+    }
+}
+
+
 export const getOrderTest = (payload) => {
     return (dispatch) => {
         dispatch({ type: "TEST_ORDER", payload })

@@ -97,7 +97,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 singleReview: payload
-                }
+                };
+        case "DELETE_REVIEW":
+            return {
+                ...state
+        }
         // case ADD_FAVORITE_POST:
         //     return{
         //         ...state,

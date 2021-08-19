@@ -62,7 +62,9 @@ function DetailComponent() {
                     </div>
                 </div>
             </div>
+            <div className="self-center place-content-center">
             <Reviews />
+            </div>
         </section>
     )
 }

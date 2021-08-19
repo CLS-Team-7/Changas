@@ -7,15 +7,21 @@ import ModalReviewValidate from './modalReviewValidate';
 
 function UserPost() {
   const allReview = useSelector((state) => state.allReview)
+  
+  let filterReviews = []
 
   const dispatch = useDispatch()
-
+ 
   useEffect(() => {
     dispatch(getAllReviews())
   }, [dispatch])
 
-  const filterReviews = allReview?.filter(e => e.isValidated === false)
+  if (allReview.length) {
+    filterReviews = allReview.filter(e => e.isValidated === false)
+  }
+  
 console.log(filterReviews)
+// console.log(allReview)
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">
@@ -27,7 +33,8 @@ console.log(filterReviews)
             <th className="px-2 py-3">Validacion</th>
           </tr>
 
- {filterReviews.length > 0 ? filterReviews.map((r)=> {
+
+ {allReview.length > 0 ? filterReviews?.map((r)=> {
      
      return(
         <>

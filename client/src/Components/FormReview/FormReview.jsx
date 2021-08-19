@@ -31,6 +31,7 @@ export default function AddFormReview(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(postReview(postInput))
+    alert("Reseña enviada")
     push(`/posts/${singlePost.id}`) //OJO, antes de que se muestr el review, el dueño del posteo tiene que VALIDARLO
   }
 

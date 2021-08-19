@@ -21,9 +21,9 @@ export default function Reviews() {
 
 
     return (
-        <div>
-            <h2 className="font-bold text-xl mb-2 ml-14 flex justify-start"> Reseñas </h2>
-            <div>
+        <div className="flex flex-col self-center place-content-center">
+            <h2 className="font-bold text-xl mb-2 "> Reseñas </h2>
+            <div className="flex self-center w-3/4">
                 {!validatedReviews?.length ? 'Este posteo no tiene reseñas'
                     : validatedReviews.map(review => <Review
                         rating={review.rating}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateReview } from '../../../Redux/actions'
+import { updateReview, deleteReview } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
 
 
@@ -19,7 +19,10 @@ function handleClickAccept() {
 }
 
 function handleClickDenied() {
+    dispatch(deleteReview(review.id))
     setShowModal(false)
+    alert("Reseña eliminada")
+    push(`/user`)
 }
 
 
