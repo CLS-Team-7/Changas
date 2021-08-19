@@ -71,7 +71,8 @@ conn.sync({ force: true }).then(() => {
         workingArea: post.workingArea,
         isActive: post.isActive,
         acceptsQuestions: post.acceptsQuestions,
-        isPremium: post.isPremium
+        isPremium: post.isPremium,
+        pack: post.pack
       });
     });
     console.log('Precarga de posts en DB OK!');

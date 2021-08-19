@@ -7,6 +7,7 @@ async function getAllPosts(_req, res, next) {
   try {
     let posts = await Post.findAll({
       attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC']],
       include: [
         {
           model: User,
@@ -63,6 +64,7 @@ async function getPostByTitle(req, res, next) {
             [Op.iLike]: `%${keyword}%`,
           },
         },
+        order: [['pack', 'DESC']],
         include: [
           {
             model: User,

@@ -41,8 +41,14 @@ router.get('/success', async (req, res, next) => {
 	}
 
 	let orderDB = await Order.findByPk(external_reference); // busco la order, que tiene el post_id
+
+	let chosenPack;
+	if (orderDB.title.toLowerCase() === 'semanal') chosenPack = 1;
+	if (orderDB.title.toLowerCase() === 'quincenal') chosenPack = 2;
+	if (orderDB.title.toLowerCase() === 'mensual') chosenPack = 3;
+
 	try {
-		let changes = { isPremium: true };
+		let changes = { isPremium: true, pack: chosenPack };
 		await Post.update(changes, {
 			where: {
 				id: orderDB.post_id

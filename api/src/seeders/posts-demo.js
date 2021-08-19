@@ -14,7 +14,8 @@ const postsDB = [
     workingArea: ["CABA", "GBA Zona Sur"],
     isActive: true,
     acceptsQuestions: true,
-    isPremium: false,
+    isPremium: true,
+    pack: 1
   },
   {
     id: "d6a4d061-39b9-4862-b871-3a21c551bd18",
@@ -31,7 +32,8 @@ const postsDB = [
     workingArea: ["CABA", "GBA Zona Sur", "GBA Zona Norte"],
     isActive: true,
     acceptsQuestions: true,
-    isPremium: false,
+    isPremium: true,
+    pack: 2
   },
   {
     id: "0db120ed-c457-463d-9ae2-6565f26cbbe5",
@@ -48,7 +50,8 @@ const postsDB = [
     workingArea: ["CABA"],
     isActive: true,
     acceptsQuestions: true,
-    isPremium: false,
+    isPremium: true,
+    pack: 3
   },
   {
     id: "4c9da85f-ef26-4639-8803-dc0cb443f01e",
@@ -133,7 +136,7 @@ const postsDB = [
     workingArea: ["GBA Zona Norte", "CABA", "GBA Zona Sur"],
     isActive: false,
     acceptsQuestions: false,
-    isPremium: true,
+    isPremium: false,
   },
   {
     id: "2bf5ee8b-4e6a-48f3-a030-30d3cdc0d697",
