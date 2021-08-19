@@ -11,6 +11,7 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 				},
 				{
 					model: Report, // los que hizo
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
 				},
 				{
 					model: Review,
@@ -54,7 +55,7 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 		});
 		res.json(users);
 	} catch (err) {
-		next(err);
+		next(err); i
 	};
 };
 
@@ -72,7 +73,7 @@ async function getUserById(req, res, next) {
 					},
 					{
 						model: Report,
-						attributes: { exclude: ['updatedAt'] }
+						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
 
 					},
 					{
