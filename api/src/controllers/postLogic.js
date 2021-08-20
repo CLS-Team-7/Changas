@@ -404,6 +404,56 @@ async function getJobPetitions(req, res, next) {
   };
 };
 
+async function getOnlyPremium(req, res, next) {
+  try {
+    let posts = await Post.findAll({
+      attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC']],
+      where: {
+        isPremium: true
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Specialty,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
+      ],
+    });
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  };
+};
+
+
 module.exports = {
   getAllPosts,
   getPostByTitle,
@@ -413,5 +463,6 @@ module.exports = {
   deletePost,
   getTodaysPosts,
   getJobOffers,
-  getJobPetitions
+  getJobPetitions,
+  getOnlyPremium
 };
