@@ -1,7 +1,5 @@
-// ---****--- ruta en TEST ---****---
 const { Router } = require('express');
 const { User, Post, Order } = require("../../db.js");
-// const { getAllUser, getUserById, createUser, updateUser, deleteUser } = require('../../controllers/checkoutLogic');
 const router = Router();
 
 // SDK de Mercado Pago
@@ -18,18 +16,11 @@ mercadopago.configure({
 
 router.get('/success', async (req, res, next) => {
 
-	//console.info("EN LA RUTA PAGOS ", req)
 	const payment_id = req.query.payment_id
 	const payment_status = req.query.status
 	const external_reference = req.query.external_reference
 	const merchant_order_id = req.query.merchant_order_id
-
-	// const collection_id = req.query.collection_id
-
-	// const payment_type = req.query.payment_type
 	const preference_id = req.query.preference_id // ID DE MP
-
-	//console.log("EXTERNAL REFERENCE ", external_reference)
 
 	let infoMP = {
 		payment_id,
@@ -117,36 +108,14 @@ router.get('/failure', async (req, res, next) => {
 
 //Ruta que genera la URL de MercadoPago
 
-router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /mercadopago
+router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  
 
-	// mandamos por body los datos de la order?? como es esto?? La order ya tiene que estar creada antes, en NuevaOrden, y al hacer click en pagar, se hace el GET a /mercadopago y ahi mando por body??  
-
-	// Entiendo que la mecánica con MP y el back podría ser algo así, iniciando con un user que quiere promocionar su posteo:
-	//
-	// 1) El user tiene que hacer click, en un boton en su panel donde tiene todos sus posteos, que diga en cada post: "promocionar"
-	//  y que eso lo redirija a un componente "NuevaOrder" donde va a elegir 3 opciones (promocion semanal / quincenal / mensual).
-	//  De ahi, el user elige uno y al hacerle click:
-	//  - se hace un dispatch al back con un POST a /order con la siguiente info por req.body:
-	//                 { user_id, post_id, option, price(tiene default), quantity(tiene default) } -> el POST devuelve la nueva order con su id. (se guarda en la store)
-	//  - se hace un redirect del user a un componente "Checkout", donde se renderiza la order con los datos para verificar que todo sea correcto.
-	// 2)  Desde checkout, se consume directo de la store la order creada, y eso es lo que finalmente se setea como preference para mandar a mercadopago, se manda en el get"/"
-	// 3) con el preference seteado, se hace toda la magia con MP. MP procesa todo, y si es "success" o "failure", lo redirige a las views que le hayamos creado.
-
-	// Esta forma de hacerlo nos permitiria hacer un carrito mas adelante si queremos, un poco mas complejo para implementar pero posible
-
-
-
-	//Cargamos el carrido de la bd ------> aplica paso 2)
-	let { id } = req.params; //ver como el front me dice que el id es este -> req.body.orderId??
+	let { id } = req.params;
 
 	let order = await Order.findByPk(id);
-	// console.log(order)
-	// console.log('hola')
 
 	const carrito = [
-		{ title: order.title, quantity: order.quantity, price: order.price }, // "Promocion publicacion semanal / quincenal / mensual "
-		// 	// { title: "Producto 2", quantity: 15, price: 100.52 },
-		// 	// { title: "Producto 3", quantity: 6, price: 200 }
+		{ title: order.title, quantity: order.quantity, price: order.price },
 	];
 
 	const items_ml = carrito.map(i => ({
@@ -158,18 +127,18 @@ router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /
 	// Crea un objeto de preferencia
 	let preference = {
 		items: items_ml,
-		external_reference: `${order.id}`, // ese tiene que ser el order_id, lo saco de la store porque ya creé la order interna en mi DB
+		external_reference: `${order.id}`,
 		payment_methods: {
 			excluded_payment_types: [
 				{
 					id: "atm"
 				}
 			],
-			installments: 1  //Cantidad máximo de cuotas
+			installments: 1
 		},
-		back_urls: { // rutas a las cuales MP contesta una vez efectuado el pago, 3000 o 3001??
-			success: 'https://changas.herokuapp.com/testcheckoutback/success', // cuando MP lo manda aca, se hace un PUT al back a /order/:idOrder con el nuevo status de la order para actualizarla, junto con el id de MP
-			failure: 'https://changas.herokuapp.com/testcheckoutback/failure', // entiendo que habria que hacer /success, /failure, etc.. y no todo /pagos
+		back_urls: {
+			success: 'https://changas.herokuapp.com/testcheckoutback/success',
+			failure: 'https://changas.herokuapp.com/testcheckoutback/failure',
 			pending: 'https://changas.herokuapp.com/testcheckoutback/pending',
 		},
 	};
@@ -187,23 +156,15 @@ router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout  /
 
 	mercadopago.preferences.create(preference)
 		.then(function (response) {
-			console.info('********MP RESPONDIO********')
-			//Este valor reemplazará el string"<%= global.id %>" en tu HTML
 			global.id = response.body.id;
 			global.id_db = response.body.external_reference;
-			// console.log(response.body)
 			mpData.forEach(d => console.log({ [`${d}`]: response.body[d] }));
-			//console.log('GLOBAL ID' + global.id)
-			res.json({ id: global.id, id_db: global.id_db }); // esto es lo que responde al front
+			res.json({ id: global.id, id_db: global.id_db });
 		})
-		.catch(function (error) {
-			// console.log(error);
+		.catch(function (err) {
 			next(err)
 		})
 });
-
-
-
 
 
 //Ruta que recibe la información del pago
