@@ -55,12 +55,12 @@ function UserDataComp() {
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">Teléfono</label>
-                                            <input type="text" value={userLogin?.phoneNumber} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.phoneNumber} className="text-center w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
 
                                         <div className="form-item w-full">
                                             <label className="text-xl ">DNI/Pasaporte</label>
-                                            <input type="text" value={userLogin?.ID_Passport?.includes("google") ? "Sin completar" : userLogin?.ID_Passport} className="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                            <input type="text" value={userLogin?.ID_Passport?.includes("google") ? "Sin completar" : userLogin?.ID_Passport} className="text-center w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                         </div>
                                     </div>
 

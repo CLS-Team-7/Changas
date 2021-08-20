@@ -6,20 +6,21 @@ import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
 import SafeTips from "../SafeTips/SafeTips";
 import Reviews from "../Review/Reviews";
 import { useAuth0 } from "@auth0/auth0-react";
+import Questions from '../Question/Questions';
 
 function DetailComponent() {
-    const {isAuthenticated} = useAuth0();
+    const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
     const { title, image, description, priceRange, category, specialty } =
         useSelector((state) => state.singlePost);
-    
+
     let { id } = useParams();
 
     useEffect(() => {
         dispatch(getSinglePost(id));
         dispatch(clearSinglePost());
     }, [dispatch, id]);
-   
+
     return (
         <section className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
@@ -60,14 +61,25 @@ function DetailComponent() {
                             <span className="title-font font-medium text-2xl text-gray-900">Precio Base: {priceRange?.map(e => `$${e}   `)}</span>
                             <SafeTips />
                         </div>
-                        {isAuthenticated  ?
-                        <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
-                        : null }
+                        <div>
+
+                            {isAuthenticated ?
+                                <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
+                                : null}
+                        </div>
+                        <div>
+                            {isAuthenticated ?
+                                <Link to={`/question`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Hacer pregunta</button></Link>
+                                : null}
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="self-center place-content-center">
-            <Reviews />
+                <Reviews />
+            </div>
+            <div className="self-center place-content-center">
+                <Questions />
             </div>
         </section>
     )

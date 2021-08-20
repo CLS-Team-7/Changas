@@ -24,7 +24,7 @@ import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 import FormReview from './Components/FormReview/FormReview';
 import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
 import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
-
+import FormQuestion from './Components/FormQuestion/FormQuestion';
 
 function App() {
   return (
@@ -57,6 +57,9 @@ function App() {
         </Route>
         <Route exact path='/reviews'>
           <FormReview />
+        </Route>
+        <Route exact path='/question'>
+          <FormQuestion />
         </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />

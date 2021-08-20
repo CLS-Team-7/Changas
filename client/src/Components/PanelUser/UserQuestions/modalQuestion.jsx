@@ -1,29 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateReview, deleteReview } from '../../../Redux/actions'
+// import { updateReview, deleteReview } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
 
 
 
 
-const ModalReviewValidate = ({review}) => {
+const ModalQuestionValidate = ({ review }) => {
   const [showModal, setShowModal] = useState(false)
   const { push } = useHistory()
   const dispatch = useDispatch()
 
-function handleClickAccept() {
-    dispatch(updateReview({isValidated: true}, review.id ))
+  function handleClickAccept() {
+    // dispatch(updateReview({ isValidated: true }, review.id)) // aca se hace el dispatch a una accion que tenemos que crear (createAnswer), por params el idQuestion y body
     setShowModal(false)
     push(`/posts/${review.post.id}`)
-}
+  }
 
-function handleClickDenied() {
-    dispatch(deleteReview(review.id))
-    setShowModal(false)
-    alert("Reseña eliminada")
-    push(`/user`)
-}
+  function handleClickDenied() {
+    // dispatch(deleteReview(review.id))  // aca se hace el dispatch a una accion que tenemos que crear (createReport), por payload se manda el user_id y la question_id
+    // setShowModal(false)
+    // alert("Reseña eliminada")
+    // push(`/user`)
+    //ESTE DEBERIA PODER REPORTAR/DENUNCIAR PREGUNTA
+  }
 
 
   return (
@@ -33,7 +34,7 @@ function handleClickDenied() {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        VERIFICACION
+        Responder
       </button>
       {showModal ? (
         <>
@@ -41,7 +42,7 @@ function handleClickDenied() {
             <div className="relative w-auto my-6 mx-auto max-w-6xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white text-black outline-none focus:outline-none">
                 <div className="flex items-start justify-between pt-5 pl-5 pb-2 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">ATENCION</h3>
+                  <h3 className="text-3xl font-semibold">Escriba su respuesta</h3>
 
                   <button
                     onClick={() => setShowModal(false)}
@@ -68,44 +69,40 @@ function handleClickDenied() {
                   </button>
                 </div>
 
-                <div className="relative  flex-auto ">
+                <div className="relative flex flex-col ">
+                  <div class="mb-3 py-4 px-4 flex flex-row">
+                    <input type="text" placeholder="Tu respuesta va acá..."
+                      class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                    <button
+                      className="mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={handleClickAccept}
+                    >
+                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-2 px-12 focus:outline-none hover:bg-green-600 rounded">
+                        Responder
+                      </button>
+
+                    </button>
+                  </div>
+
+
                   <p className="my-4 px-5 text-blueGray-500 text-lg text-left leading-relaxed ">
-                    - Verificá que la persona que te haya dejado una reseña sea
-                    efectivamente una persona a quien le hayas prestado un
-                    servicio o realizado un trabajo.
-                    <br />
-                    - Cualquier reseña que aceptes aparecerá en tu
-                    publicación.
-                    <br />
-                    - Si tenes algun problema con la reseña, <a href="mailto:" >contactános.!</a> 
+                    - Si tenés algun problema con la pregunta, podes hacer un <b>reportarla</b> para que el equipo de CHANGAS la revise.
                   </p>
                 </div>
 
-                <div className="flex items-center justify-end   rounded-b">
-                  <button
-                    className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={handleClickAccept}
-                  >
-                    
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
-                        Confirmar Reseña
-                      </button>
-                 
-                  </button>
-                </div>
 
-                <div className="flex items-center justify-end   rounded-b">
+                <div className="flex items-center justify-center   rounded-b">
                   <button
                     className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={handleClickDenied}
                   >
-                    
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
-                        Rechazar Reseña
-                      </button>
-                 
+
+                    <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded">
+                      Reportar pregunta
+                    </button>
+
                   </button>
                 </div>
 
@@ -118,4 +115,4 @@ function handleClickDenied() {
     </>
   )
 }
-export default ModalReviewValidate
+export default ModalQuestionValidate

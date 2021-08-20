@@ -7,29 +7,29 @@ import { useHistory } from "react-router-dom";
 
 
 
-const ModalReviewValidate = ({review}) => {
+const ModalReviewValidate = ({ review }) => {
   const [showModal, setShowModal] = useState(false)
   const { push } = useHistory()
   const dispatch = useDispatch()
 
-function handleClickAccept() {
-    dispatch(updateReview({isValidated: true}, review.id ))
+  function handleClickAccept() {
+    dispatch(updateReview({ isValidated: true }, review.id))
     setShowModal(false)
     push(`/posts/${review.post.id}`)
-}
+  }
 
-function handleClickDenied() {
+  function handleClickDenied() {
     dispatch(deleteReview(review.id))
     setShowModal(false)
     alert("Reseña eliminada")
     push(`/user`)
-}
+  }
 
 
   return (
     <>
       <button
-        className="flex ml-auto text-white  border-0 py-2 px-6 rounded  "
+        className="flex ml-auto text-white  border-0 py-2 px-6 rounded decoration-none"
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -41,7 +41,7 @@ function handleClickDenied() {
             <div className="relative w-auto my-6 mx-auto max-w-6xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white text-black outline-none focus:outline-none">
                 <div className="flex items-start justify-between pt-5 pl-5 pb-2 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">ATENCION</h3>
+                  <h3 className="text-3xl font-semibold">ATENCIÓN</h3>
 
                   <button
                     onClick={() => setShowModal(false)}
@@ -69,15 +69,17 @@ function handleClickDenied() {
                 </div>
 
                 <div className="relative  flex-auto ">
-                  <p className="my-4 px-5 text-blueGray-500 text-lg text-left leading-relaxed ">
-                    - Verificá que la persona que te haya dejado una reseña sea
-                    efectivamente una persona a quien le hayas prestado un
-                    servicio o realizado un trabajo.
-                    <br />
-                    - Cualquier reseña que aceptes aparecerá en tu
+                  <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
+                    - Verificá que la persona que te haya dejado una reseña <b>sea
+                      efectivamente</b> aquella a quién le hayas prestado un
+                    servicio ó realizado un trabajo.
+                  </p>
+                  <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
+                    - Cualquier reseña que aceptes <b>aparecerá </b> en tu
                     publicación.
-                    <br />
-                    - Si tenes algun problema con la reseña, <a href="mailto:" >contactános.!</a> 
+                  </p>
+                  <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
+                    - Si tenes algún problema con la reseña, <a href="mailto:" >contactá al equipo de CHANGAS.</a>
                   </p>
                 </div>
 
@@ -87,11 +89,11 @@ function handleClickDenied() {
                     type="button"
                     onClick={handleClickAccept}
                   >
-                    
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
-                        Confirmar Reseña
-                      </button>
-                 
+
+                    <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-green-600 rounded">
+                      Confirmar Reseña
+                    </button>
+
                   </button>
                 </div>
 
@@ -101,11 +103,11 @@ function handleClickDenied() {
                     type="button"
                     onClick={handleClickDenied}
                   >
-                    
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
-                        Rechazar Reseña
-                      </button>
-                 
+
+                    <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded">
+                      Rechazar Reseña
+                    </button>
+
                   </button>
                 </div>
 

@@ -7,7 +7,7 @@ function FavoriteComponent() {
 
   let x;
   favsFromLocalStorage.length > 0 ? (x = favsFromLocalStorage) : (x = []);
-  console.log(x, favsFromLocalStorage);
+  // console.log(x, favsFromLocalStorage);
 
   const [favs, setFavs] = useState(x);
   const post = useSelector((state) => state.singlePost);
