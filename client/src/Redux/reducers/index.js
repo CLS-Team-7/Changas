@@ -17,6 +17,7 @@ const initialState = {
     favoritePost: [],
     petitionPost: [],
     offerPost: [],
+
 }
 
 function rootReducer(state = initialState, action) {
@@ -93,6 +94,15 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 singleReview: payload
+            };
+        case "UPDATE_REVIEW":
+            return {
+                ...state,
+                singleReview: payload
+            };
+        case "DELETE_REVIEW":
+            return {
+                ...state
             }
             case GET_FAVORITE_POST:
             return{

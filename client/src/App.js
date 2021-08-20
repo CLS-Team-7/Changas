@@ -23,6 +23,10 @@ import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
 import FilterOffer from './views/Filters/FilterOffer';
 import FilterPetition from './views/Filters/FilterPetition';
+import FormReview from './Components/FormReview/FormReview';
+import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
+import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
+import FormQuestion from './Components/FormQuestion/FormQuestion';
 
 function App() {
   return (
@@ -58,6 +62,11 @@ function App() {
         </Route>
         <Route exact path='/filter/petition'>
           <FilterPetition/>
+        <Route exact path='/reviews'>
+          <FormReview />
+        </Route>
+        <Route exact path='/question'>
+          <FormQuestion />
         </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
@@ -100,6 +109,12 @@ function App() {
         </Route>
         <Route exact path='/user/createpost'>
           <PanelCreatePost />
+        </Route>
+        <Route exact path='/user/reviews'>
+          <PanelUserReviews />
+        </Route>
+        <Route exact path='/user/questions'>
+          <PanelUserQuestions />
         </Route>
 
         <Route path='/faq'>

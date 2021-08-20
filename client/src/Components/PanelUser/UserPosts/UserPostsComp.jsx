@@ -10,46 +10,64 @@ function UserpostsComp({ Users }) {
                 <tr>
                     <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Opciones
+                    </th>
+                    <th
+                        scope="col"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Nombre
                     </th>
                     <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Tipo de posteo
                     </th>
                     <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Estado
                     </th>
                     <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Categoria/Especialidad
                     </th>
                     <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Tipo de publicacion
+                    </th>
+                    <th
+                        scope="col"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+
                     </th>
                 </tr>
             </thead>
             {Users?.map(person => {
                 return <tr key={person.id} className="">
-                    <td className="px-6 py-4 whitespace-nowrap py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 " >
+                    <th
+                        scope="col"
+                        className="text-center px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Editar
+                    </th>
+                    <td className="break-words max-w-xs px-6 py-8 py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 " >
                         <div className="flex items-center">
-                            <div className="ml-4">
+                            <div className="text-center align-middle">
                                 <th
                                     scope="col"
-                                    className=" text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    className="text-center text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
-                                    <Link to={`/posts/${person.id}`}><div className="text-sm font-medium text-gray-900">{person.title}</div></Link>
+                                    <Link to={`/posts/${person.id}`}><p className="text-center break-words max-w-xstext-sm font-medium text-gray-900">{person.title}</p></Link>
                                 </th>
                             </div>
                         </div>

@@ -105,6 +105,7 @@ conn.sync({ force: true }).then(() => {
         post_id: review.post_id,
         rating: review.rating,
         description: review.description,
+        isValidated: review.isValidated
       });
     });
     console.log('Precarga de reviews en DB OK!');

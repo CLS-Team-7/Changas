@@ -28,8 +28,10 @@ function Home() {
     return (
         <div className="Home">
             <Header />
-            <ContainerOffer />
-            <ContainerPetition />
+
+            <div className="bg-gray-100">
+                <ContainerPostCard />
+            </div>
             <Footer />
         </div>
     )

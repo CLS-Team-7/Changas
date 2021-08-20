@@ -1,7 +1,7 @@
 import React from "react";
-import Rating from "./Rating"
-import "./Review.css"
-function Review(props) {
+// import Rating from "./Rating"
+// import "./Review.css"
+function Question(props) {
     const { createdAt, rating, description, fullName } = props;
     return (
         <div class="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
@@ -13,19 +13,19 @@ function Review(props) {
                 <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt}</span>
                 <div className="flex items-center mt-4 text-gray-600">
                     <div className="flex items-center">
-                        <span className="text-sm">Calidad del Servicio</span>
-                                <i className='commentsIcons'><Rating rating={rating} /></i>
-                            </div>
-                        </div>
-                        <div className="flex items-center ml-2">
-                        <div>
+                        <span className="text-sm">Pregunta</span>
+                        <i className='commentsIcons'></i>
+                    </div>
+                </div>
+                <div className="flex items-center ml-2">
+                    <div>
                     </div>
                 </div>
                 <div className="mt-3">
-                <p className="mt-1 text-justify" >"{description}"</p>
+                    <p className="mt-1 text-justify" >"{description}"</p>
                 </div>
             </div>
         </div>
     )
 }
-export default Review
+export default Question;
