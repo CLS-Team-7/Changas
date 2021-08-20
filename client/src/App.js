@@ -96,8 +96,8 @@ function App() {
         <Route exact path='/admin/createpost'>
           <AdminCreatePost />
         </Route>
-
         *//////////////////**Panel User*/
+        </Route>
         <Route exact path='/user'>
           <PanelUser />
         </Route>
