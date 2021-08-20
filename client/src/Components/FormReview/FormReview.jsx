@@ -48,7 +48,7 @@ export default function AddFormReview(props) {
                 <div class="flex flex-col items-center py-6 space-y-3">
                   <div className="grid grid-cols-1">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nombre de Usuario</label>
-                    <input name="user_id" value={userLogin.fullName} className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
+                    <input name="user_id" disabled value={userLogin.fullName} className="text-center py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
                     {/*<select onChange={handleChange} name="user_id" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                       <option>Elegir</option>
                       {[userLogin]?.length !== 0 ?
@@ -61,7 +61,7 @@ export default function AddFormReview(props) {
                   </div>
                   <div className="grid grid-cols-1">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Publicación</label>
-                    <input name="post_id" value={singlePost.title} className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
+                    <input name="post_id" disabled value={singlePost.title} className="text-center py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
                     {/*<select onChange={handleChange} name="post_id" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                       <option>Elegir</option>
                       {[singlePost]?.length !== 0 ?
