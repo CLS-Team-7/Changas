@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
-import { postUser, searchByTitle } from "../../Redux/actions";
+import { getFavoritePostList, postUser, searchByTitle } from "../../Redux/actions";
 import FavoriteButton from "../FavoriteComponent/FavoriteButton";
 
 var Logeado = false
@@ -50,7 +50,10 @@ function Header() {
     logout()
     Logeado = false
   }
-  //////////////////////////////////////
+  //////////////////favorite/////////////////
+  useEffect(() => {
+    dispatch(getFavoritePostList())
+  }, [dispatch])
   /////////////// usermenu/////////////
 
 
@@ -144,7 +147,7 @@ function Header() {
                     </div>
                   </div>
                 </div>
-                <FavoriteButton/>
+                <FavoriteButton />
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     {/* Profile dropdown */}
