@@ -6,6 +6,7 @@ async function getAllOrders(req, res, next) { // localhost:3001/order
 	try {
 		let orders = await Order.findAll({
 			attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+			order: [["createdAt", 'DESC']],
 			include: [
 				{
 					model: User,

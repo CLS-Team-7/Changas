@@ -6,6 +6,7 @@ async function getAllQuestions(req, res, next) {
 	try {
 		let questions = await Question.findAll({
 			attributes: { exclude: ["updatedAt"] },
+			order: [["createdAt", 'DESC']],
 			include: [{
 				model: Answer,
 				attributes: { exclude: ["updatedAt", "question_id"] }

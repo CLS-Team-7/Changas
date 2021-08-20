@@ -5,6 +5,7 @@ const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review
 async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TODA ESTA INFO DEBERIA VERLA EL ADMIN (ver si conviene una route /admin)
 	try {
 		let users = await User.findAll({
+			order: [["createdAt", 'DESC']],
 			include: [
 				{
 					model: Order,

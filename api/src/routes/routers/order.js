@@ -9,13 +9,9 @@ const router = Router();
 
 
 router.get('/', getAllOrders);
-
 router.get('/:idOrder', getOrderById);
-
 router.post('/', createOrder); // logica con checkout
-
 router.put('/:idOrder', updateOrder)
-
 router.delete('/:idOrder', deleteOrder)
 
 
