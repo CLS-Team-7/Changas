@@ -26,8 +26,9 @@ function Home() {
     return (
         <div className="Home">
             <Header />
-            <FilterButton />
-            <ContainerPostCard />
+            <div className="bg-gray-100">
+                <ContainerPostCard />
+            </div>
             <Footer />
         </div>
     )
