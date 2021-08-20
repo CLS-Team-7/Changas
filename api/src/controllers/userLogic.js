@@ -5,10 +5,11 @@ const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review
 async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TODA ESTA INFO DEBERIA VERLA EL ADMIN (ver si conviene una route /admin)
 	try {
 		let users = await User.findAll({
-			order: [["createdAt", 'DESC']],
+			//order: [["createdAt", 'DESC']], // esto es lo que hace lenta la busqueda
 			include: [
 				{
 					model: Order,
+					//	order: [["createdAt", 'DESC']],
 				},
 				{
 					model: Report, // los que hizo
@@ -16,17 +17,21 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 				},
 				{
 					model: Review,
+					//		order: [["createdAt", 'DESC']],
 				},
 				{
 					model: Question,
+					attributes: { exclude: ['updatedAt', "user_id", "post_id"] },
 					include: {
 						model: Report, // los reportes que tengan las preguntas que hizo
-						attributes: { exclude: ['updatedAt'] }
+						attributes: { exclude: ['updatedAt'] },
+						//		order: [["createdAt", 'DESC']],
 					}
 				},
 				{
 					model: Post,
 					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					//order: [["createdAt", 'DESC']],
 					include: [
 						{
 							model: Category,
@@ -37,15 +42,22 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 							attributes: ["id", "title"]
 						},
 						{
-							model: Report // los reports que tienen sus posteos
+							model: Report, // los reports que tienen sus posteosi
+							attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
+							// order: [["createdAt", 'DESC']],
 						},
 						{
 							model: Question,
+							attributes: { exclude: ['post_id', 'user_id', "isActive", 'updatedAt'] },
+							//	order: [["createdAt", 'ASC']],
 							include: [
 								{
 									model: Answer,
+									attributes: { exclude: ['question_id', 'isActive', 'updatedAt'] },
+									//	order: [["createdAt", 'ASC']],
 									include: {
-										model: Report // los reports que tienen sus respuestas
+										model: Report, // los reports que tienen sus respuestas
+										attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] }
 									}
 								}
 							]
@@ -71,25 +83,29 @@ async function getUserById(req, res, next) {
 				include: [
 					{
 						model: Order,
+						order: [["createdAt", 'DESC']],
 					},
 					{
-						model: Report,
+						model: Report, // los que hizo
 						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
-
 					},
 					{
 						model: Review,
+						order: [["createdAt", 'DESC']],
 					},
 					{
 						model: Question,
+						attributes: { exclude: ['updatedAt', "user_id", "post_id"] },
 						include: {
-							model: Report,
-							attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+							model: Report, // los reportes que tengan las preguntas que hizo
+							attributes: { exclude: ['updatedAt'] },
+							order: [["createdAt", 'DESC']],
 						}
 					},
 					{
 						model: Post,
 						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+						order: [["createdAt", 'DESC']],
 						include: [
 							{
 								model: Category,
@@ -100,17 +116,22 @@ async function getUserById(req, res, next) {
 								attributes: ["id", "title"]
 							},
 							{
-								model: Report
+								model: Report, // los reports que tienen sus posteosi
+								attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
+								order: [["createdAt", 'DESC']],
 							},
 							{
 								model: Question,
+								attributes: { exclude: ['post_id', 'user_id', "isActive", 'updatedAt'] },
+								order: [["createdAt", 'ASC']],
 								include: [
 									{
 										model: Answer,
+										attributes: { exclude: ['question_id', 'isActive', 'updatedAt'] },
+										order: [["createdAt", 'ASC']],
 										include: {
-											model: Report,
-											attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
-
+											model: Report, // los reports que tienen sus respuestas
+											attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] }
 										}
 									}
 								]

@@ -9,7 +9,8 @@ async function getAllQuestions(req, res, next) {
 			order: [["createdAt", 'DESC']],
 			include: [{
 				model: Answer,
-				attributes: { exclude: ["updatedAt", "question_id"] }
+				attributes: { exclude: ["updatedAt", "question_id"] },
+				order: [["createdAt", 'ASC']],
 			},
 			{
 				model: User,
@@ -17,7 +18,8 @@ async function getAllQuestions(req, res, next) {
 			},
 			{
 				model: Report,
-				attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+				attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+				order: [["createdAt", 'DESC']],
 			}
 			]
 		});
@@ -39,7 +41,8 @@ async function getQuestionById(req, res, next) {
 				attributes: { exclude: ["updatedAt"] },
 				include: [{
 					model: Answer,
-					attributes: { exclude: ["updatedAt", "question_id"] }
+					attributes: { exclude: ["updatedAt", "question_id"] },
+					order: [["createdAt", 'ASC']],
 				},
 				{
 					model: User,
@@ -47,7 +50,8 @@ async function getQuestionById(req, res, next) {
 				},
 				{
 					model: Report,
-					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+					order: [["createdAt", 'DESC']],
 				}
 				]
 			})

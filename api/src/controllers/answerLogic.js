@@ -15,7 +15,8 @@ async function getAllAnswers(req, res, next) {
 				},
 				{
 					model: Report,
-					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+					order: [["createdAt", 'DESC']],
 				}
 			]
 		});
@@ -41,7 +42,8 @@ async function getAnswerById(req, res, next) {
 					},
 					{
 						model: Report,
-						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+						order: [["createdAt", 'DESC']],
 					}
 				]
 			})
