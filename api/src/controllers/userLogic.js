@@ -133,15 +133,6 @@ async function getUserById(req, res, next) {
 	};
 };
 
-
-// async function getFavUsers(req, res, next) {
-// 	// a desarrollar para demo 1?
-// };
-
-// async function getMyPosts(req, res, next) {
-// 	// a desarrollar para demo 1?
-// };
-
 async function createUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
@@ -385,21 +376,7 @@ async function deleteUser(req, res, next) {
 			await User.destroy({ // de existir, lo destruye
 				where: {
 					id: idUser
-				},
-				// include: {
-				// 	model: Post,
-				// 	attributes: { exclude: ["user_id"], "category_id", "specialty_id" },
-				// 	include: [
-				// 		{
-				// 			model: Category,
-				// 			attributes: ["id", "title"]
-				// 		},
-				// 		{
-				// 			model: Specialty,
-				// 			attributes: ["id", "title"]
-				// 		}
-				// 	]
-				// }
+				}
 			});
 			return res.json(existsInDB); // devuelve el post eliminado como el metodo pop()
 		} else {
