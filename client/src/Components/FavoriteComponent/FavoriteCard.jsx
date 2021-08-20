@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteFavoritePost } from '../../Redux/actions'
+import { Link } from "react-router-dom"
 
 function FavoriteCard({ fav }) {
 
@@ -17,7 +18,7 @@ function FavoriteCard({ fav }) {
                     fav?.map(e => {
 
                         return <div className="p-2 flex bg-white hover:bg-gray-100 cursor-pointer border-b border-gray-100" key={e.id}>
-                            <div className="p-2 w-20"><img src={e.img} alt="img product" /></div>
+                            <Link to={`/posts/${e.id}`}><div className="p-2 w-20"><img src={e.img} alt="img product" /></div></Link>
                             <div className="flex-auto text-sm w-32">
                                 <div className="font-bold">{e.title}</div>
                             </div>

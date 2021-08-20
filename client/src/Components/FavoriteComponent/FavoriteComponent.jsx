@@ -33,10 +33,10 @@ function FavoriteComponent({ id, img, title }) {
   }
 
   return (
-    <div className="relative ">
+    <div className="relative">
       {isFavorite
         ?
-        <button onClick={() => handleClick()}>
+        <button onClick={() => handleClick()} className="max-w-xs select-none rounded-full flex items-center text-sm focus:outline-none  focus:outline-none  ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-red"
@@ -54,7 +54,7 @@ function FavoriteComponent({ id, img, title }) {
           {/* Add to Fav */}
         </button>
         :
-        <button onClick={() => handleClick()}>
+        <button onClick={() => handleClick()} className="max-w-xs select-none rounded-full flex items-center text-sm focus:outline-none  focus:outline-none ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-red"
