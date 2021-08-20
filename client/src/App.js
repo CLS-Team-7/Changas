@@ -21,6 +21,8 @@ import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
+import FilterOffer from './views/Filters/FilterOffer';
+import FilterPetition from './views/Filters/FilterPetition';
 import FormReview from './Components/FormReview/FormReview';
 import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
 import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
@@ -55,6 +57,11 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        <Route exact path='/filter/offer'>
+          <FilterOffer/>
+        </Route>
+        <Route exact path='/filter/petition'>
+          <FilterPetition/>
         <Route exact path='/reviews'>
           <FormReview />
         </Route>
