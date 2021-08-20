@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPosts, getUserAdmin, postReview } from '../../Redux/actions'
+import { getAllPosts, getUserAdmin, postReview } from '../../Redux/actions' // aca va air la action postQuestion
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-export default function AddFormReview(props) {
+export default function AddFormQuestion(props) {
 
   const dispatch = useDispatch();
   const { push } = useHistory()
@@ -46,7 +46,7 @@ export default function AddFormReview(props) {
           <div class="py-3 max-w-md mx-auto">
             <div class="bg-white min-w-2xl flex flex-col rounded-xl shadow-lg">
               <div class="px-12 py-5">
-                <h2 class="text-gray-800 text-3xl font-semibold">Califica el servicio</h2>
+                <h2 class="text-gray-800 text-3xl font-semibold">Haz tu pregunta</h2>
               </div>
               <div class="bg-blue-200 w-full flex flex-col items-center">
                 <div class="flex flex-col items-center py-6 space-y-3">
@@ -58,17 +58,17 @@ export default function AddFormReview(props) {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Publicación</label>
                     <input name="post_id" disabled value={singlePost.title} className="text-center py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
                   </div>
-                  <select onChange={handleChange} name='rating' className="w-50  border  hover:border-gray-500 px-4 py-2 pr-8 rounded  ">
+                  {/*<select onChange={handleChange} name='rating' className="w-50  border  hover:border-gray-500 px-4 py-2 pr-8 rounded  ">
                     <option>Calificación</option>
                     <option type='number' value='1'>1 ⭐</option>
                     <option type='number' value="2">2 ⭐⭐</option>
                     <option type='number' value="3">3 ⭐⭐⭐</option>
                     <option type='number' value="4">4 ⭐⭐⭐⭐</option>
                     <option type='number' value="5">5 ⭐⭐⭐⭐⭐</option>
-                  </select>
+                  </select>*/}
                 </div>
                 <div class="w-3/4 flex flex-col">
-                  <textarea rows="3" name="description" class="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Cuéntanos tu experiencia con el servicio" />
+                  <textarea rows="3" name="description" class="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
                   <button type='submit' onClick={(e) => handleSubmit(e)} class="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
                 </div>
               </div>

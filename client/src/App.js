@@ -21,7 +21,10 @@ import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
-
+import FormReview from './Components/FormReview/FormReview';
+import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
+import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
+import FormQuestion from './Components/FormQuestion/FormQuestion';
 
 function App() {
   return (
@@ -52,9 +55,12 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
-        {/* <Route exact path='/favs'>
-          <FavsTest/>
-        </Route> */}
+        <Route exact path='/reviews'>
+          <FormReview />
+        </Route>
+        <Route exact path='/question'>
+          <FormQuestion />
+        </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
@@ -96,6 +102,12 @@ function App() {
         </Route>
         <Route exact path='/user/createpost'>
           <PanelCreatePost />
+        </Route>
+        <Route exact path='/user/reviews'>
+          <PanelUserReviews />
+        </Route>
+        <Route exact path='/user/questions'>
+          <PanelUserQuestions />
         </Route>
 
         <Route path='/faq'>

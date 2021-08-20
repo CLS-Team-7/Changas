@@ -96,10 +96,10 @@ async function createReview(req, res, next) {
 	let { rating, description, user_id, post_id } = req.body;
 	try {
 		let newReview = await Review.create({
-			rating,
-			description,
 			user_id,
-			post_id
+			post_id,
+			rating,
+			description
 		});
 		res.json(newReview);
 	} catch (err) {
@@ -109,18 +109,17 @@ async function createReview(req, res, next) {
 
 async function updateReview(req, res, next) {
 	let { idReview } = req.params;
-	let { rating, description } = req.body;
+	let changes = req.body;
+	changes = {...changes, isValidated: true};
 	try {
-		await Review.update(
+		await Review.update(changes, 
 			{
-				rating: rating,
-				description: description
-			}, {
 			where: {
 				id: idReview
 			}
 		});
-		res.status(200).send('Review modificado');
+		let updatedReview = await Review.findByPk(idReview);
+    res.json(updatedReview); 
 	} catch (err) {
 		next(err);
 	};

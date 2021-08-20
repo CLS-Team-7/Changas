@@ -8,7 +8,10 @@ function FavoriteComponent({ id, img, title }) {
   const favsFromLocalStorage = JSON.parse(localStorage.getItem("favs") || "[]");
 
   let x;
-  favsFromLocalStorage?.length > 0 ? (x = favsFromLocalStorage) : (x = []);
+
+  favsFromLocalStorage.length > 0 ? (x = favsFromLocalStorage) : (x = []);
+  // console.log(x, favsFromLocalStorage);
+
 
   const post = { id: id, title: title, img: img }
 
