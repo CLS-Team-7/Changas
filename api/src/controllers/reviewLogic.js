@@ -6,6 +6,7 @@ async function getAllReviews(_req, res, next) { //http://localhost:3001/review -
 	try {
 		let reviews = await Review.findAll({
 			attributes: { exclude: ["user_id", "post_id", "updatedAt"] },
+			order: [["createdAt", 'DESC']],
 			include: [
 				{
 					model: User,

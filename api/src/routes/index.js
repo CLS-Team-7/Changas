@@ -1,15 +1,5 @@
 const { Router } = require('express');
-const axios = require('axios');
-const { User, Order, Post } = require('../db.js');
-const Sequelize = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 const router = Router();
-
-
-// const landingLogic = require('../controllers/landingLogic');
-// const homeLogic = require('../controllers/homeLogic');
-// const adminLogic = require('../controllers/adminLogic');
-// const mercadopago = require('./routers/mercadoPago');
 const routerCheckout = require('./routers/checkout');
 const routerUser = require('./routers/user');
 const routerPost = require('./routers/post');
@@ -24,25 +14,18 @@ const routerReview = require('./routers/review');
 
 // **Routers**
 
-
-// router.use('/', landingLogic);
-// router.use('/home', homeLogic);
+// router.use('/admin', adminLogic);
 router.use('/user', routerUser);
 router.use('/post', routerPost);
 router.use('/category', routerCategory);
 router.use('/specialty', routerSpecialty);
-
-// router.use('/checkout', checkoutLogic); 
-
-
 router.use('/order', routerOrder);
 router.use('/question', routerQuestion);
 router.use('/answer', routerAnswer);
 router.use('/review', routerReview);
 router.use('/report', routerReport);
-// router.use('/mercadopago', mercadopago);
-// router.use('/admin', adminLogic);
 router.use('/testcheckoutback', routerCheckout);
+// router.use('/checkout', checkoutLogic); 
 
 
 

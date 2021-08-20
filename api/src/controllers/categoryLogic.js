@@ -5,6 +5,7 @@ const { User, Post, Order, Category, Specialty } = require('../db.js');
 async function getAllCategories(_req, res, next) { //http://localhost:3001/category --> 
 	try {
 		let categories = await Category.findAll({
+			order: [["createdAt", 'DESC']],
 			attributes: ["id", "title"],
 			include: {
 				model: Specialty,

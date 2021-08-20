@@ -5,22 +5,33 @@ const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review
 async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TODA ESTA INFO DEBERIA VERLA EL ADMIN (ver si conviene una route /admin)
 	try {
 		let users = await User.findAll({
+			//order: [["createdAt", 'DESC']], // esto es lo que hace lenta la busqueda
 			include: [
 				{
 					model: Order,
+					//	order: [["createdAt", 'DESC']],
 				},
 				{
-					model: Report,
+					model: Report, // los que hizo
+					attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
 				},
 				{
-					model: Review, // TAMBIEN DEBERIA REPORTARSE LOS
+					model: Review,
+					//		order: [["createdAt", 'DESC']],
 				},
 				{
-					model: Question, // las que el hizo a otros posts
+					model: Question,
+					attributes: { exclude: ['updatedAt', "user_id", "post_id"] },
+					include: {
+						model: Report, // los reportes que tengan las preguntas que hizo
+						attributes: { exclude: ['updatedAt'] },
+						//		order: [["createdAt", 'DESC']],
+					}
 				},
 				{
 					model: Post,
 					attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+					//order: [["createdAt", 'DESC']],
 					include: [
 						{
 							model: Category,
@@ -30,16 +41,23 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 							model: Specialty,
 							attributes: ["id", "title"]
 						},
-						// {
-						// 	model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
-						// },
+						{
+							model: Report, // los reports que tienen sus posteosi
+							attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
+							// order: [["createdAt", 'DESC']],
+						},
 						{
 							model: Question,
+							attributes: { exclude: ['post_id', 'user_id', "isActive", 'updatedAt'] },
+							//	order: [["createdAt", 'ASC']],
 							include: [
 								{
 									model: Answer,
+									attributes: { exclude: ['question_id', 'isActive', 'updatedAt'] },
+									//	order: [["createdAt", 'ASC']],
 									include: {
-										model: Report
+										model: Report, // los reports que tienen sus respuestas
+										attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] }
 									}
 								}
 							]
@@ -50,7 +68,7 @@ async function getAllUser(_req, res, next) { //http://localhost:3001/user --> TO
 		});
 		res.json(users);
 	} catch (err) {
-		next(err);
+		next(err); i
 	};
 };
 
@@ -65,22 +83,29 @@ async function getUserById(req, res, next) {
 				include: [
 					{
 						model: Order,
+						order: [["createdAt", 'DESC']],
 					},
 					{
-						model: Report,
+						model: Report, // los que hizo
+						attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
 					},
 					{
 						model: Review,
+						order: [["createdAt", 'DESC']],
 					},
 					{
-						model: Question, // preguntas que el hizo a otros posts
+						model: Question,
+						attributes: { exclude: ['updatedAt', "user_id", "post_id"] },
 						include: {
-							model: Report
+							model: Report, // los reportes que tengan las preguntas que hizo
+							attributes: { exclude: ['updatedAt'] },
+							order: [["createdAt", 'DESC']],
 						}
 					},
 					{
 						model: Post,
 						attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+						order: [["createdAt", 'DESC']],
 						include: [
 							{
 								model: Category,
@@ -91,15 +116,22 @@ async function getUserById(req, res, next) {
 								attributes: ["id", "title"]
 							},
 							{
-								model: Report // VER SI ES PERTINENTE TRAER ESTO ACA
+								model: Report, // los reports que tienen sus posteosi
+								attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
+								order: [["createdAt", 'DESC']],
 							},
 							{
-								model: Question, // preguntas que le hicieron a esos posts
+								model: Question,
+								attributes: { exclude: ['post_id', 'user_id', "isActive", 'updatedAt'] },
+								order: [["createdAt", 'ASC']],
 								include: [
 									{
-										model: Answer, // respuestas que hizo a esas preguntas
+										model: Answer,
+										attributes: { exclude: ['question_id', 'isActive', 'updatedAt'] },
+										order: [["createdAt", 'ASC']],
 										include: {
-											model: Report
+											model: Report, // los reports que tienen sus respuestas
+											attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] }
 										}
 									}
 								]
@@ -123,21 +155,12 @@ async function getUserById(req, res, next) {
 	};
 };
 
-
-// async function getFavUsers(req, res, next) {
-// 	// a desarrollar para demo 1?
-// };
-
-// async function getMyPosts(req, res, next) {
-// 	// a desarrollar para demo 1?
-// };
-
 async function createUser(req, res, next) {
 	let { given_name, family_name, sub, age, ID_Passport, address, phoneNumber, email, summary, picture, score, jobsDone, isVaccinated, isAdmin } = req.body;
 	// hacer un if donde si el email es "adminuser@admin.com", el isAdmin = true y isDataComplete = true
 	//console.log(req.body)
 
-	if (email === "mambito1998@gmail.com" || email === "dariiooo710@gmail.com") {
+	if (email === "mambito1998@gmail.com" || email === "dariiooo710@gmail.com" || email === "mmiglioranza22@gmail.com") {
 		isAdmin = true;
 	};
 	try {
@@ -375,21 +398,7 @@ async function deleteUser(req, res, next) {
 			await User.destroy({ // de existir, lo destruye
 				where: {
 					id: idUser
-				},
-				// include: {
-				// 	model: Post,
-				// 	attributes: { exclude: ["user_id"], "category_id", "specialty_id" },
-				// 	include: [
-				// 		{
-				// 			model: Category,
-				// 			attributes: ["id", "title"]
-				// 		},
-				// 		{
-				// 			model: Specialty,
-				// 			attributes: ["id", "title"]
-				// 		}
-				// 	]
-				// }
+				}
 			});
 			return res.json(existsInDB); // devuelve el post eliminado como el metodo pop()
 		} else {
