@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS } from '../constants';
 import axios from 'axios';
 
 
@@ -226,10 +226,25 @@ export const deleteFavoritePost = (id) => {
     };  
 }
 
-// export const addFavTest = (favTest) => {
-//     return (dispatch) => {
-//     localStorage.setItem("favTest", favTest)
-//     }
-// }
+export const getJobPetitions = () => {
+    return (dispatch) => {
+        axios.get(`/post/jobpetitions`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_JOB_PETITIONS, payload: data })
+            })
+    }
+}
+
+export const getJobOffers = () => {
+    return (dispatch) => {
+        axios.get(`/post/joboffers`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_JOB_OFFERS, payload: data })
+            })
+    }
+}
+
 
 
