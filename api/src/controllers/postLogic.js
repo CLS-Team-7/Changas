@@ -7,6 +7,7 @@ async function getAllPosts(_req, res, next) {
   try {
     let posts = await Post.findAll({
       attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC'], ['createdAt', 'DESC']],
       include: [
         {
           model: User,
@@ -22,22 +23,29 @@ async function getAllPosts(_req, res, next) {
         },
         {
           model: Question,
-          attributes: { exclude: ["post_id"] },
+          attributes: { exclude: ["post_id", "updatedAt"] },
+          order: [["createdAt", 'ASC']],
           include:
           {
             model: Answer,
-            attributes: { exclude: ["question_id"] },
+            attributes: { exclude: ["question_id", "updatedAt"] },
+            order: [["createdAt", 'ASC']],
           }
         },
         {
-          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+          model: Order, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: ["id", "title", "isCompleted", "status"],
+          order: [["createdAt", 'DESC']],
         },
         {
-          model: Report // ESTO LO DEBERIA VER SOLO EL ADMIN
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+          order: [["createdAt", 'DESC']],
         },
         {
           model: Review,
-          attributes: { exclude: ["post_id", "updatedAt"] }
+          attributes: { exclude: ["post_id", "updatedAt"] },
+          order: [["createdAt", 'ASC']],
         }
       ],
     });
@@ -62,6 +70,8 @@ async function getPostByTitle(req, res, next) {
             [Op.iLike]: `%${keyword}%`,
           },
         },
+        attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+        order: [['pack', 'DESC'], ['createdAt', 'DESC']],
         include: [
           {
             model: User,
@@ -77,22 +87,29 @@ async function getPostByTitle(req, res, next) {
           },
           {
             model: Question,
-            attributes: { exclude: ["post_id"] },
+            attributes: { exclude: ["post_id", "updatedAt"] },
+            order: [["createdAt", 'ASC']],
             include:
             {
               model: Answer,
-              attributes: { exclude: ["question_id"] },
+              attributes: { exclude: ["question_id", "updatedAt"] },
+              order: [["createdAt", 'ASC']],
             }
           },
           {
-            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+            model: Order, // ESTO LO DEBERIA VER SOLO LOS ADMINS
+            attributes: ["id", "title", "isCompleted", "status"],
+            order: [["createdAt", 'DESC']],
           },
           {
-            model: Report
+            model: Report,
+            attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+            order: [["createdAt", 'DESC']],
           },
           {
             model: Review,
-            attributes: { exclude: ["post_id", "updatedAt"] }
+            attributes: { exclude: ["post_id", "updatedAt"] },
+            order: [["createdAt", 'ASC']],
           }
         ],
       });
@@ -133,21 +150,26 @@ async function getPostById(req, res, next) {
           },
           {
             model: Question,
-            attributes: { exclude: ["post_id"] },
+            attributes: { exclude: ["post_id", "updatedAt"] },
+            order: [["createdAt", 'ASC']],
             include: {
               model: Answer,
-              attributes: { exclude: ["question_id"] },
+              attributes: { exclude: ["question_id", "updatedAt"] },
+              order: [["createdAt", 'ASC']],
             }
           },
           {
             model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
           },
           {
-            model: Report
+            model: Report,
+            attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
+            order: [["createdAt", 'DESC']],
           },
           {
             model: Review,
             attributes: { exclude: ["post_id", "updatedAt"] },
+            order: [["createdAt", 'ASC']],
             include: [{
               model: User,
               attributes: ["given_name", "family_name", "fullName"]
@@ -190,6 +212,8 @@ async function createPost(req, res, next) {
     specialty_id,
     paymentMethods,
     workingArea,
+    pack,
+    isPremium
   } = req.body;
   try {
     let newPost = await Post.create({
@@ -204,6 +228,8 @@ async function createPost(req, res, next) {
       specialty_id,
       paymentMethods,
       workingArea,
+      pack,
+      isPremium
     });
     newPost.setUser(user_id);
     newPost.setCategory(category_id);
@@ -254,6 +280,200 @@ async function deletePost(req, res, next) {
   };
 };
 
+async function getTodaysPosts(req, res, next) {
+  try {
+    let posts = await Post.findAll({
+      attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['createdAt', 'DESC']],
+      include: [
+        {
+          model: User,
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Specialty,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
+      ],
+    });
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  };
+};
+
+async function getJobOffers(req, res, next) {
+  try {
+    let posts = await Post.findAll({
+      attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC'], ['createdAt', 'DESC']],
+      where: {
+        typePost: 'Offer'
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Specialty,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
+      ],
+    });
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  };
+};
+
+async function getJobPetitions(req, res, next) {
+  try {
+    let posts = await Post.findAll({
+      attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC'], ['createdAt', 'DESC']],
+      where: {
+        typePost: 'Petition'
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Specialty,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
+      ],
+    });
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  };
+};
+
+async function getOnlyPremium(req, res, next) {
+  try {
+    let posts = await Post.findAll({
+      attributes: { exclude: ["user_id", "category_id", "specialty_id"] },
+      order: [['pack', 'DESC'], ['createdAt', 'DESC']],
+      where: {
+        isPremium: true
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "given_name", "family_name", "fullName", "picture"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Specialty,
+          attributes: ["id", "title"],
+        },
+        {
+          model: Question,
+          attributes: { exclude: ["post_id"] },
+          include:
+          {
+            model: Answer,
+            attributes: { exclude: ["question_id"] },
+          }
+        },
+        {
+          model: Order // ESTO LO DEBERIA VER SOLO EL ADMIN
+        },
+        {
+          model: Report, // ESTO LO DEBERIA VER SOLO EL ADMIN
+          attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] }
+        },
+        {
+          model: Review,
+          attributes: { exclude: ["post_id", "updatedAt"] }
+        }
+      ],
+    });
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  };
+};
+
+
 module.exports = {
   getAllPosts,
   getPostByTitle,
@@ -261,4 +481,8 @@ module.exports = {
   createPost,
   updatePost,
   deletePost,
+  getTodaysPosts,
+  getJobOffers,
+  getJobPetitions,
+  getOnlyPremium
 };

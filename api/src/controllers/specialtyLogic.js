@@ -6,6 +6,7 @@ async function getAllSpecialties(_req, res, next) { //http://localhost:3001/spec
 	try {
 		let specialties = await Specialty.findAll({
 			attributes: ["id", "title"],
+			order: [["createdAt", 'DESC']],
 			include: {
 				model: Category,
 				attributes: ["id", "title"]

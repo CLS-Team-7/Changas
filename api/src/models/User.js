@@ -68,6 +68,7 @@ module.exports = (sequelize) => {
         jobsDone: {
             type: DataTypes.INTEGER, // arrancaria siempre en cero 
             allowNull: true,
+            defauleValue: 0
         },
         // category: {
         //     type: DataTypes.INTEGER,
@@ -79,8 +80,8 @@ module.exports = (sequelize) => {
         // },
         isVaccinated: {
             type: DataTypes.BOOLEAN,
-            defaultValue:false,
             allowNull: true,
+            defaultValue: false,
         },
         isNew: {
             type: DataTypes.BOOLEAN,
@@ -94,7 +95,7 @@ module.exports = (sequelize) => {
         },
         isActive: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
+            allowNull: false,
             defaultValue: true
         },
         isDataComplete: {

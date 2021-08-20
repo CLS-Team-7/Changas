@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST } from '../constants';
 
 const initialState = {
     postList: [],
@@ -13,8 +13,8 @@ const initialState = {
     testorder: {},
     allReview: [],
     singleReview: {},
-    orderInfo: {}
-    // favoritePost: [],
+    orderInfo: {},
+    favoritePost: [],
 
 
 }
@@ -103,11 +103,22 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state
             }
-        // case ADD_FAVORITE_POST:
-        //     return{
-        //         ...state,
-        //         favoritePost: payload
-        //     }
+            case GET_FAVORITE_POST:
+            return{
+                ...state,
+                favoritePost: payload
+            }
+        case ADD_FAVORITE_POST:
+            return{
+                ...state,
+                favoritePost: [...state.favoritePost, action.payload]
+            }
+        case REMOVE_FAVORITE_POST:
+            return{
+                ...state,
+                favoritePost: state.favoritePost.filter(e=> e.id !== payload)
+            }
+
 
         default:
             return state;

@@ -8,10 +8,7 @@ const reviewsDB = require('./src/seeders/review-demo');
 const answerDB = require('./src/seeders/answers-demo');
 const questionsDB = require('./src/seeders/questions-demo')
 const ordersDB = require('./src/seeders/orders-demo');
-// const reportsDB = require('./src/seeders/reports-demo');
-// const reviewsDB = require('./src/seeders/reviews-demo');
-const db = require('./src/db.js');
-const cookieParser = require('cookie-parser');
+const reportsDB = require('./src/seeders/reports-demo');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
@@ -72,7 +69,10 @@ conn.sync({ force: true }).then(() => {
         specialty_id: post.specialty_id,
         paymentMethods: post.paymentMethods,
         workingArea: post.workingArea,
-        isActive: post.isActive
+        isActive: post.isActive,
+        acceptsQuestions: post.acceptsQuestions,
+        isPremium: post.isPremium,
+        pack: post.pack
       });
     });
     console.log('Precarga de posts en DB OK!');
@@ -80,9 +80,10 @@ conn.sync({ force: true }).then(() => {
     await questionsDB.map(question => {
       Question.create({
         id: question.id,
-        post_id: question.post_id,
         user_id: question.user_id,
-        question: question.question
+        post_id: question.post_id,
+        question: question.question,
+        isActive: question.isActive
       });
     });
     console.log('Precarga de questions en DB OK!');
@@ -91,7 +92,8 @@ conn.sync({ force: true }).then(() => {
       Answer.create({
         id: answer.id,
         question_id: answer.question_id,
-        answer: answer.answer
+        answer: answer.answer,
+        isActive: answer.isActive
       });
     });
     console.log('Precarga de answers en DB OK!');
@@ -119,6 +121,23 @@ conn.sync({ force: true }).then(() => {
       })
     })
     console.log('Precarga de orders en DB OK!');
+
+    await reportsDB.map(report => {
+      Report.create({
+        id: report.id,
+        reportSubject: report.reportSubject,
+        user_id: report.user_id,
+        reported_user: report.reported_user,
+        post_id: report.post_id,
+        question_id: report.question_id,
+        answer_id: report.answer_id,
+        complaint: report.complaint,
+        evidence: report.evidence,
+        isSettled: report.isSettled
+      })
+    })
+    console.log('Precarga de reports en DB OK!');
+
 
   });
 });

@@ -1,17 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FavoriteComponent from '../FavoriteComponent/FavoriteComponent'
 
 
 function CardPost({ title, img, category, description, id, specialty, isPremium }) {
     return (
         <div className="p-4 md:w-1/3">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden duration-200 shadow-lg hover:shadow-2xl">
+                <div className="relative ">
+                    <img className="lg:h-48 md:h-36 w-full object-cover object-center relative" src={img} alt="blog" ></img>
+                    <div className="absolute button-0 right-0 p-2 ">
+                        <FavoriteComponent id={id} img={img} title={title} />
+                    </div>
+                </div>
+                {isPremium
+                    ? <div class="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium">Premium</div>
+                    : <span></span>
+                }
                 <Link to={`/posts/${id}`}>
-                    <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={img} alt="blog" />
-                    {isPremium
-                        ? <div class="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium">Premium</div>
-                        : <span></span>
-                    }
                     <div className="p-6">
 
                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{category.title}</h2>
@@ -24,7 +30,7 @@ function CardPost({ title, img, category, description, id, specialty, isPremium 
                                     <path d="M5 12h14"></path>
                                     <path d="M12 5l7 7-7 7"></path>
                                 </svg>
-                                
+
                             </span>
                             {/* <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                 <svg className="w-4 h-4 mr-1" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -40,6 +46,7 @@ function CardPost({ title, img, category, description, id, specialty, isPremium 
                         </div>
                     </div>
                 </Link>
+
             </div>
         </div>
     )
