@@ -21,7 +21,8 @@ import PanelUserPost from './views/PanelUser/PanelUserPost/PanelUserPost';
 import PanelCreatePost from './views/PanelUser/PanelCreatePost/PanelCreatePost';
 import CheckoutView from './views/CheckoutView/CheckoutView';
 import SuccessCheckout from './views/CheckoutView/SuccessCheckout';
-
+import FilterOffer from './views/Filters/FilterOffer';
+import FilterPetition from './views/Filters/FilterPetition';
 
 function App() {
   return (
@@ -52,9 +53,12 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
-        {/* <Route exact path='/favs'>
-          <FavsTest/>
-        </Route> */}
+        <Route exact path='/filter/offer'>
+          <FilterOffer/>
+        </Route>
+        <Route exact path='/filter/petition'>
+          <FilterPetition/>
+        </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
         </Route>
