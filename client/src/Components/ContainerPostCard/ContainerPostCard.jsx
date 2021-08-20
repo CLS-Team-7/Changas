@@ -3,6 +3,7 @@ import { getAllPosts } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../Pagination/Pagination'
 import PostComp from './PostComp';
+import CarruselHome from '../CarruselHome/CarruselHome';
 
 function ContainerPostCard() {
     const dispatch = useDispatch();
@@ -30,9 +31,9 @@ function ContainerPostCard() {
 
     let filteredPosts = [];
 
-    if(filterType === 'All'){
+    if (filterType === 'All') {
         filteredPosts = posts;
-    } else{
+    } else {
         filteredPosts = posts.filter(post => post.category.title === filterType);
     }
 
@@ -50,7 +51,7 @@ function ContainerPostCard() {
                 <PostComp posts={currentPosts} />
             </div>
             <div className="flex justify-center my-14">
-                <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} />
+                {/* <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} /> */}
             </div>
         </div>
     )
