@@ -6,6 +6,7 @@ async function getAllReports(req, res, next) {
 	try {
 		let reports = await Report.findAll({
 			attributes: { exclude: ["updatedAt"] },
+			order: [["createdAt", 'DESC']],
 			include: [
 				{
 					model: User,

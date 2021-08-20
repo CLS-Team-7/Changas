@@ -1,8 +1,11 @@
 const { Router } = require('express');
-const { getAllPosts, getPostByTitle, getPostById, createPost, updatePost, deletePost } = require('../../controllers/postLogic');
+const { getAllPosts, getPostByTitle, getPostById, createPost, updatePost, deletePost, getTodaysPosts, getJobOffers, getJobPetitions } = require('../../controllers/postLogic');
 
 const router = Router();
 
+router.get('/todaysoffers', getTodaysPosts);
+router.get('/joboffers', getJobOffers);
+router.get('/jobpetitions', getJobPetitions);
 router.get('/', getAllPosts);
 router.get('/search', getPostByTitle);
 router.get('/:idPost', getPostById);
