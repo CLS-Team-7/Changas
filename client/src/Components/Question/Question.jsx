@@ -34,10 +34,10 @@ function Question({ createdAt, question, given_name, id_question }) {
                         </div>
                     </div>
 
+                    <div className="mt-3">
+                        <Answers id_question={id_question} />
+                    </div>
                 </div>
-            </div>
-            <div className="mt-3">
-                <Answers id_question={id_question} />
             </div>
 
         </div>

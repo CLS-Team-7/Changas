@@ -27,18 +27,18 @@ export default function Answers({ id_question }) {
     //validatedQuestions ? console.log(validatedQuestions) : console.log("tu vieja puta")
 
     validatedQuestions?.forEach(q => q.answers?.forEach(ans => onlyAnswers.push(ans)))
-    onlyAnswers ? console.log(onlyAnswers) : console.log('niet')
+    // onlyAnswers ? console.log(onlyAnswers) : console.log('niet')
 
     questionAnswers = onlyAnswers?.filter(ans => ans.question.id === id_question)
-    console.log(questionAnswers)
+    // console.log(questionAnswers)
 
     return (
-        <div className="pt-4 flex flex-col self-center place-content-center">
-            {<div className="flex self-center w-3/4">
+        <ul className="pt-4 flex flex-row">
+            {<ul className="flex flex-row">
                 {!questionAnswers?.length ? null
                     : questionAnswers.map(ans => {
                         return (
-                            <div key={ans.id}>
+                            <li key={ans.id}>
                                 <Answer
                                     answer={ans.answer}
                                     createdAt={ans.createdAt}
@@ -48,13 +48,13 @@ export default function Answers({ id_question }) {
                                         <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
                                         : null}
                                 </div>*/}
-                            </div>)
+                            </li>)
                     })
 
                 }
 
-            </div>}
+            </ul>}
 
-        </div>
+        </ul>
     )
 }

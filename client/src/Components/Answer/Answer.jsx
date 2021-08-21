@@ -8,20 +8,13 @@ function Answer({ createdAt, answer }) {
 
 
     return (
-        <div className="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
-            <div className="ml-6 ">
-                {/*<p className="flex items-baseline">
-                    <span className="text-gray-600 font-bold">{given_name}</span>
-                    <span className="ml-2 text-green-600 text-xs">Usuario Registrado</span>
-                </p>*/}
+        <div className="flex bg-white ">
+            <div className="">
+                <span className="flex items-center ml-2 text-black-600 text-xs">Respuesta</span>
                 <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt}</span>
-                <div className="flex items-center mt-4 text-gray-600">
-                    <div className="flex items-center">
-                        <i className='commentsIcons'></i>
-                    </div>
-                </div>
+
                 <div className="mt-3">
-                    <p className="mt-1 text-justify" >Respuesta: "{answer}"</p>
+                    <p className="mt-1 text-justify" >"{answer}"</p>
                 </div>
                 <div className="flex items-center ml-2">
                     <div>
