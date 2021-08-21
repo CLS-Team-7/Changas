@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Question from './Question';
 import { getSinglePost } from '../../Redux/actions/index';
-import { useAuth0 } from "@auth0/auth0-react";
+//import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Questions() {
-    const { isAuthenticated } = useAuth0();
+    //const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
     let { id } = useParams();
     const userLogin = useSelector(state => state.userLogin);
@@ -36,11 +36,11 @@ export default function Questions() {
                                     given_name={q.user.given_name}
                                     createdAt={q.createdAt}
                                 />
-                                <div>
+                                {/*<div>
                                     {isAuthenticated ?
                                         <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
                                         : null}
-                                </div>
+                                </div>*/}
                             </div>)
                     })
 
