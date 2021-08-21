@@ -8,9 +8,6 @@ const FavoriteButton = () => {
   ////// favorite redux/////
 
   const favoritePost = useSelector(state => state.favoritePost)
-  console.log(favoritePost)
-
-
   return (
     <>
       <Menu as="div" className="ml-8 relative ">

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts } from '../../Redux/actions';
+import { getAllPosts, getJobOffers, getJobPetitions } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../Pagination/Pagination'
 import PostComp from './PostComp';
-import CarruselHome from '../CarruselHome/CarruselHome';
 
 function ContainerPostCard() {
     const dispatch = useDispatch();
@@ -13,6 +12,9 @@ function ContainerPostCard() {
 
     const filterType = useSelector(state => state.filterType)
     const postList = useSelector(state => state.postList)
+    const offers = useSelector(state => state.offerPost)
+    const petition = useSelector(state => state.petitionPost)
+    const premium = postList?.filter(e => e.isPremium)
 
     useEffect(() => {
         setPosts(postList)
@@ -20,6 +22,11 @@ function ContainerPostCard() {
 
     useEffect(() => {
         dispatch(getAllPosts())
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getJobOffers())
+        dispatch(getJobPetitions())
     }, [dispatch])
 
 
@@ -48,7 +55,7 @@ function ContainerPostCard() {
     return (
         <div className="container px-5 py-24 m-auto ">
             <div>
-                <PostComp posts={currentPosts} />
+                <PostComp posts={currentPosts} offers={offers} petition={petition} premium={premium} />
             </div>
             <div className="flex justify-center my-14">
                 {/* <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} /> */}
