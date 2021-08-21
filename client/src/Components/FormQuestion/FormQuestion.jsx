@@ -54,7 +54,7 @@ export default function AddFormQuestion(props) {
                     <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold text-center">
                       El dueño de la publicación será notificado de tu pregunta y la misma se verá en el detalle de la publicación.</p>
                     <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold">
-                      Por favor, leé atentamente la publicación antes de preguntar algo que quizás ya tiene respuesta!
+                      Por favor, leé atentamente la publicación antes de preguntar algo que quizás ya fue respondido allí.
                     </p>
                   </div>
                   <div className="grid grid-cols-1">

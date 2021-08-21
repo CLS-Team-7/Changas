@@ -52,9 +52,9 @@ export default function AddFormReview(props) {
                 <div class="flex flex-col items-center py-6 space-y-3">
                   <div className="grid grid-cols-1">
                     <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold text-center">
-                      Tu opinión nos importa porque ayuda a la comunidad a encontrar servicios y trabajadores de excelencia</p>
+                      Tu opinión nos importa porque ayuda a la comunidad de CHANGAS a encontrar servicios y trabajadores de excelencia</p>
                     <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold">
-                      Con tu reseña estás ayudando al dueño de la publicación a encontrar más clientes!
+                      ¡Con tu reseña estás ayudando al dueño de la publicación a encontrar más clientes!
                     </p>
                   </div>
                   <div className="grid grid-cols-1">
@@ -62,7 +62,7 @@ export default function AddFormReview(props) {
                     <input name="post_id" disabled value={singlePost.title} className="text-center py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
                   </div>
                   <select onChange={handleChange} name='rating' className="w-50  border  hover:border-gray-500 px-4 py-2 pr-8 rounded  ">
-                    <option disabled>¿Cómo calificarías tu experiencia?</option>
+                    <option disabled selected>¿Cómo calificarías tu experiencia?</option>
                     <option type='number' value='1'>1 ⭐</option>
                     <option type='number' value="2">2 ⭐⭐</option>
                     <option type='number' value="3">3 ⭐⭐⭐</option>
