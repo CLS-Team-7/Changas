@@ -1,5 +1,4 @@
 import React from 'react'
-import CardPost from '../CardPost/CardPost'
 import CarruselHome from '../CarruselHome/CarruselHome'
 
 function PostComp({ posts, offers, petition, premium }) {

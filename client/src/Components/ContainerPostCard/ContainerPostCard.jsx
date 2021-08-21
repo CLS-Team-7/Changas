@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllPosts, getJobOffers, getJobPetitions } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import Pagination from '../Pagination/Pagination'
 import PostComp from './PostComp';
 
 function ContainerPostCard() {
@@ -31,10 +30,6 @@ function ContainerPostCard() {
 
 
     //Pagination
-    const paginate = (pageNumber, e) => {
-        e.preventDefault();
-        setCurrentPost(pageNumber);
-    }
 
     let filteredPosts = [];
 
@@ -58,7 +53,6 @@ function ContainerPostCard() {
                 <PostComp posts={currentPosts} offers={offers} petition={petition} premium={premium} />
             </div>
             <div className="flex justify-center my-14">
-                {/* <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} /> */}
             </div>
         </div>
     )
