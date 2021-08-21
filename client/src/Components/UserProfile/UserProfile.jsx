@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import { getSingleUser } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function UserProfile() {
+    const { isAuthenticated } = useAuth0();
+
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
@@ -33,7 +36,7 @@ function UserProfile() {
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.firstName ? user.firstName : user.given_name} {user.lastName ? user.lastName : user.family_name}</dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Telefono</dt>
+                        <dt className="text-sm font-medium text-gray-500">Teléfono</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}</dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -75,6 +78,11 @@ function UserProfile() {
                         </dd>
                     </div>
                 </dl>
+            </div>
+            <div>
+                {isAuthenticated ?
+                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
+                    : null}
             </div>
         </div>
     )

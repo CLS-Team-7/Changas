@@ -16,7 +16,8 @@ const initialState = {
     orderInfo: {},
     favoritePost: [],
     allQuestions: [],
-    singleQuestion: {}
+    singleQuestion: {},
+    singleAnswer: {}
 
 
 }
@@ -124,7 +125,16 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allQuestions: payload
             };
-
+        case "GET_ALL_QUESTIONS":
+            return {
+                ...state,
+                allQuestions: payload
+            };
+        case "POST_ANSWER":
+            return {
+                ...state,
+                singleAnswer: payload
+            };
 
         default:
             return state;

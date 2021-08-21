@@ -7,17 +7,18 @@ import ModalReviewValidate from './modalReviewValidate';
 
 function UserPost() {
   const allReview = useSelector((state) => state.allReview)
+  const userLogin = useSelector(state => state.userLogin);
 
   let filterReviews = []
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllReviews())
+    dispatch(getAllReviews()) // aca hay un problema. Me trae todas las reviews, yo solo quiero las del usuario. Hay que filtrarlo en el back con getUserReviews
   }, [dispatch])
 
   if (allReview.length) {
-    filterReviews = allReview.filter(e => e.isValidated === false)
+    filterReviews = allReview.filter(e => e.isValidated === false && userLogin.id !== e.user.id) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
   }
 
   // console.log(filterReviews)

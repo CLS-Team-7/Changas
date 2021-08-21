@@ -213,6 +213,25 @@ export const postQuestion = (payload) => {
     };
 }
 
+export const getAllQuestions = () => {
+    return (dispatch) => {
+        axios.get(`/question`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "GET_ALL_QUESTIONS", payload: data })
+            })
+    }
+}
+
+export const createAnswer = (payload) => {
+    return (dispatch) => {
+        axios.post(payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "POST_ANSWER", payload: data })
+            })
+    }
+}
 
 ///////////////////////////////Favorite///////////////////////////////////////////
 

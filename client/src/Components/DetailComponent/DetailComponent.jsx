@@ -37,8 +37,8 @@ function DetailComponent() {
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
 
-                        <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estdo interno del componente*/}</p>
-                        <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estdo interno del componente*/}</p>
+                        <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estado interno del componente*/}</p>
+                        <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
 
                         <p className="m-2 leading-relaxed pb-2"> Descripción : {description}</p>
 
@@ -48,19 +48,19 @@ function DetailComponent() {
                         </div>
                         <div className="flex flex-row space-x-5">
                             <div>
-                                {isAuthenticated && user?.id !== userLogin?.id ?
+                                {isAuthenticated /* && user?.id !== userLogin?.id*/ ? /*el boton se renderiza si esta autenticado Y el usuario del login NO es el usuario del posteo */
                                     <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
 
                                     : null}
                             </div>
                             <div>
-                                {isAuthenticated && user?.id !== userLogin?.id ?
+                                {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
                                     <Link to={`/question`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Hacer pregunta</button></Link>
                                     : null}
                             </div>
                             <div>
-                                {isAuthenticated && user?.id !== userLogin?.id ?
-                                    <Link to={`/reportpost`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
+                                {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
+                                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
                                     : null}
                             </div>
                         </div>
