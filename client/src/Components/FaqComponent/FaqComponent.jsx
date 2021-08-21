@@ -4,13 +4,13 @@ require('./FaqComponent.css')
 function FaqComponen() {
   return (
     <>
-      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ</h1>
+      <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Preguntas Frecuentes</h1>
       <div className="container w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabIndex="1">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-orange transition ease duration-500">
-                ¿Qué es changas / Quienes somos?
+                ¿Qué es CHANGAS / Quiénes somos?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
@@ -36,7 +36,7 @@ function FaqComponen() {
           <div className="group outline-none accordion-section" tabIndex="2">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿Cual es nuestra misión?
+                ¿Cuál es nuestra misión?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
@@ -47,9 +47,9 @@ function FaqComponen() {
                   poder hacerlo
                 </strong>
                 , sin necesidad de hacerse un currículum hermoso, ni tener más
-                de 500 contactos, ni hacer networking, ni nada. Las{' '}
+                de 500 contactos, ni hacer networking, ni nada. Las
                 <strong>ganas de trabajar</strong> y el
-                <strong> profesionalismo</strong> son los únicos dos requisitos{' '}
+                <strong> profesionalismo</strong> son los únicos dos requisitos
                 <strong>indispensables </strong>
                 para hacer cualquier “changa” o trabajo no profesional.
               </p>
@@ -64,29 +64,34 @@ function FaqComponen() {
           <div className="group outline-none accordion-section" tabIndex="2">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
               <div className="group-focus:text-black transition ease duration-500">
-                ¿De donde nace la idea?
+                ¿De dónde nace la idea?
               </div>
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Nos dimos cuenta de que no existía una solución sencilla para
-                aquellas personas que tenían que encontrar una{' '}
-                <strong>fuente de ingreso </strong>
+                aquellas personas que tenían que encontrar una
+                <strong> fuente de ingreso </strong>
                 de forma rápida y eficaz: las propuestas y sitios actuales usan
                 algoritmos que no dan visibilidad a quienes no cumplen con
-                requisitos “impuestos”, y por eso no responden a la{' '}
+                requisitos “impuestos”, y por eso no responden a la
                 <strong>necesidad de encontrar trabajo rápido</strong>, sino que
-                evalúan y categorizan a las personas por su{' '}
+                evalúan y categorizan a las personas por su
                 <i>“perfil virtual”, “actividad”, “publicaciones”, “red”</i>,
-                etc. En pocas palabras, sólo si son <i>buenos usuarios</i> son
-                “empleables/contratables”.
+                etc. En pocas palabras, sólo si son <i>buenos usuarios</i> de esas aplicaciones
+                son “empleables/contratables”.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                <strong>Vinimos a cambiar esto:</strong> existimos para ayudar a
-                quienes no teniendo los contactos, ni los conocimientos de
-                networking, ni las publicaciones, ni las redes de contactos{' '}
-                <strong>puedan encontrar trabajo</strong>, porque lo que importa
-                es <strong>querer trabajar y ser profesional </strong> al
+                <strong>Vinimos a cambiar esto.</strong>
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Existimos para ayudar a quienes no tienen los contactos, ni los conocimientos ni el tiempo para hacer
+                "networking", redactar "publicaciones" ó generar "redes de contactos".
+              </p> <p className="p-2 text-lg	text-black antialiased text-justify">
+                Existimos ayudar a aquellos que quieran trabajar <i>puedan hacerlo,</i> lisa y llanamente.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Estamos convencidos de que lo único importante para poder trabajar es <strong>querer hacerlo y ser profesional </strong> al
                 respecto. El resto, es puro cuento.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
@@ -104,30 +109,30 @@ function FaqComponen() {
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Poseemos un método de búsquedas por GPS y rango de distancias
-                que te proporcionará contratar de forma muy rápida el servicio
-                que desees en dónde te encuentras, como así también contamos con
-                una sección de favoritos para calificar el servicio y volver a
-                contactar las mismas personas.
+                ☑️ Poseemos un método de búsquedas por GPS y rango de distancias para ayudarte en tu búsqueda de ofertas y pedidos de "changas" de forma rápida e intuitiva, pudiéndolo hacer desde
+                tu ubicación actual. </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                ☑️ Vas a poder guardar las publicaciones que más te interesen para ponerte en contacto más tarde.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Quienes ofrezcan sus servicios serán{' '}
-                <strong>puntuados y recomendados </strong>
-                por su desempeño y profesionalismo, una vez realizados los
-                trabajos. Son sus clientes quienes lo hacen directamente en las
-                publicaciones de los usuarios:{' '}
+                ☑️ Una vez realizados los trabajos o servicios, vas a poder <b>puntuar y recomendar </b> a los prestadores de los mismos
+                por su desempeño y profesionalismo. Son sus clientes quienes lo hacen directamente en las
+                publicaciones de los usuarios.{' '}
                 <strong>
-                  más trabajos bien hechos, más comentarios positivos, más
+                  Más trabajos bien hechos, más comentarios positivos, más
                   ofertas de trabajo
                 </strong>{' '}
                 van a recibir. ¿No es genial?
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
+                ☑️ Vas a poder encontrar "changas" en el día!!
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
                 Estos son algunos de los aspectos de nuestro servicio, pero de
                 seguro te preguntarás si hay algún costo adicional escondido en
                 la contratación. Para sorpresa de todos, decidimos que sea{' '}
-                <strong>TOTALMENTE GRATIS</strong>. Si, leelo de vuelta, para
-                quien busca trabajo es así, es GRATIS.
+                <strong>TOTALMENTE GRATIS</strong>. Sí, leelo de vuelta, para
+                quién busca trabajo como para quién lo ofrece es GRATIS.
               </p>
             </div>
           </div>
@@ -139,21 +144,21 @@ function FaqComponen() {
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                <strong>Si buscas trabajo</strong>, primero necesitas
+                <strong>Si buscás trabajo</strong>, primero necesitas
                 registrarte. Lo haces en menos de 3 minutos.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                <strong>Si ofreces trabajo</strong>, primero necesitas
+                <strong>Si ofrecés trabajo</strong>, primero necesitas
                 registrarte. Lo haces en menos de 3 minutos.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Una vez registrado, buscas todas las ofertas, las puedes filtrar
                 según los criterios que mejor se ajusten a vos. ¡Vas a encontrar
                 alguna,{' '}
-                <strong>incluso si buscas un trabajo de un sólo día!</strong>
+                <strong>incluso si buscás un trabajo de un sólo día!</strong>
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                <strong>Si ofreces trabajo</strong>, crea un anuncio indicando
+                <strong>Si ofrecés trabajo</strong>, creá un anuncio indicando
                 lo necesario. Sin costo adicional. Un ofertón.
               </p>
             </div>
@@ -174,15 +179,15 @@ function FaqComponen() {
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Para ingresar deberás registrarte con tu cuenta de Gmail y
-                llenar el formulario correspondiente a tu tipo de cuenta en las
-                diferentes secciones. Debes ser{' '}
-                <strong>mayor de 18 años</strong> y mantener los protocolos de
-                higiene pactados en el formulario. El mismo tiene carácter de
-                declaración jurada.
+                llenar el formulario correspondiente con tus datos antes de realizar cualquier publicación.</p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Dicho formulario tiene carácter de declaración jurada.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                El mismo tiene carácter de <strong>declaración jurada</strong>.
+                Debés ser{' '}
+                <strong>mayor de 18 años</strong>.
               </p>
+
             </div>
           </div>
 
@@ -194,13 +199,11 @@ function FaqComponen() {
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Una vez registrado y logueado, completa todos tus datos y hace
-                click en el boton "Crear Post", ahora necesitas llenar todos los
-                campos según el tipo de publicación para realizar un posteo
-                exitoso!!
+                Una vez registrados todos tus datos y logueado en la aplicación,
+                hacé click en la sección "Nueva Publicación", completá los campos según el tipo de publicación y listo!
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Podes <strong>promocionar </strong>tus publicaciones para tener
+                Podés <strong>promocionar </strong>tus publicaciones para tener
                 mas visibilidad!
               </p>
             </div>
@@ -223,9 +226,12 @@ function FaqComponen() {
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Podés <i>contactar directamente</i> a los prestadores de
-                servicio, sin costos adicionales ni comisiones, es{' '}
-                <strong>GRATIS</strong>. ¿A quién se le ocurriria cobrar para
-                acceder a los datos de los prestadores de servicios?
+                servicios o a quienes ofrezcan trabajo sin costos adicionales ni comisiones, es{' '}
+                <strong>GRATIS</strong>.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                ¿A quién se le ocurriría cobrar algo para
+                acceder a los datos de contacto? ¡A nosotros no!
               </p>
             </div>
           </div>
@@ -240,7 +246,7 @@ function FaqComponen() {
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Simple, en la pagina principal buscas un servicio que te
                 interese, le haces click, consultas los datos del prestador del
-                servicio y te pones en contacto.
+                servicio y te ponés en contacto.
               </p>
             </div>
           </div>
@@ -252,14 +258,15 @@ function FaqComponen() {
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Changas se encarga de poner en contacto a las partes.
+                Changas se encarga <i>únicamente </i>de poner en contacto a las partes que desean trabajar y pagar por dicho trabajo.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Una vez prestado el servicio, el usuario cliente puede dejar una
+                Una vez prestado el servicio o realizado el trabajo, el usuario "cliente" puede dejar una
                 reseña y un puntaje por la calidad del servicio en la
-                publicacion del servicio que contrato. Y así
-                <strong> ayudamos </strong> a quienes cumplen con su trabajo a
-                <strong> conseguir mas clientes.</strong>
+                publicación del mismo.</p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Así <strong> ayudamos </strong> a quiénes cumplen con su trabajo a
+                <strong> conseguir más clientes.</strong>
               </p>
             </div>
           </div>
@@ -271,9 +278,11 @@ function FaqComponen() {
             </div>
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
-                Todo lo que refiere a métodos de pago queda a <strong>elección de
-                ambas partes</strong>, pudiendo el prestador del servicio indicar su preferencia
-                en la publicación.
+                Todo lo que refiere a métodos de pago de los trabajos o servicios queda a <strong>elección de
+                  ambas partes</strong>, pudiendo el usuario dueño de la publicación indicar ahí su preferencia.
+              </p>
+              <p className="p-2 text-lg	text-black antialiased text-justify">
+                Para <b>promocionar</b> tus publicaciones, podés pagar mediante MercadoPago o cualquier tarjeta de crédito o débito.
               </p>
             </div>
           </div>

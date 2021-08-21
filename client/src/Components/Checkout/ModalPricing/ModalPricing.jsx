@@ -8,7 +8,7 @@ export default function ModalPricing({ USERID, POSTID }) {
     return (
         <>
             <button
-                className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  "
+                className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded  "
                 type="button"
                 onClick={() => setShowModal(true)}
             >
@@ -24,12 +24,12 @@ export default function ModalPricing({ USERID, POSTID }) {
                                     <button
                                         onClick={() => setShowModal(false)}
                                         type="button"
-                                        class="bg-white rounded-md p-2 mr-5 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                                        className="bg-white rounded-md p-2 mr-5 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                     >
-                                        <span class="sr-only">Close menu</span>
+                                        <span className="sr-only">Close menu</span>
 
                                         <svg
-                                            class="h-6 w-6"
+                                            className="h-6 w-6"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function ModalPricing({ USERID, POSTID }) {
                                         onClick={() => setShowModal(false)}
                                     >
 
-                                        <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded" onClick={() => setShowModal(false)}>
+                                        <button className="flex items-center ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded" onClick={() => setShowModal(false)}>
                                             Cerrar
                                         </button>
 

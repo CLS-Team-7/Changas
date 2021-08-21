@@ -33,7 +33,7 @@ function Footer() {
         {click ? <Button /> : null}
       </div>
       <footer className="text-gray-600 body-font">
-        <div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
+        <div className="px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
           <Link
             to="/"
             className="flex title-font font-medium items-center  mb-4 md:mb-0"
@@ -45,16 +45,19 @@ function Footer() {
             />
           </Link>
           <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-            © 2021 Changas —
-            <Link
-              to="https://github.com/Zven7/PG-Changas"
-              className="text-gray-600 ml-1"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              @GitHub
-            </Link>
+            © 2021 Changas — Todos los derechos reservados
+            <span className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+              <Link
+                to="https://github.com/Zven7/PG-Changas"
+                className="text-gray-600 ml-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                @GitHub
+              </Link>
+            </span>
           </p>
+
         </div>
       </footer>
     </div>

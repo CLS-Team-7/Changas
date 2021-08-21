@@ -16,6 +16,10 @@ function CardPost({ title, img, category, description, id, specialty, isPremium 
                         <FavoriteComponent id={id} img={img} title={title} />
                     </div>
                 </div>
+                {isPremium
+                    ? <div className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium">Premium</div>
+                    : <span></span>
+                }
                 <Link to={`/posts/${id}`}>
                     <div className="p-6">
 

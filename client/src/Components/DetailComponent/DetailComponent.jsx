@@ -11,13 +11,16 @@ import Questions from '../Question/Questions';
 function DetailComponent() {
     const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
-    const { title, image, description, priceRange, category, specialty } =
+    const userLogin = useSelector(state => state.userLogin);
+
+    const { title, image, description, priceRange, category, specialty, user } =
         useSelector((state) => state.singlePost);
 
     let { id } = useParams();
 
     useEffect(() => {
         dispatch(getSinglePost(id));
+        // dispatch(user del post para sacar el puntaje)
         dispatch(clearSinglePost());
     }, [dispatch, id]);
 
@@ -30,49 +33,36 @@ function DetailComponent() {
                         <div className="absolute top-0 right-0">
                             <FavoriteComponent id={id} title={title} img={image} />
                         </div>
+                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
-                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1>
-                        <div className="flex mb-4">
-                            <span className="flex items-center">
-                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <span className="text-gray-600 ml-3">5</span>  {/* <=== Cambiar ESTO CUANDO ESTE LA DB */}
-                            </span>
-                            <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
-                            </span>
-                        </div>
-                        <p className="leading-relaxed"> Descripción : {description}</p>
-                        <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
 
-                        </div>
-                        <div className="flex">
-                            <span className="title-font font-medium text-2xl text-gray-900">Precio Base: {priceRange?.map(e => `$${e}   `)}</span>
+                        <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estado interno del componente*/}</p>
+                        <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
+
+                        <p className="m-2 leading-relaxed pb-2"> Descripción : {description}</p>
+
+                        <div className="flex flex-row">
+                            <div className="title-font font-medium text-2xl text-gray-900">Precio Base: {!isNaN(priceRange) ? <span>${priceRange}</span> : <span>{priceRange}</span>}</div>
                             <SafeTips />
                         </div>
-                        <div>
+                        <div className="flex flex-row space-x-5">
+                            <div>
+                                {isAuthenticated /* && user?.id !== userLogin?.id*/ ? /*el boton se renderiza si esta autenticado Y el usuario del login NO es el usuario del posteo */
+                                    <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
 
-                            {isAuthenticated ?
-                                <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
-                                : null}
-                        </div>
-                        <div>
-                            {isAuthenticated ?
-                                <Link to={`/question`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Hacer pregunta</button></Link>
-                                : null}
+                                    : null}
+                            </div>
+                            <div>
+                                {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
+                                    <Link to={`/question`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Hacer pregunta</button></Link>
+                                    : null}
+                            </div>
+                            <div>
+                                {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
+                                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
+                                    : null}
+                            </div>
                         </div>
                     </div>
                 </div>

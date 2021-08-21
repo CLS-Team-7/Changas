@@ -1,13 +1,14 @@
 import React from "react";
-// import Rating from "./Rating"
-// import "./Review.css"
-function Question(props) {
-    const { createdAt, rating, description, fullName } = props;
+
+
+function Question({ createdAt, question, given_name }) {
+
+
     return (
-        <div class="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
+        <div className="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
             <div className="ml-6 ">
                 <p className="flex items-baseline">
-                    <span className="text-gray-600 font-bold">{fullName}</span>
+                    <span className="text-gray-600 font-bold">{given_name}</span>
                     <span className="ml-2 text-green-600 text-xs">Usuario Registrado</span>
                 </p>
                 <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt}</span>
@@ -22,7 +23,7 @@ function Question(props) {
                     </div>
                 </div>
                 <div className="mt-3">
-                    <p className="mt-1 text-justify" >"{description}"</p>
+                    <p className="mt-1 text-justify" >"{question}"</p>
                 </div>
             </div>
         </div>

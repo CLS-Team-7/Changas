@@ -29,7 +29,7 @@ function UserPost() {
                             <div className="bg-white divide-y divide-gray-200 flex justify-center">
                                 {FilterPost.length > 0
                                     ? <UserpostsComp Users={FilterPost} />
-                                    : <h1 className=''>Aun no has realizado ninguna publicación</h1>
+                                    : <h1 className=''>Aún no hiciste ninguna publicación</h1>
                                 }
                             </div>
                         </div>

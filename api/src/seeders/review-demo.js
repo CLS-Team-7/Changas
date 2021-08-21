@@ -3,8 +3,8 @@ const reviewsDB = [
         id: 100,
         user_id: 'e2f1cfbd-6c29-477d-b4eb-dbb69081dfd1',
         post_id: "d671dc74-8c73-43db-b562-227367698c35",
-        rating: 3,
-        description: "Sarasa sarasa",
+        rating: 5,
+        description: "Excelente trabajo!! Lo recomiendo, contraten tranquilos que no defrauda!!",
         isValidated: true
     },
     // {

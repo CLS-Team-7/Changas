@@ -25,12 +25,17 @@ async function getAllPosts(_req, res, next) {
           model: Question,
           attributes: { exclude: ["post_id", "updatedAt"] },
           order: [["createdAt", 'ASC']],
-          include:
-          {
-            model: Answer,
-            attributes: { exclude: ["question_id", "updatedAt"] },
-            order: [["createdAt", 'ASC']],
-          }
+          include: [
+            {
+              model: User,
+              attributes: ["given_name"]
+            },
+            {
+              model: Answer,
+              attributes: { exclude: ["question_id", "updatedAt"] },
+              order: [["createdAt", 'ASC']],
+            }
+          ]
         },
         {
           model: Order, // ESTO LO DEBERIA VER SOLO EL ADMIN
@@ -89,12 +94,17 @@ async function getPostByTitle(req, res, next) {
             model: Question,
             attributes: { exclude: ["post_id", "updatedAt"] },
             order: [["createdAt", 'ASC']],
-            include:
-            {
-              model: Answer,
-              attributes: { exclude: ["question_id", "updatedAt"] },
-              order: [["createdAt", 'ASC']],
-            }
+            include: [
+              {
+                model: User,
+                attributes: ["given_name"]
+              },
+              {
+                model: Answer,
+                attributes: { exclude: ["question_id", "updatedAt"] },
+                order: [["createdAt", 'ASC']],
+              }
+            ]
           },
           {
             model: Order, // ESTO LO DEBERIA VER SOLO LOS ADMINS
@@ -152,11 +162,17 @@ async function getPostById(req, res, next) {
             model: Question,
             attributes: { exclude: ["post_id", "updatedAt"] },
             order: [["createdAt", 'ASC']],
-            include: {
-              model: Answer,
-              attributes: { exclude: ["question_id", "updatedAt"] },
-              order: [["createdAt", 'ASC']],
-            }
+            include: [
+              {
+                model: User,
+                attributes: ["given_name"]
+              },
+              {
+                model: Answer,
+                attributes: { exclude: ["question_id", "updatedAt"] },
+                order: [["createdAt", 'ASC']],
+              }
+            ]
           },
           {
             model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS

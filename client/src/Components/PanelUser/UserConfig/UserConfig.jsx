@@ -50,10 +50,11 @@ function UserConfig() {
             >
               {({ errors, touched }) => (
                 <div className="">
-                  <div className="py-6  min-h-screen bg-gray-100 flex items-center">
+                  <div className="py-6 min-h-screen bg-gray-100 flex items-center">
                     <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                      <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
                       <Form>
-                        <div className="py-12 p-10 bg-white rounded-xl">
+                        <div className="py-2 p-10 bg-white rounded-xl">
                           <div>
 
                             <div>
@@ -65,16 +66,17 @@ function UserConfig() {
                             </div>
 
                             <div>
-                              <label className=" text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
                               {errors.age && touched.age && <div>{errors.age}</div>}
                               <Field
-                                className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
                                 validate={validateAge}
-                                autocomplete="off"
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
                               />
                             </div>
 
@@ -90,13 +92,14 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="address"
                               validate={validateAddress}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
                             />
                           </div>
                           <div>
                             <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
                               {" "}
-                              Telefono
+                              Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
                               <div>{errors.phoneNumber}</div>
@@ -105,7 +108,8 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="phoneNumber"
                               validate={validatePhone}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
                             />
                           </div>
 
@@ -121,7 +125,25 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
+                            />
+                          </div>
+                          <div>
+                            <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
+                              {" "}
+                              Foto / Imágen
+                            </label>
+                            {errors.summary && touched.phoneNumber && (
+                              <div>{errors.summary}</div>
+                            )}
+                            <Field
+                              className="mt-3 border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                              name="picture"
+                              disabled
+                              placeholder="En desarrollo antes de la demo final"
+                              autoComplete="off"
+
                             />
                           </div>
                           {
@@ -129,14 +151,14 @@ function UserConfig() {
                               <div>
                                 <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                   {" "}
-                                  Ya estas vacunado
+                                  Ya estás vacunado
                                 </label>
                                 <p>{"Vacunado"}</p>
                               </div> :
 
                               <div className="mt-3">
                                 <label className=" text-gray-700 font-medium inline-flex items-center mt-3">
-                                  ¿Te vacunaron de Covid-19?
+                                  ¿Te vacunaron contra el COVID-19?
                                   <Field
                                     className="form-checkbox  h-5 w-5 text-purple-600 ml-2 text-gray-700"
                                     type="checkbox"
@@ -146,7 +168,7 @@ function UserConfig() {
                               </div>
                           }
 
-                          <button className="w-full mt-6 text-indigo-50 font-bold bg-indigo-600 py-3 rounded-md hover:bg-indigo-500 transition duration-300">
+                          <button className="mb-2 w-full mt-6 text-indigo-50 font-bold bg-indigo-600 py-3 rounded-md hover:bg-green-500 transition duration-300">
                             Enviar
                           </button>
                         </div>
@@ -193,46 +215,50 @@ function UserConfig() {
                 <div className="">
                   <div className="py-6  min-h-screen bg-gray-100 flex items-center">
                     <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                      <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
+
                       <Form>
-                        <div className="py-12 p-10 bg-white rounded-xl">
+                        <div className="py-2 p-10 bg-white rounded-xl">
                           <div>
                             {
                               state?.isDataComplete ?
                                 <div>
                                   <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                     {" "}
-                                    Dni / Pasaporte
+                                    DNI / Pasaporte
                                   </label>
                                   <p>{state?.ID_Passport}</p>
                                 </div> :
                                 <div>
                                   <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                     {" "}
-                                    Dni / Pasaporte
+                                    DNI / Pasaporte
                                   </label>
                                   {errors.ID_Passport && touched.ID_Passport && (
                                     <div>{errors.ID_Passport}</div>
                                   )}
                                   <Field
-                                    className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                    className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                     name="ID_Passport"
                                     validate={validateDni}
-                                    autocomplete="off"
+                                    autoComplete="off"
+                                    placeholder="Completar aquí..."
                                   />
                                 </div>
 
                             }
                             <div>
-                              <label className=" text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
                               {errors.age && touched.age && <div>{errors.age}</div>}
                               <Field
-                                className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
                                 validate={validateAge}
-                                autocomplete="off"
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
                               />
                             </div>
 
@@ -245,30 +271,32 @@ function UserConfig() {
                               <div>{errors.address}</div>
                             )}
                             <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="address"
                               validate={validateAddress}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
                             />
                           </div>
                           <div>
-                            <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
+                            <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                               {" "}
-                              Telefono
+                              Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
                               <div>{errors.phoneNumber}</div>
                             )}
                             <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="phoneNumber"
                               validate={validatePhone}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
                             />
                           </div>
 
                           <div>
-                            <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
+                            <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                               {" "}
                               Descripción
                             </label>
@@ -276,10 +304,28 @@ function UserConfig() {
                               <div>{errors.summary}</div>
                             )}
                             <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
-                              autocomplete="off"
+                              autoComplete="off"
+                              placeholder="Completar aquí..."
+                            />
+                          </div>
+                          <div>
+                            <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              {" "}
+                              Foto / Imágen
+                            </label>
+                            {errors.summary && touched.phoneNumber && (
+                              <div>{errors.summary}</div>
+                            )}
+                            <Field
+                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                              name="picture"
+                              disabled
+                              placeholder="En desarrollo antes de la demo final"
+                              autoComplete="off"
+
                             />
                           </div>
                           {
@@ -296,7 +342,7 @@ function UserConfig() {
                                 <label className=" text-gray-700 font-medium inline-flex items-center mt-3">
                                   ¿Te vacunaron de Covid-19?
                                   <Field
-                                    className="form-checkbox  h-5 w-5 text-purple-600 ml-2 text-gray-700"
+                                    className="form-checkbox h-5 w-5 text-purple-600 ml-2 text-gray-700"
                                     type="checkbox"
                                     name="isVaccinated"
                                   />
@@ -304,7 +350,7 @@ function UserConfig() {
                               </div>
                           }
 
-                          <button className="w-full mt-6 text-indigo-50 font-bold bg-indigo-600 py-3 rounded-md hover:bg-indigo-500 transition duration-300">
+                          <button className="mb-2 w-full mt-6 text-indigo-50 font-bold bg-indigo-600 py-3 rounded-md hover:bg-green-500 transition duration-300">
                             Enviar
                           </button>
                         </div>

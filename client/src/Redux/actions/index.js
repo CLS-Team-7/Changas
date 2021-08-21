@@ -187,13 +187,13 @@ export const getOrderTest = (payload) => {
         dispatch({ type: "TEST_ORDER", payload })
     }
 }
-export const CheckoutPost= (data) => {
+export const CheckoutPost = (data) => {
     return (dispatch) => {
         axios.post(`/order`, data)
             .then(r => r.data)
             .then(data => {
-                console.log(data, "ANDA O ME MATO")
-                dispatch({ type:  GET_MP_ORDER_INFO, payload: data })
+                // console.log(data, "ANDA O ME MATO")
+                dispatch({ type: GET_MP_ORDER_INFO, payload: data })
             })
     }
 }
@@ -202,49 +202,80 @@ export const clearCheckoutPost = () => {
         dispatch({ type: GET_MP_ORDER_INFO, payload: {} })
     }
 }
+
+export const postQuestion = (payload) => {
+    return (dispatch) => {
+        axios.post("/question", payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "POST_QUESTION", payload: data })
+            })
+    };
+}
+
+export const getAllQuestions = () => {
+    return (dispatch) => {
+        axios.get(`/question`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "GET_ALL_QUESTIONS", payload: data })
+            })
+    }
+}
+
+export const createAnswer = (payload) => {
+    return (dispatch) => {
+        axios.post('/answer', payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "POST_ANSWER", payload: data })
+            })
+    }
+}
+
 ///////////////////////////////Favorite///////////////////////////////////////////
 
- export const addFavoritePost = (favoritePost) => {
+export const addFavoritePost = (favoritePost) => {
     return (dispatch) => {
-            dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
-            let favoritos = window.localStorage.getItem('favs')
-            let listFavorite = JSON.parse(favoritos)
-            window.localStorage.setItem("favs", JSON.stringify([...listFavorite, favoritePost]))
-    };  
+        dispatch({ type: ADD_FAVORITE_POST, payload: favoritePost })
+        let favoritos = window.localStorage.getItem('favs')
+        let listFavorite = JSON.parse(favoritos)
+        window.localStorage.setItem("favs", JSON.stringify([...listFavorite, favoritePost]))
+    };
 }
 export const favoritePostList = () => {
     return (dispatch) => {
-            let favoritos = window.localStorage.getItem('favs')
-            let listFavorite = JSON.parse(favoritos)
-            if(listFavorite?.length !== 0){
-                window.localStorage.setItem("favs", JSON.stringify(listFavorite))
-            }
-    };  
+        let favoritos = window.localStorage.getItem('favs')
+        let listFavorite = JSON.parse(favoritos)
+        if (listFavorite?.length !== 0) {
+            window.localStorage.setItem("favs", JSON.stringify(listFavorite))
+        }
+    };
 }
 export const getFavoritePostList = () => {
     return (dispatch) => {
-            let favoritos = window.localStorage.getItem('favs')
-            let listFavorite = JSON.parse(favoritos)
-            if(!listFavorite){
-                dispatch({ type: GET_FAVORITE_POST, payload: []})
-            }else{
-                console.log(listFavorite)
-                dispatch({ type: GET_FAVORITE_POST, payload: listFavorite })
-            }
-    };  
+        let favoritos = window.localStorage.getItem('favs')
+        let listFavorite = JSON.parse(favoritos)
+        if (!listFavorite) {
+            dispatch({ type: GET_FAVORITE_POST, payload: [] })
+        } else {
+            // console.log(listFavorite)
+            dispatch({ type: GET_FAVORITE_POST, payload: listFavorite })
+        }
+    };
 }
 
 export const deleteFavoritePost = (id) => {
     return (dispatch) => {
-            dispatch({ type: REMOVE_FAVORITE_POST, payload: id })
-            let favoritos = window.localStorage.getItem('favs')
-            let listFavorite = JSON.parse(favoritos)
-            if(listFavorite){
-                let deletefav = listFavorite.filter((e)=> e.id !== id)
-                window.localStorage.setItem("favs", JSON.stringify(deletefav))
-            }
+        dispatch({ type: REMOVE_FAVORITE_POST, payload: id })
+        let favoritos = window.localStorage.getItem('favs')
+        let listFavorite = JSON.parse(favoritos)
+        if (listFavorite) {
+            let deletefav = listFavorite.filter((e) => e.id !== id)
+            window.localStorage.setItem("favs", JSON.stringify(deletefav))
+        }
 
-    };  
+    };
 }
 
 export const getJobPetitions = () => {
