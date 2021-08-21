@@ -17,7 +17,7 @@ const initialState = {
     favoritePost: [],
     allQuestions: [],
     singleQuestion: {},
-    singleAnswer: {}
+    singleAnswer: {},
     petitionPost: [],
     offerPost: [],
 
@@ -141,15 +141,15 @@ function rootReducer(state = initialState, action) {
 
 
         case GET_JOB_PETITIONS:
-            return{
-                 ...state,
+            return {
+                ...state,
                 petitionPost: payload
             }
         case GET_JOB_OFFERS:
-            return{
+            return {
                 ...state,
                 offerPost: payload
-                }
+            }
 
         default:
             return state;
