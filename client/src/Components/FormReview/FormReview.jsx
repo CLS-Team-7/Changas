@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPosts, getUserAdmin, postReview } from '../../Redux/actions'
+import { postReview } from '../../Redux/actions'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-export default function AddFormReview(props) {
+export default function AddFormReview(props) { /// chequear tambien que el mismo usuario no se haga preguntas a si mismo, ternario en el boton enviar
 
   const dispatch = useDispatch();
-  const { push } = useHistory()
+  const { push } = useHistory();
 
   //const user = useSelector(state => state.userAdmin);
   //const post = useSelector(state => state.postList);
@@ -21,10 +21,10 @@ export default function AddFormReview(props) {
     rating: null,
     description: "",
   })
-  useEffect(() => {
-    dispatch(getUserAdmin())
-    dispatch(getAllPosts())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getUserAdmin())
+  //   dispatch(getAllPosts())
+  // }, [dispatch])
   function handleChange(e) {
     setPostInput(values => ({
       ...values,
@@ -34,7 +34,7 @@ export default function AddFormReview(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(postReview(postInput))
-    alert("¡Reseña enviada! El dueño del anuncio fue notificado")
+    alert("¡Tu reseña fue enviada! El dueño de la publicación fue notificado.")
     push(`/posts/${singlePost.id}`) //OJO, antes de que se muestr el review, el dueño del posteo tiene que VALIDARLO
   }
 

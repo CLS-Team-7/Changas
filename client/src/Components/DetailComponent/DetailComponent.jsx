@@ -11,7 +11,9 @@ import Questions from '../Question/Questions';
 function DetailComponent() {
     const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
-    const { title, image, description, priceRange, category, specialty } =
+    const userLogin = useSelector(state => state.userLogin);
+
+    const { title, image, description, priceRange, category, specialty, user } =
         useSelector((state) => state.singlePost);
 
     let { id } = useParams();
@@ -46,17 +48,18 @@ function DetailComponent() {
                         </div>
                         <div className="flex flex-row space-x-5">
                             <div>
-                                {isAuthenticated ?
+                                {isAuthenticated && user?.id !== userLogin?.id ?
                                     <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
+
                                     : null}
                             </div>
                             <div>
-                                {isAuthenticated ?
+                                {isAuthenticated && user?.id !== userLogin?.id ?
                                     <Link to={`/question`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Hacer pregunta</button></Link>
                                     : null}
                             </div>
                             <div>
-                                {isAuthenticated ?
+                                {isAuthenticated && user?.id !== userLogin?.id ?
                                     <Link to={`/reportpost`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
                                     : null}
                             </div>

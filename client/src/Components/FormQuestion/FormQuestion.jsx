@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPosts, getUserAdmin, postReview } from '../../Redux/actions' // aca va air la action postQuestion
+import { postQuestion } from '../../Redux/actions' // aca va air la action postQuestion
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
-export default function AddFormQuestion(props) {
-  const { user } = useAuth0();
+export default function AddFormQuestion(props) { // falta chequear tambien que el mismo usuario no se haga preguntas a si mismo, ternario en el boton enviar
+  // const { user } = useAuth0();
   const dispatch = useDispatch();
   const { push } = useHistory()
-
-  console.log(user)
-  //const user = useSelector(state => state.userAdmin);
-  //const post = useSelector(state => state.postList);
   const singlePost = useSelector(state => state.singlePost)
   const userLogin = useSelector(state => state.userLogin);
+
+  // console.log(user)
+  //const user = useSelector(state => state.userAdmin);
+  //const post = useSelector(state => state.postList);
+  console.log(userLogin)
 
   const [postInput, setPostInput] = useState({
     user_id: userLogin.id,
     post_id: singlePost.id,
-    rating: null,
-    description: "",
+    question: "",
   })
-  useEffect(() => {
-    dispatch(getUserAdmin())
-    dispatch(getAllPosts())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getUserAdmin())
+  //   dispatch(getAllPosts())
+  // }, [dispatch])
   function handleChange(e) {
     setPostInput(values => ({
       ...values,
@@ -35,9 +35,9 @@ export default function AddFormQuestion(props) {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(postReview(postInput))
-    alert("Reseña enviada")
-    push(`/posts/${singlePost.id}`) //OJO, antes de que se muestr el review, el dueño del posteo tiene que VALIDARLO
+    dispatch(postQuestion(postInput))
+    alert("¡Tu pregunta fue enviada! El dueño de la publicación fue notificado.")
+    push(`/posts/${singlePost.id}`) //La pregunta se va a mostrar, el usuario la tiene que responder desde su panel
   }
 
   return (
@@ -66,7 +66,7 @@ export default function AddFormQuestion(props) {
 
                 </div>
                 <div className="w-3/4 flex flex-col">
-                  <textarea rows="3" name="description" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
+                  <textarea rows="3" name="question" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
                   <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
                 </div>
               </div>

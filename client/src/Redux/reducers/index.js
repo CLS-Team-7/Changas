@@ -75,7 +75,6 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 testorder: payload
             }
-
         case GET_ALL_REVIEWS:
             return {
                 ...state,
@@ -120,6 +119,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 favoritePost: state.favoritePost.filter(e => e.id !== payload)
             }
+        case "POST_QUESTION":
+            return {
+                ...state,
+                allQuestions: payload
+            };
 
 
         default:

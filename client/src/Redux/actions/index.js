@@ -202,6 +202,18 @@ export const clearCheckoutPost = () => {
         dispatch({ type: GET_MP_ORDER_INFO, payload: {} })
     }
 }
+
+export const postQuestion = (payload) => {
+    return (dispatch) => {
+        axios.post("/question", payload)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "POST_QUESTION", payload: data })
+            })
+    };
+}
+
+
 ///////////////////////////////Favorite///////////////////////////////////////////
 
 export const addFavoritePost = (favoritePost) => {
