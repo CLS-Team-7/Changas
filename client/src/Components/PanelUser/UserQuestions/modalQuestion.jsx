@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 const ModalQuestionValidate = ({ question }) => {
   const [showModal, setShowModal] = useState(false)
   const { push } = useHistory()
-  /*  const dispatch = useDispatch() */
+  const dispatch = useDispatch()
 
   const [postInput, setPostInput] = useState({
     answer: "",

@@ -76,8 +76,9 @@ export default function AddFormReview(props) { /// chequear tambien que el mismo
                 </div>
               </div>
             </div>
-          </form>
-      }
+          </div>
+        </div>
+      </form>
       <Footer />
     </div>
   )
