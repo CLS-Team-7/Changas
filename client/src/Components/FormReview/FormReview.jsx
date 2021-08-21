@@ -42,14 +42,14 @@ export default function AddFormReview(props) {
     <div>
       <Header />
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div class="min-h-screen bg-yellow-100 py-6 flex flex-col justify-center py-12">
-          <div class="py-3 max-w-md mx-auto">
-            <div class="bg-white min-w-2xl flex flex-col rounded-xl shadow-lg">
-              <div class="px-12 py-5">
-                <h2 class="text-gray-800 text-3xl font-semibold">¡Gracias por dejar tu opinión!</h2>
+        <div className="min-h-screen bg-yellow-100 py-6 flex flex-col justify-center py-12">
+          <div className="py-3 max-w-md mx-auto">
+            <div className="bg-white min-w-2xl flex flex-col rounded-xl shadow-lg">
+              <div className="px-12 py-5">
+                <h2 className="text-gray-800 text-3xl font-semibold">¡Gracias por dejar tu opinión!</h2>
               </div>
-              <div class="bg-blue-200 w-full flex flex-col items-center">
-                <div class="flex flex-col items-center py-6 space-y-3">
+              <div className="bg-blue-200 w-full flex flex-col items-center">
+                <div className="flex flex-col items-center py-6 space-y-3">
                   <div className="grid grid-cols-1">
                     <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold text-center">
                       Tu opinión nos importa porque ayuda a la comunidad de CHANGAS a encontrar servicios y trabajadores de excelencia</p>
@@ -70,9 +70,9 @@ export default function AddFormReview(props) {
                     <option type='number' value="5">5 ⭐⭐⭐⭐⭐</option>
                   </select>
                 </div>
-                <div class="w-3/4 flex flex-col">
-                  <textarea rows="3" name="description" class="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Contános tu experiencia " />
-                  <button type='submit' onClick={(e) => handleSubmit(e)} class="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
+                <div className="w-3/4 flex flex-col">
+                  <textarea rows="3" name="description" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Contános tu experiencia " />
+                  <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
                 </div>
               </div>
             </div>

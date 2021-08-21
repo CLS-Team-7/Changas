@@ -14,7 +14,7 @@ function CardPost({ title, img, category, description, id, specialty, isPremium 
                     </div>
                 </div>
                 {isPremium
-                    ? <div class="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium">Premium</div>
+                    ? <div className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium">Premium</div>
                     : <span></span>
                 }
                 <Link to={`/posts/${id}`}>

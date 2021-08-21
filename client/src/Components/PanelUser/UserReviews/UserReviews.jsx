@@ -20,8 +20,8 @@ function UserPost() {
     filterReviews = allReview.filter(e => e.isValidated === false)
   }
 
-  console.log(filterReviews)
-  console.log(allReview)
+  // console.log(filterReviews)
+  // console.log(allReview)
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">
@@ -53,7 +53,7 @@ function UserPost() {
           <div className="flex flex-col w-full md:space-y-4">
             <div className="overflow-auto h-screen pb-24 py-12 px-4 md:px-6">
               <div className="bg-white divide-y divide-gray-200 flex justify-center">
-                <h1 className=''>Aún no recibiste ninguna reseña</h1>
+                <h1 className=''>Aún no recibiste ninguna nueva reseña</h1>
               </div>
             </div>
           </div>

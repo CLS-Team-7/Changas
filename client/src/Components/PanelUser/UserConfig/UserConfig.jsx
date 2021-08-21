@@ -75,7 +75,7 @@ function UserConfig() {
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
                                 validate={validateAge}
-                                autocomplete="off"
+                                autoComplete="off"
                                 placeholder="Completar aquí..."
                               />
                             </div>
@@ -92,7 +92,7 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="address"
                               validate={validateAddress}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -108,7 +108,7 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="phoneNumber"
                               validate={validatePhone}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -125,7 +125,7 @@ function UserConfig() {
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -142,7 +142,7 @@ function UserConfig() {
                               name="picture"
                               disabled
                               placeholder="En desarrollo antes de la demo final"
-                              autocomplete="off"
+                              autoComplete="off"
 
                             />
                           </div>
@@ -241,7 +241,7 @@ function UserConfig() {
                                     className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                     name="ID_Passport"
                                     validate={validateDni}
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     placeholder="Completar aquí..."
                                   />
                                 </div>
@@ -257,7 +257,7 @@ function UserConfig() {
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
                                 validate={validateAge}
-                                autocomplete="off"
+                                autoComplete="off"
                                 placeholder="Completar aquí..."
                               />
                             </div>
@@ -274,7 +274,7 @@ function UserConfig() {
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="address"
                               validate={validateAddress}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -290,7 +290,7 @@ function UserConfig() {
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="phoneNumber"
                               validate={validatePhone}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -307,7 +307,7 @@ function UserConfig() {
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
-                              autocomplete="off"
+                              autoComplete="off"
                               placeholder="Completar aquí..."
                             />
                           </div>
@@ -324,7 +324,7 @@ function UserConfig() {
                               name="picture"
                               disabled
                               placeholder="En desarrollo antes de la demo final"
-                              autocomplete="off"
+                              autoComplete="off"
 
                             />
                           </div>
