@@ -225,7 +225,7 @@ export const getAllQuestions = () => {
 
 export const createAnswer = (payload) => {
     return (dispatch) => {
-        axios.post(payload)
+        axios.post('/answer', payload)
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: "POST_ANSWER", payload: data })

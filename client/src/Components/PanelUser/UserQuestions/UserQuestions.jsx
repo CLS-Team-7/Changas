@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import SideBarUser from '../SideBarUser/SideBarUser'
-import { getAllPosts, getAllQuestions } from '../../../Redux/actions'
+import { getAllQuestions } from '../../../Redux/actions'
 import ModalQuestionValidate from './modalQuestion';
 
 function UserPost() {
@@ -18,7 +18,7 @@ function UserPost() {
   }, [dispatch])
 
   if (allQuestions.length) {
-    userQuestions = allQuestions.filter(e => userLogin.id === e.post.user.id) // filtrar las posteos (que traen asociadas sus questions), cuyo user.id === user_id de auth0 (login) Y: que tengan questions Y que no tengan answers  
+    userQuestions = allQuestions.filter(e => userLogin.id === e.post.user.id && e.answers.length === 0) // filtrar las posteos (que traen asociadas sus questions), cuyo user.id === user_id de auth0 (login) Y: que tengan questions Y que no tengan answers  
   }
 
 

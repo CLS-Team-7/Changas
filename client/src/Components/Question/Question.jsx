@@ -1,8 +1,9 @@
 import React from "react";
-// import Rating from "./Rating"
-// import "./Review.css"
-function Question(props) {
-    const { createdAt, question, given_name } = props;
+
+
+function Question({ createdAt, question, given_name }) {
+
+
     return (
         <div className="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
             <div className="ml-6 ">
