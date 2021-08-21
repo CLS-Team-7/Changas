@@ -4,6 +4,7 @@ import ContainerPostCard from '../Components/ContainerPostCard/ContainerPostCard
 import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import SelectServiceFilter from '../Components/FilterButton/SelectServiceFilter'
+import { getFilterType } from '../Redux/actions'
 
 
 
@@ -11,8 +12,7 @@ import SelectServiceFilter from '../Components/FilterButton/SelectServiceFilter'
 function Home() {
     const dispatch = useDispatch()
     useEffect(() => {
-        /* dispatch(getJobOffers())
-        dispatch(getJobPetitions()) */
+        dispatch(getFilterType("all"))
     }, [dispatch])
 
     return (
