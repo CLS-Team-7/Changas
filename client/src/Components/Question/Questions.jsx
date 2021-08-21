@@ -32,6 +32,7 @@ export default function Questions() {
                         return (
                             <div key={q.question}>
                                 <Question
+                                    id_question={q.id}
                                     question={q.question}
                                     given_name={q.user.given_name}
                                     createdAt={q.createdAt}

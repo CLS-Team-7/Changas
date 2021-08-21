@@ -6,15 +6,17 @@ import { getSinglePost } from '../../Redux/actions/index';
 //import { useAuth0 } from "@auth0/auth0-react";
 
 
-export default function Answers() {
+export default function Answers({ id_question }) {
     //const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
     let { id } = useParams();
     const userLogin = useSelector(state => state.userLogin);
     const singlePost = useSelector(state => state.singlePost);
     let questions = singlePost.questions;
-    let validatedQuestions = questions?.filter(question => question.user_id !== userLogin.id);
-    let answers = [];
+    let validatedQuestions = questions?.filter(question => question.user_id !== userLogin.id); // se va a volver innecesario el filtro porque un mismo usuario no va a poder hacerse preguntas isAuthenticated (ver DetailComponent.jsx)
+    let onlyAnswers = [];
+    let questionAnswers = [];
+
     // console.log("reviews", reviews);
     // console.log("validated", validatedReviews);
     useEffect(() => {
@@ -22,21 +24,24 @@ export default function Answers() {
     }, [dispatch, id])
 
 
-    validatedQuestions ? console.log(Object.keys(validatedQuestions[0].answers)) : console.log("tu vieja puta")
+    //validatedQuestions ? console.log(validatedQuestions) : console.log("tu vieja puta")
 
+    validatedQuestions?.forEach(q => q.answers?.forEach(ans => onlyAnswers.push(ans)))
+    onlyAnswers ? console.log(onlyAnswers) : console.log('niet')
 
+    questionAnswers = onlyAnswers?.filter(ans => ans.question.id === id_question)
+    console.log(questionAnswers)
 
     return (
         <div className="pt-4 flex flex-col self-center place-content-center">
             {<div className="flex self-center w-3/4">
-                {!validatedQuestions?.length ? null
-                    : questions.map(q => {
+                {!questionAnswers?.length ? null
+                    : questionAnswers.map(ans => {
                         return (
-                            <div key={q.question}>
+                            <div key={ans.id}>
                                 <Answer
-                                    question={q.question}
-                                    given_name={q.user.given_name}
-                                    createdAt={q.createdAt}
+                                    answer={ans.answer}
+                                    createdAt={ans.createdAt}
                                 />
                                 {/*<div>
                                     {isAuthenticated ?

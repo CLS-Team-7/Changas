@@ -34,6 +34,10 @@ async function getAllPosts(_req, res, next) {
               model: Answer,
               attributes: { exclude: ["question_id", "updatedAt"] },
               order: [["createdAt", 'ASC']],
+              include: {
+                model: Question,
+                attributes: ["id"]
+              }
             }
           ]
         },
@@ -103,6 +107,10 @@ async function getPostByTitle(req, res, next) {
                 model: Answer,
                 attributes: { exclude: ["question_id", "updatedAt"] },
                 order: [["createdAt", 'ASC']],
+                include: {
+                  model: Question,
+                  attributes: ["id"]
+                }
               }
             ]
           },
@@ -171,6 +179,10 @@ async function getPostById(req, res, next) {
                 model: Answer,
                 attributes: { exclude: ["question_id", "updatedAt"] },
                 order: [["createdAt", 'ASC']],
+                include: {
+                  model: Question,
+                  attributes: ["id"]
+                }
               }
             ]
           },
