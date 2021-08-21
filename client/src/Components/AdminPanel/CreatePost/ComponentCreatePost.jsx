@@ -84,13 +84,16 @@ function ComponentCreatePost() {
 
                     <div className="flex justify-center">
                         <div className="flex">
-                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">Crear Post</h1>
+                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">Nueva Publicación</h1>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                        <p className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                            Completá todos los datos necesarios para hacer tu publicación. Verificá todos los datos antes de enviarlos.
+                        </p>
                         <div className="grid grid-cols-1 mt-5 mx-7">
-                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de posteo</label>
+                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de anuncio</label>
                             <select onChange={handleChange} name="typePost" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                                 <option>Elegir</option>
                                 <option value="Petition" >Solicitar Servicio</option>

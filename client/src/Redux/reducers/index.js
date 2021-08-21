@@ -15,6 +15,8 @@ const initialState = {
     singleReview: {},
     orderInfo: {},
     favoritePost: [],
+    allQuestions: [],
+    singleQuestion: {}
 
 
 }
@@ -103,20 +105,20 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state
             }
-            case GET_FAVORITE_POST:
-            return{
+        case GET_FAVORITE_POST:
+            return {
                 ...state,
                 favoritePost: payload
             }
         case ADD_FAVORITE_POST:
-            return{
+            return {
                 ...state,
                 favoritePost: [...state.favoritePost, action.payload]
             }
         case REMOVE_FAVORITE_POST:
-            return{
+            return {
                 ...state,
-                favoritePost: state.favoritePost.filter(e=> e.id !== payload)
+                favoritePost: state.favoritePost.filter(e => e.id !== payload)
             }
 
 
