@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getJobOffers } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../../Components/Pagination/Pagination'
-import PostComp from '../../Components/ContainerPostCard/PostComp';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header'
 import FilterButton from '../../Components/FilterButton/FilterButton'
+import FilterComp from '../../Components/FilterComponent/FilterComp';
 
 function FilterOffer() {
     const dispatch = useDispatch();
@@ -32,9 +32,9 @@ function FilterOffer() {
 
     let filteredPosts = [];
 
-    if(filterType === 'All'){
+    if (filterType === 'All') {
         filteredPosts = posts;
-    } else{
+    } else {
         filteredPosts = posts.filter(post => post.category.title === filterType);
     }
 
@@ -45,19 +45,19 @@ function FilterOffer() {
 
 
     return (
-    <div>
-        <Header/>
-        <FilterButton/>
-        <div className="container px-5 py-24 m-auto ">
-            <div>
-                <PostComp posts={currentPosts} />
+        <div>
+            <Header />
+            <FilterButton />
+            <div className="container px-5 py-24 m-auto ">
+                <div>
+                    <FilterComp posts={currentPosts} />
+                </div>
+                <div className="flex justify-center my-14">
+                    <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} />
+                </div>
             </div>
-            <div className="flex justify-center my-14">
-                <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} />
-            </div>
+            <Footer />
         </div>
-        <Footer/>
-    </div>
     )
 }
 

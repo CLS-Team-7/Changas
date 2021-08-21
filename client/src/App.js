@@ -62,6 +62,7 @@ function App() {
         </Route>
         <Route exact path='/filter/petition'>
           <FilterPetition/>
+          </Route>
         <Route exact path='/reviews'>
           <FormReview />
         </Route>
@@ -97,7 +98,6 @@ function App() {
           <AdminCreatePost />
         </Route>
         *//////////////////**Panel User*/
-        </Route>
         <Route exact path='/user'>
           <PanelUser />
         </Route>
