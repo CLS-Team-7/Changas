@@ -69,7 +69,7 @@ function CreatePostUserComp() {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(sendPost(postInput))
-        push("/user")
+        push("/user/posts")
     }
     return (
         <div>
@@ -98,7 +98,7 @@ function CreatePostUserComp() {
                                         <div className="grid grid-cols-1 mt-1 mx-10">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de anuncio</label>
                                             <select onChange={handleChange} name="typePost" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                                <option disabled>Elegir</option>
+                                                <option disabled selected>Elegir</option>
                                                 <option value="Petition" >Solicitar Servicio</option>
                                                 <option value="Offer" >Ofrecer Servicio</option>
                                             </select>
@@ -129,7 +129,7 @@ function CreatePostUserComp() {
                                         <div className="grid grid-cols-1 mt-5 mx-7">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Métodos de pago</label>
                                             <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="paymentMethods" onChange={handleChangeArray} >
-                                                <option disabled>Elegir</option>
+                                                <option disabled selected>Elegir</option>
                                                 <option value="A convenir">A convenir</option>
                                                 <option value="Mercado Pago">Mercado Pago</option>
                                                 <option value="Efectivo">Efectivo</option>
@@ -139,7 +139,7 @@ function CreatePostUserComp() {
                                         <div className="grid grid-cols-1 mt-5 mx-7">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Horarios</label>
                                             <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="timeRange" onChange={handleChangeArray} >
-                                                <option disabled>Elegir</option>
+                                                <option disabled selected>Elegir</option>
                                                 <option value="Noche">A convenir</option>
                                                 <option value="Mañana">Mañana</option>
                                                 <option value="Tarde">Tarde</option>
@@ -154,7 +154,7 @@ function CreatePostUserComp() {
                                         <div className="grid grid-cols-1 mt-5 mx-7">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categoria</label>{
                                                 <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="category_id">
-                                                    <option value="Null" disabled>Elegir</option>
+                                                    <option value="Null" disabled selected>Elegir</option>
                                                     {category.length !== 0 ?
 
                                                         category.map(e => {
@@ -172,7 +172,7 @@ function CreatePostUserComp() {
                                                 <div className="grid grid-cols-1 mt-5 mx-7">
                                                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Especialidad</label>
                                                     <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} name="specialty_id">
-                                                        <option value="Null" disabled>Elegir</option>
+                                                        <option value="Null" disabled selected>Elegir</option>
                                                         {specialtyBeta.map(e => {
                                                             return <option value={e.id} key={e.id}>{e.title}</option>
                                                         })
@@ -182,7 +182,7 @@ function CreatePostUserComp() {
                                                 :
                                                 <div className="grid grid-cols-1 mt-5 mx-7">
                                                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Especialidad</label>
-                                                    <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">Elige una categoría</label>
+                                                    <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">Eligir una categoría</label>
                                                 </div>
                                         }
                                     </div>
@@ -201,12 +201,12 @@ function CreatePostUserComp() {
                     </div> */}
                                 </div>
                             </div>
+                            <div className='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+                                <Link to="/home"><button className='w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</button></Link>
+                                <button type='submit' className='w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Crear</button>
+                            </div>
                         </form>
 
-                        <div className='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-                            <Link to="/home"><button className='w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</button></Link>
-                            <button type='submit' className='w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Crear</button>
-                        </div>
                     </div>
                     :
                     <div className='flex flex-col items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>

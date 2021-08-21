@@ -33,7 +33,7 @@ const ModalReviewValidate = ({ review }) => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        VERIFICACION
+        Revisar reseña
       </button>
       {showModal ? (
         <>
@@ -72,43 +72,45 @@ const ModalReviewValidate = ({ review }) => {
                   <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
                     - Verificá que la persona que te haya dejado una reseña <b>sea
                       efectivamente</b> aquella a quién le hayas prestado un
-                    servicio ó realizado un trabajo.
+                    servicio ó realizado un trabajo. NO confirmes reseñas de personas que NO conozcas.
                   </p>
                   <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
                     - Cualquier reseña que aceptes <b>aparecerá </b> en tu
                     publicación.
                   </p>
                   <p className="my-4 px-5 text-blueGray-500 font-normal text-lg text-left leading-relaxed ">
-                    - Si tenes algún problema con la reseña, <a href="mailto:" >contactá al equipo de CHANGAS.</a>
+                    - Si tenes algún problema o no conocés a la persona que te la envió,<b> ANTES de rechazarla</b> <a href="mailto:" >contactá al equipo de CHANGAS</a> para poder ayudarte.
                   </p>
                 </div>
+                <div className="grid grid-cols-2  ">
 
-                <div className="flex items-center justify-end   rounded-b">
-                  <button
-                    className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={handleClickAccept}
-                  >
 
-                    <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-green-600 rounded">
-                      Confirmar Reseña
+                  <div className="flex items-center justify-center   rounded-b">
+                    <button
+                      className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={handleClickDenied}
+                    >
+
+                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded">
+                        Rechazar Reseña
+                      </button>
+
                     </button>
+                  </div>
+                  <div className="flex items-center justify-center   rounded-b">
+                    <button
+                      className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={handleClickAccept}
+                    >
 
-                  </button>
-                </div>
+                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-green-600 rounded">
+                        Confirmar Reseña
+                      </button>
 
-                <div className="flex items-center justify-end   rounded-b">
-                  <button
-                    className="mb-5 mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={handleClickDenied}
-                  >
-
-                    <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded">
-                      Rechazar Reseña
                     </button>
-
-                  </button>
+                  </div>
                 </div>
 
               </div>

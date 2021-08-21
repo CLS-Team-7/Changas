@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCategory, getAllSpecialty, getUserAdmin, sendPost } from '../../../Redux/actions/index'
 
-function ComponentCreatePost() {
+function ComponentCreatePost() { // este componente no se usa
     const { push } = useHistory()
     const dispatch = useDispatch();
     //ESTO ES PARA LA DEMO//

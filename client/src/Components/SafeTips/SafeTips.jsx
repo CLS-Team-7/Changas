@@ -17,7 +17,7 @@ const SafeTips = () => {
   return (
     <>
       <button
-        className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  "
+        className="flex ml-auto text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded  "
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -140,7 +140,7 @@ const SafeTips = () => {
                     onClick={() => setShowModal(false)}
                   >
                     <Link to={`/profile/${user?.id}`} className="flex ml-auto">
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
+                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-green-600 rounded">
                         Continuar
                       </button>
                     </Link>
