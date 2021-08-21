@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS } from '../constants';
 
 const initialState = {
     postList: [],
@@ -18,6 +18,8 @@ const initialState = {
     allQuestions: [],
     singleQuestion: {},
     singleAnswer: {}
+    petitionPost: [],
+    offerPost: [],
 
 
 }
@@ -120,6 +122,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 favoritePost: state.favoritePost.filter(e => e.id !== payload)
             }
+
         case "POST_QUESTION":
             return {
                 ...state,
@@ -135,6 +138,18 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 singleAnswer: payload
             };
+
+
+        case GET_JOB_PETITIONS:
+            return{
+                 ...state,
+                petitionPost: payload
+            }
+        case GET_JOB_OFFERS:
+            return{
+                ...state,
+                offerPost: payload
+                }
 
         default:
             return state;

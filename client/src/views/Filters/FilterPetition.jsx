@@ -1,34 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts, getJobOffers, getJobPetitions } from '../../Redux/actions';
+import { getJobPetitions } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import Pagination from '../Pagination/Pagination'
-import PostComp from './PostComp';
+import Pagination from '../../Components/Pagination/Pagination'
+import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header'
+import FilterButton from '../../Components/FilterButton/FilterButton'
+import FilterComp from '../../Components/FilterComponent/FilterComp';
 
-function ContainerPostCard() {
+function FilterPetition() {
     const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
     const [currentPost, setCurrentPost] = useState(1);
     const postsPerPage = 12;
 
+    const postList = useSelector(state => state.petitionPost)
     const filterType = useSelector(state => state.filterType)
-    const postList = useSelector(state => state.postList)
-    const offers = useSelector(state => state.offerPost)
-    const petition = useSelector(state => state.petitionPost)
-    const premium = postList?.filter(e => e.isPremium)
 
     useEffect(() => {
         setPosts(postList)
     }, [postList])
 
     useEffect(() => {
-        dispatch(getAllPosts())
-    }, [dispatch])
-
-    useEffect(() => {
-        dispatch(getJobOffers())
         dispatch(getJobPetitions())
     }, [dispatch])
-
 
     //Pagination
     const paginate = (pageNumber, e) => {
@@ -50,18 +44,21 @@ function ContainerPostCard() {
     const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
 
-
-
     return (
-        <div className="container px-5 py-24 m-auto ">
-            <div>
-                <PostComp posts={currentPosts} offers={offers} petition={petition} premium={premium} />
+        <div>
+            <Header />
+            <FilterButton />
+            <div className="container px-5 py-24 m-auto ">
+                <div>
+                    <FilterComp posts={currentPosts} />
+                </div>
+                <div className="flex justify-center my-14">
+                    <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} />
+                </div>
             </div>
-            <div className="flex justify-center my-14">
-                {/* <Pagination ctsPerPage={postsPerPage} totalCts={filteredPosts.length} paginate={paginate} /> */}
-            </div>
+            <Footer />
         </div>
     )
 }
 
-export default ContainerPostCard
+export default FilterPetition
