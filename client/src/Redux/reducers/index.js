@@ -15,8 +15,12 @@ const initialState = {
     singleReview: {},
     orderInfo: {},
     favoritePost: [],
+    allQuestions: [],
+    singleQuestion: {},
+    singleAnswer: {},
     petitionPost: [],
     offerPost: [],
+    // hola
 
 }
 
@@ -74,7 +78,6 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 testorder: payload
             }
-
         case GET_ALL_REVIEWS:
             return {
                 ...state,
@@ -104,31 +107,50 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state
             }
-            case GET_FAVORITE_POST:
-            return{
+        case GET_FAVORITE_POST:
+            return {
                 ...state,
                 favoritePost: payload
             }
         case ADD_FAVORITE_POST:
-            return{
+            return {
                 ...state,
                 favoritePost: [...state.favoritePost, action.payload]
             }
         case REMOVE_FAVORITE_POST:
-            return{
+            return {
                 ...state,
-                favoritePost: state.favoritePost.filter(e=> e.id !== payload)
+                favoritePost: state.favoritePost.filter(e => e.id !== payload)
             }
+
+        case "POST_QUESTION":
+            return {
+                ...state,
+                allQuestions: payload
+            };
+        case "GET_ALL_QUESTIONS":
+            return {
+                ...state,
+                allQuestions: payload
+            };
+        case "POST_ANSWER":
+            return {
+                ...state,
+                singleAnswer: payload
+            };
+
+
         case GET_JOB_PETITIONS:
-            return{
-                 ...state,
+            return {
+                ...state,
                 petitionPost: payload
             }
         case GET_JOB_OFFERS:
-            return{
+            return {
                 ...state,
                 offerPost: payload
-                }
+            }
+
         default:
             return state;
     }

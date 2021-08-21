@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCategory, getAllSpecialty, getUserAdmin, sendPost } from '../../../Redux/actions/index'
 
-function ComponentCreatePost() {
+function ComponentCreatePost() { // este componente no se usa
     const { push } = useHistory()
     const dispatch = useDispatch();
     //ESTO ES PARA LA DEMO//
@@ -84,13 +84,16 @@ function ComponentCreatePost() {
 
                     <div className="flex justify-center">
                         <div className="flex">
-                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">Crear Post</h1>
+                            <h1 className="text-gray-600 font-bold md:text-2xl text-xl">Nueva Publicación</h1>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                        <p className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                            Completá todos los datos necesarios para hacer tu publicación. Verificá todos los datos antes de enviarlos.
+                        </p>
                         <div className="grid grid-cols-1 mt-5 mx-7">
-                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de posteo</label>
+                            <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Tipo de anuncio</label>
                             <select onChange={handleChange} name="typePost" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                                 <option>Elegir</option>
                                 <option value="Petition" >Solicitar Servicio</option>
@@ -207,7 +210,7 @@ function ComponentCreatePost() {
 
                     <div className='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <Link to="/home"><button className='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</button></Link>
-                        <button type='submit' className='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Crear</button>
+                        <button type='submit' className='w-auto bg-purple-500 hover:bg-green-500 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Crear</button>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ export default function ModalPricing({ USERID, POSTID }) {
     return (
         <>
             <button
-                className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  "
+                className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded  "
                 type="button"
                 onClick={() => setShowModal(true)}
             >
@@ -57,7 +57,7 @@ export default function ModalPricing({ USERID, POSTID }) {
                                         onClick={() => setShowModal(false)}
                                     >
 
-                                        <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded" onClick={() => setShowModal(false)}>
+                                        <button className="flex items-center ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-red-600 rounded" onClick={() => setShowModal(false)}>
                                             Cerrar
                                         </button>
 

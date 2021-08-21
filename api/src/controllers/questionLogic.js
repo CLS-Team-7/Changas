@@ -17,6 +17,14 @@ async function getAllQuestions(req, res, next) {
 				attributes: ["given_name"]
 			},
 			{
+				model: Post,
+				attributes: ["title", "id"],
+				include: {
+					model: User,
+					attributes: ["id"]
+				}
+			},
+			{
 				model: Report,
 				attributes: { exclude: ['reported_user', 'post_id', 'question_id', 'answer_id', 'updatedAt'] },
 				order: [["createdAt", 'DESC']],
@@ -47,6 +55,14 @@ async function getQuestionById(req, res, next) {
 				{
 					model: User,
 					attributes: ["given_name"]
+				},
+				{
+					model: Post,
+					attributes: ["title", "id"],
+					include: {
+						model: User,
+						attributes: ["id"]
+					}
 				},
 				{
 					model: Report,

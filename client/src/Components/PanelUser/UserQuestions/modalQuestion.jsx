@@ -1,23 +1,35 @@
 import React from 'react'
 import { useState } from 'react'
-/* import { useDispatch } from 'react-redux' */
-// import { updateReview, deleteReview } from '../../../Redux/actions'
+import { useDispatch } from 'react-redux'
+import { createAnswer } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
 
 
 
 
-const ModalQuestionValidate = ({ review }) => {
+const ModalQuestionValidate = ({ question }) => {
   const [showModal, setShowModal] = useState(false)
   const { push } = useHistory()
   /*  const dispatch = useDispatch() */
 
-  function handleClickAccept() {
-    // dispatch(updateReview({ isValidated: true }, review.id)) // aca se hace el dispatch a una accion que tenemos que crear (createAnswer), por params el idQuestion y body
+  const [postInput, setPostInput] = useState({
+    answer: "",
+    question_id: question.id,
+  })
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    dispatch(createAnswer(postInput)) // aca se hace el dispatch a una accion que tenemos que crear (createAnswer()), por params el idQuestion y body
     setShowModal(false)
-    push(`/posts/${review.post.id}`)
+    push(`/posts/${question.post.id}`)
   }
 
+  function handleChange(e) {
+    setPostInput(values => ({
+      ...values,
+      [e.target.name]: e.target.value
+    }))
+  }
   function handleClickDenied() {
     // dispatch(deleteReview(review.id))  // aca se hace el dispatch a una accion que tenemos que crear (createReport), por payload se manda el user_id y la question_id
     // setShowModal(false)
@@ -60,9 +72,9 @@ const ModalQuestionValidate = ({ review }) => {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
@@ -71,23 +83,27 @@ const ModalQuestionValidate = ({ review }) => {
 
                 <div className="relative flex flex-col ">
                   <div className="mb-3 py-4 px-4 flex flex-row">
-                    <input type="text" placeholder="Tu respuesta va acá..."
-                      className="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-                    <button
-                      className="mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button"
-                      onClick={handleClickAccept}
-                    >
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-2 px-12 focus:outline-none hover:bg-green-600 rounded">
-                        Responder
-                      </button>
 
-                    </button>
+                    <form onSubmit={e => handleSubmit(e)}>
+
+                      <input type="text" name="answer" placeholder="Tu respuesta va acá..." onChange={handleChange}
+                        className="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                      <button
+                        className="mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={handleSubmit}
+                      >
+                        <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-2 px-12 focus:outline-none hover:bg-green-600 rounded">
+                          Responder
+                        </button>
+
+                      </button>
+                    </form>
                   </div>
 
 
                   <p className="my-4 px-5 text-blueGray-500 text-lg text-left leading-relaxed ">
-                    - Si tenés algun problema con la pregunta, podes hacer un <b>reportarla</b> para que el equipo de CHANGAS la revise.
+                    - Si tenés algun problema con la pregunta, podes hacer <b>reportarla</b> para que el equipo de CHANGAS la revise.
                   </p>
                 </div>
 

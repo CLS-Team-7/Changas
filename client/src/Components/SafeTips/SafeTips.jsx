@@ -17,7 +17,7 @@ const SafeTips = () => {
   return (
     <>
       <button
-        className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  "
+        className="flex ml-auto text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded  "
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -72,34 +72,31 @@ const SafeTips = () => {
                     usuarios.
                   </p>
                 </div>
-                <div className="border-t border-solid border-blueGray-200 text-xs py-5 text-left">
+                <div className="border-t border-solid border-blueGray-200 text-s py-5 text-left">
                   <li className="px-5">
-                    En CHANGAS <b> no proponemos contratos laborales </b> de
-                    ningún tipo, si te dicen lo contrario, te están mintiendo.
+                    CHANGAS es <b> sólo un intermediario </b> entre las partes contratantes.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Antes de coordinar una visita, <b> chequeá los datos </b>{" "}
-                    del prestador del servicio/cliente.
+                    del prestador del servicio ó del cliente que te quiera contratar.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     <b>
                       {" "}
-                      Lee atentamente los comentarios y reseñas de la
-                      publicación{" "}
-                    </b>
-                    .
+                      Leé atentamente los comentarios y reseñas de la
+                      publicación.</b> Son una buena guía las primeras veces que quieras contratar a alguien.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Nunca reveles tus contraseñas ni claves bancarias. NO
                     compartas estos datos con NINGÚN usuario. Si alguien te los
-                    pide te solicitamos que realices el{" "}
+                    pide, por favor realizá el{" "}
                     <b> reporte/denuncia </b>
                     correspondiente.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Nadie trabajando para CHANGAS va a pedirte que le envíes
                     información sensible como la mencionada en el párrafo
-                    anterior
+                    anterior, ni pedirte dinero para que puedas contratar o contactarte con alguien. Nunca.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Para contratar un servicio <b> no es obligatorio </b> que
@@ -110,25 +107,23 @@ const SafeTips = () => {
                     Sugerimos <b> coordinar por chat </b> los detalles y
                     pormenores de los servicios que se vayan a contratar. Esto
                     te permitirá contar con{" "}
-                    <b> información escrita y correcta </b>, evitando malos
+                    <b> información escrita y correcta</b>, evitando malos
                     entendidos.
                   </li>
                   <li className="mt-3 text-left px-5 ">
                     Es importante <b> que dejes una opinión </b> sobre el
-                    usuario que te presto el servicio, ya que esto nos ayuda a
-                    crecer como comunidad. Tanto si el resultado fue positivo o
-                    no, queremos saber si estás satisfecho con el servicio que
-                    contrataste. De esta forma ayudas a otras personas a elegir
-                    con mayor confianza y al profesional que logrará multiplicar
-                    su cantidad de trabajo.
-                  </li>{" "}
+                    usuario que te prestó el servicio, ya que esto nos ayuda a
+                    crecer como comunidad. <p className="">Tanto si el resultado fue positivo o
+                      no, queremos saber tu experiencia con el servicio que
+                      contrataste. De esta forma, ayudás, por un lado, a otras personas a elegir
+                      con mayor confianza, y por el otro, al profesional que logrará conseguir más clientes y más trabajo.
+                    </p></li>{" "}
                   <li className="mt-3 text-left px-5 ">
-                    Asegúrate antes de realizar cualquier pago que el
-                    <b> presupuesto contemple </b> todo lo necesario, inclusive
-                    el precio final.
+                    Antes de realizar cualquier pago o confirmar una contratación, asegurate que el
+                    <b> presupuesto contemple </b> todo lo necesario para la realización del trabajo/s.
                   </li>
                   <li className="mt-3 text-left px-5 ">
-                    Respeta las medidas de prevención para evitar contagios de
+                    Respetá y hacé cumplir las medidas de prevención necesarias para evitar contagios de
                     COVID-19.
                   </li>
                 </div>
@@ -140,7 +135,7 @@ const SafeTips = () => {
                     onClick={() => setShowModal(false)}
                   >
                     <Link to={`/profile/${user?.id}`} className="flex ml-auto">
-                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-indigo-600 rounded">
+                      <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-3 px-12 focus:outline-none hover:bg-green-600 rounded">
                         Continuar
                       </button>
                     </Link>
