@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { getAllCategory, getAllSpecialty, sendPost } from '../../../Redux/actions';
+import validateForm from './Validaciones'
 
 function CreatePostUserComp() {
     const { push } = useHistory()
@@ -10,6 +11,7 @@ function CreatePostUserComp() {
     const user = useSelector(state => state.userLogin)
     const category = useSelector(state => state.categoryPost)
 
+    const [errors, setErrors] = useState({})
 
     useEffect(() => {
         dispatch(getAllCategory())
@@ -47,11 +49,18 @@ function CreatePostUserComp() {
 
 
     function handleChange(e) {
+
         setPostInput(values => ({
             ...values,
             [e.target.name]: e.target.value
-        }))
-    }
+        }));
+        setErrors(values => (
+            validateForm({
+                ...values,
+                [e.target.name]: e.target.value,
+            }))
+        )
+    };
 
     const handleClickCategory = () => {
         specialtyCategory()
