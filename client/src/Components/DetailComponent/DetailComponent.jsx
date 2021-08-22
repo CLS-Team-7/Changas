@@ -60,7 +60,7 @@ function DetailComponent() {
                             </div>
                             <div>
                                 {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
-                                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
+                                    <Link to={`/report/post/${id}`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
                                     : null}
                             </div>
                         </div>

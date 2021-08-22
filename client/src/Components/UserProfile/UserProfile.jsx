@@ -43,18 +43,7 @@ function UserProfile() {
                         <dt className="text-sm font-medium text-gray-500">Email</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.email}</dd>
                     </div>
-                    {/* <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Precio base/Salario</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
-                    </div>
-                    <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Detalle</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                            qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-                            pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                        </dd>
-                    </div> */}
+
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -81,7 +70,7 @@ function UserProfile() {
             </div>
             <div>
                 {isAuthenticated ?
-                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
+                    <Link to={`/report/user/${id}`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
                     : null}
             </div>
         </div>

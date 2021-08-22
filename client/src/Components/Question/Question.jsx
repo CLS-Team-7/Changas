@@ -18,7 +18,7 @@ function Question({ createdAt, question, given_name, id_question }) {
                         <span className="ml-2 text-green-600 text-xs">Usuario Registrado</span>
                         <span className="flex ml-auto">
                             {isAuthenticated ?
-                                <Link to={`/report`} className="flex pt-4"><span className="flex ml-auto text-gray  border-0  focus:outline-none hover:text-red-600 rounded text-xs">Reportar</span></Link>
+                                <Link to={`/report/question/${id_question}`} className="flex pt-4"><span className="flex ml-auto text-gray  border-0  focus:outline-none hover:text-red-600 rounded text-xs">Reportar</span></Link>
                                 : null}
                         </span>
                     </p>
