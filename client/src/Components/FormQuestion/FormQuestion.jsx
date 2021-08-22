@@ -48,6 +48,7 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
           <div className="py-3 max-w-md mx-auto">
             <div className="bg-white min-w-2xl flex flex-col rounded-xl shadow-lg">
               <div className="px-12 py-5">
+
                 <h2 className="text-gray-800 text-3xl font-semibold">¿Cuál es tu pregunta?</h2>
               </div>
               <div className="bg-blue-200 w-full flex flex-col items-center">
@@ -66,7 +67,9 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
 
                 </div>
                 <div className="w-3/4 flex flex-col">
+
                   <textarea rows="3" name="question" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
+
                   <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
                 </div>
               </div>

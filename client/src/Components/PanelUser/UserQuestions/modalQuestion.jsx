@@ -83,6 +83,7 @@ const ModalQuestionValidate = ({ question }) => {
 
                 <div className="relative flex flex-col ">
                   <div className="mb-3 py-4 px-4 flex flex-row">
+
                     <form onSubmit={e => handleSubmit(e)}>
 
                       <input type="text" name="answer" placeholder="Tu respuesta va acá..." onChange={handleChange}
