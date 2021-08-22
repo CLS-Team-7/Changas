@@ -20,7 +20,7 @@ const initialState = {
     singleAnswer: {},
     petitionPost: [],
     offerPost: [],
-
+    // hola
 
 }
 

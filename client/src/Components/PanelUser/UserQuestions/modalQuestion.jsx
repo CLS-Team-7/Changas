@@ -81,6 +81,7 @@ const ModalQuestionValidate = ({ question }) => {
                   </button>
                 </div>
 
+
                 <div className="relative  ">
                   <div className=" py-2 px-4 ">
                     <form onSubmit={e => handleSubmit(e)}>

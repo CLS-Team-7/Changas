@@ -5,15 +5,14 @@ import Header from '../../Components/Header/Header'
 
 function LandingPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <Header />
-      <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen sm:flex-col md:flex-row md:content-around">
+      <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen sm:flex-col md:flex-row md:content-around flex-col">
         <div className="flex flex-col items-center">
           <img
             src="https://cdn.discordapp.com/attachments/868284643886120985/872487887319474236/1.png?width=1025&height=210"
             width="500"
             alt="Imagen"
-            
           />
           <span className="text-2xl font-medium">
             {' '}
