@@ -12,7 +12,7 @@ export default function Reviews() {
     const singlePost = useSelector(state => state.singlePost);
     let reviews = singlePost.reviews;
     let validatedReviews = reviews?.filter(review => review.isValidated);
-    // console.log("reviews", reviews);
+    console.log("reviews", reviews);
     // console.log("validated", validatedReviews);
 
     useEffect(() => {
@@ -24,8 +24,8 @@ export default function Reviews() {
     return (
         <div className="flex flex-col self-center place-content-center">
             <h2 className="font-bold text-xl mb-2 "> Reseñas </h2>
-            <div className="flex self-center w-3/4">
-                {!validatedReviews?.length ? <div className='flex'>Esta publicación no tiene reseñas</div>
+            <div className="flex self-center">
+                {!validatedReviews?.length ? <div className='flex mt-3 mb-3'>Esta publicación no tiene reseñas</div>
                     : validatedReviews.map(review => {
                         return (
                             <div key={review.description}>

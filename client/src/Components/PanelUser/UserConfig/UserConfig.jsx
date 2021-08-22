@@ -340,7 +340,7 @@ function UserConfig() {
 
                               <div className="mt-3">
                                 <label className=" text-gray-700 font-medium inline-flex items-center mt-3">
-                                  ¿Te vacunaron de Covid-19?
+                                  ¿Te vacunaron contra el COVID-19?
                                   <Field
                                     className="form-checkbox h-5 w-5 text-purple-600 ml-2 text-gray-700"
                                     type="checkbox"

@@ -4,7 +4,7 @@ import "./Review.css"
 function Review(props) {
     const { createdAt, rating, description, fullName } = props;
     return (
-        <div className="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
+        <div className="bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
             <div className="ml-6 ">
                 <p className="flex items-baseline">
                     <span className="text-gray-600 font-bold">{fullName}</span>
