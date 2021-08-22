@@ -187,7 +187,9 @@ async function getPostById(req, res, next) {
             ]
           },
           {
-            model: Order // ESTO LO DEBERIA VER SOLO LOS ADMINS
+            model: Order, // ESTO LO DEBERIA VER SOLO LOS ADMINS,
+            attributes: ["id", "title", "isCompleted", "status"],
+            order: [["createdAt", 'DESC']],
           },
           {
             model: Report,

@@ -11,7 +11,7 @@ function Question({ createdAt, question, given_name, id_question }) {
     return (
         <div>
 
-            <div className="flex bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
+            <div className=" bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
                 <div className="flex flex-col ml-6">
                     <p className="flex items-baseline">
                         <span className="text-gray-600 font-bold">{given_name}</span>
@@ -24,8 +24,8 @@ function Question({ createdAt, question, given_name, id_question }) {
                     </p>
                     <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt}</span>
 
-                    <p className="mt-2 ml-2 text-justify" >"{question}"</p>
-
+                    <p className="mt-2 mb-2 ml-2 text-justify" >"{question}"</p>
+                    <hr style={{ color: "black" }} />
                     <div className="mt-3">
                         <Answers id_question={id_question} />
                     </div>

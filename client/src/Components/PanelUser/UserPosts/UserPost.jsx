@@ -21,15 +21,15 @@ function UserPost() {
             <div className="flex items-start justify-between">
 
                 <SideBarUser />
-                <div className="flex flex-col w-full md:space-y-4">
+                <div className="flex w-full md:space-y-4">
 
                     <div className="overflow-auto h-screen pb-24 py-12 px-4 md:px-6">
 
                         <div /* className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4" */>
-                            <div className="bg-white divide-y divide-gray-200 flex justify-center">
+                            <div className="bg-white divide-y divide-gray-200 ">
                                 {FilterPost.length > 0
                                     ? <UserpostsComp Users={FilterPost} />
-                                    : <h1 className=''>Aún no hiciste ninguna publicación</h1>
+                                    : <h1 className=''>Aún no hiciste ninIguna publicación</h1>
                                 }
                             </div>
                         </div>

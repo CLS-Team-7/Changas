@@ -81,18 +81,18 @@ const ModalQuestionValidate = ({ question }) => {
                   </button>
                 </div>
 
-                <div className="relative flex flex-col ">
-                  <div className="mb-3 py-4 px-4 flex flex-row">
+                <div className="relative  ">
+                  <div className=" py-2 px-4 ">
                     <form onSubmit={e => handleSubmit(e)}>
 
-                      <input type="text" name="answer" placeholder="Tu respuesta va acá..." onChange={handleChange}
+                      <textarea type="text" name="answer" placeholder="Tu respuesta va acá..." onChange={handleChange}
                         className="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
                       <button
                         className="mr-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-red-500 background-transparent font-bold uppercase px-6 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
                         onClick={handleSubmit}
                       >
-                        <button className="flex ml-auto font-bold text-white bg-indigo-500 border-0 py-2 px-12 focus:outline-none hover:bg-green-600 rounded">
+                        <button className="flex mt-2 font-bold text-white bg-indigo-500 border-0 py-2 px-12 focus:outline-none hover:bg-green-600 rounded">
                           Responder
                         </button>
 
@@ -100,9 +100,9 @@ const ModalQuestionValidate = ({ question }) => {
                     </form>
                   </div>
 
-
-                  <p className="my-4 px-5 text-blueGray-500 text-lg text-left leading-relaxed ">
-                    - Si tenés algun problema con la pregunta, podes hacer <b>reportarla</b> para que el equipo de CHANGAS la revise.
+                  <hr style={{ color: "black" }} />
+                  <p className=" mt-3 px-5 text-blueGray-500 font-normal text-left leading-relaxed ">
+                    Si tenés un problema con la pregunta, <b>reportala</b> para que el equipo de CHANGAS la revise.
                   </p>
                 </div>
 

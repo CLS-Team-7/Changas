@@ -8,7 +8,7 @@ function Answer({ createdAt, answer }) {
 
 
     return (
-        <div className="flex bg-white ">
+        <div className=" bg-white ">
             <div className="flex flex-col">
                 <p className="flex items-baseline">
                     <span className="flex items-center text-black-600 text-xs">Respuesta</span>
