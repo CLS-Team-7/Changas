@@ -60,7 +60,7 @@ function UserConfig() {
                             <div>
                               <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                 {" "}
-                                Dni / Pasaporte
+                                DNI / Pasaporte
                               </label>
                               <p>{state?.ID_Passport}</p>
                             </div>
@@ -70,7 +70,7 @@ function UserConfig() {
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
                               <Field
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
@@ -86,7 +86,7 @@ function UserConfig() {
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
                             <Field
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -102,7 +102,7 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
                             <Field
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -119,7 +119,7 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -135,7 +135,7 @@ function UserConfig() {
                               Foto / Imágen
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="mt-3 border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -235,7 +235,7 @@ function UserConfig() {
                                     DNI / Pasaporte
                                   </label>
                                   {errors.ID_Passport && touched.ID_Passport && (
-                                    <div>{errors.ID_Passport}</div>
+                                    <div className="text-red-500 font-bold">{errors.ID_Passport}</div>
                                   )}
                                   <Field
                                     className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -252,7 +252,7 @@ function UserConfig() {
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
                               <Field
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
@@ -268,7 +268,7 @@ function UserConfig() {
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -284,7 +284,7 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -301,7 +301,7 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -317,7 +317,7 @@ function UserConfig() {
                               Foto / Imágen
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
