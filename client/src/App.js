@@ -31,6 +31,7 @@ import FormReportPost from './Components/FormReport/FormReportPost';
 import FormReportQuestion from './Components/FormReport/FormReportQuestion';
 import FormReportAnswer from './Components/FormReport/FormReportAnswer';
 import FormReportUser from './Components/FormReport/FormReportUser';
+import CreatePostUserCompCopy from './Components/PanelUser/CreatePostUser/CreatePostUserComp copy';
 
 function App() {
   return (
@@ -132,7 +133,9 @@ function App() {
         <Route exact path='/user/questions'>
           <PanelUserQuestions />
         </Route>
-
+        <Route exact path='/pruebaform'>
+          <CreatePostUserCompCopy/>
+        </Route>
         <Route path='/faq'>
           <FAQ />
         </Route>

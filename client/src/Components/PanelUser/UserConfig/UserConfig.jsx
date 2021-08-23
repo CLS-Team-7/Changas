@@ -121,7 +121,7 @@ function UserConfig() {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
+                            <Field as='textarea'
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
@@ -303,7 +303,7 @@ function UserConfig() {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
+                            <Field as='textarea'
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
