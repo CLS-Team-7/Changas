@@ -1,6 +1,7 @@
 import React from 'react'
 require('./FaqComponent.css')
 
+
 function FaqComponen() {
   return (
     <>
@@ -320,7 +321,7 @@ function FaqComponen() {
                   <input
                     type="hidden"
                     name="redirect"
-                    value="https://web3forms.com/success"
+                    value="https://changas.vercel.app/home"
                   />
 
                   <div className="mb-6">

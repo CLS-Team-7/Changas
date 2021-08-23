@@ -19,7 +19,7 @@ function UserConfig() {
 
 function handleDeleteUser () {
     dispatch(deleteUser(toDelete))
-    //push("./userDeleted")
+    push("/deletedUser")
   }
 
   return (

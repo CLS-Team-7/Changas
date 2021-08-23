@@ -32,7 +32,8 @@ import FormReportQuestion from './Components/FormReport/FormReportQuestion';
 import FormReportAnswer from './Components/FormReport/FormReportAnswer';
 import FormReportUser from './Components/FormReport/FormReportUser';
 import CreatePostUserCompCopy from './Components/PanelUser/CreatePostUser/CreatePostUserComp copy';
-import deletedUser from './views/deletedUser/deletedUser';
+import DeletedUser from './views/deletedUser/deletedUser.jsx';
+
 
 function App() {
   return (
@@ -141,7 +142,7 @@ function App() {
           <FAQ />
         </Route>
         <Route path='/deletedUser'>
-          <deletedUser />
+          <DeletedUser />
         </Route>
         <Route path='*'>
           <NotFound />

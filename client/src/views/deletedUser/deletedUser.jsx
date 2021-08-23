@@ -1,17 +1,24 @@
 import React from 'react'
 
-export const deletedUser = () => {
+import Footer from '../../Components/Footer/Footer'
+import Header from '../../Components/Header/Header'
+
+
+const DeletedUser = () => {
     return (
-        <div>
+        <div className="min-h-screen flex flex-col justify-between">
+            <Header />
+            <div>
+                  <h1 className="mt-10 text-4xl">Qué pena verte partir... 😔</h1>
         <div className="flex items-center ">
           <div className="container mx-auto">
             <div className="max-w-md shadow-2xl mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
               <div className="text-center">
                 <h1 className="my-3 text-3xl font-semibold">
-                  Contanos tu experiencia
+                  Nos gustaría saber como podemos mejorar
                 </h1>
                 <p className="text-white dark:text-gray-400">
-                  Completa abajo y envianos un mensaje
+                  Completa abajo y envianos un mensaje con los motivos de tu partida
                 </p>
               </div>
               <div className="m-7">
@@ -33,7 +40,7 @@ export const deletedUser = () => {
                   <input
                     type="hidden"
                     name="redirect"
-                    value="https://web3forms.com/success"
+                    value="https://changas.vercel.app/home"
                   />
 
                   <div className="mb-6">
@@ -103,8 +110,11 @@ export const deletedUser = () => {
             </div>
           </div>
         </div>
+      </div>
+            <Footer />
         </div>
     )
 }
 
-export default deletedUser
+
+export default DeletedUser
