@@ -311,3 +311,15 @@ export const postReport = (payload) => {
         // })
     };
 }
+
+// -----------**** Delete User ****--------------
+
+export const deleteUser = (id) => {
+    return (dispatch) => {
+        axios.delete(`/user/${id}`)
+            // .then(r => r.data)
+            // .then(data => {
+            //     dispatch({ type: "DELETE_REVIEW" })
+            // })
+    }
+}

@@ -32,6 +32,7 @@ import FormReportQuestion from './Components/FormReport/FormReportQuestion';
 import FormReportAnswer from './Components/FormReport/FormReportAnswer';
 import FormReportUser from './Components/FormReport/FormReportUser';
 import CreatePostUserCompCopy from './Components/PanelUser/CreatePostUser/CreatePostUserComp copy';
+import deletedUser from './views/deletedUser/deletedUser';
 
 function App() {
   return (
@@ -138,6 +139,9 @@ function App() {
         </Route>
         <Route path='/faq'>
           <FAQ />
+        </Route>
+        <Route path='/deletedUser'>
+          <deletedUser />
         </Route>
         <Route path='*'>
           <NotFound />

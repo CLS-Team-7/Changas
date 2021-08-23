@@ -8,18 +8,26 @@ import {
   validateSummary,
 } from "./Validaciones";
 import { useDispatch, useSelector } from "react-redux";
-import { UpdateUserData } from "../../../Redux/actions";
+import { UpdateUserData, deleteUser } from "../../../Redux/actions";
 import { useHistory } from "react-router-dom";
 
 function UserConfig() {
   const { push } = useHistory()
   const dispatch = useDispatch()
   const state = useSelector(state => state.userLogin)
+  const toDelete = useSelector(state => state.userLogin.id)
+
+function handleDeleteUser () {
+    dispatch(deleteUser(toDelete))
+    //push("./userDeleted")
+  }
+
   return (
     <>
       {
         state?.isDataComplete ?
           <div>
+            
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -181,6 +189,7 @@ function UserConfig() {
           </div>
           :
           <div>
+     
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -215,6 +224,7 @@ function UserConfig() {
                 <div className="">
                   <div className="py-6  min-h-screen bg-gray-100 flex items-center">
                     <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
 
                       <Form>
@@ -355,11 +365,24 @@ function UserConfig() {
                           </button>
                         </div>
                       </Form>
+                      
                     </div>
+                    
                   </div>
+                 
                 </div>
               )}
             </Formik>
+            <hr style={{ color: "black" }} />
+            <div className="py-6 bg-gray-100 w-full items-center container mx-auto  shadow-md hover:shadow-lg transition duration-300">
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">ELIMINACIÓN DE CUENTA</h1>
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">Atención, esta acción es irreversible. Una vez que hayas confirmado todos tus datos 
+                          serán eliminados de nuestra base de datos</h1>
+                      <button onClick={handleDeleteUser} className="mb-2 mt-6 text-red-50 font-bold bg-red-500 py-3 px-12 rounded-md hover:bg-red-600 transition duration-300">
+                            ELIMINAR CUENTA
+                          </button>
+                          
+                          </div>
           </div>
       }
     </>
