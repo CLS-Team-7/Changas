@@ -17,6 +17,21 @@ module.exports = {
         Gris__Claro: '#E4E4E4'
       }
     },
+    maxWidth: { 
+      '1/4': '25%',
+      '1/2': '50%',
+      '3/4': '75%',
+    },
+    minWidth: {
+      '0': '0',
+      '1/4': '25%',
+      '1/2': '50%',
+      '3/4': '75%',
+      'full': '100%',
+    },
+    dropShadow: {
+      '2xl': '1px 1px 0px rgba(255, 255, 255, 0.75)',
+    }
   },
   variants: {
     extend: {},
