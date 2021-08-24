@@ -10,7 +10,7 @@ function classNames(...classes) {
 
 export default function ConfigBottomMenu() {
     return (
-        <Menu as="div" className="relative inline-block text-left z-40">
+        <Menu as="div" className="relative inline-block text-left z-50">
             <div>
                 <Menu.Button className="inline-flex justify-center w-full    px-4 py-2  text-sm font-medium text-gray-400  focus:outline-none ">
                     Configuracion de Cuenta
