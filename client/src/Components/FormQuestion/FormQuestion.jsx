@@ -62,7 +62,7 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
                   </div>
                   <div className="grid grid-cols-1 w-11/12 md:w-9/12">
                     <label className="uppercase md:text-sm text-xs text-gray-100 text-light font-semibold">- Publicación -</label>
-                    <input name="post_id" disabled value={singlePost.title} className="text-center text-gray-100 py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
+                    <input name="post_id" disabled value={singlePost.title} className="text-center text-gray-100 py-2 px-3 rounded-lg border-2 border-yellow-400 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" />
                   </div>
 
                 </div>

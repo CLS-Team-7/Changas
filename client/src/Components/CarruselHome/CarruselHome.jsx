@@ -15,11 +15,13 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 2,
+        centerMode: false
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1
+        items: 1,
+        centerMode: false
     }
 };
 
@@ -42,7 +44,10 @@ function CarruselHome({ type, post, link, validate }) {
                 <div>
                     <Carousel 
                             
-                            responsive={responsive} swipeable={false}
+                            responsive={responsive} 
+                            swipeable={false}
+                            /* centerMode={true} */
+                            
                             draggable={false}
                             showDots={true}
                             autoPlay={true}

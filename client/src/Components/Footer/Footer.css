@@ -38,28 +38,31 @@
 }
 
 .btn {
-  background: #2d3748;
+  background: #ffffff;
   border-radius: 50%;
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
   padding: 19px 18px 19px;
   text-decoration: none;
+  border: 5px solid #ff8839;
+  transition: 350ms;
 }
 
 .btn:hover {
-  background: #384458;
+  background: #ffffff;
   text-decoration: none;
 }
 
 .btn-no-round {
-  background: #2d3748;
+  background: #ffffff;
   border-radius: 5%;
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
   padding: 16px;
   text-decoration: none;
+  border: 5px solid #000000;
 }
 
 .btn:focus {
