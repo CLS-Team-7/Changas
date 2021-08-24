@@ -81,7 +81,7 @@ function Header() {
                   <div className="flex-shrink-0">
                     <Link
                       to="/"
-                      className="flex title-font font-medium items-center  md:mb-0"
+                      className="flex title-font font-medium items-center md:mb-0"
                     >
                       <img
                         className="flex title-font font-medium items-center   sm:justify-items-center "
@@ -97,26 +97,26 @@ function Header() {
 
                         <Link
                           to="/home"
-                          className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                         >
                           Home
                         </Link>
                       }
                       <Link
                         to="/user/createpost"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         Publicar
                       </Link>
                       <Link
                         to="/faq"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         FAQ
                       </Link>
                       <Link
                         to="/about"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         Sobre Nosotros
                       </Link>
