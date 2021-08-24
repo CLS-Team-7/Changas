@@ -82,7 +82,7 @@ function Header() {
                   <div className="flex-shrink-0">
                     <Link
                       to="/"
-                      className="flex title-font font-medium items-center  mb-4 md:mb-0"
+                      className="flex title-font font-medium items-center md:mb-0"
                     >
                       <img
                         className="flex title-font font-medium items-center   sm:justify-items-center "
@@ -93,36 +93,36 @@ function Header() {
                     </Link>
                   </div>
                   <div className="hidden md:block">
-                    <div className="ml-10 flex items-baseline space-x-4">
+                    <div className="ml-10 flex items-center space-x-4">
                       {
 
                         <Link
                           to="/home"
-                          className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                         >
                           Home
                         </Link>
                       }
                       <Link
                         to="/user/createpost"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         Publicar
                       </Link>
                       <Link
                         to="/faq"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         FAQ
                       </Link>
                       <Link
                         to="/about"
-                        className=" text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className=" text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 hover:text-black"
                       >
                         Sobre Nosotros
                       </Link>
                       <form onSubmit={(e) => handleSubmit(e)}>
-                        <div className="pt-2 relative mx-auto text-gray-600" >
+                        <div className="relative mx-auto text-gray-600" >
                           <input
                             className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                             value={title}
@@ -132,7 +132,7 @@ function Header() {
                             placeholder="Busqueda" />
                           <button onClick={() => handleClick()} type="submit" className="absolute right-0 top-0 mt-5 mr-4">
                             <svg
-                              className="text-gray-600 h-4 w-4 fill-current"
+                              className="flex text-gray-600 h-6 w-6 fill-current absolute -top-2.5 -right-1"
                               version="1.1"
                               id="Capa_1"
                               x="0px"

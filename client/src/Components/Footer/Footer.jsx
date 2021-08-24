@@ -33,8 +33,8 @@ function Footer() {
   }
   return (
     <div>
-      <div className="boot-Container drop-shadow-l ">
-        <button id='chango' className="btn" onClick={handleClick}>
+      <div className="boot-Container drop-shadow-l z-50 ">
+        <button id='chango' className="btn flex justify-center px-6" onClick={handleClick}>
           <img className='w-8 filter drop-shadow-2xl' src={changoImg} alt="" />
         </button>
         {click ? <Button /> : null}
