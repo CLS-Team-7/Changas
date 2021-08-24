@@ -75,8 +75,8 @@ function DetailComponent() {
                         
                     </div>
                 </div>
-                    <div className="pt-4 grid grid-row justify-center auto-cols-auto" >
-                    <div style={{width: "800px", height: "200px"}}>
+                    <div className="pt-8 grid grid-row justify-center auto-cols-auto" >
+                    <div style={{width: "800px", height: "200px"}} >
                     <MapComponent googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
                     process.env.REACT_APP_GOOGLE_KEY}` }
                     location={location}
