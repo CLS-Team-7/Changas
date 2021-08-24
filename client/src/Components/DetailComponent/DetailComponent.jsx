@@ -15,7 +15,7 @@ function DetailComponent() {
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
 
-    const { title, image, description, priceRange, category, specialty, user } =
+    const { title, image, description, priceRange, category, specialty, user, location } =
         useSelector((state) => state.singlePost);
 
     let { id } = useParams();
@@ -25,6 +25,7 @@ function DetailComponent() {
         // dispatch(user del post para sacar el puntaje)
         dispatch(clearSinglePost());
     }, [dispatch, id]);
+    //const singlePost = useSelector(state => state.singlePost)
 
     return (
         <section className="text-gray-600 body-font overflow-hidden">
@@ -73,7 +74,8 @@ function DetailComponent() {
                     <div className="pt-4 grid grid-row justify-center auto-cols-auto" >
                     <div style={{width: "800px", height: "200px"}}>
                     <MapComponent googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
-                    process.env.REACT_APP_GOOGLE_KEY}`}
+                    process.env.REACT_APP_GOOGLE_KEY}` }
+                    location={location}
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `100%` }} />}
                     mapElement={<div style={{ height: `100%` }} />}/>

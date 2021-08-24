@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const axios = require("axios").default;
-const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review } = require("../db.js");
+const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review, Location } = require("../db.js");
 
 async function getAllPosts(_req, res, next) {
   //http://localhost:3001/post -->
@@ -204,6 +204,9 @@ async function getPostById(req, res, next) {
               model: User,
               attributes: ["given_name", "family_name", "fullName"]
             }]
+          },
+          {
+            model: Location,
           }
         ],
       });

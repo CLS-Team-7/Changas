@@ -15,7 +15,8 @@ const postsDB = [
     isActive: true,
     acceptsQuestions: true,
     isPremium: true,
-    pack: 1
+    pack: 1,
+    location_id: 1000
   },
   {
     id: "d6a4d061-39b9-4862-b871-3a21c551bd18",
