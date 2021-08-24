@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const axios = require("axios").default;
-const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review } = require("../db.js");
+const { User, Post, Order, Category, Specialty, Question, Answer, Report, Review, Location } = require("../db.js");
 
 async function getAllPosts(_req, res, next) {
   //http://localhost:3001/post -->
@@ -55,6 +55,10 @@ async function getAllPosts(_req, res, next) {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] },
           order: [["createdAt", 'ASC']],
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -128,6 +132,10 @@ async function getPostByTitle(req, res, next) {
             model: Review,
             attributes: { exclude: ["post_id", "updatedAt"] },
             order: [["createdAt", 'ASC']],
+          },
+          {
+            model: Location,
+            attributes: {exclude: ["createdAt", "updatedAt"]}
           }
         ],
       });
@@ -204,6 +212,10 @@ async function getPostById(req, res, next) {
               model: User,
               attributes: ["given_name", "family_name", "fullName"]
             }]
+          },
+          {
+            model: Location,
+            attributes: {exclude: ["createdAt", "updatedAt"]}
           }
         ],
       });
@@ -243,7 +255,8 @@ async function createPost(req, res, next) {
     paymentMethods,
     workingArea,
     pack,
-    isPremium
+    isPremium,
+    location_id
   } = req.body;
   try {
     let newPost = await Post.create({
@@ -259,11 +272,13 @@ async function createPost(req, res, next) {
       paymentMethods,
       workingArea,
       pack,
-      isPremium
+      isPremium,
+      location_id
     });
     newPost.setUser(user_id);
     newPost.setCategory(category_id);
     newPost.setSpecialty(specialty_id);
+    newPost.setLocation(location_id);
     res.json(newPost);
   } catch (err) {
     next(err);
@@ -347,6 +362,10 @@ async function getTodaysPosts(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -396,6 +415,10 @@ async function getJobOffers(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -445,6 +468,10 @@ async function getJobPetitions(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -494,6 +521,10 @@ async function getOnlyPremium(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
