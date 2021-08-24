@@ -7,6 +7,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getFavoritePostList, postUser, searchByTitle } from "../../Redux/actions";
 import FavoriteButton from "../FavoriteComponent/FavoriteButton";
+import ConfigBottomMenu from "./ConfigBottomMenu";
 
 var Logeado = false
 
@@ -324,6 +325,35 @@ function Header() {
 
             <Disclosure.Panel className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="ml-10 flex items-baseline space-x-4 justify-center">
+
+                  <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="pt-2 relative mx-auto text-gray-600 " >
+                      <input
+                        className="border-2 border-gray-300 bg-white w-15 h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        type="search"
+                        name="search"
+                        placeholder="Busqueda" />
+                      <button onClick={() => handleClick()} type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+                        <svg
+                          className="text-gray-600 h-4 w-4 fill-current"
+                          version="1.1"
+                          id="Capa_1"
+                          x="0px"
+                          y="0px"
+                          viewBox="0 0 56.966 56.966"
+                          width="512px"
+                          height="512px">
+                          <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+
                 <Link
                   to="/home"
                   className=" text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -388,6 +418,20 @@ function Header() {
                       </Link>
                     </div>
                     <div className="flex flex-row items-center place-content-center">
+                      <div className="text-white ">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                      </div>
+                      <Link
+                        to="user/createpost"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
+                      >
+                        Crear publicacion
+                      </Link>
+                    </div>
+                    <div className="flex flex-row items-center place-content-center">
                       <div className="text-white">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -409,13 +453,9 @@ function Header() {
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                           />
                         </svg>
+
                       </div>
-                      <Link
-                        to="user/config"
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                      >
-                        Configuracion
-                      </Link>
+                      <ConfigBottomMenu />
                     </div>
                     <div className="flex flex-row items-center place-content-center">
                       {
