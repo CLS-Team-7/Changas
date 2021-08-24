@@ -12,7 +12,7 @@ function Answer({ createdAt, answer }) {
             <div className="flex flex-col">
                 <p className="flex items-baseline">
                     <span className="flex items-center text-black-600 text-xs">Respuesta</span>
-                    <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt}</span>
+                    <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt.slice(0, 10)}</span>
                     <span className="flex ml-auto">
                         {isAuthenticated ?
                             <Link to={`/report`} className="flex pt-4"><span className="flex ml-auto text-gray  border-0 focus:outline-none hover:text-red-600 rounded text-xs">Reportar</span></Link>
