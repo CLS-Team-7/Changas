@@ -55,6 +55,10 @@ async function getAllPosts(_req, res, next) {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] },
           order: [["createdAt", 'ASC']],
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -128,6 +132,10 @@ async function getPostByTitle(req, res, next) {
             model: Review,
             attributes: { exclude: ["post_id", "updatedAt"] },
             order: [["createdAt", 'ASC']],
+          },
+          {
+            model: Location,
+            attributes: {exclude: ["createdAt", "updatedAt"]}
           }
         ],
       });
@@ -207,6 +215,7 @@ async function getPostById(req, res, next) {
           },
           {
             model: Location,
+            attributes: {exclude: ["createdAt", "updatedAt"]}
           }
         ],
       });
@@ -246,7 +255,8 @@ async function createPost(req, res, next) {
     paymentMethods,
     workingArea,
     pack,
-    isPremium
+    isPremium,
+    location_id
   } = req.body;
   try {
     let newPost = await Post.create({
@@ -262,11 +272,13 @@ async function createPost(req, res, next) {
       paymentMethods,
       workingArea,
       pack,
-      isPremium
+      isPremium,
+      location_id
     });
     newPost.setUser(user_id);
     newPost.setCategory(category_id);
     newPost.setSpecialty(specialty_id);
+    newPost.setLocation(location_id);
     res.json(newPost);
   } catch (err) {
     next(err);
