@@ -24,6 +24,8 @@
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
+    "swagger-ui-dist": "^4.0.0-beta.4",
+    "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
