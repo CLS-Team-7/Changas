@@ -7,6 +7,8 @@ import SafeTips from "../SafeTips/SafeTips";
 import Reviews from "../Review/Reviews";
 import { useAuth0 } from "@auth0/auth0-react";
 import Questions from '../Question/Questions';
+import MapComponent from '../MapComponent/MapComponent';
+
 
 function DetailComponent() {
     const { isAuthenticated } = useAuth0();
@@ -49,6 +51,7 @@ function DetailComponent() {
                         <div className="flex flex-row space-x-5">
                             <div>
                                 {isAuthenticated /* && user?.id !== userLogin?.id*/ ? /*el boton se renderiza si esta autenticado Y el usuario del login NO es el usuario del posteo */
+                                
                                     <Link to={`/reviews`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Dejar reseña</button></Link>
 
                                     : null}
@@ -64,15 +67,27 @@ function DetailComponent() {
                                     : null}
                             </div>
                         </div>
+                        
                     </div>
                 </div>
+                    <div className="pt-4 grid grid-row justify-center auto-cols-auto" >
+                    <div style={{width: "800px", height: "200px"}}>
+                    <MapComponent googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
+                    process.env.REACT_APP_GOOGLE_KEY}`}
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `100%` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}/>
+                </div>
             </div>
+            </div>
+            
             <div className="self-center place-content-center">
                 <Reviews />
             </div>
             <div className="self-center place-content-center">
                 <Questions />
             </div>
+            
         </section>
     )
 }
