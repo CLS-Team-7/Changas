@@ -8,7 +8,7 @@ function LandingPage() {
     <div className="flex flex-col ">
       <Header />
       <div className="flex justify-around items-center bg-gradient-to-b from-Medium__Champagne h-screen sm:flex-col md:flex-row md:content-around flex-col">
-        <div className="flex flex-col items-center max-w-3/4">
+        <div className="flex flex-col items-center max-w-3/4 mt-8">
           <img
             src="https://cdn.discordapp.com/attachments/868284643886120985/872487887319474236/1.png?width=1025&height=210"
             width="500"
