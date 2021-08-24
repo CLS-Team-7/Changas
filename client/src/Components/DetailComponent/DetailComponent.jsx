@@ -14,7 +14,7 @@ function DetailComponent() {
     const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
-
+    const singlePost = useSelector(state => state.singlePost);
     const { title, image, description, priceRange, category, specialty, user, location } =
         useSelector((state) => state.singlePost);
 
@@ -27,8 +27,11 @@ function DetailComponent() {
     }, [dispatch, id]);
     //const singlePost = useSelector(state => state.singlePost)
 
-    return (
-        <section className="text-gray-600 body-font overflow-hidden">
+    return ( 
+        <>
+        {
+            !singlePost ? <div>Cargando</div> :
+            <section className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={image} />
@@ -90,7 +93,8 @@ function DetailComponent() {
                 <Questions />
             </div>
             
-        </section>
+        </section>}
+        </>
     )
 }
 
