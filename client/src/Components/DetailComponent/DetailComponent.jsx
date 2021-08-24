@@ -21,16 +21,17 @@ function DetailComponent() {
     let { id } = useParams();
 
     useEffect(() => {
+        // MANU: HACER ACTION PARA TRAER ANSWERS QUESTIONS Y REVIEWS
         dispatch(getSinglePost(id));
         // dispatch(user del post para sacar el puntaje)
-        dispatch(clearSinglePost());
+        dispatch(clearSinglePost());    //ACASO ESTO ROMPE? NO ACTUALIZA AL MOMENTO??? MAPS/REVIEW/ANSWERS/QUESTIONS???
     }, [dispatch, id]);
     //const singlePost = useSelector(state => state.singlePost)
 
     return ( 
         <>
         {
-            !singlePost ? <div>Cargando</div> :
+            singlePost ?
             <section className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -93,7 +94,8 @@ function DetailComponent() {
                 <Questions />
             </div>
             
-        </section>}
+        </section> :
+         <div>Cargando</div> }
         </>
     )
 }
