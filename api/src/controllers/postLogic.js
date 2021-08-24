@@ -362,6 +362,10 @@ async function getTodaysPosts(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -411,6 +415,10 @@ async function getJobOffers(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -460,6 +468,10 @@ async function getJobPetitions(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
@@ -509,6 +521,10 @@ async function getOnlyPremium(req, res, next) {
         {
           model: Review,
           attributes: { exclude: ["post_id", "updatedAt"] }
+        },
+        {
+          model: Location,
+          attributes: {exclude: ["createdAt", "updatedAt"]}
         }
       ],
     });
