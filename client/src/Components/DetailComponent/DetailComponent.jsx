@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearSinglePost, getSinglePost } from '../../Redux/actions'
+import { clearSinglePost, getSinglePost, getReviewAverage } from '../../Redux/actions'
 import FavoriteComponent from '../FavoriteComponent/FavoriteComponent';
 import SafeTips from "../SafeTips/SafeTips";
 import Reviews from "../Review/Reviews";
@@ -23,7 +23,7 @@ function DetailComponent() {
     useEffect(() => {
         // MANU: HACER ACTION PARA TRAER ANSWERS QUESTIONS Y REVIEWS
         dispatch(getSinglePost(id));
-        // dispatch(user del post para sacar el puntaje)
+        dispatch(getReviewAverage(id))
         dispatch(clearSinglePost());    //ACASO ESTO ROMPE? NO ACTUALIZA AL MOMENTO??? MAPS/REVIEW/ANSWERS/QUESTIONS???
     }, [dispatch, id]);
     //const singlePost = useSelector(state => state.singlePost)

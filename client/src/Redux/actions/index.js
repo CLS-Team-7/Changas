@@ -315,7 +315,7 @@ export const getReviewAverage = (id) => {
         axios.get(`/review/${id}`)
             .then(r => r.data)
             .then(data => {
-                //console.log(data.review.rating)
+                console.log(data.reviews)
                 dispatch({ type: "GET_REVIEW_AVERAGE", payload: data })
             })
     }
