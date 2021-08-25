@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { getAllCategory, getAllSpecialty, sendPost } from '../../../Redux/actions';
 import validateForm from './Validaciones'
+import { getAllCategory, getAllSpecialty, sendPost, getAllLocations } from '../../../Redux/actions';
+
 
 function CreatePostUserComp() {
     const { push } = useHistory()
@@ -10,12 +11,18 @@ function CreatePostUserComp() {
     //ESTO ES PARA LA DEMO//
     const user = useSelector(state => state.userLogin)
     const category = useSelector(state => state.categoryPost)
+//<<<<<<< reportsDEMOFINAL
 
     const [errors, setErrors] = useState({})
+//=======
+    const locations = useSelector(state => state.allLocations)
+//>>>>>>> main
 
     useEffect(() => {
+        
         dispatch(getAllCategory())
         dispatch(getAllSpecialty())
+        dispatch(getAllLocations())
     }, [dispatch])
 
 
@@ -34,7 +41,8 @@ function CreatePostUserComp() {
         category_id: "",
         specialty_id: "",
         paymentMethods: [],
-        workingArea: []
+        workingArea: [],
+        location_id: null
     })
 
     async function specialtyCategory() {
@@ -127,7 +135,17 @@ function CreatePostUserComp() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                                         <div className="grid grid-cols-1">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Zona / Área de trabajo</label>
-                                            <input className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Indicar zona / área..." name="workingArea" onChange={handleChangeArray} autoComplete="off" />
+                                            <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="location_id">
+                                                    <option value="Null" disabled selected>Elegir</option>
+                                                    {locations?.length !== 0 ?
+
+                                                        locations?.map(e => {
+                                                            return <option value={e.id} key={e.id}>{e.name}</option>
+                                                        })
+
+                                                        : <option>Cargando...</option>
+                                                    }
+                                                </select>
                                         </div>
                                         <div className="grid grid-cols-1">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Precio Base / "A Convenir"</label>

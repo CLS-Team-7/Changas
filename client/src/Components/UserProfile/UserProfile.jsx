@@ -3,6 +3,7 @@ import { getSingleUser } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
+import WhatsAppButton from '../WhatsAppButton/WhatsAppButton';
 
 
 function UserProfile() {
@@ -23,7 +24,7 @@ function UserProfile() {
                 <div className="shadow-lg rounded-2xl bg-white dark:bg-gray-800 p-4">
                     <div className="flex-row gap-4 flex justify-center items-center">
                         <div className="flex-shrink-0">
-                            <img alt="profil" src={user.picture} className="mx-auto object-cover rounded-full h-16 w-16 " />
+                            <img alt="user" src={user.picture} className="mx-auto object-cover rounded-full h-16 w-16 " />
                         </div>
 
                     </div>
@@ -37,7 +38,9 @@ function UserProfile() {
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Teléfono</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}</dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}
+                            <WhatsAppButton userPhone={user.phoneNumber}/>
+                        </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Email</dt>

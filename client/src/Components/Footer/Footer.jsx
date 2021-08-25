@@ -4,6 +4,7 @@ import Chatbot from 'react-chatbot-kit'
 import config from '../Chatbot/config'
 import ActionProvider from '../Chatbot/ActionProvider'
 import MessageParser from '../Chatbot/MessageParser'
+import changoImg from './g569.png';
 import './Footer.css'
 
 function Button() {
@@ -23,12 +24,18 @@ function Footer() {
 
   let handleClick = (e) => {
     setClick(!click)
+
+    if(click){
+      document.getElementById('chango').classList.remove('btn-no-round') 
+    } else{
+      document.getElementById('chango').classList.add('btn-no-round')
+    }
   }
   return (
     <div>
-      <div className="boot-Container shadow-2xl ">
-        <button className="btn" onClick={handleClick}>
-          Chango
+      <div className="boot-Container drop-shadow-l z-50 ">
+        <button id='chango' className="btn flex justify-center px-6" onClick={handleClick}>
+          <img className='w-8 filter drop-shadow-2xl' src={changoImg} alt="" />
         </button>
         {click ? <Button /> : null}
       </div>

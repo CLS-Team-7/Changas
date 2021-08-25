@@ -22,6 +22,8 @@ export const getAllCategory = () => {
     }
 }
 
+
+
 export const getAllSpecialty = () => {
     return (dispatch) => {
         axios.get(`/specialty`)
@@ -295,6 +297,16 @@ export const getJobOffers = () => {
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: GET_JOB_OFFERS, payload: data })
+            })
+    }
+}
+
+export const getAllLocations = () => {
+    return (dispatch) => {
+        axios.get(`/location`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: "GET_LOCATION", payload: data })
             })
     }
 }
