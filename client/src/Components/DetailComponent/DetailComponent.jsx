@@ -15,11 +15,12 @@ function DetailComponent() {
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
     const singlePost = useSelector(state => state.singlePost);
-    const { title, image, description, priceRange, category, specialty, user, location } =
+    const { title, image, description, priceRange, category, specialty, user, location, paymentMethods } =
         useSelector((state) => state.singlePost);
 
     let { id } = useParams();
 
+    console.log(paymentMethods)
     useEffect(() => {
         // MANU: HACER ACTION PARA TRAER ANSWERS QUESTIONS Y REVIEWS
         dispatch(getSinglePost(id));
@@ -46,6 +47,7 @@ function DetailComponent() {
 
                         <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estado interno del componente*/}</p>
                         <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
+                        <p className="m-2 leading-relaxed"> Metodos de pago aceptados: {paymentMethods && paymentMethods?.map((metodo) => <li>{metodo}</li>) } </p>
 
                         <p className="m-2 leading-relaxed pb-2">"{description}"</p>
 
