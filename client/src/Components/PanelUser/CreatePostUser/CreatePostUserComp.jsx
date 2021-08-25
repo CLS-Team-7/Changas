@@ -47,7 +47,6 @@ function CreatePostUserComp() {
     location_id: null,
   });
 
-
   console.log(postInput);
 
   function validate(postInput) {
@@ -127,7 +126,9 @@ function CreatePostUserComp() {
     //   ...values,
     //   [e.target.name]: e.target.value,
     // }));
-
+    if(e.target.name === 'paymentMethods'){
+      
+    }
     const newInput = {
       ...postInput,
       [e.target.name]: e.target.value,
@@ -135,6 +136,16 @@ function CreatePostUserComp() {
     setErrors(validate(newInput));
     setPostInput(newInput);
   }
+
+  function handleSelectChange(value) {
+    let selectedItems = Array.from(value, opt => opt.value);
+    const newInput = {
+        ...postInput,
+        paymentMethods: selectedItems
+    };
+    setErrors(validate(newInput));
+    setPostInput(newInput);
+}
 
   const handleClickCategory = () => {
     if (postInput.category_id !== "Elegir") {
@@ -323,15 +334,10 @@ function CreatePostUserComp() {
                     <Select
                       id="payment"
                       name="paymentMethods"
-                      
+                      isMulti
                       options={optionPay}
                       className="basic-multi-select"
-                      onChange={(value) =>
-                        setPostInput({
-                          ...postInput,
-                          paymentMethods:(value.value) ,
-                        })
-                      }
+                      onChange={(value) => handleSelectChange(value)}
                     />
                     {/* <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
@@ -460,7 +466,7 @@ function CreatePostUserComp() {
                     </div> */}
               </div>
             </div>
-            <div className="flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5">
+            <div className="flex items-center justify-center  md:gap-8 gap-4  ">
               <Link to="/home">
                 <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
                   Cancelar
