@@ -35,7 +35,7 @@ function CreatePostUserComp() {
         typePost: "",
         title: "",
         description: "",
-        image: "https://www.ucmq.com/wp-content/uploads/dia-del-trabajador-.jpg",
+        image: "",
         timeRange: [],
         priceRange: [],
         category_id: "",
@@ -44,6 +44,33 @@ function CreatePostUserComp() {
         workingArea: [],
         location_id: null
     })
+ 
+
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'nel6uilj')
+        setLoading(true)
+        const res = await fetch(
+          '	https://api.cloudinary.com/v1_1/changas/image/upload',
+          {
+            method: 'POST',
+            body: data
+          }
+        )
+        const file = await res.json()
+    
+        setImage(file.secure_url)
+        setLoading(false)
+        setPostInput(values => ({
+            ...values,
+            image: file.secure_url
+        }))
+    }
 
     async function specialtyCategory() {
         if (postInput.category_id.length !== 0) {
@@ -88,6 +115,8 @@ function CreatePostUserComp() {
         dispatch(sendPost(postInput))
         push("/user/posts")
     }
+
+    
     return (
         <div>
             {
@@ -175,6 +204,21 @@ function CreatePostUserComp() {
                                                 <option value="Tarde y noche">Tarde y noche</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    
+                                    <div>
+                                    
+                                     <input
+                                            type="file"
+                                            name="file"
+                                            placeholder="Upload an image"
+                                            onChange={uploadImage}
+      />
+      {loading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <img src={image} style={{ width: '100px' }} alt="" />
+      )}
                                     </div>
 
                                     <div className="m-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
