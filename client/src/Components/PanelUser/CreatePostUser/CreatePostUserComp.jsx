@@ -48,6 +48,7 @@ function CreatePostUserComp() {
   });
 
   console.log(postInput);
+  console.log(errors)
 
   function validate(postInput) {
     /* TITLE */
@@ -86,7 +87,7 @@ function CreatePostUserComp() {
     }
 
     /* METODO DE PAGO */
-    if (postInput.paymentMethods[0] === "Elegir") {
+    if (postInput.paymentMethods.length === 0 ) {
       errors.paymentMethods = "Debes seleccionar una opción...";
     } else {
       errors.paymentMethods = "";
@@ -126,8 +127,7 @@ function CreatePostUserComp() {
     //   ...values,
     //   [e.target.name]: e.target.value,
     // }));
-    if(e.target.name === 'paymentMethods'){
-      
+    if (e.target.name === "paymentMethods") {
     }
     const newInput = {
       ...postInput,
@@ -138,14 +138,14 @@ function CreatePostUserComp() {
   }
 
   function handleSelectChange(value) {
-    let selectedItems = Array.from(value, opt => opt.value);
+    let selectedItems = Array.from(value, (opt) => opt.value);
     const newInput = {
-        ...postInput,
-        paymentMethods: selectedItems
+      ...postInput,
+      paymentMethods: selectedItems,
     };
     setErrors(validate(newInput));
     setPostInput(newInput);
-}
+  }
 
   const handleClickCategory = () => {
     if (postInput.category_id !== "Elegir") {
@@ -336,8 +336,11 @@ function CreatePostUserComp() {
                       name="paymentMethods"
                       isMulti
                       options={optionPay}
-                      className="basic-multi-select"
+                      className="w-52 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      // className='py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
+                      // classNamePrefix='react-select'
                       onChange={(value) => handleSelectChange(value)}
+                      onBlur={handleSelectChange}
                     />
                     {/* <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
