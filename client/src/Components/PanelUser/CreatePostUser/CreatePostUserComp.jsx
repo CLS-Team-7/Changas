@@ -23,16 +23,14 @@ function CreatePostUserComp() {
     dispatch(getAllLocations());
   }, [dispatch]);
 
-
-
   const optionsLocation = locations.map((location) => {
     return {
-      value: location.name,
+      value: location.id,
+      name: location.name,
       label: location.name,
-      id: location.id,
+      key: location.id,
     };
   });
-
 
   const [specialtyBeta, setSpecialtyBeta] = useState([]);
   const [errors, setErrors] = useState({});
@@ -51,22 +49,55 @@ function CreatePostUserComp() {
     location_id: null,
   });
 
-console.log(postInput.typePost)
+  console.log(postInput);
 
   function validate(postInput) {
-    !postInput.title
-      ? (errors.title = "Debes completar este campo...")
-      : (errors.title = "");
+    /* TITLE */
+    if (!postInput.title) {
+      errors.title = "Debes completar este campo...";
+    } else if (postInput.title.length > 50) {
+      errors.title = "Maximo 50 caracteres...";
+    } else {
+      errors.title = "";
+    }
 
-    !postInput.description
-      ? (errors.description = "Debes completar este campo...")
-      : (errors.description = "");
+    /* DESCRIPTION */
+    if (!postInput.description) {
+      errors.description = "Debes completar este campo...";
+    } else if (postInput.description.length > 250) {
+      errors.description = "Maximo 250 caracteres...";
+    } else {
+      errors.description = "";
+    }
 
-    postInput.typePost === 'Elegir'
-      ? (errors.typePost = "Debes completar este campo...")
+    /* TYPEPOST */
+    postInput.typePost === "Elegir"
+      ? (errors.typePost = "Debes seleccionar una opción...")
       : (errors.typePost = "");
+
+    /* LOCATION */
+    postInput.location_id === ""
+      ? (errors.location_id = "Debes seleccionar una opción...")
+      : (errors.location_id = "");
+
+    /* PRECIO BASE */
+    if (postInput.priceRange[0] === "") {
+      errors.priceRange = "Debes completar este campo...";
+    } else {
+      errors.priceRange = "";
+    }
+
+    /* METODO DE PAGO */
+    if (postInput.priceRange[0] === "") {
+      errors.priceRange = "Debes completar este campo...";
+    } else {
+      errors.priceRange = "";
+    }
+
     return errors;
   }
+
+  console.log(errors);
 
   async function specialtyCategory() {
     if (postInput.category_id.length !== 0) {
@@ -94,17 +125,22 @@ console.log(postInput.typePost)
     setPostInput(newInput);
   }
 
-  console.log(errors);
-
   const handleClickCategory = () => {
     specialtyCategory();
   };
 
   function handleChangeArray(e) {
-    setPostInput((values) => ({
-      ...values,
+    // setPostInput((values) => ({
+    //   ...values,
+    //   [e.target.name]: [e.target.value],
+    // }));
+
+    const newInput = {
+      ...postInput,
       [e.target.name]: [e.target.value],
-    }));
+    };
+    setErrors(validate(newInput));
+    setPostInput(newInput);
   }
 
   const handleSubmit = (e) => {
@@ -144,10 +180,10 @@ console.log(postInput.typePost)
                       Tipo de anuncio
                     </label>
                     {errors.typePost && (
-                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
-                      {errors.typePost}
-                    </div>
-                  )}
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.typePost}
+                      </div>
+                    )}
                     <select
                       onBlur={handleChange}
                       onChange={handleChange}
@@ -168,7 +204,7 @@ console.log(postInput.typePost)
                     Título
                   </label>
                   {errors.title && (
-                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
+                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
                       {errors.title}
                     </div>
                   )}
@@ -187,7 +223,7 @@ console.log(postInput.typePost)
                     Descripción
                   </label>
                   {errors.description && (
-                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
+                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
                       {errors.description}
                     </div>
                   )}
@@ -207,18 +243,25 @@ console.log(postInput.typePost)
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Zona / Área de trabajo
                     </label>
-                    <Select
-                      isMulti
-                      name="colors"
+                    {errors.location_id && (
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.location_id}
+                      </div>
+                    )}
+                    {/* <Select
+                    onChange={handleChange}
+                      id="location_id"
+                      name="location_id"
                       options={optionsLocation}
                       className="basic-multi-select"
-                      classNamePrefix="select"
-                    />
-                    {/* <select
+        
+                    /> */}
+                    <select
                       multiple
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       onChange={handleChange}
                       onClick={handleClickCategory}
+                      onBlur={handleChange}
                       name="location_id"
                     >
                       <option value="Null" disabled selected>
@@ -235,18 +278,24 @@ console.log(postInput.typePost)
                       ) : (
                         <option>Cargando...</option>
                       )}
-                    </select> */}
+                    </select>
                   </div>
                   <div className="grid grid-cols-1">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Precio Base / "A Convenir"
                     </label>
+                    {errors.priceRange && (
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.priceRange}
+                      </div>
+                    )}
                     <input
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       type="text"
                       placeholder="Ingrese un precio..."
                       name="priceRange"
                       onChange={handleChangeArray}
+                      onBlur={handleChangeArray}
                     />
                   </div>
                 </div>
