@@ -319,9 +319,23 @@ function CreatePostUserComp() {
                       name="paymentMethods"
                       isMulti
                       options={optionPay}
-                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      menuPortalTarget={document.body}
+                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:border-yellow-500 "
                       onChange={(value) => handleSelectChangePay(value)}
                       placeholder="Metodo de ..."
+                      theme={(theme) => ({
+                        ...theme,
+                        borderColor: "7C3AED",
+                        position: 'absolute',
+                        colors: {
+                          ...theme.colors,
+                          primary25: "lightGray",
+                          primary: "#7C3AED",
+                          
+                        },
+                      })}
+                      
+
                     />
                   </div>
                   <div className="grid grid-cols-1 mt-5 mx-7">
@@ -341,6 +355,17 @@ function CreatePostUserComp() {
                       className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       onChange={(value) => handleSelectChangeTime(value)}
                       placeholder="Horario..."
+                      menuPortalTarget={document.body}
+                      theme={(theme) => ({
+                        ...theme,
+                        borderColor: "7C3AED",
+                        colors: {
+                          ...theme.colors,
+                          primary25: "lightGray",
+                          primary: "#7C3AED",
+                          position: 'relative'
+                        },
+                      })}
                     />
                     {/* <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
