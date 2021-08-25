@@ -12,7 +12,7 @@ export default function ConfigBottomMenu() {
     return (
         <Menu as="div" className="relative inline-block text-left z-50">
             <div>
-                <Menu.Button className="inline-flex justify-center w-full    px-4 py-2  text-sm font-medium text-gray-400  focus:outline-none ">
+                <Menu.Button className="inline-flex justify-center w-full px-3 py-2  text-sm font-medium text-gray-400  focus:outline-none ">
                     Configuracion de Cuenta
 
                     <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
