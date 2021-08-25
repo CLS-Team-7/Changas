@@ -7,6 +7,7 @@ import {
   sendPost,
   getAllLocations,
 } from "../../../Redux/actions";
+import Select from "react-select";
 
 function CreatePostUserComp() {
   const { push } = useHistory();
@@ -22,9 +23,19 @@ function CreatePostUserComp() {
     dispatch(getAllLocations());
   }, [dispatch]);
 
-  /* console.log(category) */
-  /* console.log(specialty) */
+
+
+  const optionsLocation = locations.map((location) => {
+    return {
+      value: location.name,
+      label: location.name,
+      id: location.id,
+    };
+  });
+
+
   const [specialtyBeta, setSpecialtyBeta] = useState([]);
+  const [errors, setErrors] = useState({});
   const [postInput, setPostInput] = useState({
     user_id: user?.id,
     typePost: "",
@@ -40,6 +51,23 @@ function CreatePostUserComp() {
     location_id: null,
   });
 
+console.log(postInput.typePost)
+
+  function validate(postInput) {
+    !postInput.title
+      ? (errors.title = "Debes completar este campo...")
+      : (errors.title = "");
+
+    !postInput.description
+      ? (errors.description = "Debes completar este campo...")
+      : (errors.description = "");
+
+    postInput.typePost === 'Elegir'
+      ? (errors.typePost = "Debes completar este campo...")
+      : (errors.typePost = "");
+    return errors;
+  }
+
   async function specialtyCategory() {
     if (postInput.category_id.length !== 0) {
       const result = category.find(
@@ -53,11 +81,20 @@ function CreatePostUserComp() {
   }
 
   function handleChange(e) {
-    setPostInput((values) => ({
-      ...values,
+    // setPostInput((values) => ({
+    //   ...values,
+    //   [e.target.name]: e.target.value,
+    // }));
+
+    const newInput = {
+      ...postInput,
       [e.target.name]: e.target.value,
-    }));
+    };
+    setErrors(validate(newInput));
+    setPostInput(newInput);
   }
+
+  console.log(errors);
 
   const handleClickCategory = () => {
     specialtyCategory();
@@ -72,8 +109,12 @@ function CreatePostUserComp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendPost(postInput));
-    push("/user/posts");
+    if (errors.length === 0) {
+      dispatch(sendPost(postInput));
+      push("/user/posts");
+    } else {
+      alert("Tienes que llenar todos los campos...");
+    }
   };
   return (
     <div>
@@ -102,7 +143,13 @@ function CreatePostUserComp() {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Tipo de anuncio
                     </label>
+                    {errors.typePost && (
+                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
+                      {errors.typePost}
+                    </div>
+                  )}
                     <select
+                      onBlur={handleChange}
                       onChange={handleChange}
                       name="typePost"
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
@@ -120,7 +167,13 @@ function CreatePostUserComp() {
                   <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                     Título
                   </label>
+                  {errors.title && (
+                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
+                      {errors.title}
+                    </div>
+                  )}
                   <input
+                    onBlur={handleChange}
                     className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     type="text"
                     placeholder="Título del anuncio..."
@@ -133,7 +186,13 @@ function CreatePostUserComp() {
                   <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                     Descripción
                   </label>
+                  {errors.description && (
+                    <div className='text-red-700 text-xs pt-3 relative" role="alert"'>
+                      {errors.description}
+                    </div>
+                  )}
                   <textarea
+                    onBlur={handleChange}
                     className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     type="textarea"
                     placeholder="Breve descripción sobre el anuncio..."
@@ -148,7 +207,15 @@ function CreatePostUserComp() {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Zona / Área de trabajo
                     </label>
-                    <select
+                    <Select
+                      isMulti
+                      name="colors"
+                      options={optionsLocation}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                    />
+                    {/* <select
+                      multiple
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       onChange={handleChange}
                       onClick={handleClickCategory}
@@ -168,7 +235,7 @@ function CreatePostUserComp() {
                       ) : (
                         <option>Cargando...</option>
                       )}
-                    </select>
+                    </select> */}
                   </div>
                   <div className="grid grid-cols-1">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
