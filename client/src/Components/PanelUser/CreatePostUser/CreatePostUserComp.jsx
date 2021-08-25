@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { getAllCategory, getAllSpecialty, sendPost, getAllLocations } from '../../../Redux/actions';
+const imgbbUploader = require("imgbb-uploader");
+
 
 function CreatePostUserComp() {
     const { push } = useHistory()
@@ -50,6 +52,10 @@ function CreatePostUserComp() {
 
 
     function handleChange(e) {
+
+        if (e.target.name === "image") {
+
+        }
         setPostInput(values => ({
             ...values,
             [e.target.name]: e.target.value
