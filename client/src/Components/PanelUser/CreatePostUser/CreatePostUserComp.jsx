@@ -23,14 +23,12 @@ function CreatePostUserComp() {
     dispatch(getAllLocations());
   }, [dispatch]);
 
-  const optionsLocation = locations.map((location) => {
-    return {
-      value: location.id,
-      name: location.name,
-      label: location.name,
-      key: location.id,
-    };
-  });
+  const optionPay = [
+    { value: "A convenir", label: "A convenir" },
+    { value: "Efectivo", label: "Efectivo" },
+    { value: "Mercado Pago", label: "Mercado Pago" },
+    { value: "Transferencia", label: "Transferencia" },
+  ];
 
   const [specialtyBeta, setSpecialtyBeta] = useState([]);
   const [errors, setErrors] = useState({});
@@ -48,6 +46,7 @@ function CreatePostUserComp() {
     workingArea: [],
     location_id: null,
   });
+
 
   console.log(postInput);
 
@@ -110,8 +109,6 @@ function CreatePostUserComp() {
 
     return errors;
   }
-
-  console.log(errors);
 
   async function specialtyCategory() {
     if (postInput.category_id.length !== 0) {
@@ -270,14 +267,6 @@ function CreatePostUserComp() {
                         {errors.location_id}
                       </div>
                     )}
-                    {/* <Select
-                    onChange={handleChange}
-                      id="location_id"
-                      name="location_id"
-                      options={optionsLocation}
-                      className="basic-multi-select"
-        
-                    /> */}
                     <select
                       multiple
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
@@ -312,7 +301,7 @@ function CreatePostUserComp() {
                       </div>
                     )}
                     <input
-                      className=" px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       type="text"
                       placeholder="Ingrese un precio..."
                       name="priceRange"
@@ -331,7 +320,20 @@ function CreatePostUserComp() {
                         {errors.paymentMethods}
                       </div>
                     )}
-                    <select
+                    <Select
+                      id="payment"
+                      name="paymentMethods"
+                      
+                      options={optionPay}
+                      className="basic-multi-select"
+                      onChange={(value) =>
+                        setPostInput({
+                          ...postInput,
+                          paymentMethods:(value.value) ,
+                        })
+                      }
+                    />
+                    {/* <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       name="paymentMethods"
                       onChange={handleChangeArray}
@@ -344,7 +346,7 @@ function CreatePostUserComp() {
                       <option value="Mercado Pago">Mercado Pago</option>
                       <option value="Efectivo">Efectivo</option>
                       <option value="Transferencia">Transferencia</option>
-                    </select>
+                    </select> */}
                   </div>
                   <div className="grid grid-cols-1 mt-5 mx-7">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
