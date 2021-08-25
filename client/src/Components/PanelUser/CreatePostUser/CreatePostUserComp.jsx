@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { getAllCategory, getAllSpecialty, sendPost, getAllLocations } from '../../../Redux/actions';
-const imgbbUploader = require("imgbb-uploader");
-
 
 function CreatePostUserComp() {
     const { push } = useHistory()
@@ -30,7 +28,7 @@ function CreatePostUserComp() {
         typePost: "",
         title: "",
         description: "",
-        image: "", //|| "https://www.ucmq.com/wp-content/uploads/dia-del-trabajador-.jpg",
+        image: user.picture,
         timeRange: [],
         priceRange: [],
         category_id: "",
@@ -52,10 +50,6 @@ function CreatePostUserComp() {
 
 
     function handleChange(e) {
-
-        if (e.target.name === "image") {
-
-        }
         setPostInput(values => ({
             ...values,
             [e.target.name]: e.target.value
@@ -123,10 +117,7 @@ function CreatePostUserComp() {
                                         <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Descripción</label>
                                         <textarea className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="textarea" placeholder="Breve descripción sobre el anuncio..." onChange={handleChange} name="description" autoComplete="off" />
                                     </div>
-                                    <div className="grid grid-cols-1 mt-5 mx-7">
-                                        <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Foto / Imagen (opcional)</label>
-                                        <input type="file" placeholder="Unicamente archivos .jpg, .png" className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} name="image" autoComplete="off" />
-                                    </div>
+
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                                         <div className="grid grid-cols-1">
