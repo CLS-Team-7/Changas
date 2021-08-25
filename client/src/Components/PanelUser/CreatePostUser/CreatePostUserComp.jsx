@@ -82,16 +82,30 @@ function CreatePostUserComp() {
 
     /* PRECIO BASE */
     if (postInput.priceRange[0] === "") {
-      errors.priceRange = "Debes completar este campo...";
+      errors.priceRange = "Debes seleccionar una opción...";
     } else {
       errors.priceRange = "";
     }
 
     /* METODO DE PAGO */
-    if (postInput.priceRange[0] === "") {
-      errors.priceRange = "Debes completar este campo...";
+    if (postInput.paymentMethods[0] === "Elegir") {
+      errors.paymentMethods = "Debes seleccionar una opción...";
     } else {
-      errors.priceRange = "";
+      errors.paymentMethods = "";
+    }
+
+    /* HORARIO */
+    if (postInput.timeRange[0] === "Elegir") {
+      errors.timeRange = "Debes seleccionar una opción...";
+    } else {
+      errors.timeRange = "";
+    }
+
+    /* CATEGORIA */
+    if (postInput.category_id === "") {
+      errors.category_id = "Debes seleccionar una opción...";
+    } else {
+      errors.category_id = "";
     }
 
     return errors;
@@ -104,7 +118,7 @@ function CreatePostUserComp() {
       const result = category.find(
         (e) => e.id.toString() === postInput.category_id
       );
-      const specialtys = result.specialties.map((e) => {
+      const specialtys = result?.specialties?.map((e) => {
         return { title: e.title, id: e.id };
       });
       setSpecialtyBeta(specialtys);
@@ -126,7 +140,9 @@ function CreatePostUserComp() {
   }
 
   const handleClickCategory = () => {
-    specialtyCategory();
+    if (postInput.category_id !== "Elegir") {
+      specialtyCategory();
+    }
   };
 
   function handleChangeArray(e) {
@@ -145,11 +161,17 @@ function CreatePostUserComp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (errors.length === 0) {
+    if (
+      postInput.category_id === "" ||
+      postInput.description === "" ||
+      postInput.title === "" ||
+      postInput.location_id === null ||
+      postInput.location_id === ""
+    ) {
+      alert("Tienes que llenar todos los campos...");
+    } else {
       dispatch(sendPost(postInput));
       push("/user/posts");
-    } else {
-      alert("Tienes que llenar todos los campos...");
     }
   };
   return (
@@ -290,7 +312,7 @@ function CreatePostUserComp() {
                       </div>
                     )}
                     <input
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className=" px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       type="text"
                       placeholder="Ingrese un precio..."
                       name="priceRange"
@@ -304,10 +326,16 @@ function CreatePostUserComp() {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Métodos de pago
                     </label>
+                    {errors.paymentMethods && (
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.paymentMethods}
+                      </div>
+                    )}
                     <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       name="paymentMethods"
                       onChange={handleChangeArray}
+                      onBlur={handleChangeArray}
                     >
                       <option disabled selected>
                         Elegir
@@ -322,10 +350,16 @@ function CreatePostUserComp() {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Horarios
                     </label>
+                    {errors.timeRange && (
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.timeRange}
+                      </div>
+                    )}
                     <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       name="timeRange"
                       onChange={handleChangeArray}
+                      onBlur={handleChangeArray}
                     >
                       <option disabled selected>
                         Elegir
@@ -345,8 +379,14 @@ function CreatePostUserComp() {
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
                       Categoria
                     </label>
+                    {errors.category_id && (
+                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                        {errors.category_id}
+                      </div>
+                    )}
                     {
                       <select
+                        required
                         className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                         onChange={handleChange}
                         onClick={handleClickCategory}
