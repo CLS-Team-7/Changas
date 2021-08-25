@@ -22,6 +22,7 @@ const initialState = {
     offerPost: [],
     reportsList: [],
     ordersList: [],
+    allLocations: [],
 
 
 }
@@ -161,6 +162,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 offerPost: payload
+            }
+        case "GET_LOCATION":
+            return {
+                ...state,
+                allLocations: payload
             }
 
         default:

@@ -325,7 +325,7 @@ function Header() {
 
             <Disclosure.Panel className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <div className="ml-10 flex items-baseline space-x-4 justify-center">
+                <div className="flex items-baseline space-x-4 justify-center">
 
                   <form onSubmit={(e) => handleSubmit(e)}>
                     <div className="pt-2 relative mx-auto text-gray-600 " >
@@ -376,7 +376,7 @@ function Header() {
               {isAuthenticated === true ? (
                 <div className="pt-4 pb-3 border-t border-gray-700 ">
                   <div className="flex content-center items-center px-5 flex-col ">
-                    <div className="flex-shrink-0 ">
+                    <div className="flex-shrink-0 mb-3">
                       <img
                         className="h-10 w-10 rounded-full"
                         src={user.picture}
@@ -392,7 +392,8 @@ function Header() {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 px-2 space-y-1">
+                  <div className="mt-3 px-2 space-y-1 grid justify-items-center">
+                    <div className="grid justify-items-start">
                     <div className="flex flex-row items-center place-content-center">
                       <div className="text-white ">
                         <svg
@@ -425,7 +426,7 @@ function Header() {
                         </svg>
                       </div>
                       <Link
-                        to="user/createpost"
+                        to="/user/createpost"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
                         Crear publicacion
@@ -513,6 +514,7 @@ function Header() {
                       >
                         Desconectarse
                       </button>
+                    </div>
                     </div>
                   </div>
                 </div>

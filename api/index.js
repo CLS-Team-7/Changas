@@ -1,5 +1,5 @@
 const server = require('./src/app.js');
-const { conn, Post, User, Order, Category, Specialty, Question, Answer, Report, Review } = require('./src/db.js');
+const { conn, Post, User, Order, Category, Specialty, Question, Answer, Report, Review, Location } = require('./src/db.js');
 const postsDB = require('./src/seeders/posts-demo');
 const usersDB = require('./src/seeders/users-demo');
 const categoriesDB = require('./src/seeders/categories-demo');
@@ -9,12 +9,23 @@ const answerDB = require('./src/seeders/answers-demo');
 const questionsDB = require('./src/seeders/questions-demo')
 const ordersDB = require('./src/seeders/orders-demo');
 const reportsDB = require('./src/seeders/reports-demo');
+const locationsDB = require('./src/seeders/locations-demo')
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
 
   server.listen(process.env.PORT || 3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
+
+    await locationsDB.map(location => {
+      Location.create({
+        id: location.id,
+        name: location.name,
+        lat: location.lat,
+        lng: location.lng
+      });
+    });
+    console.log('Precarga de locations en DB OK!')
 
     await categoriesDB.map(category => {
       Category.create({
@@ -72,7 +83,8 @@ conn.sync({ force: true }).then(() => {
         isActive: post.isActive,
         acceptsQuestions: post.acceptsQuestions,
         isPremium: post.isPremium,
-        pack: post.pack
+        pack: post.pack,
+        location_id: post.location_id
       });
     });
     console.log('Precarga de posts en DB OK!');
