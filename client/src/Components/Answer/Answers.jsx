@@ -40,6 +40,7 @@ export default function Answers({ id_question }) {
                         return (
                             <li key={ans.id}>
                                 <Answer
+                                    id_answer={ans.id}
                                     answer={ans.answer}
                                     createdAt={ans.createdAt}
                                 />
