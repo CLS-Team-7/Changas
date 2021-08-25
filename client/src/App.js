@@ -27,6 +27,9 @@ import FormReview from './Components/FormReview/FormReview';
 import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
 import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
 import FormQuestion from './Components/FormQuestion/FormQuestion';
+import AdminPostList from './views/Admin/AdminPostList/AdminPostList';
+import AdminOrders from './views/Admin/AdminOrders/AdminOrders';
+import AdminReport from './views/Admin/AdminReport/AdminReport';
 
 function App() {
   return (
@@ -96,6 +99,15 @@ function App() {
         </Route>
         <Route exact path='/admin/createpost'>
           <AdminCreatePost />
+        </Route>
+        <Route exact path='/admin/post'>
+          <AdminPostList />
+        </Route>
+        <Route exact path='/admin/orders'>
+          <AdminOrders />
+        </Route>
+        <Route exact path='/admin/reports'>
+          <AdminReport />
         </Route>
         *//////////////////**Panel User*/
         <Route exact path='/user'>
