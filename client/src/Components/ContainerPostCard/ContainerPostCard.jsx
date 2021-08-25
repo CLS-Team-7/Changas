@@ -26,7 +26,7 @@ function ContainerPostCard() {
 
     return (
         <div className="container px-5 py-24 m-auto ">
-            <div>
+            <div >
                 <PostComp posts={postList} offers={offers} petition={petition} premium={premium} />
             </div>
             <div className="flex justify-center my-14">

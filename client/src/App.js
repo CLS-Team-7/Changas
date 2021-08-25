@@ -27,6 +27,13 @@ import FormReview from './Components/FormReview/FormReview';
 import PanelUserReviews from './views/PanelUser/PanelReviews/PanelReviews';
 import PanelUserQuestions from './views/PanelUser/PanelUserQuestions/PanelUserQuestions'
 import FormQuestion from './Components/FormQuestion/FormQuestion';
+import FormReportPost from './Components/FormReport/FormReportPost';
+import FormReportQuestion from './Components/FormReport/FormReportQuestion';
+import FormReportAnswer from './Components/FormReport/FormReportAnswer';
+import FormReportUser from './Components/FormReport/FormReportUser';
+import CreatePostUserCompCopy from './Components/PanelUser/CreatePostUser/CreatePostUserComp copy';
+import DeletedUser from './views/deletedUser/deletedUser.jsx';
+
 
 function App() {
   return (
@@ -58,16 +65,28 @@ function App() {
           <About />
         </Route>
         <Route exact path='/filter/offer'>
-          <FilterOffer/>
+          <FilterOffer />
         </Route>
         <Route exact path='/filter/petition'>
-          <FilterPetition/>
-          </Route>
+          <FilterPetition />
+        </Route>
         <Route exact path='/reviews'>
           <FormReview />
         </Route>
         <Route exact path='/question'>
           <FormQuestion />
+        </Route>
+        <Route exact path='/report/post/:id'>
+          <FormReportPost />
+        </Route>
+        <Route exact path='/report/question/:id'>
+          <FormReportQuestion />
+        </Route>
+        <Route exact path='/report/answer/:id'>
+          <FormReportAnswer />
+        </Route>
+        <Route exact path='/report/user/:id'>
+          <FormReportUser />
         </Route>
         <Route exact path='/posts/:id'>
           <PostDetail />
@@ -116,15 +135,20 @@ function App() {
         <Route exact path='/user/questions'>
           <PanelUserQuestions />
         </Route>
-
+        <Route exact path='/pruebaform'>
+          <CreatePostUserCompCopy/>
+        </Route>
         <Route path='/faq'>
           <FAQ />
+        </Route>
+        <Route path='/deletedUser'>
+          <DeletedUser />
         </Route>
         <Route path='*'>
           <NotFound />
         </Route>
       </Switch>
-    </div>
+    </div >
   );
 }
 

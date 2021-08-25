@@ -26,7 +26,7 @@ export default function Questions() {
     return (
         <div className="flex flex-col self-center place-content-center">
             <h2 className="font-bold text-xl mt-6 mb-2 ">Preguntas de otros usuarios</h2>
-            {<div className="flex self-center">
+            {<div className="flex self-center flex-wrap">
                 {!validatedQuestions?.length ? <div className='flex mt-3 mb-3'>Esta publicación no tiene preguntas</div>
                     : questions.map(q => {
                         return (
@@ -39,11 +39,8 @@ export default function Questions() {
                                 />
                             </div>)
                     })
-
                 }
-
             </div>}
-
         </div>
     )
 }

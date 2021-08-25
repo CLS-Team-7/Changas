@@ -1,11 +1,12 @@
 import React from 'react'
 require('./FaqComponent.css')
 
+
 function FaqComponen() {
   return (
     <>
       <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Preguntas Frecuentes</h1>
-      <div className="container w-1/2 mx-auto">
+      <div className="container sm:w-2/3 md:w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabIndex="1">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
@@ -168,7 +169,7 @@ function FaqComponen() {
 
       <h1 className="mt-5 mb-5 text-black text-4xl">FAQ - Ofrecer servicios</h1>
 
-      <div className="container w-1/2 mx-auto">
+      <div className="container sm:w-2/3 md:w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabIndex="1">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
@@ -215,7 +216,7 @@ function FaqComponen() {
         FAQ - Contratar servicios
       </h1>
 
-      <div className="container w-1/2 mx-auto">
+      <div className="container sm:w-2/3 md:w-1/2 mx-auto">
         <div className="m-2 rounded shadow-2xl overflow-hidden">
           <div className="group outline-none  accordion-section" tabIndex="1">
             <div className="group bg-gray-800 flex justify-center px-4 py-3 items-center text-white font-semibold text-lg transition ease duration-500 cursor-pointer pr-10 relative">
@@ -291,8 +292,8 @@ function FaqComponen() {
 
       <div>
         <div className="flex items-center ">
-          <div className="container mx-auto">
-            <div className="max-w-md shadow-2xl mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
+          <div className="container mx-auto p-4">
+            <div className="max-w-md md:w-1/2 sm:2/3 shadow-2xl mx-auto my-10 bg-gray-800 text-white p-5 rounded-lg shadow-lg">
               <div className="text-center">
                 <h1 className="my-3 text-3xl font-semibold">
                   Contanos tu experiencia
@@ -320,7 +321,7 @@ function FaqComponen() {
                   <input
                     type="hidden"
                     name="redirect"
-                    value="https://web3forms.com/success"
+                    value="https://changas.vercel.app/home"
                   />
 
                   <div className="mb-6">

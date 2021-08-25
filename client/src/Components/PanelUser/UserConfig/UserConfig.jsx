@@ -8,18 +8,26 @@ import {
   validateSummary,
 } from "./Validaciones";
 import { useDispatch, useSelector } from "react-redux";
-import { UpdateUserData } from "../../../Redux/actions";
+import { UpdateUserData, deleteUser } from "../../../Redux/actions";
 import { useHistory } from "react-router-dom";
 
 function UserConfig() {
   const { push } = useHistory()
   const dispatch = useDispatch()
   const state = useSelector(state => state.userLogin)
+  const toDelete = useSelector(state => state.userLogin.id)
+
+function handleDeleteUser () {
+    dispatch(deleteUser(toDelete))
+    push("/deletedUser")
+  }
+
   return (
     <>
       {
         state?.isDataComplete ?
           <div>
+            
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -60,7 +68,7 @@ function UserConfig() {
                             <div>
                               <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
                                 {" "}
-                                Dni / Pasaporte
+                                DNI / Pasaporte
                               </label>
                               <p>{state?.ID_Passport}</p>
                             </div>
@@ -70,7 +78,7 @@ function UserConfig() {
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
                               <Field
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
@@ -86,7 +94,7 @@ function UserConfig() {
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
                             <Field
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -102,7 +110,7 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
                             <Field
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -119,9 +127,9 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
+                            <Field as='textarea'
                               className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
@@ -135,7 +143,7 @@ function UserConfig() {
                               Foto / Imágen
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="mt-3 border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -181,6 +189,7 @@ function UserConfig() {
           </div>
           :
           <div>
+     
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -215,6 +224,7 @@ function UserConfig() {
                 <div className="">
                   <div className="py-6  min-h-screen bg-gray-100 flex items-center">
                     <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
 
                       <Form>
@@ -235,7 +245,7 @@ function UserConfig() {
                                     DNI / Pasaporte
                                   </label>
                                   {errors.ID_Passport && touched.ID_Passport && (
-                                    <div>{errors.ID_Passport}</div>
+                                    <div className="text-red-500 font-bold">{errors.ID_Passport}</div>
                                   )}
                                   <Field
                                     className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -252,7 +262,7 @@ function UserConfig() {
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
                               <Field
                                 className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                                 name="age"
@@ -268,7 +278,7 @@ function UserConfig() {
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -284,7 +294,7 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -301,9 +311,9 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
+                            <Field as='textarea'
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
                               name="summary"
                               validate={validateSummary}
@@ -317,7 +327,7 @@ function UserConfig() {
                               Foto / Imágen
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
                             <Field
                               className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -355,11 +365,24 @@ function UserConfig() {
                           </button>
                         </div>
                       </Form>
+                      
                     </div>
+                    
                   </div>
+                 
                 </div>
               )}
             </Formik>
+            <hr style={{ color: "black" }} />
+            <div className="py-6 bg-gray-100 w-full items-center container mx-auto  shadow-md hover:shadow-lg transition duration-300">
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">ELIMINACIÓN DE CUENTA</h1>
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">Atención, esta acción es irreversible. Una vez que hayas confirmado todos tus datos 
+                          serán eliminados de nuestra base de datos</h1>
+                      <button onClick={handleDeleteUser} className="mb-2 mt-6 text-red-50 font-bold bg-red-500 py-3 px-12 rounded-md hover:bg-red-600 transition duration-300">
+                            ELIMINAR CUENTA
+                          </button>
+                          
+                          </div>
           </div>
       }
     </>
