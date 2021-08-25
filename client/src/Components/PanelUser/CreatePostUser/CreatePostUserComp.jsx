@@ -30,6 +30,12 @@ function CreatePostUserComp() {
     { value: "Transferencia", label: "Transferencia" },
   ];
 
+  const optionTime = [
+    { value: "Mañana", label: "Mañana" },
+    { value: "Tarde", label: "Tarde" },
+    { value: "Noche", label: "Noche" },
+  ];
+
   const [specialtyBeta, setSpecialtyBeta] = useState([]);
   const [errors, setErrors] = useState({});
   const [postInput, setPostInput] = useState({
@@ -48,7 +54,6 @@ function CreatePostUserComp() {
   });
 
   console.log(postInput);
-  console.log(errors)
 
   function validate(postInput) {
     /* TITLE */
@@ -86,27 +91,6 @@ function CreatePostUserComp() {
       errors.priceRange = "";
     }
 
-    /* METODO DE PAGO */
-    if (postInput.paymentMethods.length === 0 ) {
-      errors.paymentMethods = "Debes seleccionar una opción...";
-    } else {
-      errors.paymentMethods = "";
-    }
-
-    /* HORARIO */
-    if (postInput.timeRange[0] === "Elegir") {
-      errors.timeRange = "Debes seleccionar una opción...";
-    } else {
-      errors.timeRange = "";
-    }
-
-    /* CATEGORIA */
-    if (postInput.category_id === "") {
-      errors.category_id = "Debes seleccionar una opción...";
-    } else {
-      errors.category_id = "";
-    }
-
     return errors;
   }
 
@@ -123,10 +107,6 @@ function CreatePostUserComp() {
   }
 
   function handleChange(e) {
-    // setPostInput((values) => ({
-    //   ...values,
-    //   [e.target.name]: e.target.value,
-    // }));
     if (e.target.name === "paymentMethods") {
     }
     const newInput = {
@@ -137,11 +117,20 @@ function CreatePostUserComp() {
     setPostInput(newInput);
   }
 
-  function handleSelectChange(value) {
+  function handleSelectChangePay(value) {
     let selectedItems = Array.from(value, (opt) => opt.value);
     const newInput = {
       ...postInput,
       paymentMethods: selectedItems,
+    };
+    setErrors(validate(newInput));
+    setPostInput(newInput);
+  }
+  function handleSelectChangeTime(value) {
+    let selectedItems = Array.from(value, (opt) => opt.value);
+    const newInput = {
+      ...postInput,
+      timeRange: selectedItems,
     };
     setErrors(validate(newInput));
     setPostInput(newInput);
@@ -154,11 +143,6 @@ function CreatePostUserComp() {
   };
 
   function handleChangeArray(e) {
-    // setPostInput((values) => ({
-    //   ...values,
-    //   [e.target.name]: [e.target.value],
-    // }));
-
     const newInput = {
       ...postInput,
       [e.target.name]: [e.target.value],
@@ -173,8 +157,7 @@ function CreatePostUserComp() {
       postInput.category_id === "" ||
       postInput.description === "" ||
       postInput.title === "" ||
-      postInput.location_id === null ||
-      postInput.location_id === ""
+      postInput.location_id === null
     ) {
       alert("Tienes que llenar todos los campos...");
     } else {
@@ -336,26 +319,10 @@ function CreatePostUserComp() {
                       name="paymentMethods"
                       isMulti
                       options={optionPay}
-                      className="w-52 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      // className='py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
-                      // classNamePrefix='react-select'
-                      onChange={(value) => handleSelectChange(value)}
-                      onBlur={handleSelectChange}
+                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      onChange={(value) => handleSelectChangePay(value)}
+                      placeholder="Metodo de ..."
                     />
-                    {/* <select
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      name="paymentMethods"
-                      onChange={handleChangeArray}
-                      onBlur={handleChangeArray}
-                    >
-                      <option disabled selected>
-                        Elegir
-                      </option>
-                      <option value="A convenir">A convenir</option>
-                      <option value="Mercado Pago">Mercado Pago</option>
-                      <option value="Efectivo">Efectivo</option>
-                      <option value="Transferencia">Transferencia</option>
-                    </select> */}
                   </div>
                   <div className="grid grid-cols-1 mt-5 mx-7">
                     <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
@@ -366,7 +333,16 @@ function CreatePostUserComp() {
                         {errors.timeRange}
                       </div>
                     )}
-                    <select
+                    <Select
+                      id="timeRange"
+                      name="timeRange"
+                      isMulti
+                      options={optionTime}
+                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      onChange={(value) => handleSelectChangeTime(value)}
+                      placeholder="Horario..."
+                    />
+                    {/* <select
                       className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                       name="timeRange"
                       onChange={handleChangeArray}
@@ -381,7 +357,7 @@ function CreatePostUserComp() {
                       <option value="Noche">Noche</option>
                       <option value="Mañana y tarde">Mañana y tarde</option>
                       <option value="Tarde y noche">Tarde y noche</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
 
@@ -449,7 +425,7 @@ function CreatePostUserComp() {
                         Especialidad
                       </label>
                       <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">
-                        Eligir una categoría
+                        Elegir una categoría
                       </label>
                     </div>
                   )}
