@@ -320,7 +320,7 @@ export const getReviewAverage = (id) => {
                 const result = ratings.reduce((a, b) => {
                     return a+b}) 
                 const average = Math.round(result / data.reviews.length); 
-                console.log(average)
+                // console.log(average)
                 dispatch({ type: "GET_REVIEW_AVERAGE", payload: average })
             })
     }

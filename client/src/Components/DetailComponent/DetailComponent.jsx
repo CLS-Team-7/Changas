@@ -8,9 +8,10 @@ import Reviews from "../Review/Reviews";
 import { useAuth0 } from "@auth0/auth0-react";
 import Questions from '../Question/Questions';
 import MapComponent from '../MapComponent/MapComponent';
+import Rating from '../Review/Rating';
 
 
-function DetailComponent() {
+function DetailComponent({average}) {
     const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
@@ -44,7 +45,7 @@ function DetailComponent() {
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
 
-                                    <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estado interno del componente*/}</p>
+                                    <p className="m-2 leading-relaxed"> Puntaje del usuario: <Rating rating={average}/> </p>
                                     <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
 
                                     <p className="m-2 leading-relaxed pb-2">"{description}"</p>
