@@ -90,7 +90,7 @@ class ActionProvider {
 
   ayudaPublicarNecesidad = () => {
     const message = this.createChatBotMessage(
-     'Para contratar un servicio deberás dirigirte a la sección de Publicar hacer click sobre el servicio que necesites y seguir los pasos</a>',
+     'Para contratar un servicio deberás dirigirte a la sección de Publicar hacer click sobre el servicio que necesites y seguir los pasos',
     )
     this.addMessageToState(message)
   }
