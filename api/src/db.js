@@ -53,7 +53,7 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User, Post, Order, Category, Specialty, Review, Report, Question, Answer } = sequelize.models;
+const { User, Post, Order, Category, Specialty, Review, Report, Question, Answer, Location } = sequelize.models;
 
 // Asociaciones de User (todas one-to-many)
 // VER EL TEMA DE LOS ARCHIVOS ADJUNTOS CON SEQUELIZE-FILE para evidence y picture
@@ -86,6 +86,8 @@ Question.belongsTo(Post, { foreignKey: 'post_id' }); // una pregunta puede perte
 Post.hasMany(Report, { foreignKey: 'post_id' }); // un post puede tener muchos reports (varios usuarios lo denuncian)
 Report.belongsTo(Post, { foreignKey: 'post_id' }); // un report puede apuntar a un unico post
 
+
+
 // Asociaciones Category y Specialty con Post (one-to-many)
 Category.hasMany(Post, { foreignKey: 'category_id' }); // una categoria tiene muchos posts / puede estar en muchos posts
 Post.belongsTo(Category, { foreignKey: 'category_id' }); // un post puede tener una unica categoria (categoria 'Transporte y mudanzas')
@@ -113,7 +115,11 @@ Question.hasMany(Answer, { foreignKey: "question_id", constraints: false }); // 
 Answer.belongsTo(Question, { foreignKey: "question_id", constraints: false }); // una respuesta puede tener una pregunta
 
 
-//************ */
+//************ LOCATION */
+
+Location.hasMany(Post, { foreignKey: 'location_id', constraints: false }); // un post tiene muchas reviews **REVISAR FOREIGN_KEY
+Post.belongsTo(Location, { foreignKey: 'location_id', constraints: false }); // un review pertenece a un solo post **REVISAR FOREIGN_KEY
+
 
 
 module.exports = {
