@@ -75,7 +75,8 @@ function DetailComponent() {
                         
                     </div>
                 </div>
-                    <div className="pt-8 grid grid-row justify-center auto-cols-auto" >
+                    <div className="pt-6 grid grid-row justify-center auto-cols-auto" >
+                    <h2 className="text-gray-900 pb-4 text-2xl title-font font-medium mb-1">{`Esta publicación aplica para ${location?.name}:`}</h2>
                     <div style={{width: "800px", height: "200px"}} >
                     <MapComponent googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
                     process.env.REACT_APP_GOOGLE_KEY}` }
