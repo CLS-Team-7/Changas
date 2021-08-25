@@ -10,9 +10,9 @@ function Map({location}) {
   return (
     <GoogleMap
       defaultZoom={6}
-      defaultCenter={{ lat:location?.lat, lng: location?.lng }}
+      defaultCenter={{ lat:parseFloat(location?.lat), lng: parseFloat(location?.lng) }}
     >
-      <Marker position={{ lat:location?.lat, lng: location?.lng }} />
+      <Marker position={{ lat:parseFloat(location?.lat), lng: parseFloat(location?.lng) }} />
     </GoogleMap>
   )
 }
