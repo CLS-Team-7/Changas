@@ -36,39 +36,36 @@ function CarruselHome({ type, post, link, validate }) {
                         <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg></Link> :
                     <span></span>
-
                 }
-
-
             </div >
-                <div>
-                    <Carousel 
-                            
-                            responsive={responsive} 
-                            swipeable={false}
-                            /* centerMode={true} */
-                            
-                            draggable={false}
-                            showDots={true}
-                            autoPlay={true}
-                            autoPlaySpeed={3000}
-                            infinite={true}
-                            focusOnSelect={false}
-                            slidesToSlide={3}
-                            itemClass="carousel-item-padding-40-px carousel-item-outline-none">
-                            {post?.map(e => {
-                                return <CarruselCard
-                                    key={e.id}
-                                    title={e.title}
-                                    img={e.image}
-                                    category={e.category}
-                                    id={e.id}
-                                    isPremium={e.isPremium}
-                                />
-                            })}
-                    </Carousel>
-                </div>
-                
+            <div>
+                <Carousel
+
+                    responsive={responsive} swipeable={false}
+                    draggable={false}
+                    showDots={true}
+                    autoPlay={true}
+                    autoPlaySpeed={3000}
+                    infinite={true}
+                    focusOnSelect={false}
+                    slidesToSlide={1}
+                    itemClass="carousel-item-padding-40-px carousel-item-outline-none">
+                    {post?.map(e => {
+                        if (e.isActive) {
+                            return <CarruselCard
+                                key={e.id}
+                                title={e.title}
+                                img={e.image}
+                                category={e.category}
+                                id={e.id}
+                                isPremium={e.isPremium}
+                            />
+                        }
+                    }
+                    )}
+                </Carousel>
+            </div>
+
         </div>
     )
 }
