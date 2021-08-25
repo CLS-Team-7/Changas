@@ -56,41 +56,41 @@ async function getReviewById(req, res, next) {
 	}
 };
 
-// async function getPostReview(req, res, next) {
-// 	let { idPost } = req.params;
-// 	if (idPost && idPost.length === 36) { // 36 es la length del UUID
-// 		try {
-// 			let result = await Post.findOne({
-// 				where: {
-// 					id: idPost,
-// 				},
-// 				attributes: ["id"],
-// 				include: [
-// 					{
-// 						model: Review,
-// 						attributes: { exclude: ["post_id", "updatedAt"] }
-// 					}
-// 				],
-// 			});
-// 			if (result) res.json(result);
-// 			else
-// 				throw new Error(
-// 					"ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe)."
-// 				);
-// 		} catch (err) {
-// 			next(err);
-// 		};
-// 	};
-// 	if (idPost && idPost.length !== 36) {
-// 		try {
-// 			throw new TypeError(
-// 				"ERROR 404: ID inválido (ID no es un tipo UUID válido)."
-// 			); // automaticamente rechaza un error, sin buscar por la DB
-// 		} catch (err) {
-// 			next(err);
-// 		}
-// 	};
-// };
+async function getPostReview(req, res, next) {
+ 	let { idPost } = req.params;
+ 	if (idPost && idPost.length === 36) { // 36 es la length del UUID
+ 		try {
+ 			let result = await Post.findOne({
+ 				where: {
+ 					id: idPost,
+ 				},
+ 				attributes: ["id"],
+ 				include: [
+ 					{
+ 						model: Review,
+ 						attributes: { exclude: ["post_id", "updatedAt"] }
+ 					}
+ 				],
+ 			});
+ 			if (result) res.json(result);
+ 			else
+ 				throw new Error(
+ 					"ERROR 500: La publicación no fue encontrada en la base de datos (UUID no existe)."
+ 				);
+ 		} catch (err) {
+ 			next(err);
+ 		};
+ 	};
+ 	if (idPost && idPost.length !== 36) {
+ 		try {
+ 			throw new TypeError(
+ 				"ERROR 404: ID inválido (ID no es un tipo UUID válido)."
+ 			); // automaticamente rechaza un error, sin buscar por la DB
+ 		} catch (err) {
+ 			next(err);
+ 		}
+ 	};
+ };
 
 async function createReview(req, res, next) {
 	let { rating, description, user_id, post_id } = req.body;
@@ -142,6 +142,7 @@ async function deleteReview(req, res) {
 module.exports = {
 	getAllReviews,
 	getReviewById,
+	getPostReview,
 	createReview,
 	updateReview,
 	deleteReview,
