@@ -18,6 +18,27 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
+  hacerChangas = () => {
+    const message = this.createChatBotMessage(
+      'Somos una empresa tecnológica que conecta personas que buscan y ofrecen trabajos, unimos los dos puntos por medio de publicaciones'
+    )
+    this.addMessageToState(message)
+  }
+
+  guiaLinks = () => {
+    const message = this.createChatBotMessage(
+      <a href='https://changas.vercel.app/faq'>Ante cualquier duda en Changas puedes hacer click 🛠 aquí!!</a>,
+    )
+    this.addMessageToState(message)
+  }
+
+  plusHenry = () => {
+    const message = this.createChatBotMessage(
+      <a href='https://www.soyhenry.com/'>Si quieres conocer donde estudiaron mis creadores hace click aquí 💛!!</a>
+    )
+    this.addMessageToState(message)
+  }
+
   ayudaOfrecer = () => {
     const message = this.createChatBotMessage(
       'Ante cualquier duda dirígete a la FAQ para conocer más detalles',
@@ -39,6 +60,13 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
+  palabrasGracias2 = () => {
+    const message = this.createChatBotMessage(
+      'Gracias, 😊 que tengas un excelente dia',
+    )
+    this.addMessageToState(message)
+  }
+
   registro = () => {
     const message = this.createChatBotMessage(
       'Para registrarte encontraras un boton arriba a la derecha donde podras ingresar con tu cuenta de Google',
@@ -55,14 +83,14 @@ class ActionProvider {
 
   ayudaPublicarOfrecer = () => {
     const message = this.createChatBotMessage(
-      'Para publicar un trabajo deberás dirigirte a la sección de posteos, llenar el formulario y aceptar los términos y condiciones del mismo.',
+      'Para publicar un trabajo deberás dirigirte a la sección de Publicar, llenar el formulario y aceptar los términos y condiciones del mismo.',
     )
     this.addMessageToState(message)
   }
 
   ayudaPublicarNecesidad = () => {
     const message = this.createChatBotMessage(
-      'Para contratar un servicio deberás dirigirte a la sección de posteos, hacer click sobre el servicio que necesites y seguir los pasos.',
+     'Para contratar un servicio deberás dirigirte a la sección de Publicar hacer click sobre el servicio que necesites y seguir los pasos</a>',
     )
     this.addMessageToState(message)
   }

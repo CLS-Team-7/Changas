@@ -9,6 +9,9 @@ class MessageParser {
     if (!lowercase) {
       this.actionProvider.vacio();
     }
+    if (lowercase.includes("changas")) {
+      this.actionProvider.hacerChangas();
+    }
     if (lowercase.includes("hi")) {
       this.actionProvider.saludar();
     }
@@ -21,41 +24,38 @@ class MessageParser {
     if (lowercase.includes("buenos")) {
       this.actionProvider.saludar();
     }
-    if (lowercase.includes("contratar")) {
-      this.actionProvider.ayudaPublicarNecesidad();
-    }
-    if (lowercase.includes("contrato")) {
+    if (lowercase.includes("contrat")) {
       this.actionProvider.ayudaPublicarNecesidad();
     }
     if (lowercase.includes("public")) {
       this.actionProvider.ayudaPublicarOfrecer();
     }
-    if (lowercase.includes("post")) {
+    if (lowercase.includes("posteo")) {
       this.actionProvider.ayudaPublicarOfrecer();
     }
-    if (lowercase.includes("registrarme")) {
-      this.actionProvider.registro();
-    }
-    if (lowercase.includes("registrarse")) {
-      this.actionProvider.registro();
-    }
-    if (lowercase.includes("registro")) {
+    if (lowercase.includes("registr")) {
       this.actionProvider.registro();
     }
     if (lowercase.includes("gracias")) {
       this.actionProvider.palabrasGracias();
     }
     if (lowercase.includes("listo")) {
-      this.actionProvider.palabrasGracias();
+      this.actionProvider.palabrasGracias2();
     }
     if (lowercase.includes("puto")) {
       this.actionProvider.palabrasInsultos();
     }
-    if (lowercase.includes("soretes")) {
-      this.actionProvider.palabrasBroma();
-    }
     if (lowercase.includes("gil")) {
       this.actionProvider.palabrasInsultos();
+    }
+    if (lowercase.includes("forro")) {
+      this.actionProvider.palabrasBroma();
+    }
+    if (lowercase.includes("duda")) {
+      this.actionProvider.guiaLinks();
+    }
+    if (lowercase.includes("henry")) {
+      this.actionProvider.plusHenry();
     }
   }
 }
