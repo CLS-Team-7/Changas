@@ -63,6 +63,21 @@ class MessageParser {
     if (lowercase.includes("henry")) {
       this.actionProvider.plusHenry();
     }
+    if (lowercase.includes("ayuda")) {
+      this.actionProvider.ayudaOfrecer();
+    }
+    if (lowercase.includes("ayuda")) {
+      this.actionProvider.ayudaOfrecer1();
+    }
+    if (lowercase.includes("ayuda")) {
+      this.actionProvider.ayudaOfrecer2();
+    }
+    if (lowercase.includes("ayuda")) {
+      this.actionProvider.ayudaOfrecer3();
+    }
+    if (lowercase.includes("promo")) {
+      this.actionProvider.promocionar();
+    }
   }
 }
 
