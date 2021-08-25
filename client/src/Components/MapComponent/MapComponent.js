@@ -8,12 +8,15 @@ import {
 
 function Map({location}) {
   return (
+    <>
+    {location ? 
     <GoogleMap
       defaultZoom={6}
       defaultCenter={{ lat:location?.lat, lng: location?.lng }}
     >
       <Marker position={{ lat:location?.lat, lng: location?.lng }} />
-    </GoogleMap>
+    </GoogleMap> : <h1 className="text-gray-900 pb-4 text-2xl title-font font-medium mb-1">Cargando</h1> }
+    </>
   )
 }
 
