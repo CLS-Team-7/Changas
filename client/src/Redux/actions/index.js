@@ -310,5 +310,18 @@ export const getAllLocations = () => {
     }
 }
 
+export const getReviewAverage = (id) => {
+    return (dispatch) => {
+        axios.get(`/review/${id}`)
+            .then(r => r.data)
+            .then(data => {
+                //console.log(data.review.rating)
+                dispatch({ type: "GET_REVIEW_AVERAGE", payload: data })
+            })
+    }
+}
+
+
+
 
 
