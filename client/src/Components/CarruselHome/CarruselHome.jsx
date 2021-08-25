@@ -15,11 +15,13 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 2,
+        centerMode: false
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1
+        items: 1,
+        centerMode: false
     }
 };
 
@@ -38,27 +40,35 @@ function CarruselHome({ type, post, link, validate }) {
                 }
 
 
-            </div>
-            <Carousel responsive={responsive} swipeable={false}
-                draggable={false}
-                showDots={true}
-                autoPlay={true}
-                autoPlaySpeed={3000}
-                infinite={true}
-                focusOnSelect={false}
-                slidesToSlide={3}
-                itemClass="carousel-item-padding-40-px carousel-item-outline-none">
-                {post?.map(e => {
-                    return <CarruselCard
-                        key={e.id}
-                        title={e.title}
-                        img={e.image}
-                        category={e.category}
-                        id={e.id}
-                        isPremium={e.isPremium}
-                    />
-                })}
-            </Carousel>
+            </div >
+                <div>
+                    <Carousel 
+                            
+                            responsive={responsive} 
+                            swipeable={false}
+                            /* centerMode={true} */
+                            
+                            draggable={false}
+                            showDots={true}
+                            autoPlay={true}
+                            autoPlaySpeed={3000}
+                            infinite={true}
+                            focusOnSelect={false}
+                            slidesToSlide={3}
+                            itemClass="carousel-item-padding-40-px carousel-item-outline-none">
+                            {post?.map(e => {
+                                return <CarruselCard
+                                    key={e.id}
+                                    title={e.title}
+                                    img={e.image}
+                                    category={e.category}
+                                    id={e.id}
+                                    isPremium={e.isPremium}
+                                />
+                            })}
+                    </Carousel>
+                </div>
+                
         </div>
     )
 }

@@ -9,7 +9,7 @@ function CarruselCard({ title, img, category, id, isPremium }) {
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden duration-200 shadow hover:shadow-xl relativ ">
                     <Link to={`/posts/${id}`}><img src={img} alt="" className="lg:h-48 md:h-36 w-full object-cover object-center relative rounded-lg" /></Link>
                     {isPremium
-                        ? <div className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black w-1/4 text-center rounded-r-xl p-2 font-medium absolute top-0 left-0 p-2">Premium</div>
+                        ? <div className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black md:w-1/4 sm:w-1/2 text-center rounded-r-xl p-2 font-medium absolute top-0 left-0 p-2">Premium</div>
                         : <span></span>
                     }
                     <div className="absolute button-0 right-0 p-1 ">
