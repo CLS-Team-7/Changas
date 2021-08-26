@@ -11,15 +11,15 @@ function CreatePostUserComp() {
     //ESTO ES PARA LA DEMO//
     const user = useSelector(state => state.userLogin)
     const category = useSelector(state => state.categoryPost)
-//<<<<<<< reportsDEMOFINAL
+    //<<<<<<< reportsDEMOFINAL
 
     const [errors, setErrors] = useState({})
-//=======
+    //=======
     const locations = useSelector(state => state.allLocations)
-//>>>>>>> main
+    //>>>>>>> main
 
     useEffect(() => {
-        
+
         dispatch(getAllCategory())
         dispatch(getAllSpecialty())
         dispatch(getAllLocations())
@@ -44,7 +44,7 @@ function CreatePostUserComp() {
         workingArea: [],
         location_id: null
     })
- 
+
 
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -56,14 +56,14 @@ function CreatePostUserComp() {
         data.append('upload_preset', 'nel6uilj')
         setLoading(true)
         const res = await fetch(
-          '	https://api.cloudinary.com/v1_1/changas/image/upload',
-          {
-            method: 'POST',
-            body: data
-          }
+            '	https://api.cloudinary.com/v1_1/changas/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
         )
         const file = await res.json()
-    
+
         setImage(file.secure_url)
         setLoading(false)
         setPostInput(values => ({
@@ -116,7 +116,7 @@ function CreatePostUserComp() {
         push("/user/posts")
     }
 
-    
+
     return (
         <div>
             {
@@ -163,18 +163,19 @@ function CreatePostUserComp() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                                         <div className="grid grid-cols-1">
+
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Zona / Área de trabajo</label>
                                             <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="location_id">
-                                                    <option value="Null" disabled selected>Elegir</option>
-                                                    {locations?.length !== 0 ?
+                                                <option value="Null" disabled selected>Elegir</option>
+                                                {locations?.length !== 0 ?
 
-                                                        locations?.map(e => {
-                                                            return <option value={e.id} key={e.id}>{e.name}</option>
-                                                        })
+                                                    locations?.map(e => {
+                                                        return <option value={e.id} key={e.id}>{e.name}</option>
+                                                    })
 
-                                                        : <option>Cargando...</option>
-                                                    }
-                                                </select>
+                                                    : <option>Cargando...</option>
+                                                }
+                                            </select>
                                         </div>
                                         <div className="grid grid-cols-1">
                                             <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Precio Base / "A Convenir"</label>
@@ -205,20 +206,34 @@ function CreatePostUserComp() {
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div>
-                                    
-                                     <input
+                                        {
+                                            <div class="grid grid-cols-1 mt-5 mx-7">
+                                                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Subir Foto</label>
+                                                <div class='flex items-center justify-center '>
+                                                    <label class='flex flex-col border-4  min-w-full h-10 border-dashed overflow-hiden h-32 hover:bg-gray-100 hover:border-purple-300 group'>
+                                                        {/* <div class='flex flex-col items-center justify-center pt-7'>
+                                                            <p class='lowercase text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Elegir foto</p>
+                                                            <svg class="w-10 h-10 text-purple-400 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                            
+                                                        </div> */}
+                                                        {loading ? (
+                                                            <h3 className="font-semibold">Loading...</h3>
+                                                        ) : (
+                                                            <img src={image} className="lg:h-48 md:h-36 w-full object-cover object-center relative overflow-hidden"/* style={{ width: '100px' }} */ alt="" />
+                                                        )}
+                                                        <input type='file' name="file" class="hidden" onChange={uploadImage} />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        }
+                                        {/*                                         <input
                                             type="file"
                                             name="file"
-                                            placeholder="Upload an image"
+
                                             onChange={uploadImage}
-      />
-      {loading ? (
-        <h3>Loading...</h3>
-      ) : (
-        <img src={image} style={{ width: '100px' }} alt="" />
-      )}
+                                        /> */}
                                     </div>
 
                                     <div className="m-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
