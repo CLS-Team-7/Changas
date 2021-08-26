@@ -25,12 +25,13 @@ function DetailComponent() {
     let { id } = useParams();
 
     useEffect(() => {
-        // MANU: HACER ACTION PARA TRAER ANSWERS QUESTIONS Y REVIEWS
         dispatch(getSinglePost(id));
-        dispatch(getReviewAverage(id))
-        dispatch(clearSinglePost());    //ACASO ESTO ROMPE? NO ACTUALIZA AL MOMENTO??? MAPS/REVIEW/ANSWERS/QUESTIONS???
+
+        dispatch(getReviewAverage(id)) // esta accion tiene que estar en el modalReviewValidate, y dispararse solo cuando acepta reviews (se proteje de mala fe/competencia, pero no se favorece al chanta)
+
+        dispatch(clearSinglePost());
     }, [dispatch, id]);
-    //const singlePost = useSelector(state => state.singlePost)
+
 
     return (
         <>

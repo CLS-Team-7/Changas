@@ -288,7 +288,7 @@ async function createUser(req, res, next) {
 	};
 };
 
-async function updateUser(req, res, next) {
+async function updateUser(req, res, next) { // hacer cambios para poder setear score (desde UserProfile.jsx) Y jobsDone (desde modalReviewValidate.jsx) 
 	//let { sub } = req.body;
 	let changes = req.body;
 	changes = { ...changes, isDataComplete: true } // como el usuario ya existia y ahora manda datos completos, se setea isDataComplete a true

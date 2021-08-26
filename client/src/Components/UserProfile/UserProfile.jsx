@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { getSingleUser } from '../../Redux/actions';
+import { getSingleUser, UpdateUserData } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
 import WhatsAppButton from '../WhatsAppButton/WhatsAppButton';
-
+import Rating from '../Review/Rating';
 
 function UserProfile() {
     const { isAuthenticated } = useAuth0();
@@ -12,39 +12,22 @@ function UserProfile() {
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
-    console.log('user', user)
+    //console.log('user', user)
     useEffect(() => {
         dispatch(getSingleUser(id))
+        //dispatch(UpdateUserData({sub: user.sub, score : user.score})) // le pega a la DB y actualiza el score
     }, [dispatch, id])
+
+
+    // logica para calcular score internamente
     let userPosts = [];
     let postReviews = [];
     let allReviewsRating = [];
     let totalRating = 0;
-    // let averageScore = 0;
-    //     if (this.posts?.length === 0) {
-    //         value = 0
-    //         return this.setDataValue("score", value)
-    //     } else {
-    //         this.posts?.forEach(p => userPosts.push(p));
-    //         userPosts?.forEach(p => p.reviews?.forEach(r => postReviews.push(r)));
-    //         postReviews?.forEach(r => allReviewsRating.push(r.rating));
-    //         if (allReviewsRating.length) {
-    //             totalRating = allReviewsRating?.reduce((a, b) => {
-    //                 return a + b
-    //             })
-    //         }
-    //         totalRating > 0 ? value = totalRating / postReviews.length : value = 0
-    //         return this.setDataValue("score", value)
-    //     }
-
     if (user.posts?.length) {
         userPosts = user.posts?.map(p => p);
-        // console.log("userPosts", userPosts)
         postReviews = userPosts?.map(p => p.reviews);
-        // console.log("postReviews", postReviews)
-        // console.log(postReviews[0])
         allReviewsRating = postReviews[0]?.map(review => review.rating);
-        // console.log("allReviewsRating", allReviewsRating)
         if (allReviewsRating.length) {
             totalRating = allReviewsRating?.reduce((a, b) => {
                 return a + b
@@ -85,7 +68,7 @@ function UserProfile() {
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Puntaje promedio</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score}  </dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score} {<Rating rating={Math.ceil(user.score)} />} </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Trabajos realizados a otros usuarios</dt>
