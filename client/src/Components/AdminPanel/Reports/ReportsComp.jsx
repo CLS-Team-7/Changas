@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import BottonAdminReports from '../BottonAdmin/Reports/BottonAdminReports'
+import DeleteReport from '../BottonAdmin/Reports/DeleteReport'
 
 function ReportsComp({ report }) {
     return (
@@ -17,13 +18,13 @@ function ReportsComp({ report }) {
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-
+                        Tipo de reporte
                     </th>
                     <th
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                        Tipo de reporte
+                        Resuelto
                     </th>
                     <th
                         scope="col"
@@ -55,20 +56,29 @@ function ReportsComp({ report }) {
 
 
                     <td className="px-6 py-4 whitespace-nowrap">
-
-
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                             {
                                 reports.reportSubject
                             }
                         </span>
+
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+
+                        {
+                            reports.isSettled ?
+                                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    true
+                                </span> :
+                                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    false
+                                </span>
+                        }
                     </td>
                     {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{reports.isAdmin ? "Admin" : "Normal"}</td> */}
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        {/* <ButtomAdminUser id={reports.sub} isActive={reports.isActive} /> */}
+                        <BottonAdminReports data={reports} isSettled={reports.isSettled} isActive={reports.isActive} />
+                        <DeleteReport id={reports.id} />
                     </td>
                 </tr>
             })}
