@@ -64,7 +64,16 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
                     </div>
                     <div className="w-11/12 md:w-9/12 flex flex-col">
                       <textarea rows="3" name="question" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
-                      <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded">Enviar</button>
+                      {postInput.question?.length > 10 ?
+                        <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
+                        :
+                        <div className="mt-2 mb-2 bg-gray-300 rounded-lg">
+                          <p className=" m-2 md:text-sm text-xs text-red-600 text-light font-semibold">
+                            Por favor, indicale al usuario cuál es tu pregunta / consulta
+                          </p>
+                        </div>
+                      }
+
                     </div>
                   </div>
                 </div>

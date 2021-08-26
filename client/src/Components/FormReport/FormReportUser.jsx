@@ -56,7 +56,7 @@ export default function AddFormReport(props) { /// chequear tambien que el mismo
                             Tu reporte será enviado al equipo de CHANGAS.
                           </p>
                           <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold">
-                            Por favor, indicá precisamente cuál es el problema que encontraste con este usuario para que podamos tratarlo
+                            Por favor, indicá precisamente cuál es el problema que encontraste con este usuario para que podamos tratarlo.
                           </p>
                           <p className=" m-2 md:text-sm text-xs text-gray-900 text-light font-semibold">
                             En caso de corresponder, se tomarán las medidas pertinentes para solucionar el problema.
@@ -73,7 +73,16 @@ export default function AddFormReport(props) { /// chequear tambien que el mismo
                       </div>
                       <div className="w-3/4 flex flex-col">
                         <textarea rows="3" name="complaint" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Razones / motivos del reporte" />
-                        <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
+
+                        {postInput.complaint?.length > 10 ?
+                          <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
+                          :
+                          <div className="mt-2 mb-2 bg-gray-200 rounded-lg">
+                            <p className=" m-2 md:text-sm text-xs text-red-600 text-light font-semibold">
+                              Por favor, indicanos los motivos / razones del problema
+                            </p>
+                          </div>
+                        }
                       </div>
                     </div>
                   </div>
