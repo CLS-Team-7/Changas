@@ -15,7 +15,7 @@ function DetailComponent() {
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
     const singlePost = useSelector(state => state.singlePost);
-    const { title, image, description, priceRange, category, specialty, user, location } =
+    const { title, image, description, priceRange, category, specialty, user, location, paymentMethods, timeRange } =
         useSelector((state) => state.singlePost);
 
     let { id } = useParams();
@@ -46,7 +46,23 @@ function DetailComponent() {
 
                         <p className="m-2 leading-relaxed"> Puntaje del usuario: {/*consumir de algun estado interno del componente*/}</p>
                         <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
+                        <div className="flex justify-around">
+                  <p className=" m-2 leading-relaxed">
+                    {" "}
+                    Metodos de pago:{" "}
+                    {paymentMethods &&
+                      paymentMethods?.map((metodo) => <li className='text-left list-none'>{metodo}</li>)}{" "}
+                  </p>
 
+                  <p className=" m-2 leading-relaxed">
+                    {" "}
+                    Horarios:{" "}
+                    {timeRange &&
+                      timeRange?.map((horario) => (
+                        <li className="text-right list-none">{horario}</li>
+                      ))}{" "}
+                  </p>
+                </div>
                         <p className="m-2 leading-relaxed pb-2">"{description}"</p>
 
                         <div className="flex flex-row">

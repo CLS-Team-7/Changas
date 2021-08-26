@@ -34,7 +34,7 @@ import FormReportPost from './Components/FormReport/FormReportPost';
 import FormReportQuestion from './Components/FormReport/FormReportQuestion';
 import FormReportAnswer from './Components/FormReport/FormReportAnswer';
 import FormReportUser from './Components/FormReport/FormReportUser';
-import CreatePostUserCompCopy from './Components/PanelUser/CreatePostUser/CreatePostUserComp copy';
+import CreatePostUserComp from './Components/PanelUser/CreatePostUser/CreatePostUserComp';
 import DeletedUser from './views/deletedUser/deletedUser.jsx';
 
 function App() {
@@ -147,7 +147,7 @@ function App() {
           <PanelUserQuestions />
         </Route>
         <Route exact path='/pruebaform'>
-          <CreatePostUserCompCopy/>
+          <CreatePostUserComp/>
         </Route>
         <Route path='/faq'>
           <FAQ />
