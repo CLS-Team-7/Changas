@@ -9,7 +9,7 @@ const FavoriteButton = () => {
 
   const favoritePost = useSelector(state => state.favoritePost)
 
-  // console.log(favoritePost)
+
 
   return (
     <>

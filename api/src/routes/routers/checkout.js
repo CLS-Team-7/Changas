@@ -78,7 +78,6 @@ router.get('/failure', async (req, res, next) => {
 	// const payment_type = req.query.payment_type
 	const preference_id = req.query.preference_id // ID DE MP
 
-	//console.log("EXTERNAL REFERENCE ", external_reference)
 
 	let infoMP = {
 		payment_id,
@@ -174,7 +173,7 @@ router.get("/:id", async (req, res, next) => { // localhost:3001/testcheckout
 // 	const payment_status = req.query.status
 // 	const external_reference = req.query.external_reference
 // 	const merchant_order_id = req.query.merchant_order_id
-// 	console.log("EXTERNAL REFERENCE ", external_reference)
+
 
 // 	//Aquí edito el status de mi orden --> pero en MP o en la DB??
 // 	Order.findByPk(external_reference)

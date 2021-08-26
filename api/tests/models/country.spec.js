@@ -16,7 +16,7 @@ describe('Country model', () => {
           }
         })
         .then(country => {
-          console.log('CT DB Test')
+
           expect(country.name).to.equal('Argentina');
         })
       })
@@ -27,7 +27,7 @@ describe('Country model', () => {
           }
         })
         .then(country => {
-          console.log('CT DB Test')
+
           expect(country.name).to.equal('England');
         })
       })

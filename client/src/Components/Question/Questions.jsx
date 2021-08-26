@@ -14,13 +14,11 @@ export default function Questions() {
     const singlePost = useSelector(state => state.singlePost);
     let questions = singlePost.questions;
     let validatedQuestions = questions?.filter(question => question.user_id !== userLogin.id);
-    // console.log("reviews", reviews);
-    // console.log("validated", validatedReviews);
+
     useEffect(() => {
         dispatch(getSinglePost(id))
     }, [dispatch, id])
-    //validatedQuestions ? console.log(Object.keys(validatedQuestions[0])) : console.log("tu vieja puta")
-
+    
 
 
     return (

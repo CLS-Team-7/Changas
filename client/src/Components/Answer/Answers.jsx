@@ -17,20 +17,18 @@ export default function Answers({ id_question }) {
     let onlyAnswers = [];
     let questionAnswers = [];
 
-    // console.log("reviews", reviews);
-    // console.log("validated", validatedReviews);
     useEffect(() => {
         dispatch(getSinglePost(id))
     }, [dispatch, id])
 
 
-    //validatedQuestions ? console.log(validatedQuestions) : console.log("tu vieja puta")
+ 
 
     validatedQuestions?.forEach(q => q.answers?.forEach(ans => onlyAnswers.push(ans)))
-    // onlyAnswers ? console.log(onlyAnswers) : console.log('niet')
+
 
     questionAnswers = onlyAnswers?.filter(ans => ans.question.id === id_question)
-    // console.log(questionAnswers)
+
 
     return (
         <ul className=" flex flex-col">

@@ -19,8 +19,7 @@ function ComponentCreatePost() { // este componente no se usa
 
 
 
-    /* console.log(category) */
-    /* console.log(specialty) */
+
     const [specialtyBeta, setSpecialtyBeta] = useState([])
     const [postInput, setPostInput] = useState({
         user_id: "",

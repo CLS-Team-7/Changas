@@ -10,7 +10,7 @@ function FavoriteComponent({ id, img, title }) {
   let x;
 
   favsFromLocalStorage.length > 0 ? (x = favsFromLocalStorage) : (x = []);
-  // console.log(x, favsFromLocalStorage);
+
 
 
   const post = { id: id, title: title, img: img }

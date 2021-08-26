@@ -212,7 +212,7 @@ export const CheckoutPost = (data) => {
         axios.post(`/order`, data)
             .then(r => r.data)
             .then(data => {
-                // console.log(data, "ANDA O ME MATO")
+
                 dispatch({ type: GET_MP_ORDER_INFO, payload: data })
             })
     }
@@ -280,7 +280,7 @@ export const getFavoritePostList = () => {
         if (!listFavorite) {
             dispatch({ type: GET_FAVORITE_POST, payload: [] })
         } else {
-            // console.log(listFavorite)
+
             dispatch({ type: GET_FAVORITE_POST, payload: listFavorite })
         }
     };

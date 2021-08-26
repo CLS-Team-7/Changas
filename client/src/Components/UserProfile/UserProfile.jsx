@@ -12,7 +12,7 @@ function UserProfile() {
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
-    console.log(user)
+
     useEffect(() => {
         dispatch(getSingleUser(id))
     }, [dispatch, id])

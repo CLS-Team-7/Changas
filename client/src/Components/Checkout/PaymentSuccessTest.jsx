@@ -9,7 +9,7 @@ function PaymentSuccessTest() {
 
 	// const dispatch = useDispatch();
 	let { id } = useParams()
-	// console.log(id)
+
 	// useEffect(() => {
 
 	// 	dispatch(getOrderTest())

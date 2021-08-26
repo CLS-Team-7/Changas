@@ -70,7 +70,7 @@ function Header() {
   }
 
   const userLogin = useSelector(state => state.userLogin)
-  /* console.log(userLogin) */
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-800">

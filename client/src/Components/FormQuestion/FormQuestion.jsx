@@ -14,7 +14,7 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
   const userLogin = useSelector(state => state.userLogin);
 
 
-  console.log(userLogin)
+
 
   const [postInput, setPostInput] = useState({
     user_id: userLogin.id,

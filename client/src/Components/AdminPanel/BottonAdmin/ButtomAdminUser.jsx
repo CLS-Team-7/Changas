@@ -8,7 +8,7 @@ import axios from 'axios'
 function ButtomAdminUser({ id, isActive }) {
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false)
-    console.log(id, isActive)
+
     const cancelButtonRef = useRef(null)
 
     const handleClick = () => {

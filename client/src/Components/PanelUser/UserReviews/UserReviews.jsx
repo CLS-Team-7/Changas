@@ -21,8 +21,7 @@ function UserPost() {
     filterReviews = allReview.filter(e => e.isValidated === false && userLogin.id !== e.user.id) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
   }
 
-  // console.log(filterReviews)
-  // console.log(allReview)
+
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">

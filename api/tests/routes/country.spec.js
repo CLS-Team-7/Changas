@@ -40,7 +40,7 @@ describe('Country routes', () => {
     it('should get Country Query', () =>
       agent.get('/countries?name=uru')
       .then(res => {
-        console.log(res.body, 'RES BODY')
+
         expect(res.body).to.be.a('array');
       })
     );

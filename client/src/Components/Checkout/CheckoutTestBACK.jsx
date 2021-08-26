@@ -19,7 +19,6 @@ function CheckoutTestBACK() {
 				axios
 					.get(`/order/${data.data.id_db}`) // ver si lo toma aca o es null
 					.then(data => {
-						console.log(data.data)
 						setOrder(data.data)
 						console.info('La order seteada en el state es: ', order)
 					})

@@ -20,8 +20,7 @@ function UserPost() {
     userQuestions = allQuestions.filter(e => userLogin.id === e.post.user.id && e.answers.length === 0) // filtrar las posteos (que traen asociadas sus questions), cuyo user.id === user_id de auth0 (login) Y: que tengan questions Y que no tengan answers  
   }
 
-  // console.log(filterQuestions)
-  // console.log(allReview)
+
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">

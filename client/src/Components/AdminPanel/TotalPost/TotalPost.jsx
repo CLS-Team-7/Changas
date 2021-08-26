@@ -22,7 +22,7 @@ function TotalPost() {
     const indexOfLastPost = currentPost * userPerPage;
     const indexOfFirstPost = indexOfLastPost - userPerPage;
     const currentPosts = Post.slice(indexOfFirstPost, indexOfLastPost);
-    console.log(currentPosts)
+
     const paginate = (pageNumber, e) => {
         e.preventDefault();
         setCurrentPost(pageNumber);

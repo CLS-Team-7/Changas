@@ -29,7 +29,7 @@ function Reports() {
     const indexOfLastReport = currentReport * reportPerPage;
     const indexOfFirstUser = indexOfLastReport - reportPerPage;
     const currentReports = report.slice(indexOfFirstUser, indexOfLastReport);
-    console.log(currentReports)
+
     return (
         <div className="flex flex-col">
             <div /* className="-my-1 overflow-x-auto sm:-mx-6 lg:-mx-8" */>

@@ -81,12 +81,12 @@ server.get("/", (req, res, next) => {
       console.info('********MP RESPONDIO********')
       //Este valor reemplazará el string"<%= global.id %>" en tu HTML
       global.id = response.body.id;
-      // console.log(response.body)
+
       mpData.forEach(d => console.log({ [`${d}`]: response.body[d] }));
       res.json({ id: global.id });
     })
     .catch(function (error) {
-      // console.log(error);
+
       next(err)
     })
 })
@@ -100,7 +100,7 @@ server.get("/pagos", (req, res) => {              // no entiendo bien esta parte
   const payment_status = req.query.status
   const external_reference = req.query.external_reference
   const merchant_order_id = req.query.merchant_order_id
-  console.log("EXTERNAL REFERENCE ", external_reference)
+
 
   //Aquí edito el status de mi orden --> pero en MP o en la DB??
   Order.findByPk(external_reference)
