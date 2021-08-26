@@ -9,6 +9,7 @@ function UserPost() {
   const allReview = useSelector((state) => state.allReview)
   const userLogin = useSelector(state => state.userLogin);
 
+  let validatedReviews = []
   let filterReviews = []
 
   const dispatch = useDispatch()
@@ -17,12 +18,17 @@ function UserPost() {
     dispatch(getAllReviews()) // aca hay un problema. Me trae todas las reviews, yo solo quiero las del usuario. Hay que filtrarlo en el back con getUserReviews
   }, [dispatch])
 
-  if (allReview.length) {
-    filterReviews = allReview.filter(e => e.isValidated === false && userLogin.id !== e.user.id) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
+  if (allReview?.length) {
+    validatedReviews = allReview.filter(e => e.isValidated === false) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
+    if (validatedReviews?.length) {
+      filterReviews = validatedReviews.filter(e => e.user.sub !== userLogin.sub)
+    }
   }
 
-  // console.log(filterReviews)
-  // console.log(allReview)
+  console.log(userLogin.sub)
+  console.log('allreview', allReview)
+  console.log('validatedReviews', validatedReviews)
+  console.log("filterREviews", filterReviews)
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">

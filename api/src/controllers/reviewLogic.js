@@ -10,10 +10,14 @@ async function getAllReviews(_req, res, next) { //http://localhost:3001/review -
 			include: [
 				{
 					model: User,
-					attributes: ['id', 'given_name', 'family_name', 'fullName']
+					attributes: ['id', 'given_name', 'family_name', 'fullName', "sub"]
 				}, {
 					model: Post,
-					attributes: ['id', 'title']
+					attributes: ['id', 'title'],
+					include: {
+						model: User,
+						attributes: ["sub"]
+					}
 				}
 			]
 		});
