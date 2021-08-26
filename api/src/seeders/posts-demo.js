@@ -35,7 +35,7 @@ const postsDB = [
     acceptsQuestions: true,
     isPremium: true,
     pack: 2,
-    location_id: 1000
+    location_id: 2000
   },
   {
     id: "0db120ed-c457-463d-9ae2-6565f26cbbe5",
@@ -54,7 +54,7 @@ const postsDB = [
     acceptsQuestions: true,
     isPremium: true,
     pack: 3,
-    location_id: 1000
+    location_id: 3000
   },
   {
     id: "4c9da85f-ef26-4639-8803-dc0cb443f01e",
@@ -72,7 +72,7 @@ const postsDB = [
     isActive: true,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 1000
+    location_id: 4000
   },
   {
     id: "d671dc74-8c73-43db-b562-227367698c35",
@@ -90,7 +90,7 @@ const postsDB = [
     isActive: true,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 1000
+    location_id: 5000
   },
   {
     id: "b1c4f80b-0e40-4232-b5c7-332b38d6cd73",
@@ -108,7 +108,7 @@ const postsDB = [
     isActive: true,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 1000
+    location_id: 6000
   },
   {
     id: "c6b034d9-fcf8-4b2e-95be-783537126588",
@@ -126,7 +126,7 @@ const postsDB = [
     isActive: false,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 1000
+    location_id: 7000
   },
   {
     id: "09a6e911-ede3-44bf-a002-6dbf3acd491b",
@@ -144,7 +144,7 @@ const postsDB = [
     isActive: false,
     acceptsQuestions: false,
     isPremium: false,
-    location_id: 1000
+    location_id: 8000
   },
   {
     id: "2bf5ee8b-4e6a-48f3-a030-30d3cdc0d697",
@@ -162,7 +162,7 @@ const postsDB = [
     isActive: true,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 1000
+    location_id: 9000
   },
   {
     id: "eca2c312-b2ee-47e1-9f28-398c854f3fec",
@@ -180,7 +180,7 @@ const postsDB = [
     isActive: false,
     acceptsQuestions: true,
     isPremium: false,
-    location_id: 2000
+    location_id: 23000
   },
 ];
 

@@ -68,14 +68,16 @@ function DetailComponent() {
                             </div>
                             <div>
                                 {isAuthenticated /*&& user?.id !== userLogin?.id */ ?
-                                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
+
+                                    <Link to={`/report/post/${id}`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar anuncio</button></Link>
                                     : null}
                             </div>
                         </div>
                         
                     </div>
                 </div>
-                    <div className="pt-8 grid grid-row justify-center auto-cols-auto" >
+                    <div className="pt-6 grid grid-row justify-center auto-cols-auto" >
+                    <h2 className="text-gray-900 pb-4 text-2xl title-font font-medium mb-1">{`Esta publicación aplica para ${location?.name}:`}</h2>
                     <div style={{width: "800px", height: "200px"}} >
                     <MapComponent googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
                     process.env.REACT_APP_GOOGLE_KEY}` }

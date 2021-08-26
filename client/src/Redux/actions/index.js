@@ -62,7 +62,7 @@ export const getSinglePost = (id) => {
     }
 }
 
-export const clearSinglePost = () => {
+export const clearSinglePost = () => { // esto genera conflictos si hacemos F5 parados en el formulario de reporte
     return (dispatch) => {
         dispatch({ type: GET_SINGLE_POST, payload: [] })
     }
@@ -253,6 +253,7 @@ export const createAnswer = (payload) => {
     }
 }
 
+
 ///////////////////////////////Favorite///////////////////////////////////////////
 
 export const addFavoritePost = (favoritePost) => {
@@ -329,4 +330,26 @@ export const getAllLocations = () => {
 }
 
 
+// -----------**** Report ****--------------
 
+export const postReport = (payload) => {
+    return (dispatch) => {
+        axios.post("/report", payload) // no se manda nada a la store / reducer porque el reporte no se consume
+        // .then(r => r.data)
+        // .then(data => {
+        //     dispatch({ type: POST_REVIEW, payload: data })
+        // })
+    };
+}
+
+// -----------**** Delete User ****--------------
+
+export const deleteUser = (id) => {
+    return (dispatch) => {
+        axios.delete(`/user/${id}`)
+            // .then(r => r.data)
+            // .then(data => {
+            //     dispatch({ type: "DELETE_REVIEW" })
+            // })
+    }
+}
