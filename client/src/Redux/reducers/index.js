@@ -23,6 +23,8 @@ const initialState = {
     reportsList: [],
     ordersList: [],
     allLocations: [],
+    postRatingAverage: 0,
+    // userScoreAverage: 0
 
 
 }
@@ -168,7 +170,19 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allLocations: payload
             }
+        case "GET_REVIEW_AVERAGE":
+            return {
+                ...state,
+                postRatingAverage: payload
+            }
 
+        //         case "GET_USER_AVERAGE_SCORE":
+        //             return {
+        //                 ...state,
+        //                 userScoreAverage: payload
+        //             }
+
+        // // action para aumentar jobs
         default:
             return state;
     }

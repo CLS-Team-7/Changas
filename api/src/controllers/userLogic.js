@@ -116,6 +116,10 @@ async function getUserById(req, res, next) {
 								attributes: ["id", "title"]
 							},
 							{
+								model: Review,
+								attributes: ["rating", "isValidated"]
+							},
+							{
 								model: Report, // los reports que tienen sus posteosi
 								attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
 								order: [["createdAt", 'DESC']],
@@ -284,7 +288,7 @@ async function createUser(req, res, next) {
 	};
 };
 
-async function updateUser(req, res, next) {
+async function updateUser(req, res, next) { // hacer cambios para poder setear score (desde UserProfile.jsx) Y jobsDone (desde modalReviewValidate.jsx) 
 	//let { sub } = req.body;
 	let changes = req.body;
 	changes = { ...changes, isDataComplete: true } // como el usuario ya existia y ahora manda datos completos, se setea isDataComplete a true

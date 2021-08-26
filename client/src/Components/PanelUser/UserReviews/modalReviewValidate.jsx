@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateReview, deleteReview } from '../../../Redux/actions'
+import { updateReview, deleteReview, UpdateUserData } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -11,8 +11,14 @@ const ModalReviewValidate = ({ review }) => {
   const [showModal, setShowModal] = useState(false)
   const { push } = useHistory()
   const dispatch = useDispatch()
+  const { user } = useAuth0();
+  console.log(user)
 
   function handleClickAccept() {
+
+    // action para aumentar jobsDone++ (se dispara cuando se acepta la review) SOLO CUANDO ACEPTA jobsDone = total reviews user
+    //dispatch(UpdateUserData({sub: user.sub, jobsDone : jobsDone + 1})) // es la solucion optima
+
     dispatch(updateReview({ isValidated: true }, review.id))
     setShowModal(false)
     push(`/posts/${review.post.id}`)

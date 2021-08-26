@@ -201,7 +201,7 @@ function FaqComponen() {
             <div className="group-focus:max-h-screen max-h-0 bg-gray-200 px-4 overflow-hidden ease duration-500">
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Una vez registrados todos tus datos y logueado en la aplicación,
-                hacé click en la sección "Nueva Publicación", completá los campos según el tipo de publicación y listo!
+                hacé click en la sección "Publicar", completá los campos según el tipo de publicación y listo!
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
                 Podés <strong>promocionar </strong>tus publicaciones para tener
@@ -311,7 +311,7 @@ function FaqComponen() {
                   <input
                     type="hidden"
                     name="apikey"
-                    value="9f880591-b81c-4e21-9e48-5b06ff409af0"
+                    value={`${process.env.REACT_APP_API_KEY}`}
                   />
                   <input
                     type="hidden"

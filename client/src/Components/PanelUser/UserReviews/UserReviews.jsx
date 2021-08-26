@@ -9,16 +9,20 @@ function UserPost() {
   const allReview = useSelector((state) => state.allReview)
   const userLogin = useSelector(state => state.userLogin);
 
+  let validatedReviews = []
   let filterReviews = []
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllReviews()) // aca hay un problema. Me trae todas las reviews, yo solo quiero las del usuario. Hay que filtrarlo en el back con getUserReviews
+    dispatch(getAllReviews())
   }, [dispatch])
 
-  if (allReview.length) {
-    filterReviews = allReview.filter(e => e.isValidated === false && userLogin.id !== e.user.id) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
+  if (allReview?.length) {
+    validatedReviews = allReview?.filter(e => e.isValidated === false) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
+    if (validatedReviews?.length && userLogin?.sub !== undefined) {
+      filterReviews = validatedReviews.filter(e => e.post?.user?.sub !== userLogin?.sub) // CON !== NO TRAE LOS REVIEWS HECHOS POR UNO MISMO EN SU MISMO POSTEO
+    }
   }
 
 
