@@ -21,6 +21,7 @@ const initialState = {
     petitionPost: [],
     offerPost: [],
     allLocations: [],
+    postRatingAverage: 0
 
 }
 
@@ -154,6 +155,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allLocations: payload
+            }
+        case "GET_REVIEW_AVERAGE":
+            return {
+                ...state,
+                postRatingAverage: payload
             }
 
         default:

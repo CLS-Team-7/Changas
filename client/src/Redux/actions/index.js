@@ -310,17 +310,33 @@ export const getAllLocations = () => {
     }
 }
 
-export const getReviewAverage = (id) => {
+export const getReviewAverage = (id) => { // el id es el del post
     return (dispatch) => {
         axios.get(`/review/${id}`) //sólo trae las reviews
             .then(r => r.data)
             .then(data => {
-                const ratings = data.reviews.map(x => {
-                    return x.rating})
-                const result = ratings.reduce((a, b) => {
-                    return a+b}) 
-                const average = Math.round(result / data.reviews.length); 
-                // console.log(average)
+                //console.log(data)
+                let ratings = [];
+                let result;
+                let average;
+                if (!data.reviews.length) {
+                    console.log("hola chicas")
+                    return dispatch({ type: "GET_REVIEW_AVERAGE", payload: 0 })
+                } else {
+                    ratings = data.reviews.map(x => {
+                        return x.rating
+                    })
+                }
+                console.log("ratings", ratings)
+                if (ratings.length) {
+                    result = ratings?.reduce((a, b) => {
+                        return a + b
+                    })
+                }
+                console.log("result", result)
+
+                result > 0 ? average = Math.round(result / data.reviews.length) : dispatch({ type: "GET_REVIEW_AVERAGE", payload: 0 });
+                console.log(average)
                 dispatch({ type: "GET_REVIEW_AVERAGE", payload: average })
             })
     }

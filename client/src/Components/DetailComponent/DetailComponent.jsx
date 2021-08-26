@@ -11,14 +11,17 @@ import MapComponent from '../MapComponent/MapComponent';
 import Rating from '../Review/Rating';
 
 
-function DetailComponent({average}) {
+function DetailComponent() {
     const { isAuthenticated } = useAuth0();
     const dispatch = useDispatch();
-    const userLogin = useSelector(state => state.userLogin);
+    // const userLogin = useSelector(state => state.userLogin);
     const singlePost = useSelector(state => state.singlePost);
-    const { title, image, description, priceRange, category, specialty, user, location } =
+    const { title, image, description, priceRange, category, specialty, location } =
         useSelector((state) => state.singlePost);
 
+    const postRatingAverage = useSelector(state => state.postRatingAverage)
+
+    console.log("estado store", postRatingAverage)
     let { id } = useParams();
 
     useEffect(() => {
@@ -44,12 +47,8 @@ function DetailComponent({average}) {
                                     <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1>
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
-
-                                    <p className="m-2 leading-relaxed"> Puntaje del usuario: <Rating rating={average}/> </p>
-                                    <p className="m-2 leading-relaxed"> Trabajos realizados: {/*consumir de algun estado interno del componente*/}</p>
-
+                                    <p className="m-2 leading-relaxed"> Puntaje promedio anuncio: <Rating rating={postRatingAverage} /> </p>
                                     <p className="m-2 leading-relaxed pb-2">"{description}"</p>
-
                                     <div className="flex flex-row">
                                         <div className="title-font font-medium text-2xl text-gray-900">Precio Base: {!isNaN(priceRange) ? <span>${priceRange}</span> : <span>{priceRange}</span>}</div>
                                         <SafeTips />
