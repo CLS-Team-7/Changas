@@ -28,21 +28,21 @@ function UserProfile() {
     let totalRating = 0;
     if (user.posts?.length) {
         userPosts = user.posts?.map(p => p);
-        console.log("UP", userPosts)
+
         postReviews = userPosts?.map(p => p.reviews);
-        console.log("PR", postReviews)
+
 
         validatedReviews = postReviews[0]?.filter(r => r.isValidated)
-        console.log("vr", validatedReviews)
+
 
         allReviewsRating = validatedReviews?.map(review => review.rating);
-        console.log("AR", allReviewsRating)
+
 
         if (allReviewsRating.length) {
             totalRating = allReviewsRating?.reduce((a, b) => {
                 return a + b
             })
-            console.log("totalRating", totalRating)
+
             totalRating > 0 ? user.score = (totalRating / postReviews[0].length).toFixed(1) : user.score = 0
         }
     }
