@@ -4,11 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { postReview } from '../../Redux/actions'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function AddFormReview(props) { /// chequear tambien que el mismo usuario no se haga preguntas a si mismo, ternario en el boton enviar
 
   const dispatch = useDispatch();
-  const { push } = useHistory();
+  const { push, goBack } = useHistory();
+  const { isAuthenticated } = useAuth0()
 
   //const user = useSelector(state => state.userAdmin);
   //const post = useSelector(state => state.postList);

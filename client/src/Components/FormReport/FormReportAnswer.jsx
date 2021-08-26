@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { postReport } from '../../Redux/actions'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function AddFormReport(props) { /// chequear tambien que el mismo usuario no se haga preguntas a si mismo, ternario en el boton enviar
 
   const dispatch = useDispatch();
-  const { push } = useHistory();
+  const { push, goBack } = useHistory();
   const { id } = useParams();
+  const { isAuthenticated } = useAuth0()
 
 
   const singlePost = useSelector(state => state.singlePost)
