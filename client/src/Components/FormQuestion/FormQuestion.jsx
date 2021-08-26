@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { postQuestion } from '../../Redux/actions' // aca va air la action postQuestion
+import { getAllPosts, getSinglePost, postQuestion } from '../../Redux/actions' // aca va air la action postQuestion
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -12,9 +12,6 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
   const { push, goBack } = useHistory()
   const singlePost = useSelector(state => state.singlePost)
   const userLogin = useSelector(state => state.userLogin);
-
-
-  console.log(userLogin)
 
   const [postInput, setPostInput] = useState({
     user_id: userLogin.id,
@@ -30,7 +27,9 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+
     dispatch(postQuestion(postInput))
+    dispatch(getSinglePost(singlePost.id))
     alert("¡Tu pregunta fue enviada! El dueño de la publicación fue notificado.")
     push(`/posts/${singlePost.id}`) //La pregunta se va a mostrar, el usuario la tiene que responder desde su panel
   }

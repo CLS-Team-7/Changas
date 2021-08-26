@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { getSingleUser } from '../../Redux/actions';
+import { getSingleUser, UpdateUserData } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
 import WhatsAppButton from '../WhatsAppButton/WhatsAppButton';
-
+import Rating from '../Review/Rating';
 
 function UserProfile() {
     const { isAuthenticated } = useAuth0();
@@ -12,10 +12,40 @@ function UserProfile() {
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
-    console.log(user)
+
+    
     useEffect(() => {
         dispatch(getSingleUser(id))
+        //dispatch(UpdateUserData({sub: user.sub, score : user.score})) // le pega a la DB y actualiza el score
     }, [dispatch, id])
+
+
+    // logica para calcular score internamente
+    let userPosts = [];
+    let postReviews = [];
+    let validatedReviews = [];
+    let allReviewsRating = [];
+    let totalRating = 0;
+    if (user.posts?.length) {
+        userPosts = user.posts?.map(p => p);
+        console.log("UP", userPosts)
+        postReviews = userPosts?.map(p => p.reviews);
+        console.log("PR", postReviews)
+
+        validatedReviews = postReviews[0]?.filter(r => r.isValidated)
+        console.log("vr", validatedReviews)
+
+        allReviewsRating = validatedReviews?.map(review => review.rating);
+        console.log("AR", allReviewsRating)
+
+        if (allReviewsRating.length) {
+            totalRating = allReviewsRating?.reduce((a, b) => {
+                return a + b
+            })
+            console.log("totalRating", totalRating)
+            totalRating > 0 ? user.score = (totalRating / postReviews[0].length).toFixed(1) : user.score = 0
+        }
+    }
 
     return (
         <div className="bg-white shadow overflow-hidden sm:rounded-lg min-h-screen">
@@ -39,7 +69,7 @@ function UserProfile() {
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Teléfono</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}
-                            <WhatsAppButton userPhone={user.phoneNumber}/>
+                            <WhatsAppButton userPhone={user.phoneNumber} />
                         </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -48,7 +78,8 @@ function UserProfile() {
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Puntaje promedio</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score} ==== poner estrellitas </dd>
+
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score} {<Rating rating={Math.round(user.score)} />} </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Trabajos realizados a otros usuarios</dt>
@@ -58,33 +89,7 @@ function UserProfile() {
                         <dt className="text-sm font-medium text-gray-500">Sobre {user.given_name}</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.summary}</dd>
                     </div>
-                    {/*<div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Reseñas de otros usuarios</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                {
-                                    user.reviews.length > 0 ? user.reviews?.map(e => {
-                                        return (<li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                            <div className="w-0 flex-1 flex items-center">
-                                                <h2 className="ml-2 flex-1 w-0 truncate bold font-medium">{e.title}</h2>
-                                            </div>
-                                            <div className="ml-4 flex-shrink-0">
-                                                <Link to={`/posts/${e.id}`} className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                    Ir a la publicación
-                                                </Link>
-                                            </div>
-                                        </li>)
-                                    })
-                                        : <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                            <div className="w-0 flex-1 flex items-center">
-                                                <h2 className="ml-2 flex-1 w-0 truncate bold font-medium">{user.given_name} no tiene ninguna reseña aún. ¡Sé el primero en dejarle una!</h2>
-                                            </div>
 
-                                        </li>
-                                }
-                            </ul>
-                        </dd>
-                    </div>*/}
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

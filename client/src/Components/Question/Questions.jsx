@@ -6,13 +6,13 @@ import { getSinglePost } from '../../Redux/actions/index';
 
 
 
-export default function Questions() {
+export default function Questions({ questions }) {
 
     const dispatch = useDispatch();
     let { id } = useParams();
     const userLogin = useSelector(state => state.userLogin);
-    const singlePost = useSelector(state => state.singlePost);
-    let questions = singlePost.questions;
+    //const singlePost = useSelector(state => state.singlePost);
+    //let questions = singlePost.questions;
     let validatedQuestions = questions?.filter(question => question.user_id !== userLogin.id);
     // console.log("reviews", reviews);
     // console.log("validated", validatedReviews);
@@ -20,12 +20,13 @@ export default function Questions() {
         dispatch(getSinglePost(id))
     }, [dispatch, id])
     //validatedQuestions ? console.log(Object.keys(validatedQuestions[0])) : console.log("tu vieja puta")
-
+    console.log("questions", questions);
 
 
     return (
         <div className="flex flex-col self-center place-content-center">
             <h2 className="font-bold text-xl mt-6 mb-2 ">Preguntas de otros usuarios</h2>
+
             {<div className="flex self-center flex-wrap mb-12">
                 {!validatedQuestions?.length ? <div className='flex mt-3 mb-3'>Esta publicación no tiene preguntas</div>
                     : questions.map(q => {
@@ -39,6 +40,8 @@ export default function Questions() {
                                 />
                             </div>)
                     })
+
+                    : <div className='flex mt-3 mb-3'>Esta publicación no tiene preguntas</div>
                 }
             </div>}
         </div>

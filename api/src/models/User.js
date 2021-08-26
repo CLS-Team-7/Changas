@@ -64,6 +64,31 @@ module.exports = (sequelize) => {
         score: {
             type: DataTypes.FLOAT,
             allowNull: true,
+            defaultValue: 0
+            // set(value) {
+            //     let userPosts = [];
+            //     let postReviews = [];
+            //     let allReviewsRating = [];
+            //     let totalRating = 0;
+            //     let averageScore = 0;
+            //     if (this.posts?.length === 0) {
+            //         value = 0
+            //         return this.setDataValue("score", value)
+            //     } else {
+            //         this.posts?.forEach(p => userPosts.push(p));
+            //         userPosts?.forEach(p => p.reviews?.forEach(r => postReviews.push(r)));
+            //         postReviews?.forEach(r => allReviewsRating.push(r.rating));
+            //         if (allReviewsRating.length) {
+            //             totalRating = allReviewsRating?.reduce((a, b) => {
+            //                 return a + b
+            //             })
+            //         }
+            //         totalRating > 0 ? value = totalRating / postReviews.length : value = 0
+            //         return this.setDataValue("score", value)
+            //     }
+
+
+            // }
         },
         jobsDone: {
             type: DataTypes.INTEGER, // arrancaria siempre en cero 
