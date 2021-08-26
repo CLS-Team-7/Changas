@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
 import { useDispatch } from 'react-redux'
@@ -16,6 +16,10 @@ function DeleteReport({ id }) {
         setOpen(false)
         alert("El report se elimino con exito")
     }
+
+    useEffect(() => {
+        dispatch(getAllReports())
+    }, [dispatch])
 
 
     return (
