@@ -47,7 +47,7 @@ function DetailComponent() {
                                     <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{title}</h1>
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{category?.title}</h2>
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{specialty?.title}</h2>
-                                    <p className="m-2 leading-relaxed"> Puntaje promedio anuncio: <Rating rating={postRatingAverage} /> </p>
+                                    <p className="m-2 leading-relaxed"> Puntaje promedio: <Rating rating={postRatingAverage} /> </p>
                                     <p className="m-2 leading-relaxed pb-2">"{description}"</p>
                                     <div className="flex flex-row">
                                         <div className="title-font font-medium text-2xl text-gray-900">Precio Base: {!isNaN(priceRange) ? <span>${priceRange}</span> : <span>{priceRange}</span>}</div>

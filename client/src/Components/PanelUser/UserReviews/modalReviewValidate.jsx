@@ -13,6 +13,7 @@ const ModalReviewValidate = ({ review }) => {
   const dispatch = useDispatch()
 
   function handleClickAccept() {
+    // action para aumentar jobsDone++ (se dispara cuando se acepta la review) SOLO CUANDO ACEPTA jobsDone = total reviews user
     dispatch(updateReview({ isValidated: true }, review.id))
     setShowModal(false)
     push(`/posts/${review.post.id}`)

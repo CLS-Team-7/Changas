@@ -12,10 +12,47 @@ function UserProfile() {
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
-
+    console.log('user', user)
     useEffect(() => {
         dispatch(getSingleUser(id))
     }, [dispatch, id])
+    let userPosts = [];
+    let postReviews = [];
+    let allReviewsRating = [];
+    let totalRating = 0;
+    // let averageScore = 0;
+    //     if (this.posts?.length === 0) {
+    //         value = 0
+    //         return this.setDataValue("score", value)
+    //     } else {
+    //         this.posts?.forEach(p => userPosts.push(p));
+    //         userPosts?.forEach(p => p.reviews?.forEach(r => postReviews.push(r)));
+    //         postReviews?.forEach(r => allReviewsRating.push(r.rating));
+    //         if (allReviewsRating.length) {
+    //             totalRating = allReviewsRating?.reduce((a, b) => {
+    //                 return a + b
+    //             })
+    //         }
+    //         totalRating > 0 ? value = totalRating / postReviews.length : value = 0
+    //         return this.setDataValue("score", value)
+    //     }
+
+    if (user.posts?.length) {
+        userPosts = user.posts?.map(p => p);
+        // console.log("userPosts", userPosts)
+        postReviews = userPosts?.map(p => p.reviews);
+        // console.log("postReviews", postReviews)
+        // console.log(postReviews[0])
+        allReviewsRating = postReviews[0]?.map(review => review.rating);
+        // console.log("allReviewsRating", allReviewsRating)
+        if (allReviewsRating.length) {
+            totalRating = allReviewsRating?.reduce((a, b) => {
+                return a + b
+            })
+            console.log("totalRating", totalRating)
+            totalRating > 0 ? user.score = (totalRating / postReviews[0].length).toFixed(1) : user.score = 0
+        }
+    }
 
     return (
         <div className="bg-white shadow overflow-hidden sm:rounded-lg min-h-screen">
@@ -39,25 +76,25 @@ function UserProfile() {
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Teléfono</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.phoneNumber}
-                            <WhatsAppButton userPhone={user.phoneNumber}/>
+                            <WhatsAppButton userPhone={user.phoneNumber} />
                         </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Email</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.email}</dd>
                     </div>
-                    {/* <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Precio base/Salario</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
+                    <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="text-sm font-medium text-gray-500">Puntaje promedio</dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score}  </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Detalle</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                            qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-                            pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                        </dd>
-                    </div> */}
+                        <dt className="text-sm font-medium text-gray-500">Trabajos realizados a otros usuarios</dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.jobsDone === 0 ? "Ninguno por ahora. ¡Sé el primero en contratarlo!" : user.jobsDone}</dd>
+                    </div>
+                    <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="text-sm font-medium text-gray-500">Sobre {user.given_name}</dt>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.summary}</dd>
+                    </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

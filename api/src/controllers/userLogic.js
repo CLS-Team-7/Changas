@@ -116,6 +116,10 @@ async function getUserById(req, res, next) {
 								attributes: ["id", "title"]
 							},
 							{
+								model: Review,
+								attributes: ["rating"]
+							},
+							{
 								model: Report, // los reports que tienen sus posteosi
 								attributes: { exclude: ['reportSubject', 'reported_user', 'user_id', 'post_id', 'question_id', 'answer_id', 'isSettled', 'updatedAt'] },
 								order: [["createdAt", 'DESC']],
