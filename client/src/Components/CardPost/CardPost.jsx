@@ -27,14 +27,14 @@ function CardPost({ title, img, category, description, id, specialty, isPremium 
                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{specialty.title}</h2>
                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{title}</h1>
                         <p className="leading-relaxed mb-3">{description}</p>
-                        <div className="flex items-center flex-wrap ">
-                            <span className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 hover:text-indigo-700">Ver mas
+                        <div className="flex items-center flex-wrap relative">
+                            {/* <span className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 hover:text-indigo-700 absolute -left-2 -bottom-2">Ver mas
                                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M5 12h14"></path>
                                     <path d="M12 5l7 7-7 7"></path>
                                 </svg>
 
-                            </span>
+                            </span> */}
                             {/* <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                 <svg className="w-4 h-4 mr-1" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
