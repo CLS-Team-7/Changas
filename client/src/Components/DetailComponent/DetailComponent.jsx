@@ -21,7 +21,7 @@ function DetailComponent() {
 
     const postRatingAverage = useSelector(state => state.postRatingAverage)
 
-    console.log("estado store", postRatingAverage)
+    console.log("singlepost", singlePost)
     let { id } = useParams();
 
     useEffect(() => {
@@ -91,7 +91,7 @@ function DetailComponent() {
                             <Reviews />
                         </div>
                         <div className="self-center place-content-center">
-                            <Questions />
+                            <Questions questions={singlePost?.questions} />
                         </div>
 
                     </section> :
