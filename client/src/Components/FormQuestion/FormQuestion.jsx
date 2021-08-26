@@ -63,6 +63,7 @@ export default function AddFormQuestion(props) { // falta chequear tambien que e
                       </div>
                     </div>
                     <div className="w-11/12 md:w-9/12 flex flex-col">
+                      <label>Mínimo 10 caracteres</label>
                       <textarea rows="3" name="question" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Tu pregunta aquí..." />
                       {postInput.question?.length > 10 ?
                         <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>

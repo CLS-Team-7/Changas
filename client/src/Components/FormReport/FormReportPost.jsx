@@ -76,6 +76,7 @@ export default function AddFormReport(props) { /// chequear tambien que el mismo
 
                       </div>
                       <div className="w-3/4 flex flex-col">
+                        <label>Mínimo 10 caracteres</label>
                         <textarea rows="3" name="complaint" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Razones / motivos del reporte" />
                         {postInput.complaint?.length > 10 ?
                           <button type='submit' onClick={(e) => handleSubmit(e)} className="py-3 my-8 text-lg rounded-xl text-white  bg-indigo-500 border-0 focus:outline-none hover:bg-green-600 rounded">Enviar</button>
