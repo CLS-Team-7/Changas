@@ -53,18 +53,21 @@ function DetailComponent() {
           <div className="flex justify-around">
                                     <p className=" m-2 leading-relaxed">
                                     {" "}
-                                    Metodos de pago:{" "}
+                                    <b>Metodos de pago:</b> {" "}
                                     {paymentMethods &&
                                      paymentMethods?.map((metodo) => <li className='text-left list-none'>{metodo}</li>)}{" "}
                                     </p>
 
                                     <p className=" m-2 leading-relaxed">
                                     {" "}
-                                      Horarios:{" "}
+                                      <b>Horarios:</b> {" "}
+                                      
                                       {timeRange &&
                                          timeRange?.map((horario) => (
-                                          <li className="text-right list-none">{horario}</li>
-                                          ))}{" "}
+                                          <li className="text-left list-none">{horario[0].toUpperCase() + horario.slice(1)}</li>
+                                          ))}
+                                      
+                                      {" "}
                                     </p>
                                 </div>
                                     <p className="m-2 leading-relaxed pb-2">"{description}"</p>
