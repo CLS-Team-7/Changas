@@ -117,7 +117,7 @@ async function getUserById(req, res, next) {
 							},
 							{
 								model: Review,
-								attributes: ["rating"]
+								attributes: ["rating", "isValidated"]
 							},
 							{
 								model: Report, // los reports que tienen sus posteosi

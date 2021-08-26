@@ -22,12 +22,21 @@ function UserProfile() {
     // logica para calcular score internamente
     let userPosts = [];
     let postReviews = [];
+    let validatedReviews = [];
     let allReviewsRating = [];
     let totalRating = 0;
     if (user.posts?.length) {
         userPosts = user.posts?.map(p => p);
+        console.log("UP", userPosts)
         postReviews = userPosts?.map(p => p.reviews);
-        allReviewsRating = postReviews[0]?.map(review => review.rating);
+        console.log("PR", postReviews)
+
+        validatedReviews = postReviews[0]?.filter(r => r.isValidated)
+        console.log("vr", validatedReviews)
+
+        allReviewsRating = validatedReviews?.map(review => review.rating);
+        console.log("AR", allReviewsRating)
+
         if (allReviewsRating.length) {
             totalRating = allReviewsRating?.reduce((a, b) => {
                 return a + b
