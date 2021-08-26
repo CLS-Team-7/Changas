@@ -153,15 +153,7 @@ function handleDeleteUser () {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <div>
-                              <Field
-                                className="mt-3 border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                name="picture"
-                                disabled
-                                placeholder="En desarrollo antes de la demo final"
-                                autoComplete="off"
-                              />
-                            </div>
+                            
                           </div>
                           {
                             state?.isVaccinated ?

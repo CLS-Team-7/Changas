@@ -404,123 +404,12 @@ function CreatePostUserComp() {
                 </div>
               </div>
 
-              <div className="m-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-                <div className="grid grid-cols-1 mt-5 mx-7">
-                  <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                    Categoria
-                  </label>
-                  {errors.category_id && (
-                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                      {errors.category_id}
-                    </div>
-                  )}
-                  {
-                    <select
-                      required
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      onChange={handleChange}
-                      onClick={handleClickCategory}
-                      name="category_id"
-                    >
-                      <option value="Null" disabled selected>
-                        Elegir
-                      </option>
-                      {category.length !== 0 ? (
-                        category.map((e) => {
-                          return (
-                            <option value={e.id} key={e.id}>
-                              {e.title}
-                            </option>
-                          );
-                        })
-                      ) : (
-                        <option>Cargando...</option>
-                      )}
-                    </select>
-                  }
-                </div>
-
-                {specialtyBeta.length !== 0 ? (
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Especialidad
-                    </label>
-                    <select
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      onChange={handleChange}
-                      name="specialty_id"
-                    >
-                      <option value="Null" disabled selected>
-                        Elegir
-                      </option>
-                      {specialtyBeta.map((e) => {
-                        return (
-                          <option value={e.id} key={e.id}>
-                            {e.title}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Especialidad
-                    </label>
-                    <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Elegir una categoría
-                    </label>
-                  </div>
-                )}
-              </div>
+              
               <div>
 
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-                  <div className="grid grid-cols-1">
-
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Zona / Área de trabajo</label>
-                    <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="location_id">
-                      <option value="Null" disabled selected>Elegir</option>
-                      {locations?.length !== 0 ?
-
-                        locations?.map(e => {
-                          return <option value={e.id} key={e.id}>{e.name}</option>
-                        })
-
-                        : <option>Cargando...</option>
-                      }
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-1">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Precio Base / "A Convenir"</label>
-                    <input className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingrese un precio..." name="priceRange" onChange={handleChangeArray} />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Métodos de pago</label>
-                    <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="paymentMethods" onChange={handleChangeArray} >
-                      <option disabled selected>Elegir</option>
-                      <option value="A convenir">A convenir</option>
-                      <option value="Mercado Pago">Mercado Pago</option>
-                      <option value="Efectivo">Efectivo</option>
-                      <option value="Transferencia">Transferencia</option>
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Horarios</label>
-                    <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="timeRange" onChange={handleChangeArray} >
-                      <option disabled selected>Elegir</option>
-                      <option value="Noche">A convenir</option>
-                      <option value="Mañana">Mañana</option>
-                      <option value="Tarde">Tarde</option>
-                      <option value="Noche">Noche</option>
-                      <option value="Mañana y tarde">Mañana y tarde</option>
-                      <option value="Tarde y noche">Tarde y noche</option>
-                    </select>
-                  </div>
-                </div>
+              
+                
 
                 <div>
                   {
