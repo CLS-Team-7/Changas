@@ -40,8 +40,6 @@ export default function Questions({ questions }) {
                                 />
                             </div>)
                     })
-
-                    : <div className='flex mt-3 mb-3'>Esta publicación no tiene preguntas</div>
                 }
             </div>}
         </div>
