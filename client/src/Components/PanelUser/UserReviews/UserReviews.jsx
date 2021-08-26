@@ -15,20 +15,17 @@ function UserPost() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllReviews()) // aca hay un problema. Me trae todas las reviews, yo solo quiero las del usuario. Hay que filtrarlo en el back con getUserReviews
+    dispatch(getAllReviews())
   }, [dispatch])
 
   if (allReview?.length) {
-    validatedReviews = allReview.filter(e => e.isValidated === false) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
-    if (validatedReviews?.length) {
-      filterReviews = validatedReviews.filter(e => e.user.sub !== userLogin.sub)
+    validatedReviews = allReview?.filter(e => e.isValidated === false) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
+    if (validatedReviews?.length && userLogin?.sub !== undefined) {
+      filterReviews = validatedReviews.filter(e => e.post?.user?.sub !== userLogin?.sub) // CON !== NO TRAE LOS REVIEWS HECHOS POR UNO MISMO EN SU MISMO POSTEO
     }
   }
 
-  console.log(userLogin.sub)
-  console.log('allreview', allReview)
-  console.log('validatedReviews', validatedReviews)
-  console.log("filterREviews", filterReviews)
+
   return (
     <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden  lg:flex-col pt:2">
       <div className="flex items-start justify-between">
