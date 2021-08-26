@@ -11,7 +11,7 @@ function Question({ createdAt, question, given_name, id_question }) {
     return (
         <div>
 
-            <div className=" bg-white p-6  rounded-lg shadow-lg ml-6 border-2 mt-3 w-11/12">
+            <div className=" bg-white p-6 rounded-lg shadow-lg mx-auto border-2 mt-3 w-11/12">
                 <div className="flex flex-col p-6">
                     <p className="flex items-baseline">
                         <span className="text-gray-600 font-bold">{given_name}</span>

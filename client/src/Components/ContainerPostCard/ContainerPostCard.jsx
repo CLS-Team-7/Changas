@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts, getFilterType, getJobOffers, getJobPetitions } from '../../Redux/actions';
+import { getAllPosts, getJobOffers, getJobPetitions } from '../../Redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import PostComp from './PostComp';
 

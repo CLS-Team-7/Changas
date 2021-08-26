@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS, GET_ALL_REPORT, GET_ALL_ORDER } from '../constants';
 import axios from 'axios';
 
 
@@ -18,6 +18,24 @@ export const getAllCategory = () => {
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: CATEGORY_POST, payload: data })
+            })
+    }
+}
+export const getAllOrders = () => {
+    return (dispatch) => {
+        axios.get(`/order`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_ALL_ORDER, payload: data })
+            })
+    }
+}
+export const getAllReports = () => {
+    return (dispatch) => {
+        axios.get(`/report`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_ALL_REPORT, payload: data })
             })
     }
 }
