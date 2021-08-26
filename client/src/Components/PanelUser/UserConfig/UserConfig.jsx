@@ -59,14 +59,14 @@ function handleDeleteUser () {
               {({ errors, touched }) => (
                 <div className="">
                   <div className="py-6 min-h-screen bg-gray-100 flex items-center">
-                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300 sm:w-11/12 md:w-2/4">
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
                       <Form>
                         <div className="py-2 p-10 bg-white rounded-xl">
                           <div>
 
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 inline-block font-bold mb-2">
                                 {" "}
                                 DNI / Pasaporte
                               </label>
@@ -74,18 +74,20 @@ function handleDeleteUser () {
                             </div>
 
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 inline-block font-bold mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
                               {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
-                              <Field
-                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                name="age"
-                                validate={validateAge}
-                                autoComplete="off"
-                                placeholder="Completar aquí..."
-                              />
+                              <div>
+                                <Field
+                                  className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                  name="age"
+                                  validate={validateAge}
+                                  autoComplete="off"
+                                  placeholder="Completar aquí..."
+                                />
+                              </div>
                             </div>
 
 
@@ -96,13 +98,15 @@ function handleDeleteUser () {
                             {errors.address && touched.address && (
                               <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
-                            <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="address"
-                              validate={validateAddress}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="address"
+                                validate={validateAddress}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
@@ -112,13 +116,15 @@ function handleDeleteUser () {
                             {errors.phoneNumber && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
-                            <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="phoneNumber"
-                              validate={validatePhone}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="phoneNumber"
+                                validate={validatePhone}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
 
                           <div>
@@ -129,13 +135,15 @@ function handleDeleteUser () {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field as='textarea'
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="summary"
-                              validate={validateSummary}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field as='textarea'
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="summary"
+                                validate={validateSummary}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
@@ -145,14 +153,15 @@ function handleDeleteUser () {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
-                              className="mt-3 border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="picture"
-                              disabled
-                              placeholder="En desarrollo antes de la demo final"
-                              autoComplete="off"
-
-                            />
+                            <div>
+                              <Field
+                                className="mt-3 border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="picture"
+                                disabled
+                                placeholder="En desarrollo antes de la demo final"
+                                autoComplete="off"
+                              />
+                            </div>
                           </div>
                           {
                             state?.isVaccinated ?
@@ -223,7 +232,7 @@ function handleDeleteUser () {
               {({ errors, touched }) => (
                 <div className="">
                   <div className="py-6  min-h-screen bg-gray-100 flex items-center">
-                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300 sm:w-11/12 md:w-2/4">
                     
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
 
@@ -233,60 +242,66 @@ function handleDeleteUser () {
                             {
                               state?.isDataComplete ?
                                 <div>
-                                  <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                                  <label className="mt-3 text-gray-700 font-bold mb-2">
                                     {" "}
                                     DNI / Pasaporte
                                   </label>
                                   <p>{state?.ID_Passport}</p>
                                 </div> :
                                 <div>
-                                  <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                                  <label className="mt-3 text-gray-700 font-bold mb-2">
                                     {" "}
                                     DNI / Pasaporte
                                   </label>
                                   {errors.ID_Passport && touched.ID_Passport && (
                                     <div className="text-red-500 font-bold">{errors.ID_Passport}</div>
                                   )}
-                                  <Field
-                                    className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                    name="ID_Passport"
-                                    validate={validateDni}
-                                    autoComplete="off"
-                                    placeholder="Completar aquí..."
-                                  />
+                                  <div>
+                                    <Field
+                                      className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                      name="ID_Passport"
+                                      validate={validateDni}
+                                      autoComplete="off"
+                                      placeholder="Completar aquí..."
+                                    />
+                                  </div>
                                 </div>
 
                             }
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 font-bold mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
                               {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
-                              <Field
-                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                name="age"
-                                validate={validateAge}
-                                autoComplete="off"
-                                placeholder="Completar aquí..."
-                              />
+                              <div>
+                                <Field
+                                  className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                  name="age"
+                                  validate={validateAge}
+                                  autoComplete="off"
+                                  placeholder="Completar aquí..."
+                                />
+                              </div>
                             </div>
 
 
-                            <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
+                            <label className="mt-3  text-gray-700 font-bold mb-2">
                               {" "}
                               Dirección
                             </label>
                             {errors.address && touched.address && (
                               <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="address"
-                              validate={validateAddress}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="address"
+                                validate={validateAddress}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
@@ -296,13 +311,15 @@ function handleDeleteUser () {
                             {errors.phoneNumber && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="phoneNumber"
-                              validate={validatePhone}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="phoneNumber"
+                                validate={validatePhone}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
 
                           <div>
@@ -313,30 +330,18 @@ function handleDeleteUser () {
                             {errors.summary && touched.phoneNumber && (
                               <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field as='textarea'
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="summary"
-                              validate={validateSummary}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field as='textarea'
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="summary"
+                                validate={validateSummary}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
-                            <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
-                              {" "}
-                              Foto / Imágen
-                            </label>
-                            {errors.summary && touched.phoneNumber && (
-                              <div className="text-red-500 font-bold">{errors.summary}</div>
-                            )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="picture"
-                              disabled
-                              placeholder="En desarrollo antes de la demo final"
-                              autoComplete="off"
-
-                            />
+                            
                           </div>
                           {
                             state?.isVaccinated ?
