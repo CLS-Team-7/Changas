@@ -11,7 +11,7 @@ function Answer({ createdAt, answer, id_answer }) {
         <div className=" bg-white ">
             <div className="flex flex-col">
                 <p className="flex items-baseline">
-                    <span className="flex items-center text-black-600 text-xs">Respuesta</span>
+                    <span className="flex items-center text-black-600 text-xs"><b>Respuesta</b></span>
                     <span className="flex items-center ml-2 text-black-600 text-xs">{createdAt.slice(0, 10)}</span>
                     <span className="flex ml-auto">
                         {isAuthenticated ?

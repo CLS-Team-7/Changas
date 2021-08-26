@@ -49,9 +49,9 @@ function FaqComponen() {
                 </strong>
                 , sin necesidad de hacerse un currículum hermoso, ni tener más
                 de 500 contactos, ni hacer networking, ni nada. Las
-                <strong>ganas de trabajar</strong> y el
+                <strong> ganas de trabajar</strong> y el
                 <strong> profesionalismo</strong> son los únicos dos requisitos
-                <strong>indispensables </strong>
+                <strong> indispensables </strong>
                 para hacer cualquier “changa” o trabajo no profesional.
               </p>
               <p className="p-2 text-lg	text-black antialiased text-justify">
@@ -76,7 +76,7 @@ function FaqComponen() {
                 de forma rápida y eficaz: las propuestas y sitios actuales usan
                 algoritmos que no dan visibilidad a quienes no cumplen con
                 requisitos “impuestos”, y por eso no responden a la
-                <strong>necesidad de encontrar trabajo rápido</strong>, sino que
+                <strong> necesidad de encontrar trabajo rápido</strong>, sino que
                 evalúan y categorizan a las personas por su
                 <i>“perfil virtual”, “actividad”, “publicaciones”, “red”</i>,
                 etc. En pocas palabras, sólo si son <i>buenos usuarios</i> de esas aplicaciones

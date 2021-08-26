@@ -28,7 +28,7 @@ export default function Reviews() {
                 {!validatedReviews?.length ? <div className='flex mt-3 mb-3'>Esta publicación no tiene reseñas</div>
                     : validatedReviews.map(review => {
                         return (
-                            <div key={review.description}>
+                            <div className='w-full' key={review.description}>
                                 <Review
                                     rating={review.rating}
                                     description={review.description}
