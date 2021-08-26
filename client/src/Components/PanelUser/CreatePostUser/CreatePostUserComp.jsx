@@ -53,7 +53,6 @@ function CreatePostUserComp() {
     location_id: null,
   });
 
-  console.log(postInput);
 
   function validate(postInput) {
     /* TITLE */
@@ -156,8 +155,13 @@ function CreatePostUserComp() {
     if (
       postInput.category_id === "" ||
       postInput.description === "" ||
+      postInput.location_id === null ||
+      postInput.paymentMethods === [] ||
+      postInput.priceRange === [] ||
+      postInput.specialty_id === "" ||
+      postInput.timeRange === [] ||
       postInput.title === "" ||
-      postInput.location_id === null
+      postInput.typePost === ""
     ) {
       alert("Tienes que llenar todos los campos...");
     } else {
@@ -326,16 +330,13 @@ function CreatePostUserComp() {
                       theme={(theme) => ({
                         ...theme,
                         borderColor: "7C3AED",
-                        position: 'absolute',
+                        position: "absolute",
                         colors: {
                           ...theme.colors,
                           primary25: "lightGray",
                           primary: "#7C3AED",
-                          
                         },
                       })}
-                      
-
                     />
                   </div>
                   <div className="grid grid-cols-1 mt-5 mx-7">
@@ -363,7 +364,7 @@ function CreatePostUserComp() {
                           ...theme.colors,
                           primary25: "lightGray",
                           primary: "#7C3AED",
-                          position: 'relative'
+                          position: "relative",
                         },
                       })}
                     />
