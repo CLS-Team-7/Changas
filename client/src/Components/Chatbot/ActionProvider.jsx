@@ -4,13 +4,6 @@ class ActionProvider {
     this.setState = setStateFunc
   }
 
-  saludar = () => {
-    const message = this.createChatBotMessage(
-      'Mucho gusto 😄! En que le puedo ayudar?',
-    )
-    this.addMessageToState(message)
-  }
-
   vacio = () => {
     const message = this.createChatBotMessage(
       'Primero debes escribir tu consulta',
@@ -18,23 +11,30 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
-  ayudaOfrecer = () => {
+  hacerChangas = () => {
     const message = this.createChatBotMessage(
-      'Ante cualquier duda dirígete a la FAQ para conocer más detalles',
+      'Somos una empresa tecnológica que conecta personas que buscan y ofrecen trabajos, unimos los dos puntos por medio de publicaciones'
     )
     this.addMessageToState(message)
   }
 
-  palabrasInsultos = () => {
+  saludar = () => {
     const message = this.createChatBotMessage(
-      'Por favor, cuide su vocabulario 🤬🚫',
+      'Mucho gusto 😄! En que le puedo ayudar?',
     )
     this.addMessageToState(message)
   }
 
-  palabrasGracias = () => {
+  ayudaPublicarNecesidad = () => {
     const message = this.createChatBotMessage(
-      'Gracias a vos 😊',
+     'Para contratar un servicio deberás dirigirte a la sección de home hacer, click sobre el servicio que necesites y seguir los pasos',
+    )
+    this.addMessageToState(message)
+  }
+
+  ayudaPublicarOfrecer = () => {
+    const message = this.createChatBotMessage(
+      'Para publicar un trabajo deberás dirigirte a la sección de Publicar, llenar el formulario y aceptar los términos y condiciones del mismo.',
     )
     this.addMessageToState(message)
   }
@@ -46,6 +46,27 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
+  palabrasGracias = () => {
+    const message = this.createChatBotMessage(
+      'Gracias a vos 😊',
+    )
+    this.addMessageToState(message)
+  }
+
+  palabrasGracias2 = () => {
+    const message = this.createChatBotMessage(
+      'Gracias, 😊 que tengas un excelente dia',
+    )
+    this.addMessageToState(message)
+  }
+
+  palabrasInsultos = () => {
+    const message = this.createChatBotMessage(
+      'Por favor, cuide su vocabulario 🤬🚫',
+    )
+    this.addMessageToState(message)
+  }
+
   palabrasBroma = () => {
     const message = this.createChatBotMessage(
       'Acabamos de congelar sus cuentas bancarias, con Changas no se jode 😈',
@@ -53,19 +74,55 @@ class ActionProvider {
     this.addMessageToState(message)
   }
 
-  ayudaPublicarOfrecer = () => {
+  guiaLinks = () => {
     const message = this.createChatBotMessage(
-      'Para publicar un trabajo deberás dirigirte a la sección de posteos, llenar el formulario y aceptar los términos y condiciones del mismo.',
+      <a href='https://changas.vercel.app/faq'>Ante cualquier duda en Changas puedes hacer click 🛠 aquí!!</a>,
     )
     this.addMessageToState(message)
   }
 
-  ayudaPublicarNecesidad = () => {
+  plusHenry = () => {
     const message = this.createChatBotMessage(
-      'Para contratar un servicio deberás dirigirte a la sección de posteos, hacer click sobre el servicio que necesites y seguir los pasos.',
+      <a href='https://www.soyhenry.com/'>Si quieres conocer donde estudiaron mis creadores hace click aquí 💛!!</a>
     )
     this.addMessageToState(message)
   }
+
+  ayudaOfrecer = () => {
+    const message = this.createChatBotMessage(
+      'Hace click en una opción',
+    )
+    this.addMessageToState(message)
+  }
+
+  ayudaOfrecer1 = () => {
+    const message = this.createChatBotMessage(
+      <a href='https://changas.vercel.app/faq'> FAQ 🛠</a>,
+    )
+    this.addMessageToState(message)
+  }
+
+  ayudaOfrecer2 = () => {
+    const message = this.createChatBotMessage(
+      <a href='https://changas.vercel.app/about'> Nosotros 🚀 </a>,
+    )
+    this.addMessageToState(message)
+  }
+
+  ayudaOfrecer3 = () => {
+    const message = this.createChatBotMessage(
+      <a href='https://www.soyhenry.com/'> Henry 💛</a>,
+    )
+    this.addMessageToState(message)
+  }
+
+  promocionar = () => {
+    const message = this.createChatBotMessage(
+      'Para poder promocionarte primero registrate, completa los datos, crea un aviso/publicación/posteo, y segui los pasos en el botón PROMOCIONAR desde el panel de usuario',
+    )
+    this.addMessageToState(message)
+  }
+
 
   addMessageToState = (message) => {
     this.setState((prevState) => ({

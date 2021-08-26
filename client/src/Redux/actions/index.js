@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, GET_ALL_REVIEWS, POST_REVIEW, USER_LOGIN, GET_MP_ORDER_INFO, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS, GET_ALL_REPORT, GET_ALL_ORDER } from '../constants';
 import axios from 'axios';
 
 
@@ -18,6 +18,24 @@ export const getAllCategory = () => {
             .then(r => r.data)
             .then(data => {
                 dispatch({ type: CATEGORY_POST, payload: data })
+            })
+    }
+}
+export const getAllOrders = () => {
+    return (dispatch) => {
+        axios.get(`/order`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_ALL_ORDER, payload: data })
+            })
+    }
+}
+export const getAllReports = () => {
+    return (dispatch) => {
+        axios.get(`/report`)
+            .then(r => r.data)
+            .then(data => {
+                dispatch({ type: GET_ALL_REPORT, payload: data })
             })
     }
 }
@@ -44,7 +62,7 @@ export const getSinglePost = (id) => {
     }
 }
 
-export const clearSinglePost = () => {
+export const clearSinglePost = () => { // esto genera conflictos si hacemos F5 parados en el formulario de reporte
     return (dispatch) => {
         dispatch({ type: GET_SINGLE_POST, payload: [] })
     }
@@ -236,6 +254,7 @@ export const createAnswer = (payload) => {
     }
 }
 
+
 ///////////////////////////////Favorite///////////////////////////////////////////
 
 export const addFavoritePost = (favoritePost) => {
@@ -377,4 +396,26 @@ export const getReviewAverage = (id) => { // el id es el del post
 
 
 
+// -----------**** Report ****--------------
 
+export const postReport = (payload) => {
+    return (dispatch) => {
+        axios.post("/report", payload) // no se manda nada a la store / reducer porque el reporte no se consume
+        // .then(r => r.data)
+        // .then(data => {
+        //     dispatch({ type: POST_REVIEW, payload: data })
+        // })
+    };
+}
+
+// -----------**** Delete User ****--------------
+
+export const deleteUser = (id) => {
+    return (dispatch) => {
+        axios.delete(`/user/${id}`)
+            // .then(r => r.data)
+            // .then(data => {
+            //     dispatch({ type: "DELETE_REVIEW" })
+            // })
+    }
+}

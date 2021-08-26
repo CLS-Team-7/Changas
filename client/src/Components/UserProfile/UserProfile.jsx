@@ -12,7 +12,8 @@ function UserProfile() {
     const dispatch = useDispatch()
     let { id } = useParams();
     const user = useSelector(state => state.singleUser)
-    //console.log('user', user)
+
+    
     useEffect(() => {
         dispatch(getSingleUser(id))
         //dispatch(UpdateUserData({sub: user.sub, score : user.score})) // le pega a la DB y actualiza el score
@@ -77,6 +78,7 @@ function UserProfile() {
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Puntaje promedio</dt>
+
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.score} {<Rating rating={Math.round(user.score)} />} </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -87,6 +89,7 @@ function UserProfile() {
                         <dt className="text-sm font-medium text-gray-500">Sobre {user.given_name}</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 bold">{user.summary}</dd>
                     </div>
+
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Publicaciones</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -95,7 +98,6 @@ function UserProfile() {
                                     user.posts?.map(e => {
                                         return <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                             <div className="w-0 flex-1 flex items-center">
-                                                <h2 className="text-sm font-medium text-gray-500">POST</h2>
                                                 <h2 className="ml-2 flex-1 w-0 truncate bold font-medium">{e.title}</h2>
                                             </div>
                                             <div className="ml-4 flex-shrink-0">
@@ -113,7 +115,7 @@ function UserProfile() {
             </div>
             <div>
                 {isAuthenticated ?
-                    <Link to={`/report`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
+                    <Link to={`/report/user/${id}`} className="flex pt-4 ml-auto"><button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Reportar</button></Link>
                     : null}
             </div>
         </div>

@@ -1,0 +1,7 @@
+.polygonHexa {
+  clip-path: url(#roundedPolygon);
+}
+
+.shadowForDiv {
+  filter: drop-shadow(0 0.2rem 0.05rem rgb(58, 58, 58));
+}

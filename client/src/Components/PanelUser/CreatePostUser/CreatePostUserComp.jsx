@@ -13,10 +13,12 @@ function CreatePostUserComp() {
   const user = useSelector(state => state.userLogin)
   const category = useSelector(state => state.categoryPost)
 
+  //<<<<<<<div reportsDEMOFINAL
 
   const [errors, setErrors] = useState({})
-
+  //=======
   const locations = useSelector(state => state.allLocations)
+  //>>>>>>> main
 
 
   useEffect(() => {
@@ -41,6 +43,8 @@ function CreatePostUserComp() {
 
 
 
+  /* console.log(category) */
+  /* console.log(specialty) */
   const [specialtyBeta, setSpecialtyBeta] = useState([])
   const [postInput, setPostInput] = useState({
     user_id: user?.id,
@@ -202,299 +206,288 @@ function CreatePostUserComp() {
   return (
     <div>
       {user?.isDataComplete ? (
-        <div>
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="flex bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
-              <div className="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 ">
-                <div className="flex justify-center py-4"></div>
 
-                <div className="flex justify-center">
-                  <div className="flex">
-                    <h1 className="text-gray-600 font-bold md:text-2xl text-xl">
-                      Nueva Publicación
-                    </h1>
-                  </div>
-                </div>
-                <p className="m-4 md:text-sm text-xs text-gray-500 text-light font-semibold">
-                  Completá todos los datos necesarios para hacer tu publicación.
-                </p>
-                <p className="m-2 md:text-sm text-xs text-gray-500 text-light font-semibold">
-                  Verificá todos los datos antes de enviarlos.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
-                  <div className="grid grid-cols-1 mt-1 mx-10">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Tipo de anuncio
-                    </label>
-                    {errors.typePost && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.typePost}
-                      </div>
-                    )}
-                    <select
-                      onBlur={handleChange}
-                      onChange={handleChange}
-                      name="typePost"
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    >
-                      <option disabled selected>
-                        Elegir
-                      </option>
-                      <option value="Petition">Solicitar Servicio</option>
-                      <option value="Offer">Ofrecer Servicio</option>
-                    </select>
-                  </div>
-                </div>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="flex mt-5 bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
+            <div className="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 ">
+              <div className="flex justify-center py-4"></div>
 
-                <div className="grid grid-cols-1 mt-5 mx-7">
+              <div className="flex justify-center">
+                <div className="flex">
+                  <h1 className="text-gray-600 font-bold md:text-2xl text-xl">
+                    Nueva Publicación
+                  </h1>
+                </div>
+              </div>
+              <p className="m-4 md:text-sm text-xs text-gray-500 text-light font-semibold">
+                Completá todos los datos necesarios para hacer tu publicación.
+              </p>
+              <p className="m-2 md:text-sm text-xs text-gray-500 text-light font-semibold">
+                Verificá todos los datos antes de enviarlos.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
+                <div className="grid grid-cols-1 mt-1 mx-10">
                   <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                    Título
+                    Tipo de anuncio
                   </label>
-                  {errors.title && (
+                  {errors.typePost && (
                     <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                      {errors.title}
+                      {errors.typePost}
+                    </div>
+                  )}
+                  <select
+                    onBlur={handleChange}
+                    onChange={handleChange}
+                    name="typePost"
+                    className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  >
+                    <option disabled selected>
+                      Elegir
+                    </option>
+                    <option value="Petition">Solicitar Servicio</option>
+                    <option value="Offer">Ofrecer Servicio</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 mt-5 mx-7">
+                <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                  Título
+                </label>
+                {errors.title && (
+                  <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                    {errors.title}
+                  </div>
+                )}
+                <input
+                  onBlur={handleChange}
+                  className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  type="text"
+                  placeholder="Título del anuncio..."
+                  onChange={handleChange}
+                  name="title"
+                  autoComplete="off"
+                />
+              </div>
+              <div className="grid grid-cols-1 mt-5 mx-7">
+                <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                  Descripción
+                </label>
+                {errors.description && (
+                  <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                    {errors.description}
+                  </div>
+                )}
+                <textarea
+                  onBlur={handleChange}
+                  className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  type="textarea"
+                  placeholder="Breve descripción sobre el anuncio..."
+                  onChange={handleChange}
+                  name="description"
+                  autoComplete="off"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                <div className="grid grid-cols-1">
+                  <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                    Zona / Área de trabajo
+                  </label>
+                  {errors.location_id && (
+                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                      {errors.location_id}
+                    </div>
+                  )}
+                  <select
+                    className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    onChange={handleChange}
+                    onClick={handleClickCategory}
+                    onBlur={handleChange}
+                    name="location_id"
+                  >
+                    <option value="Null" disabled selected>
+                      Elegir
+                    </option>
+                    {locations?.length !== 0 ? (
+                      locations?.map((e) => {
+                        return (
+                          <option value={e.id} key={e.id}>
+                            {e.name}
+                          </option>
+                        );
+                      })
+                    ) : (
+                      <option>Cargando...</option>
+                    )}
+                  </select>
+                </div>
+                <div className="grid grid-cols-1">
+                  <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                    Precio Base / "A Convenir"
+                  </label>
+                  {errors.priceRange && (
+                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                      {errors.priceRange}
                     </div>
                   )}
                   <input
-                    onBlur={handleChange}
                     className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     type="text"
-                    placeholder="Título del anuncio..."
-                    onChange={handleChange}
-                    name="title"
-                    autoComplete="off"
+                    placeholder="Ingrese un precio..."
+                    name="priceRange"
+                    onChange={handleChangeArray}
+                    onBlur={handleChangeArray}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                <div className="grid grid-cols-1 mt-5 mx-7">
+                  <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
+                    Métodos de pago
+                  </label>
+                  {errors.paymentMethods && (
+                    <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
+                      {errors.paymentMethods}
+                    </div>
+                  )}
+                  <Select
+                    id="payment"
+                    name="paymentMethods"
+                    isMulti
+                    options={optionPay}
+                    menuPortalTarget={document.body}
+                    className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:border-yellow-500 "
+                    onChange={(value) => handleSelectChangePay(value)}
+                    placeholder="Metodo de ..."
+                    theme={(theme) => ({
+                      ...theme,
+                      borderColor: "7C3AED",
+                      position: "absolute",
+                      colors: {
+                        ...theme.colors,
+                        primary25: "lightGray",
+                        primary: "#7C3AED",
+                      },
+                    })}
                   />
                 </div>
                 <div className="grid grid-cols-1 mt-5 mx-7">
                   <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                    Descripción
+                    Horarios
                   </label>
-                  {errors.description && (
+                  {errors.timeRange && (
                     <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                      {errors.description}
+                      {errors.timeRange}
                     </div>
                   )}
-                  <textarea
-                    onBlur={handleChange}
-                    className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    type="textarea"
-                    placeholder="Breve descripción sobre el anuncio..."
-                    onChange={handleChange}
-                    name="description"
-                    autoComplete="off"
+                  <Select
+                    id="timeRange"
+                    name="timeRange"
+                    isMulti
+                    options={optionTime}
+                    className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    onChange={(value) => handleSelectChangeTime(value)}
+                    placeholder="Horario..."
+                    menuPortalTarget={document.body}
+                    theme={(theme) => ({
+                      ...theme,
+                      borderColor: "7C3AED",
+                      colors: {
+                        ...theme.colors,
+                        primary25: "lightGray",
+                        primary: "#7C3AED",
+                        position: "relative",
+                      },
+                    })}
                   />
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-                  <div className="grid grid-cols-1">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Zona / Área de trabajo
-                    </label>
-                    {errors.location_id && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.location_id}
+              
+              <div>
+
+
+              
+                
+
+                <div>
+                  {
+                    <div class="grid grid-cols-1 mt-5 mx-7">
+                      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Subir Foto</label>
+                      <div class='flex items-center justify-center '>
+                        <label class='flex flex-col border-4  min-w-full h-10 border-dashed overflow-hiden h-32 hover:bg-gray-100 hover:border-purple-300 group'>
+                          {/* <div class='flex flex-col items-center justify-center pt-7'>
+                                                            <p class='lowercase text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Elegir foto</p>
+                                                            <svg class="w-10 h-10 text-purple-400 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                            
+                                                        </div> */}
+                          {loading ? (
+                            <h3 className="font-semibold">Cargando...</h3>
+                          ) : (
+                            <img src={image} className="lg:h-48 md:h-36 w-full object-cover object-center relative overflow-hidden"/* style={{ width: '100px' }} */ alt="" />
+                          )}
+                          <input type='file' name="file" class="hidden" onChange={uploadImage} />
+                        </label>
                       </div>
-                    )}
-                    <select
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      onChange={handleChange}
-                      onClick={handleClickCategory}
-                      onBlur={handleChange}
-                      name="location_id"
-                    >
-                      <option value="Null" disabled selected>
-                        Elegir
-                      </option>
-                      {locations?.length !== 0 ? (
-                        locations?.map((e) => {
-                          return (
-                            <option value={e.id} key={e.id}>
-                              {e.name}
-                            </option>
-                          );
-                        })
-                      ) : (
-                        <option>Cargando...</option>
-                      )}
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-1">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Precio Base / "A Convenir"
-                    </label>
-                    {errors.priceRange && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.priceRange}
-                      </div>
-                    )}
-                    <input
-                      className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      type="text"
-                      placeholder="Ingrese un precio..."
-                      name="priceRange"
-                      onChange={handleChangeArray}
-                      onBlur={handleChangeArray}
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Métodos de pago
-                    </label>
-                    {errors.paymentMethods && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.paymentMethods}
-                      </div>
-                    )}
-                    <Select
-                      id="payment"
-                      name="paymentMethods"
-                      isMulti
-                      options={optionPay}
-                      menuPortalTarget={document.body}
-                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:border-yellow-500 "
-                      onChange={(value) => handleSelectChangePay(value)}
-                      placeholder="Metodo de ..."
-                      theme={(theme) => ({
-                        ...theme,
-                        borderColor: "7C3AED",
-                        position: "absolute",
-                        colors: {
-                          ...theme.colors,
-                          primary25: "lightGray",
-                          primary: "#7C3AED",
-                        },
-                      })}
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Horarios
-                    </label>
-                    {errors.timeRange && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.timeRange}
-                      </div>
-                    )}
-                    <Select
-                      id="timeRange"
-                      name="timeRange"
-                      isMulti
-                      options={optionTime}
-                      className="w-40 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      onChange={(value) => handleSelectChangeTime(value)}
-                      placeholder="Horario..."
-                      menuPortalTarget={document.body}
-                      theme={(theme) => ({
-                        ...theme,
-                        borderColor: "7C3AED",
-                        colors: {
-                          ...theme.colors,
-                          primary25: "lightGray",
-                          primary: "#7C3AED",
-                          position: "relative",
-                        },
-                      })}
-                    />
-                  </div>
+                    </div>
+                  }
                 </div>
 
                 <div className="m-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                   <div className="grid grid-cols-1 mt-5 mx-7">
-                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                      Categoria
-                    </label>
-                    {errors.category_id && (
-                      <div className='text-red-700 font-bold text-xs pt-3 relative" role="alert"'>
-                        {errors.category_id}
-                      </div>
-                    )}
-                    {
-                      <select
-                        required
-                        className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                        onChange={handleChange}
-                        onClick={handleClickCategory}
-                        name="category_id"
-                      >
-                        <option value="Null" disabled selected>
-                          Elegir
-                        </option>
-                        {category.length !== 0 ? (
-                          category.map((e) => {
-                            return (
-                              <option value={e.id} key={e.id}>
-                                {e.title}
-                              </option>
-                            );
+                    <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categoria</label>{
+                      <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} onClick={handleClickCategory} name="category_id">
+                        <option value="Null" disabled selected>Elegir</option>
+                        {category.length !== 0 ?
+
+                          category.map(e => {
+                            return <option value={e.id} key={e.id}>{e.title}</option>
                           })
-                        ) : (
-                          <option>Cargando...</option>
-                        )}
+
+                          : <option>Cargando...</option>
+                        }
                       </select>
                     }
                   </div>
 
-                  {specialtyBeta.length !== 0 ? (
-                    <div className="grid grid-cols-1 mt-5 mx-7">
-                      <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                        Especialidad
-                      </label>
-                      <select
-                        className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                        onChange={handleChange}
-                        name="specialty_id"
-                      >
-                        <option value="Null" disabled selected>
-                          Elegir
-                        </option>
-                        {specialtyBeta.map((e) => {
-                          return (
-                            <option value={e.id} key={e.id}>
-                              {e.title}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-1 mt-5 mx-7">
-                      <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">
-                        Especialidad
-                      </label>
-                      <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">
-                        Elegir una categoría
-                      </label>
-                    </div>
-                  )}
-                </div>
-                <div>
-
-                  <input
-                    type="file"
-                    name="file"
-                    placeholder="Upload an image"
-                    onChange={uploadImage} />
-                  {loading ? (<h3>Loading...</h3>) : (<img src={image} style={{ width: '100px' }} alt="" />)}
+                  {
+                    specialtyBeta.length !== 0 ?
+                      <div className="grid grid-cols-1 mt-5 mx-7">
+                        <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Especialidad</label>
+                        <select className="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" onChange={handleChange} name="specialty_id">
+                          <option value="Null" disabled selected>Elegir</option>
+                          {specialtyBeta.map(e => {
+                            return <option value={e.id} key={e.id}>{e.title}</option>
+                          })
+                          }
+                        </select>
+                      </div>
+                      :
+                      <div className="grid grid-cols-1 mt-5 mx-7">
+                        <label className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Especialidad</label>
+                        <label className="md:text-sm text-xs text-gray-500 text-light font-semibold">Eligir una categoría</label>
+                      </div>
+                  }
                 </div>
               </div>
-            </div>
-            <div className="flex items-center justify-center  md:gap-8 gap-4  ">
-              <Link to="/home">
-                <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
-                  Cancelar
+                <div className="flex items-center justify-center  md:gap-8 gap-4 mb-10 mt-2 ">
+                <Link to="/home">
+                  <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
+                    Cancelar
+                  </button>
+                </Link>
+                <button
+                  type="submit"
+                  className="w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2"
+                >
+                  Crear
                 </button>
-              </Link>
-              <button
-                type="submit"
-                className="w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2"
-              >
-                Crear
-              </button>
+              </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+
       ) : (
         <div className="flex flex-col items-center justify-center  md:gap-8 gap-4 pt-5 pb-5">
           <p className="mt-10 md:text-sm text-xs text-gray-600 text-light font-semibold">
@@ -512,5 +505,7 @@ function CreatePostUserComp() {
     </div>
   );
 }
+
+//updated
 
 export default CreatePostUserComp

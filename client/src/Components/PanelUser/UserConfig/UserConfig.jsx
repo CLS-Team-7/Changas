@@ -8,18 +8,26 @@ import {
   validateSummary,
 } from "./Validaciones";
 import { useDispatch, useSelector } from "react-redux";
-import { UpdateUserData } from "../../../Redux/actions";
+import { UpdateUserData, deleteUser } from "../../../Redux/actions";
 import { useHistory } from "react-router-dom";
 
 function UserConfig() {
   const { push } = useHistory()
   const dispatch = useDispatch()
   const state = useSelector(state => state.userLogin)
+  const toDelete = useSelector(state => state.userLogin.id)
+
+function handleDeleteUser () {
+    dispatch(deleteUser(toDelete))
+    push("/deletedUser")
+  }
+
   return (
     <>
       {
         state?.isDataComplete ?
           <div>
+            
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -51,33 +59,35 @@ function UserConfig() {
               {({ errors, touched }) => (
                 <div className="">
                   <div className="py-6 min-h-screen bg-gray-100 flex items-center">
-                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300 sm:w-11/12 md:w-2/4">
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
                       <Form>
                         <div className="py-2 p-10 bg-white rounded-xl">
                           <div>
 
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 inline-block font-bold mb-2">
                                 {" "}
-                                Dni / Pasaporte
+                                DNI / Pasaporte
                               </label>
                               <p>{state?.ID_Passport}</p>
                             </div>
 
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 inline-block font-bold mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
-                              <Field
-                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                name="age"
-                                validate={validateAge}
-                                autoComplete="off"
-                                placeholder="Completar aquí..."
-                              />
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
+                              <div>
+                                <Field
+                                  className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                  name="age"
+                                  validate={validateAge}
+                                  autoComplete="off"
+                                  placeholder="Completar aquí..."
+                                />
+                              </div>
                             </div>
 
 
@@ -86,15 +96,17 @@ function UserConfig() {
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
-                            <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="address"
-                              validate={validateAddress}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="address"
+                                validate={validateAddress}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
@@ -102,15 +114,17 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
-                            <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="phoneNumber"
-                              validate={validatePhone}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="phoneNumber"
+                                validate={validatePhone}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
 
                           <div>
@@ -119,15 +133,17 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
-                              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="summary"
-                              validate={validateSummary}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field as='textarea'
+                                className="border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="summary"
+                                validate={validateSummary}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
@@ -135,16 +151,9 @@ function UserConfig() {
                               Foto / Imágen
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
-                              className="mt-3 border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="picture"
-                              disabled
-                              placeholder="En desarrollo antes de la demo final"
-                              autoComplete="off"
-
-                            />
+                            
                           </div>
                           {
                             state?.isVaccinated ?
@@ -181,6 +190,7 @@ function UserConfig() {
           </div>
           :
           <div>
+     
             <Formik
               initialValues={{
                 sub: state.sub,
@@ -214,7 +224,8 @@ function UserConfig() {
               {({ errors, touched }) => (
                 <div className="">
                   <div className="py-6  min-h-screen bg-gray-100 flex items-center">
-                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+                    <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300 sm:w-11/12 md:w-2/4">
+                    
                       <p className="mt-3 text-gray-700 font-bold inline-block mb-2">ATENCIÓN: Verificá que tus datos sean correctos</p>
 
                       <Form>
@@ -223,60 +234,66 @@ function UserConfig() {
                             {
                               state?.isDataComplete ?
                                 <div>
-                                  <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                                  <label className="mt-3 text-gray-700 font-bold mb-2">
                                     {" "}
                                     DNI / Pasaporte
                                   </label>
                                   <p>{state?.ID_Passport}</p>
                                 </div> :
                                 <div>
-                                  <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                                  <label className="mt-3 text-gray-700 font-bold mb-2">
                                     {" "}
                                     DNI / Pasaporte
                                   </label>
                                   {errors.ID_Passport && touched.ID_Passport && (
-                                    <div>{errors.ID_Passport}</div>
+                                    <div className="text-red-500 font-bold">{errors.ID_Passport}</div>
                                   )}
-                                  <Field
-                                    className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                    name="ID_Passport"
-                                    validate={validateDni}
-                                    autoComplete="off"
-                                    placeholder="Completar aquí..."
-                                  />
+                                  <div>
+                                    <Field
+                                      className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                      name="ID_Passport"
+                                      validate={validateDni}
+                                      autoComplete="off"
+                                      placeholder="Completar aquí..."
+                                    />
+                                  </div>
                                 </div>
 
                             }
                             <div>
-                              <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
+                              <label className="mt-3 text-gray-700 font-bold mb-2">
                                 {" "}
                                 Edad
                               </label>{" "}
-                              {errors.age && touched.age && <div>{errors.age}</div>}
-                              <Field
-                                className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                                name="age"
-                                validate={validateAge}
-                                autoComplete="off"
-                                placeholder="Completar aquí..."
-                              />
+                              {errors.age && touched.age && <div className="text-red-500 font-bold">{errors.age}</div>}
+                              <div>
+                                <Field
+                                  className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                  name="age"
+                                  validate={validateAge}
+                                  autoComplete="off"
+                                  placeholder="Completar aquí..."
+                                />
+                              </div>
                             </div>
 
 
-                            <label className="mt-3  text-gray-700 font-bold inline-block mb-2">
+                            <label className="mt-3  text-gray-700 font-bold mb-2">
                               {" "}
                               Dirección
                             </label>
                             {errors.address && touched.address && (
-                              <div>{errors.address}</div>
+                              <div className="text-red-500 font-bold">{errors.address}</div>
                             )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="address"
-                              validate={validateAddress}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="address"
+                                validate={validateAddress}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
                             <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
@@ -284,15 +301,17 @@ function UserConfig() {
                               Teléfono
                             </label>
                             {errors.phoneNumber && touched.phoneNumber && (
-                              <div>{errors.phoneNumber}</div>
+                              <div className="text-red-500 font-bold">{errors.phoneNumber}</div>
                             )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="phoneNumber"
-                              validate={validatePhone}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="phoneNumber"
+                                validate={validatePhone}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
 
                           <div>
@@ -301,32 +320,20 @@ function UserConfig() {
                               Descripción
                             </label>
                             {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
+                              <div className="text-red-500 font-bold">{errors.summary}</div>
                             )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="summary"
-                              validate={validateSummary}
-                              autoComplete="off"
-                              placeholder="Completar aquí..."
-                            />
+                            <div>
+                              <Field as='textarea'
+                                className="text-center border bg-gray-100 py-2 px-4 w-3/4 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                                name="summary"
+                                validate={validateSummary}
+                                autoComplete="off"
+                                placeholder="Completar aquí..."
+                              />
+                            </div>
                           </div>
                           <div>
-                            <label className="mt-3 text-gray-700 font-bold inline-block mb-2">
-                              {" "}
-                              Foto / Imágen
-                            </label>
-                            {errors.summary && touched.phoneNumber && (
-                              <div>{errors.summary}</div>
-                            )}
-                            <Field
-                              className="text-center border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                              name="picture"
-                              disabled
-                              placeholder="En desarrollo antes de la demo final"
-                              autoComplete="off"
-
-                            />
+                            
                           </div>
                           {
                             state?.isVaccinated ?
@@ -355,15 +362,29 @@ function UserConfig() {
                           </button>
                         </div>
                       </Form>
+                      
                     </div>
+                    
                   </div>
+                 
                 </div>
               )}
             </Formik>
+            <hr style={{ color: "black" }} />
+            <div className="py-6 bg-gray-100 w-full items-center container mx-auto  shadow-md hover:shadow-lg transition duration-300">
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">ELIMINACIÓN DE CUENTA</h1>
+            <h1 className="mt-3 text-gray-700 font-bold  mb-2">Atención, esta acción es irreversible. Una vez que hayas confirmado todos tus datos 
+                          serán eliminados de nuestra base de datos</h1>
+                      <button onClick={handleDeleteUser} className="mb-2 mt-6 text-red-50 font-bold bg-red-500 py-3 px-12 rounded-md hover:bg-red-600 transition duration-300">
+                            ELIMINAR CUENTA
+                          </button>
+                          
+                          </div>
           </div>
       }
     </>
   )
 };
 
+//Update
 export default UserConfig;

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ButtomAdminUser from './BottonAdmin/ButtomAdminUser'
+import ButtonAdmin from './BottonAdmin/ButtonAdmin'
 
 function AdminPanelComp({ Users }) {
     return (
@@ -67,13 +69,13 @@ function AdminPanelComp({ Users }) {
                         <div className="text-sm text-gray-500">{person.phoneNumber}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                        
-                            {
-                                person.isActive 
+
+                        {
+                            person.isActive
                                 ? <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                                 : <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-600 text-white">Inactive</span>
-                            }
-                        
+                        }
+
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
 
@@ -85,9 +87,7 @@ function AdminPanelComp({ Users }) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.isAdmin ? "Admin" : "Normal"}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <span className="text-indigo-600 hover:text-indigo-900">
-                            Edit
-                        </span>
+                        <ButtomAdminUser id={person.sub} isActive={person.isActive} />
                     </td>
                 </tr>
             })}

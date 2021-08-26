@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS } from '../constants';
+import { GET_ALL_POSTS, GET_SINGLE_POST, GET_USER_ADMIN, GET_SINGLE_USER, SEARCH_BY_TITLE, CATEGORY_POST, CATEGORY_SPECEALTY, GET_FILTER_TYPE, USER_LOGIN, GET_ALL_REVIEWS, POST_REVIEW, GET_MP_ORDER_INFO, GET_REVIEW, ADD_FAVORITE_POST, GET_FAVORITE_POST, REMOVE_FAVORITE_POST, GET_JOB_PETITIONS, GET_JOB_OFFERS, GET_ALL_ORDER, GET_ALL_REPORT } from '../constants';
 
 const initialState = {
     postList: [],
@@ -20,9 +20,12 @@ const initialState = {
     singleAnswer: {},
     petitionPost: [],
     offerPost: [],
+    reportsList: [],
+    ordersList: [],
     allLocations: [],
     postRatingAverage: 0,
     // userScoreAverage: 0
+
 
 }
 
@@ -34,6 +37,16 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 postList: payload
+            };
+        case GET_ALL_ORDER:
+            return {
+                ...state,
+                ordersList: payload
+            };
+        case GET_ALL_REPORT:
+            return {
+                ...state,
+                reportsList: payload
             };
         case CATEGORY_POST:
             return {
