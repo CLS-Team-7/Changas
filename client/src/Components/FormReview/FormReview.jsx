@@ -76,6 +76,7 @@ export default function AddFormReview(props) { /// chequear tambien que el mismo
                       </div>
                       <div className="w-11/12 md:w-9/12  flex flex-col">
                         <label className="uppercase py-2 md:text-sm text-xs text-gray-200 text-light font-semibold">- Reseña -</label>
+                        <label className="text-white">Mínimo 10 caracteres</label>
                         <textarea rows="3" name="description" className="p-4 text-gray-500 rounded-xl resize-none" onChange={handleChange} autoComplete="off" placeholder="Contános tu experiencia " />
 
                         {postInput.description?.length > 10 && postInput.rating ?

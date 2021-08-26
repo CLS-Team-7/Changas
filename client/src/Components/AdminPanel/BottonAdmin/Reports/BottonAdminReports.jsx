@@ -19,6 +19,10 @@ function BottonAdminReports({ data, isSettled }) {
         setOpen(false)
         alert("El estado del reporte cambio")
     }
+
+    useEffect(() => {
+        dispatch(getAllReports())
+    }, [dispatch])
     return (
         <>
             {
