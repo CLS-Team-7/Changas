@@ -208,7 +208,7 @@ function CreatePostUserComp() {
       {user?.isDataComplete ? (
 
         <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="flex bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
+          <div className="flex mt-5 bg-white items-center justify-center md:mt-20 md:mb-36 sm:mt-72 sm:mb-96">
             <div className="grid bg-gray-300 rounded-lg shadow-2xl overflow-hidden w-11/12 md:w-9/12 lg:w-1/2 ">
               <div className="flex justify-center py-4"></div>
 
@@ -582,19 +582,19 @@ function CreatePostUserComp() {
                   }
                 </div>
               </div>
-            </div>
-            <div className="flex items-center justify-center  md:gap-8 gap-4  ">
-              <Link to="/home">
-                <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
-                  Cancelar
+                <div className="flex items-center justify-center  md:gap-8 gap-4 mb-10 mt-2 ">
+                <Link to="/home">
+                  <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
+                    Cancelar
+                  </button>
+                </Link>
+                <button
+                  type="submit"
+                  className="w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2"
+                >
+                  Crear
                 </button>
-              </Link>
-              <button
-                type="submit"
-                className="w-auto bg-purple-500 hover:bg-green-600 rounded-lg shadow-xl font-medium text-white px-4 py-2"
-              >
-                Crear
-              </button>
+              </div>
             </div>
           </div>
         </form>
