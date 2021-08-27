@@ -1,49 +1,38 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from "react-router-dom";
-import Answer from './Answer';
-import { getSinglePost } from '../../Redux/actions/index';
+import React from 'react';
+import { Link } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
-export default function Answers({ id_question }) {
-
-    const dispatch = useDispatch();
-    let { id } = useParams();
-    const userLogin = useSelector(state => state.userLogin);
-    const singlePost = useSelector(state => state.singlePost);
-    let questions = singlePost.questions;
-    let validatedQuestions = questions?.filter(question => question.user_id !== userLogin.id); // se va a volver innecesario el filtro porque un mismo usuario no va a poder hacerse preguntas isAuthenticated (ver DetailComponent.jsx)
-    let onlyAnswers = [];
-    let questionAnswers = [];
-
-    // console.log("reviews", reviews);
-    // console.log("validated", validatedReviews);
-    useEffect(() => {
-        dispatch(getSinglePost(id))
-    }, [dispatch, id])
+export default function Answers({ id_question, answers }) {
 
 
-    //validatedQuestions ? console.log(validatedQuestions) : console.log("tu vieja puta")
+    const { isAuthenticated } = useAuth0();
 
-    validatedQuestions?.forEach(q => q.answers?.forEach(ans => onlyAnswers.push(ans)))
-    // onlyAnswers ? console.log(onlyAnswers) : console.log('niet')
-
-    questionAnswers = onlyAnswers?.filter(ans => ans.question.id === id_question)
-    // console.log(questionAnswers)
 
     return (
         <ul className=" flex flex-col">
             {<ul className="">
-                {!questionAnswers?.length ? null
-                    : questionAnswers.map(ans => {
+                {!answers?.length ? null
+                    : answers.map(ans => {
                         return (
                             <li key={ans.id}>
-                                <Answer
-                                    id_answer={ans.id}
-                                    answer={ans.answer}
-                                    createdAt={ans.createdAt}
-                                />
+                                <div className=" bg-white ">
+                                    <div className="flex flex-col">
+                                        <p className="flex items-baseline">
+                                            <span className="flex items-center text-black-600 text-xs"><b>Respuesta</b></span>
+                                            <span className="flex items-center ml-2 text-black-600 text-xs">{ans?.createdAt.slice(0, 10)}</span>
+                                            <span className="flex ml-auto">
+                                                {isAuthenticated ?
+                                                    <Link to={`/report/answer/${ans?.id_answer}`} className="flex pt-4"><span className="flex ml-auto text-gray  border-0 focus:outline-none hover:text-red-600 rounded text-xs">Reportar</span></Link>
+                                                    : null}
+                                            </span>
+                                        </p>
+                                        <div className="mt-3">
+                                            <p className="mt-1 ml-2 text-justify" >"{ans?.answer}"</p>
+                                        </div>
+                                    </div>
+                                </div >
 
                             </li>)
                     })

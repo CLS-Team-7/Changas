@@ -12,7 +12,7 @@ export default function Reviews() {
     const singlePost = useSelector(state => state.singlePost);
     let reviews = singlePost.reviews;
     let validatedReviews = reviews?.filter(review => review.isValidated);
-    console.log("reviews", reviews);
+    /* console.log("reviews", reviews); */
     // console.log("validated", validatedReviews);
 
     useEffect(() => {

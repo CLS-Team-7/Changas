@@ -6,7 +6,6 @@ import Answers from "../Answer/Answers";
 
 function Question({ createdAt, question, given_name, id_question }) {
     const { isAuthenticated } = useAuth0();
-
     // hola
     return (
         <div>
