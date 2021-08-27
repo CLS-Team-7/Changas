@@ -12,7 +12,7 @@ const reportsDB = require('./src/seeders/reports-demo');
 const locationsDB = require('./src/seeders/locations-demo')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
 
   server.listen(process.env.PORT || 3001, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
