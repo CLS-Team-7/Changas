@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import validateForm from './Validaciones'
 import { getAllCategory, getAllSpecialty, sendPost, getAllLocations } from '../../../Redux/actions';
 import Select from "react-select";
 
@@ -403,12 +402,12 @@ function CreatePostUserComp() {
                 </div>
               </div>
 
-              
+
               <div>
 
 
-              
-                
+
+
 
                 <div>
                   {
@@ -470,7 +469,7 @@ function CreatePostUserComp() {
                   }
                 </div>
               </div>
-                <div className="flex items-center justify-center  md:gap-8 gap-4 mb-10 mt-2 ">
+              <div className="flex items-center justify-center  md:gap-8 gap-4 mb-10 mt-2 ">
                 <Link to="/home">
                   <button className="w-auto bg-gray-500 hover:bg-red-600 rounded-lg shadow-xl font-medium text-white px-4 py-2">
                     Cancelar

@@ -8,7 +8,6 @@ import { getSinglePost } from '../../Redux/actions/index';
 export default function Reviews() {
     const dispatch = useDispatch();
     let { id } = useParams();
-    const userLogin = useSelector(state => state.userLogin);
     const singlePost = useSelector(state => state.singlePost);
     let reviews = singlePost.reviews;
     let validatedReviews = reviews?.filter(review => review.isValidated);

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllOrders, getAllReports } from '../../../Redux/actions'
+import { getAllReports } from '../../../Redux/actions'
 import SideBarAdmin from '../SideBarAdmin/SideBarAdmin'
 import Reports from './Reports'
 

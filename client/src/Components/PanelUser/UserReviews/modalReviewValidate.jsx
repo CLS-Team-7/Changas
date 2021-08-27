@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateReview, deleteReview, UpdateUserData } from '../../../Redux/actions'
+import { updateReview, deleteReview } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 

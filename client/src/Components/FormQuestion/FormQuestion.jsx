@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPosts, getSinglePost, postQuestion } from '../../Redux/actions' // aca va air la action postQuestion
+import { getSinglePost, postQuestion } from '../../Redux/actions' // aca va air la action postQuestion
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { useAuth0 } from "@auth0/auth0-react";

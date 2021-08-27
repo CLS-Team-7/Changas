@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { getAllOrders, getAllReports } from '../../../Redux/actions'
+import { getAllReports } from '../../../Redux/actions'
 import Pagination from '../../Pagination/Pagination'
-import SideBarAdmin from '../SideBarAdmin/SideBarAdmin'
 import ReportsComp from './ReportsComp'
 
 function Reports() {
@@ -14,7 +13,7 @@ function Reports() {
     const reportPerPage = 6;
     useEffect(() => {
         dispatch(getAllReports())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         setReport(reportsList)

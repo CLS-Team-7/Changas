@@ -12,7 +12,7 @@ function Orders() {
     const orderPerPage = 6;
     useEffect(() => {
         dispatch(getAllOrders())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         setOrder(ordersList)

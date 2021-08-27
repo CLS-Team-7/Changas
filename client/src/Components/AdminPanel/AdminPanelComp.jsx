@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ButtomAdminUser from './BottonAdmin/ButtomAdminUser'
-import ButtonAdmin from './BottonAdmin/ButtonAdmin'
 
 function AdminPanelComp({ Users }) {
     return (
