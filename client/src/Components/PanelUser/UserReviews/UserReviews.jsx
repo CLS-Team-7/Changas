@@ -21,7 +21,7 @@ function UserPost() {
   if (allReview?.length) {
     validatedReviews = allReview?.filter(e => e.isValidated === false) // filtra las reviews no validadas Y que no hayan sido hechas por el usuario que las revisa
     if (validatedReviews?.length && userLogin?.sub !== undefined) {
-      filterReviews = validatedReviews.filter(e => e.post?.user?.sub !== userLogin?.sub) // CON !== NO TRAE LOS REVIEWS HECHOS POR UNO MISMO EN SU MISMO POSTEO
+      filterReviews = validatedReviews.filter(e => e.post?.user?.sub === userLogin?.sub) // CON !== NO TRAE LOS REVIEWS HECHOS POR UNO MISMO EN SU MISMO POSTEO
     }
   }
 

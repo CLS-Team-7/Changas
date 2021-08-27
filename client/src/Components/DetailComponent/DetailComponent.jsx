@@ -68,6 +68,7 @@ function DetailComponent() {
                                             {" "}
                                         </p>
                                     </div>
+
                                     <p className="m-2 leading-relaxed pb-2">"{description}"</p>
                                     <div className="flex flex-row">
                                         <div className="title-font font-medium text-2xl text-gray-900">Precio Base: {!isNaN(priceRange) ? <span>${priceRange}</span> : <span>{priceRange}</span>}</div>

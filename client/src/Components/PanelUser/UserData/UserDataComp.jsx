@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 function UserDataComp() {
     const { isAuthenticated } = useAuth0();
     const userLogin = useSelector(state => state.userLogin)
+    const postRatingAverage = useSelector(state => state.postRatingAverage)
+
     return (
         isAuthenticated && (
             <div>
@@ -71,7 +73,7 @@ function UserDataComp() {
 
                                     <div className="form-item w-full">
                                         <label className="text-xl ">Puntaje promedio</label>
-                                        <input type="text" value={"conectar con back/function"} className="text-center w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
+                                        <input type="text" value={postRatingAverage} className="text-center w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled />
                                     </div>
 
                                 </form>
