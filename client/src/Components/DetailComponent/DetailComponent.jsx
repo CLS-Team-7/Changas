@@ -62,7 +62,7 @@ function DetailComponent() {
 
                                             {timeRange &&
                                                 timeRange?.map((horario) => (
-                                                    <b className="text-left list-none" key={horario.indexOf()}>{`- ${horario[0].toUpperCase() + horario.slice(1)}`}</b>
+                                                    <li className="text-left list-none" key={horario.indexOf()}>{`- ${horario[0].toUpperCase() + horario.slice(1)}`}</li>
                                                 ))}
 
                                             {" "}
