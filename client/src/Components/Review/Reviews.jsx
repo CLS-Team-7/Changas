@@ -22,7 +22,7 @@ export default function Reviews() {
     return (
         <div className="flex flex-col self-center place-content-center">
             <h2 className="font-bold text-xl mb-2 "> Reseñas </h2>
-            <div className="flex self-center">
+            <div className="flex self-center flex-wrap">
                 {!validatedReviews?.length ? <div className='flex mt-3 mb-3'>Esta publicación no tiene reseñas</div>
                     : validatedReviews.map(review => {
                         return (
