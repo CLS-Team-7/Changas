@@ -55,7 +55,7 @@ function DetailComponent() {
                                     {" "}
                                     <b>Metodos de pago:</b> {" "}
                                     {paymentMethods &&
-                                     paymentMethods?.map((metodo) => <li className='text-left list-none'>{metodo}</li>)}{" "}
+                                     paymentMethods?.map((metodo) => <li className='text-left list-none'>{`- ${metodo}`}</li>)}{" "}
                                     </p>
 
                                     <p className=" m-2 leading-relaxed">
@@ -64,7 +64,7 @@ function DetailComponent() {
                                       
                                       {timeRange &&
                                          timeRange?.map((horario) => (
-                                          <li className="text-left list-none">{horario[0].toUpperCase() + horario.slice(1)}</li>
+                                          <li className="text-left list-none">{`- ${horario[0].toUpperCase() + horario.slice(1)}`}</li>
                                           ))}
                                       
                                       {" "}
