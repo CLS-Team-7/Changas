@@ -172,7 +172,8 @@ function CreatePostUserComp() {
       postInput.specialty_id === "" ||
       postInput.timeRange === [] ||
       postInput.title === "" ||
-      postInput.typePost === ""
+      postInput.typePost === "" ||
+      postInput.image === ""
     ) {
       alert("Tienes que llenar todos los campos...");
     } else {

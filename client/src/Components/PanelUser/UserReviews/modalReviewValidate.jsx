@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateReview, deleteReview } from '../../../Redux/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateReview, deleteReview, UpdateUserData } from '../../../Redux/actions'
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -12,13 +12,18 @@ const ModalReviewValidate = ({ review }) => {
   const { push } = useHistory()
   const dispatch = useDispatch()
   const { user } = useAuth0();
-  console.log(user)
+  const userLogin = useSelector(state => state.userLogin)
+  //console.log(userLogin)
+
+
+  // useEffect(() => {
+
+  // }, [])
+
 
   function handleClickAccept() {
 
-    // action para aumentar jobsDone++ (se dispara cuando se acepta la review) SOLO CUANDO ACEPTA jobsDone = total reviews user
-    //dispatch(UpdateUserData({sub: user.sub, jobsDone : jobsDone + 1})) // es la solucion optima
-
+    dispatch(UpdateUserData({ sub: userLogin.sub, jobsDone: userLogin.jobsDone + 1 }))
     dispatch(updateReview({ isValidated: true }, review.id))
     setShowModal(false)
     push(`/posts/${review.post.id}`)
