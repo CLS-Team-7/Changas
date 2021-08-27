@@ -14,7 +14,6 @@ function FilterCategoryBottom() {
     const [filterType, setFilterType] = useState('All')
     const categories = useSelector(state => state.categoryPost)
 
-
     useEffect(() => {
         dispatch(getFilterType(filterType))
     }, [filterType, dispatch])
