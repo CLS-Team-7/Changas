@@ -13,7 +13,7 @@ const ModalReviewValidate = ({ review }) => {
   const dispatch = useDispatch()
   const { user } = useAuth0();
   const userLogin = useSelector(state => state.userLogin)
-  //console.log(userLogin)
+
 
 
   // useEffect(() => {
